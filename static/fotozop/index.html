@@ -1,0 +1,435 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Page title -->
+<title>Снимки на приятели facebook мрежа купи гадания зодия</title>
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style type="text/css">
+.btn-group .btn {
+	text-align: left;
+	width: 100%;
+}
+.img {
+	text-align: center;
+}
+#favoritesection img {
+	max-width: 150px;
+	max-height: 90px;
+}
+</style>
+<script src="//apicall.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//ads.lfstmedia.com/getad?site=133108" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- Background -->
+
+<div class="container">
+ 
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container"> <a class="brand" href="#">Фото 2013</a>
+      <ul class="nav">
+        <li class="active" id="home" ><a href="#">Начало</a></li>
+        <li id="favoritesmenu" style="display:none"><a href="#">Любими <span class="badge badge-success" id="favoritescount"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row-fluid" id="loading">
+
+  <div align="center"> <img src="https://arpecop.net/angel/godini/src/img/loading.gif"></div>
+</div>
+<div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-0690449378357561";
+/* 728x90, created 1/18/08 */
+google_ad_slot = "3522810169";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="//arpecop.net/pagead/show_ads.js">
+</script>
+  <div class="items home sekcia"> </div>
+  <div id="favoritesection" class="sekcia favoritesmenu" style="display:none"> </div>
+  <div id="lovesection" class="sekcia lovesmenu" style="display:none"> </div>
+</div>
+<hr>
+<div style="text-align:center"> 
+  <!-- Begin Ad Call Tag - Do not Modify -->
+ <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: 'b09',
+            ad_size: '728x90',
+            slot: 'slot50021'
+        });
+    //]]>
+</script>
+  <!-- End of Ad Call Tag --> 
+</div>
+<script src="//arpecop.net/static/cross.js"></script> 
+<script>
+providecross('en');
+</script>
+</body>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<script>
+$.gvar = {};
+$.gvar.next = 0;
+$.gvar.next_chunk = 0;
+$.gvar.next_chunk_invites = 0;
+$.gvar.arr = [];
+$.gvar.images_loaded = 0;
+function favorites(img,type) {
+   $('#favoritesection').prepend('<img src="'+img+'" class="img-rounded"> ');
+
+  var prev = Math.round($('#favoritescount').text());
+   
+  prev =  prev + 1;
+  $('#favoritescount').text(prev);
+  $('#favoritesmenu').show();
+  
+   $.ajax({
+                    type: "POST",
+                     url : '//arpecop.net/db/mislish/',
+                    contentType: "application/json",
+                    data: '{"photowner":"'+$.gvar.fb_uid+'","img":"'+img+'","type":"'+type+'"}',
+                    success: function (resp) {
+                       
+                    }
+                 });
+	
+}
+
+//favorites();
+function checkfavorites(id) {
+$.getJSON('//arpecop.net/db/mislish/_design/photos/_view/favorites?key=%22'+id+'%22', function(data) {
+ 
+if(data.rows.length >= 1) {
+   $('#favoritesmenu').show();
+  $('#favoritescount').text(data.rows.length);
+  drawfavorites(data.rows);
+
+}
+});
+};
+
+function drawfavorites (data) {
+var arr = []
+  $.each(data, function(index, value) { 
+     
+arr[index] = '<img src="'+value.value+'" class="img-rounded">';
+ 
+  });
+  $('#favoritesection').html(arr.join(' '));
+ 
+}
+
+function content(id,name,display,img,caption) {
+var likeurl = encodeURIComponent('https://apps.facebook.com/legacyappz/like/?image='+img+'&title=Харесвам снимка на '+name+'&description='+caption+'&appid=423278631063908');
+	 
+return('<div id="photo-'+id+'" class="item row-fluid" style="display:'+display+'"><div class="row-fluid"> <div class="breadcrumb caption span10">'+caption+' Photo by: '+name+'</div> </div><div class="row-fluid"><div class="img span7"><img src="'+img+'" alt="'+id+'" class="img-polaroid"></div><div class="span3">     <div class="btn-group btn-group-vertical span12"> <button class="btn" alt="'+id+'" title="like"><i class="icon-heart"></i> <iframe src="//www.facebook.com/plugins/like.php?href='+likeurl+'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=160206614136535" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe></button><button class="btn" alt="'+id+'"  title="add"><i class="icon-bookmark"></i>Добави в Любими</button>   <button class="btn" alt="'+id+'"><i class="icon-forward"></i> Следваща</button></div>     <div class="name"> </div> </div> </div> </div>');	
+	
+}
+
+$(".nav li").live({
+  click: function() {
+$(".nav li").removeClass('active');
+$(this).addClass('active');
+
+var id = $(this).attr('id');
+$('.sekcia').hide();
+$('.'+id).show();
+
+  }
+});
+
+$(".btn-group .btn").live({
+  
+  click: function() {
+    var id = $(this).attr('alt');
+    var action = $(this).attr('title');
+ 
+        var img = $('#photo-'+id+' .img img').attr('src');
+  if (action == "add") {
+ 
+ 
+    favorites(img,'favorite');
+
+  };
+
+    if (action == "like") {
+
+ 
+    favorites(img,'love');
+
+  };
+   
+  if($.gvar.arr[$.gvar.next]) {
+      $.gvar.next++;
+     var data = $.gvar.arr[$.gvar.next];
+
+  }   
+  $('#photo-'+id+'').remove();
+ $('#photo-'+data.uid+'').show();
+
+
+ if($.gvar.next == 4) {
+     send_requests();
+ }
+ var formula = ($.gvar.arr.length - $.gvar.next);
+  
+  if (formula <=5) {
+   $.gvar.next_chunk++;
+  
+   socket.emit('news', $.gvar.friends[$.gvar.next_chunk],$.gvar.fb_accessToken,$.gvar.next_chunk);
+ };
+      
+ 
+  } 
+});
+
+
+
+
+
+window.log = function(){
+  log.history = log.history || [];   // store logs to an array for reference
+  log.history.push(arguments);
+  if(this.console){
+    ////console.log( arguments );
+  }
+};
+ 
+(function($){
+  $.fn.shuffle = function() {
+    return this.each(function(){
+      var items = $(this).children();
+      return (items.length) 
+        ? $(this).html($.shuffle(items)) 
+        : this;
+    });
+  }
+   
+  $.shuffle = function(arr) {
+    for(
+      var j, x, i = arr.length; i; 
+      j = parseInt(Math.random() * i), 
+      x = arr[--i], arr[i] = arr[j], arr[j] = x
+    );
+    return arr;
+  } 
+})(jQuery);
+
+Array.prototype.chunk = function(chunkSize) {
+    var array=this;
+    return [].concat.apply([],
+        array.map(function(elem,i) {
+            return i%chunkSize ? [] : [array.slice(i,i+chunkSize)];
+        })
+    );
+};
+
+function send_requests() {
+        FB.ui({method: 'apprequests',
+          message: 'Гласувах за твоя снимка, виж коя',
+          to: $.gvar.invites[$.gvar.next_chunk_invites]
+        }, function (response) {
+       if(response) {
+         $.gvar.next_chunk_invites++;
+       } else {
+         
+       }
+    }); 
+};
+
+ 
+
+ 
+ var socket = io.connect('//apicall.herokuapp.com/', { resource: 'socket.io' })
+
+
+
+  // POPULATE
+ socket.on('populate', function (data) {
+ 
+ if ($.gvar.arr[$.gvar.next].data.length == 1) {
+    $('#photo-'+$.gvar.arr[$.gvar.next].uid).show();
+    } else {
+    $.gvar.next++;
+ 
+      $('#photo-'+$.gvar.arr[$.gvar.next].uid).show();
+    }
+ });
+
+ var fakearr = 0;
+  socket.on('news', function (data) {
+ 
+    if (data.data.length == 1) {
+         $.gvar.images_loaded++;
+         $.gvar.arr.push(data);
+       
+ 
+//function content(id,name,display,img)
+
+
+ var caption = "";
+ if(data.data[0].caption) {
+	 caption = data.data[0].caption;
+ }
+ 
+ 
+  $('.items').append(content(data.uid,data.name,'none',data.data[0].src_big,caption));
+  
+    } else {
+     
+     $('#photo-'+ $.gvar.arr +' .img').html('<img src="'+data.data[0].src_big+'" alt="'+data.uid+'">');
+   
+    }
+    fakearr++;
+    
+  if ($.gvar.arr.length <= 4) {
+
+ socket.emit('populate', 'fakearr');
+
+};
+  });
+
+// all data 
+
+
+
+socket.on('friends', function (data) {
+ 
+
+if ($.isArray(data)) {
+    var shuffled = $.shuffle(data);   
+    $.gvar.friends = shuffled.chunk(4);
+   
+ var arr = [];
+ var arr_invites = []
+ $.each(shuffled, function(index, value) { 
+ 
+  arr_invites[index] = value.id; 
+ 
+});
+
+  //$('.items').append(content(shuffled[0].id,shuffled[0].name,'block'));
+ // $('.items').append(content(shuffled[1].id,shuffled[1].name,'block'));
+
+  var invites = arr_invites.chunk(40);
+  var arr_invetes2 = [];
+$.each(invites, function(index, value) { 
+   arr_invetes2[index] = value.join(',');
+});
+ $.gvar.invites = arr_invetes2;
+ 
+
+  socket.emit('news', $.gvar.friends[0],$.gvar.fb_accessToken,'0');
+  $('#loading').remove();
+
+    } else {
+    }
+    });
+
+ 
+ 
+
+ 
+
+var facebookLoginWindow;
+var loginWindowTimer;
+
+//facebook login
+function facebookLogin()
+{
+   
+   
+  var loginUrl="http://www.facebook.com/dialog/oauth/?"+
+    "scope=publish_actions,friends_actions.news,friends_actions.video,user_photos,friends_photos&"+
+    "client_id=423278631063908&"+
+    "redirect_uri=http://apps.facebook.com/photoverse/&"+
+    "response_type=token&"+
+    "display=page";
+
+   top.location.href = loginUrl;
+}
+  
+//facebook load
+ 
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '423278631063908', // App ID
+            channelUrl : '//www.secretzone.bg/channel.html', // Channel File
+            status     : true, 
+            cookie     : true, 
+            xfbml      : true, // parse XFBML
+            frictionlessRequests: true
+        });
+FB.Canvas.setAutoGrow();
+//if connected
+
+  FB.getLoginStatus(function(response) {
+ 
+            if (response.status === 'connected') {
+                                        $.gvar.fb_uid = response.authResponse.userID;
+                                        $.gvar.fb_accessToken = response.authResponse.accessToken;
+                                        checkfavorites(response.authResponse.userID);
+                                        socket.emit('login', { token: $.gvar.fb_accessToken,uid:$.gvar.fb_uid });
+                                      
+
+
+            } else if (response.status === 'not_authorized') {
+                facebookLogin();
+            } else {
+                facebookLogin();
+            }
+        });
+    };
+
+// Load the SDK Asynchronously
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/bg_BG/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+</script>
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+<div id="fb-root"></div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

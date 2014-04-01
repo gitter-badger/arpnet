@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dating</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="StatusX е сайт за запознаване на нови хора за авантюри чрез уеб камери, телефони, срещи и запознанства.">
+<meta name="author" content="Rudi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Запознанства">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+  
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {
+	overflow: hidden;
+}
+body, td, th, div, span {
+ 
+	font-family: 'Open Sans', tahoma, verdana, arial, sans-serif;
+}
+.row-fluid.show-grid .span3 {
+	padding-bottom: 5px;
+}
+.none, .loginelement, .notlogged {
+	display: none
+}
+.main_container {
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-top: 45px;
+}
+.main_column {
+	border-right-width: 2px;
+	border-right-style: solid;
+	border-right-color: #FFF;
+}
+.nav-list {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.brand {
+	background-image: url(https://arpecop.net/angel/flirt/src/logo.png);
+	background-repeat: no-repeat;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+ 
+
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:app_id" content="142587889152183" />
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:admins" content="572383379" />
+<meta prefix="fb: http://ogp.me/ns/fb#" property="og:image" content="https://arpecop.net/angel/flirt/images/001-bg.jpg" />
+</head>
+<body style="overflow:hidden">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="navbar-inner" id="header_menu"> <a class="brand" style="padding-left: 45px; " href="#">StatusX</a>
+    <ul class="nav" id="navigation" style="display:none">
+    </ul>
+    <ul class="nav pull-right">
+      <li class="dropdown"> <a href="#" class="username"> </a> </li>
+    </ul>
+  </div>
+</nav>
+<div  class="main_container">
+ 
+    <div class="col-sm-12">
+      <div class="row-fluid">
+        <div class="col-sm-3 main_column" style="text-align:center;"> <img src="https://arpecop.net/angel/flirt/src/flirtbot.png" class="notlogged" style="display:block">
+          <div class="bs-docs-sidebar notlogged" style="text-align:left" id="city">
+            <ul class="nav nav-list" id="cities">
+            </ul>
+            <div class="row-fluid">
+              <select class="col-sm-12" id="countries_list">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <section id="intro">
+            <div class="row-fluid show-grid">
+              <div  class="col-sm-3" >
+                <p class="lead">StatusX is dating app for people looking for flirt with web cams ,phones, dates and matchmaking </p>
+              </div>
+              <div  class="col-sm-9">
+                <div class="col-sm-6">
+                  <p class="lead"> Facebook Login</p>
+                  <p><strong>Fastest way to start:</strong> With a single click authorize the application and contimue to your profile.</p>
+                </div>
+                <div class="col-sm-6">
+                  <p class="lead"> Registration</p>
+                  <p><strong>Register:</strong> Fill the forms bellow to browse system with limited capabilities<br>
+                  <p class="registerelement"> Already Registered? <a href="#"  onclick="logintoggle(); return false">Click Here.</a></p>
+                  <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3"  id="inputEmail" placeholder="Email" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" id="inputPassword"class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group" form class="registerelement">
+          <div class="col-sm-offset-2 col-sm-10">
+           
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" id="logmein" onclick="logmein(); return false">Sign in</button>
+          </div>
+        </div>
+         <div class="alert none" id="wrongpassword"> <strong>Error!</strong> Wrong Password or Email.
+                 
+                    </div>
+                      <div id="log_in" class="loginelement">
+                    <p class="loginelement">Not registered?<a href="#"  class="clickherenotlogged1" onclick="logintoggle(); return false">Click Here.</a></p>
+                    <p>
+                      <input type="text" class="col-sm-6" placeholder="Email"  id="logmeinusername">
+                      <input type="password" class="col-sm-6" placeholder="Парола" id="logmeinpassword">
+                    </p>
+                   
+                  </div>
+      </form>
+               
+                  <div class="alert none" id="username_zaet"> <strong>Error!</strong> There is user with this username. </div>
+                  </p>
+                
+                </div>
+              </div>
+            </div>
+            <div class="show-grid">
+              <div class="col-sm-3"> Progress: 10% </div>
+              <div class="col-sm-9">
+                <div class="col-sm-6" style="text-align:center;">
+                  <p><a class="btn btn-small btn-primary span12" onclick="logmein_fb1(); return false">Facebook Login</a></p>
+                </div>
+                <div class="col-sm-6">
+                  <p style="text-align:center;" class="registerelement"><a class="btn btn-small btn-primary span12" onclick="regmein(); return false">Register</a></p>
+                  <p class="loginelement"> <a  class="btn span12" >Sign In</a> </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="progresssection">
+            <div class="show-grid">
+              <div class="col-sm-12"> 
+    
+                <hr>
+                <br>
+</div>
+            </div>
+          </section>
+          <section id="thumbs"> </section>
+          <section id="search_results" class="notlogged">
+            <div class="row-fluid show-grid" id="select_sex">
+              <ul class="nav nav-pills">
+                <li class="active femaleselect"><a href="#" id="female">Females</a></li>
+                <li class="maleselect"><a href="#" id="male">Males</a></li>
+              </ul>
+            </div>
+            <div class="search_results1"> </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Docs nav
+  ================================================== --> 
+   
+
+  
+ 
+</body>
+</html>

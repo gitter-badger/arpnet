@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>fix https bug chrome</title>
+	<style type="text/css">
+	body {margin: 0px;}
+
+	</style>
+	<script src="//ads.lfstmedia.com/getad?site=138278" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+     <div id="adv1">
+  <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '288',
+            ad_size: '728x90',
+            slot: 'slot52312'
+        });
+    //]]>
+</script>
+</div>
+<!--
+ <div id="adv3">
+     <a href="http://www.chitika.com/publishers/apply?refid=arpecop" target="_new"><img src="https://arpecop.net/angel/dvanadeset/src/adsense1.gif"></a>
+   
+</div>
+
+<div id="adv2">
+ <a href="http://share.payoneer-affiliates.com/a/clk/3y4Zsn" target="_new"><img src="https://arpecop.net/angel/dvanadeset/src/banner.jpg"></a>
+ </div>
+-->
+
+    <script type="text/javascript">
+    var prev = 1;
+    var next = 2;
+$(document).on('click',function  () {
+$('#adv'+prev).hide();
+$('#adv'+next).show();
+$('a').attr("target", "_new");
+prev++;
+next++;
+
+})
+    </script>
+
+
+</body>
+</html>

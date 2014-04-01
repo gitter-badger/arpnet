@@ -1,0 +1,17 @@
+{
+  "dependencies" : {
+    "bind" : "0.1.5",
+    "crypto" : "0.0.3",
+    "express" : "3.0.0rc5",
+    "get" : "1.2.0",
+    "nano" : "3.3.3",
+    "socket.io" : "0.9.10"
+  },
+  "description" : "Template app for Heroku / Facebook integration, Node.js language",
+  "engines" : {
+    "node" : "0.8.x",
+    "npm" : "1.1.x"
+  },
+  "name" : "facebook-template-node",
+  "version" : "0.0.1"
+}

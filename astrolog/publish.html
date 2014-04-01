@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(http://arpecop.net/astrolog/src/big/(:slug:).jpg);
+	background-repeat: no-repeat;
+	background-color: #333;
+}
+body,td,th {
+	font-family: Ubuntu;
+	font-weight:400;
+}
+#apDiv1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 400px;
+	height: 400px;
+	z-index: 1;
+}
+#apDiv1 .content {
+	padding: 30px;
+}
+
+p { 
+color: #fff;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+	font: 50px 'Ubuntu';
+	text-align: center;
+	font-weight: 700;
+}
+#apDiv1 .content #todaytext {
+	height: 200px;
+	width: 340px;
+	font-weight: 700;
+	color: #FFF;
+	padding-top: 100px;
+ 
+	 text-shadow: -2px 2px 0 #0a0e27, -4px 2px 0 #3a50d9;
+}
+#apDiv1 .content #header {
+	position: absolute;
+	width: 340px;
+	height: 66px;
+	top: 18px;
+	overflow: hidden;
+}
+#apDiv2 {
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	z-index: 2;
+	padding: 5px;
+	background-color: #000;
+	color: #FFF;
+	border-radius: 15px;
+}
+</style>
+</head>
+
+<body>
+<div id="apDiv1">
+<div class="content">
+  <p id="header">(:bg:)</p>
+  <div align="center"></div>
+  <div id="todaytext">
+  <span>(:today:)</span>
+  
+  </div>
+  </div>
+</div>
+<div id="apDiv2">(:datetoday:)</div>
+<script>
+(function($) {
+    $.fn.textfill = function(options) {
+        var fontSize = options.maxFontPixels;
+        var ourText = $('span:visible:first', this);
+        var maxHeight = $(this).height();
+        var maxWidth = $(this).width();
+        var textHeight;
+        var textWidth;
+        do {
+            ourText.css('font-size', fontSize);
+            textHeight = ourText.height();
+            textWidth = ourText.width();
+            fontSize = fontSize - 1;
+        } while ((textHeight > maxHeight || textWidth > maxWidth) && fontSize > 3);
+        return this;
+    }
+})(jQuery);
+$(document).ready(function() {
+ $('#todaytext').textfill({ maxFontPixels: 36 });
+});
+</script>
+
+</body>
+</html>

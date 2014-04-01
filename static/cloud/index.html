@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Word Cloud Generator</title>
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<link href='//fonts.googleapis.com/css?family=Ubuntu:300&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css" rel="stylesheet">
+<style type="text/css">
+body, td, th {
+	font-family: "Ubuntu", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+ 
+.containerx #invis {
+	height: 600px;
+	width: 100%;
+	position: absolute;
+	background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
+	background: rgba(255, 255, 255, .5);
+	left: 0;
+}
+#state2 {
+	height: 600px;
+	width: 100%;
+	position: absolute;
+	right: 0;
+	text-align:center
+}
+#state2-content {
+ padding-top: 550px;
+ 
+}
+/**  * Buttons   */ .button, .button:visited {
+	background: #bbbbbb url(img/button.png) repeat-x;
+	display: inline-block;
+	padding: 5px 10px 5px 10px;
+	margin-right: 3px;
+	margin-bottom: 1.5em;
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+	position: relative;
+	cursor: pointer;
+}
+.button:hover {
+	background-color: #111111;
+	color: #ffffff;
+	text-decoration: none;
+}
+.button:active {
+	top: 1px;
+}
+.small.button, .small.button:visited {
+	font-size: 11px;
+}
+.medium.button, .medium.button:visited {
+	font-size: 13px;
+	line-height: 1;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
+}
+.large.button, .large.button:visited {
+	font-size: 16px;
+	padding: 15px 20px;
+}
+.rounded.button {
+	border-radius: 25px;
+}
+.flat.button {
+	border-bottom: none;
+	box-shadow: none;
+} /**  * Pink  */
+.pink.button, .pink.button:visited {
+	background-color: #fe57a1;
+}
+.pink.button:hover {
+	background-color: #d74b8a;
+} /**  * Green  */
+.green.button, .green.button:visited {
+	background-color: #91bd09;
+}
+.green.button:hover {
+	background-color: #749a02;
+} /**   * Blue  */
+.blue.button, .blue.button:visited {
+	background-color: #2daebf;
+}
+.blue.button:hover {
+	background-color: #007d9a;
+} /**  * Red  */
+.red.button, .red.button:visited {
+	background-color: #ff2b25;
+}
+.red.button:hover {
+	background-color: #ba1f1b;
+} /**   * Magenta  */
+.magenta.button, .magenta.button:visited {
+	background-color: #a9014b;
+}
+.magenta.button:hover {
+	background-color: #630030;
+} /**  * Orange  */
+.orange.button, .orange.button:visited {
+	background-color: #ff5c00;
+}
+.orange.button:hover {
+	background-color: #d45500;
+} /**   * Yellow  */
+.yellow.button, .yellow.button:visited {
+	background-color: #ffb515;
+}
+.yellow.button:hover {
+	background-color: #fc9200;
+} /* @end Buttons */
+.ui-slider .ui-slider-range {
+        position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0;
+        color: #ffffff;
+        background-color: #0064cd;
+        background-repeat: repeat-x;
+        background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+        background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+        background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+        background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+        background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+        background-image: linear-gradient(top, #049cdb, #0064cd);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd', GradientType=0);
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        border-color: #0064cd #0064cd #003f81;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    }
+    .ui-widget-header {
+        font-weight:bold;
+        border-color: #0064cd #0064cd #003f81;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+        border:1px solid #666;
+    }
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+
+        background-color: #e6e6e6;
+        background-repeat: no-repeat;
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+        background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+        background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+        background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+        background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+        background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+
+        color: #333;
+        /*font-size: 13px;*/
+        line-height: normal;
+        border: 1px solid #ccc;
+        border-bottom-color: #bbb;
+        -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        -webkit-transition: 0.1s linear background-image;
+        -moz-transition: 0.1s linear background-image;
+        -ms-transition: 0.1s linear background-image;
+        -o-transition: 0.1s linear background-image;
+        transition: 0.1s linear background-image;
+        overflow: visible;
+
+    }
+.containerx {
+	width: 810px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+</style>
+</head>
+<body>
+
+<div class="containerx">
+  <div id="state2" style="display:block; text-align:center;">
+ 
+  </div>
+  <div id="invis">
+    <div class="padding" style="padding-top:250px; text-align:center;"><a class="button large green" onclick="fb_login('250'); return false;" id="mainbutton"> <i class="icon-refresh icon-spin"></i> <span class="buttontext">Loading</span></a></div>
+  </div>
+  <div id="vis"></div>
+  <form id="form" style="display:none">
+    <p style="position: absolute; right: 0px; top: 0px; display: none;" id="status">250/250</p>
+    <div style="text-align: center">
+      <div id="custom-area" style="display: none;">
+     
+        <p>
+          <textarea id="text"></textarea>
+        </p>
+      </div>
+    </div>
+    <hr>
+  
+        <label for="max">Number of words:</label>
+        <input type="number" value="250" min="1" id="max">
+        <!--<p><label for="colours">Colours:</label> <a href="#" id="random-palette">get random palette</a>--> 
+ 
+        <label>Spiral:</label>
+        <label for="archimedean">
+          <input type="radio" name="spiral" id="archimedean" value="archimedean" checked="checked">
+          Archimedean</label>
+        <label for="rectangular">
+          <input type="radio" name="spiral" id="rectangular" value="rectangular">
+          Rectangular</label>
+      </p>
+      <p>
+        <label for="scale">Scale:</label>
+        <label for="scale-log">
+          <input type="radio" name="scale" id="scale-log" value="log" checked="checked">
+          log n</label>
+        <label for="scale-sqrt">
+          <input type="radio" name="scale" id="scale-sqrt" value="sqrt">
+          √n</label>
+        <label for="scale-linear">
+          <input type="radio" name="scale" id="scale-linear" value="linear">
+          n</label>
+      </p>
+      <p>
+        <label for="font">Font:</label>
+     
+      </p>
+     
+ 
+      <p>
+        <input type="number" id="angle-count" value="5" min="1">
+        <label for="angle-count">orientations</label>
+        <label for="angle-from">from</label>
+        <input type="number" id="angle-from" value="-60" min="-90" max="90">
+        °
+        <label for="angle-to">to</label>
+        <input type="number" id="angle-to" value="60" min="-90" max="90">
+        ° </p>
+     
+  </form>
+  <div class="navbar">
+  <div class="navbar-inner">
+  
+ <a class="brand" href="#"><i class="icon-cloud"></i> Friend Cloud</a>
+    
+    
+        <ul class="nav">
+          <li id="lislider" style="display:none"> <div id="slider" class="medium" style="width:300px; margin-top:15px;"></div></li>
+          <li><a id="echo" class="medium"></a></li>
+            </ul>
+             <ul class="nav pull-right">
+           <li id="loading" style="display:none"><a  href="#"> <img src="https://arpecop.net/static/cloud/src/loading.gif"> </a></li>
+          <li id="refresh" style="display:none"><a  href="#" onClick="regenerate(); return false;"><i class="icon-refresh"></i> Refresh </a></li>
+          <li id="shareme" style="display:none; cursor:pointer;"><a class="download-png"><i class="icon-facebook"></i> Share</a></li>
+      </ul>
+      </div>
+  
+</div>
+</div>
+ 
+<script src="https://arpecop.net/static/cloud/src/d3.v2.min.js"></script> 
+<script src="https://arpecop.net/static/cloud/src/d3.layout.cloud.js"></script> 
+<script src="https://arpecop.net/static/cloud/src/cloud.js"></script> 
+<script src="https://arpecop.net/static/cloud/src/highlight.min.js"></script> 
+<script src="https://arpecop.net/static/cloud/src/bbtree.js"></script> 
+<script>
+$.gvar = {};
+
+
+function populate (number) {
+
+$.getJSON('https://graph.facebook.com/'+$.gvar.uid+'/friends?access_token='+$.gvar.token+'&callback=?', function(dataz) {
+	$(function() {
+    $( "#slider" ).slider({
+        orientation: "horizontal",
+        range: "min",
+        min: 0,
+        max: dataz.data.length,
+        value: number,
+        slide: function (event, ui) {
+            var skew;
+			
+             $.gvar.num = ui.value;
+                skew = ui.value + " Friends";
+           $('#refresh').show();
+            $("#echo").html(skew);
+        }
+    });
+});	
+	
+	
+	
+var pre = encodeURIComponent('SELECT first_name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me()) order by rand() limit '+number+'');
+				$.getJSON('https://graph.facebook.com/fql?q='+pre+'&access_token='+$.gvar.token+'&callback=?', function(data) {
+				
+					
+					var arr = [];
+					$.each(data.data, function(index, value) { 
+ 						arr.push(value.first_name);
+					});
+			 
+					 parseText(arr.join(' '));
+					 $('#invis').remove();
+					 $('#state2,#shareme,#lislider').show();
+					
+				});	
+				
+});
+	
+}
+
+function regenerate() {
+populate($.gvar.num);
+};
+
+
+ function fb_login(number) {
+	    FB.login(function(response) {
+	        if (response.authResponse) {
+	            $.gvar.uid = response.authResponse.userID;
+	            $.gvar.token = response.authResponse.accessToken;
+				populate(number)
+	        }  
+	    }, {
+	        scope: 'publish_stream,photo_upload,user_photos'
+	    });
+	};
+ //
+ window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '140808782743085', // App ID from the App Dashboard
+      channelUrl : '//arpecop.net/static/channel.html', // Channel File for x-domain communication
+      status     : true, // check the login status upon init?
+      cookie     : true, // set sessions cookies to allow your server to access the session?
+      xfbml      : true  // parse XFBML tags on this page?
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+
+  };
+
+  // Load the SDK's source Asynchronously
+  // Note that the debug version is being actively developed and might 
+  // contain some type checks that are overly strict. 
+  // Please report such bugs using the bugs tool.
+  (function(d, debug){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document, /*debug*/ false));
+
+
+ //
+ $(document).ready(function() {
+ $('#mainbutton i').attr('class','icon-facebook-sign');
+ $('#mainbutton .buttontext').text('Generate');
+});
+ 
+
+///
+
+$('.btn-navbar').remove();
+
+</script>
+<div id="fb-root"></div>
+</body>
+</html>

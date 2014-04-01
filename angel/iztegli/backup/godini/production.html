@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="bg">
+        <head>
+        <meta name="generator" content="HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.3.6), see www.w3.org">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript">
+</script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+        <script src="//arpecop.net/angel/godini/src/js/bootstrap-datepicker.js" type="text/javascript"></script>
+        <script src="//arpecop.net/angel/godini/src/js/jsrender.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+        <meta name="robots" content="noodp, noydir">
+        <title></title>
+        <meta name="description" content="&#208;&#188;&#209;&#352;&#208;&#179;&#208;&#187;&#208;&#184;&#208;&#178; &#208;&#191;&#209;&#8364;&#208;&#190;&#208;&#183;&#208;&#190;&#209;&#8364;&#208;&#181;&#209;&#8224; Facebook">
+        <link href='//fonts.googleapis.com/css?family=Ubuntu:300&amp;subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+        <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <style type="text/css">
+body, td, th, div, span {
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+ 
+
+        </style>
+        <link rel="stylesheet" href="src/css/style.css">
+
+        <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+        <link rel="stylesheet" href="src/css/jquery.fileupload-ui.css">
+        <!-- CSS adjustments for browsers with JavaScript disabled -->
+
+        </head>
+        <body style="overflow:;">
+<div class="navbar navbar-fixed-top">
+          <div class="navbar-inner">
+    <div class="container"> <a class="brand" href="#">Na?Izglejda6 ᵇᵉᵗᵃ</a>
+              <div class="nav-collapse">
+     
+      </div>
+            </div>
+  </div>
+        </div>
+<div class="container">
+          <section id="register" style="display:none">
+    <form id="fileupload"  method="POST" enctype="multipart/form-data">
+              <input name="uid" value=""  id="user_id" type="hidden">
+              <input name="image" value=""  type="hidden">
+              <div class="row"> </div>
+              <!-- Redirect browsers with JavaScript disabled to the origin page --> 
+              
+              <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+              <div class="row-fluid fileupload-buttonbar">
+        <div class="span6">
+                  <blockquote>
+            <p><img src="https://arpecop.net/angel/godini/src/img/logo.png" style="float:left">Ако има малко време за да убиване,  опитвайте да разберете  на колко години е човека на снимката  долу!<br>
+                      Въведете вашето предположение чрез плъзгача   и кликнете Предположи! Правилния резултат ще се появи след това.<br>
+                      Можете също така да се регистрирате и да качите ваша собствена снимка, така ще можете да разберете на колко години   наистина изглеждатe и тази секция няма да се показва.</p>
+          </blockquote>
+                </div>
+        <div class="span6">
+                  <div class="row-fluid" id="noemail" style="display:none">
+            <div class="span3" style="text-align:right"> Email: </div>
+            <div class="span9">
+                      <input name="email" value="" type="text" class="span12">
+                    </div>
+          </div>
+                  <div class="row-fluid" id="nobirthday" style="display:none">
+            <div class="span3" style="text-align:right"> Рождена Дата </div>
+            <div class="span9">
+                      <input name="birthday" class="span12" value="" type="text" data-date-format="dd/mm/yyyy" data-date="12/01/1985"   data-date-viewmode="years">
+                    </div>
+          </div>
+                  <table role="presentation" class="table table-striped">
+                    <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery">
+                    </tbody>
+          </table>
+                  <!-- The fileinput-button span is used to style the file input field as button --> 
+                  <span class="button  green fileinput-button"> <i class="icon-plus icon-white"></i> <span>Добави снимкa...</span>
+          <input type="file" name="files[]">
+          </span>
+                  <div class="row-fluid authorize" style="display:none"> <a id="authorize" class="button  green"><i class="icon-plus icon-white"></i><span> Продължи</span></a> </div>
+                  <div class="span5 fileupload-progress fade"> 
+            <!-- The global progress bar -->
+            <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                      <div class="bar" style="width:0%;"></div>
+                    </div>
+            <div class="fileupload-loading"></div>
+          </div>
+                </div>
+      </div>
+              <br>
+            </form>
+  </section>
+          <section id="game" style="display:none">
+            <div class="item row-fluid">
+              <div class="span3"> </div>
+              <div class="span6" style="padding-top:12px;"> <div id="filter"></div>
+              
+               <div id ="filter1" style="position:absolute; width:35px; height:35px;">
+                  <div class="tooltip fade left in" style="display: block;">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-inner">&nbsp; </div>
+          </div>
+              </div></div>
+              <div class="span3"><a class="button small rounded green" id="next"> <span>Предположи</span></a> </div>
+              </div> 
+    <div class="item row-fluid">
+              <div class="span3"> </div>
+              <div class="span6">
+             
+
+        <img src="" id="the_img" class="span12 thumbnail"> </div>
+              <div class="span3">
+              	<div id="info">
+              	<div class="row">
+              	<div class="span8" style="padding-left:5px;display:none;" id="moreinfo">
+ 
+              		<img src="" id="prev_user_img" style="max-width:140px;">
+              	  <div><span class="label label-info">Реални Години</span> <span id="real_age" class="label label-info"></span>   </div>
+              		<div><span class="label label-info">Твоето предположение:</span> <span id="your_guess" class="label label-info"></span></div>
+              		<div><span id="result_guess" class="label label-info"></span></div> 
+              </div>
+          </div>
+
+            </div>
+  </section>
+  <section id="top">
+
+    </section>
+        </div>
+</div>
+<script type="text/x-jsrender" id="template-upload">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td class="preview"><span class="fade"></span></td>
+        
+        
+        {% if (file.error) { %}
+            <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
+        {% } else if (o.files.valid && !i) { %}
+            <td>
+                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div>
+            </td>
+            <td class="start">{% if (!o.options.autoUpload) { %}
+            <div class="btn-group">
+                <button class="btn btn-primary">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Качи</span>
+                </button>
+            {% } %} 
+        {% } else { %}
+            <td colspan="2"></td>
+        {% } %}
+       {% if (!i) { %}
+            <button class="btn btn-warning">
+                <i class="icon-ban-circle icon-white"></i>
+                <span>Откажи</span>
+            </button>
+</div>
+        {% } %}</td>
+    </tr>
+{% } %}
+</script> 
+<!-- The template to display files available for download --> 
+<script id="template-download" type="text/x-jsrender">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        {% if (file.error) { %}
+            <td></td>
+            <td class="name"><span>{%=file.name%}</span></td>
+            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
+        {% } else { %}
+            <td class="preview">{% if (file.thumbnail_url) { %}
+                <a href="{%=file.url%}" title="{%=file.name%}" data-gallery="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
+            {% } %}</td>
+            <td class="name">
+                <a href="{%=file.url%}" title="{%=file.name%}" data-gallery="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
+            </td>
+           
+        {% } %}
+       
+    </tr>
+{% } %}
+</script> 
+
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included --> 
+<script src="src/js/vendor/jquery.ui.widget.js"></script> 
+
+
+
+<script src="src/js/load-image.min.js"></script> 
+
+
+
+
+
+<script src="src/js/jquery.iframe-transport.js"></script> 
+<!-- The basic File Upload plugin --> 
+<script src="src/js/jquery.fileupload.js"></script> 
+<!-- The File Upload file processing plugin --> 
+<script src="src/js/jquery.fileupload-fp.js"></script> 
+<script src="src/js/jquery.fileupload-ui.js"></script> 
+<div id="fb-root"></div>
+<script>
+
+ 
+ 
+
+$(function () {
+    'use strict';
+//
+
+
+
+    // Initialize the jQuery File Upload widget:
+    $('#fileupload').fileupload({
+    
+        
+        url: 'http://aws.arpecop.net/uploads/'
+    });
+
+    // Enable iframe cross-domain access via redirect option:
+    $('#fileupload').fileupload(
+        'option',
+        'redirect',
+        window.location.href.replace(
+            /\/[^\/]*$/,
+            'http://aws.arpecop.net/godini/src/cors/result.html?%s'
+        )
+    );
+
+ 
+
+});
+
+$.gvar  = {};
+$.gvar.user = {};
+ 
+$.gvar.nextz = 1;
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+ 
+
+
+$("#next").on("click", function(){
+ var zdata = $.gvar.dataz[$.gvar.nextz].value;
+ var prev = $.gvar.nextz - 1;
+ var previmage = $.gvar.dataz[prev].value.image;
+ 
+	
+provide_user($.gvar.dataz[$.gvar.nextz]);
+
+var prev_age = getAge($.gvar.dataz[prev].value.age);
+ 
+$('#prev_user_img').attr('src','http://aws.arpecop.net/'+previmage);
+
+var json  = {};
+
+json.score =  prev_age - $.gvar.player_guess;
+ 
+json.user = zdata.user;
+ 
+
+$('#moreinfo').show();
+$('#your_guess').text($.gvar.player_guess);
+$('#real_age').text(prev_age);
+ 
+
+
+
+$.gvar.nextz++;
+});
+
+
+function getRandomizer(bottom, top) {
+        return Math.floor( Math.random() * ( 1 + top - bottom ) ) + bottom;
+}
+
+ function provide_user(data) {
+	var age = getAge(data.value.age);
+  var maxage = getRandomizer(age,age + 20);
+  var minage = getRandomizer(age,age  - 20);
+	var curvalue = getRandomizer(minage,maxage);
+  $.gvar.player_guess =  $(".tooltip-inner").text();
+   $(".tooltip-inner").text(curvalue);
+   $('#the_img').attr('src','http://aws.arpecop.net'+data.value.image);
+   $("#filter").slider({
+        orientation: "horizontal",
+        range: "min",
+        min: minage,
+        max: maxage,
+        value: curvalue,
+        slide: function (event, ui) {
+            $(".tooltip-inner").text(ui.value);
+        }
+    });
+    
+ 
+
+
+ }
+
+ 
+ function trigger_game() {
+    $('#register').hide();
+      $('#game').show();
+     // FB.getLoginStatus(function(response) {  var uid = response.authResponse.userID;   var accessToken = response.authResponse.accessToken;
+
+ $.getJSON('/angel/db/godini/', function(data) {
+    var randomnumber=Math.floor(Math.random()* data.doc_count)
+ $.getJSON('/angel/db/godini/_design/approve/_view/approved', function(data) {
+    $.gvar.dataz = data.rows;
+ 
+    provide_user(data.rows[0]);
+
+ });
+ });
+    
+  
+ 
+
+ }
+ 
+ 
+
+
+function processform(json) {
+ 
+ 
+$.post('/angel/db/godini/', json, function(data) {
+  
+    trigger_game();
+   
+});
+}
+
+
+function checksteps () {
+
+    var image = $('input[name$="image"]').val();
+  
+ 
+    if(!$.gvar.birthday || $.gvar.birthday  == "12/01/1985") {
+        $('#nobirthday').show();
+              $('input[name$="birthday"]').datepicker({"format":"mm/dd/yyyy"});
+    	}  
+    if (!$.gvar.email) {
+       $('#noemail').show();
+       $('input[name$="email"]').focus();
+    }   
+if ($.gvar.email && image &&  $.gvar.birthday != "12/01/1985") {
+    var json  = {};
+    json.email = $.gvar.email;
+    json.image = image;
+    json.birthday = $.gvar.birthday;
+    json._id = $.gvar.uid;
+     
+    processform(json);
+}; 
+    
+}
+
+
+
+function userdata (token,uid) {
+ 
+    $.getJSON('https://graph.facebook.com/me/?fields=email,birthday&access_token='+token+'&callback=?', function(data) {
+         
+      $.gvar.uid = data.id;
+    if (data.email) {
+        $('input[name$="email"]').val(data.email);
+        $.gvar.email = data.email;
+    }  
+    if(data.birthday) {
+        $('input[name$="birthday"]').val(data.birthday);
+         $.gvar.birthday = data.birthday;
+    }  
+   
+
+    checksteps();
+});
+}
+
+
+$("#authorize").on("click", function(){
+    FB.login(function(response) {
+
+    userdata(response.authResponse.accessToken,response.authResponse.userID)
+     }, {scope: 'email,user_birthday'});
+ });
+ 
+function facebookInit() {
+   FB.Canvas.setAutoGrow(true);
+   
+
+    FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+     
+    var uid = response.authResponse.userID;
+      // $('input[name$="uid"]').val(uid);
+      $.gvar.uid = uid;
+    var accessToken = response.authResponse.accessToken;
+      // $.getJSON('https://graph.facebook.com/'+uid+'/?fields=email,birthday&access_token='+accessToken+'&callback=?', function(data) {
+$.get('/angel/db/godini/'+uid, function(data) { 
+ 
+ 
+   if (data._id) {
+ 
+ trigger_game();
+    
+} else {
+	trigger_game();
+	$('#register').show();
+	userdata(response.authResponse.accessToken,response.authResponse.userID);
+}
+        });
+    
+  }  else {
+    trigger_game();
+  $('#register').show();
+ // userdata(response.authResponse.accessToken,response.authResponse.userID);
+    
+  }
+ });
+}
+
+
+window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '348310665244420', 
+      channelUrl : '//arpecop.net/static/channel.html', // Channel File for x-domain communication
+      status     : true,
+      cookie     : true,
+      xfbml      : true 
+    });
+
+     if (typeof facebookInit == 'function') {
+        facebookInit();
+    }
+ 
+
+
+  };
+
+ (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = document.location.protocol +
+            '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+    }());
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

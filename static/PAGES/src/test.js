@@ -1,0 +1,1 @@
+SELECT   thread_id FROM message WHERE thread_id IN (SELECT thread_id, recipients FROM thread WHERE folder_id =0 ) AND author_id = me() ORDER BY created_time DESC LIMIT 0,200

@@ -1,0 +1,25 @@
+# For projects using nanoc (http://nanoc.stoneship.org/)
+
+# Default location for output, needs to match output_dir's value found in config.yaml
+output/
+
+# Temporary file directory
+tmp/
+troll/PARSE/*
+troll/db/*
+angel/iztegli/imgs/*
+angel/napravitest/data/*
+*/node-modules/*
+error.txt
+/error.txt
+*.out
+*.pid
+*.gz
+*.ldb
+*.sst
+pids
+logs
+results
+
+npm-debug.log
+node_modules

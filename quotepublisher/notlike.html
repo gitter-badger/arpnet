@@ -1,0 +1,961 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="bg" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="bg" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="bg" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="bg" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<!--<![endif]-->
+   
+<head>
+       
+<meta charset="UTF-8">
+<meta name="robots" content="noodp, noydir" />
+<title>App Center</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/fileuploader.js" type="text/javascript" charset="utf-8"></script>
+<style>
+body { font-size: 11px; font-family: "lucida grande", tahoma, verdana, arial, sans-serif; color: #333; line-height: 1.28; text-align: left; direction: ltr; unicode-bidi: embed; margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6 { font-size: 13px; color: #333; margin: 0; padding: 0; }
+h1 { font-size: 14px; }
+p { margin: 1em 0; }
+a { cursor: pointer; color: #3b5998; text-decoration: none; }
+td, td.label { font-size: 11px; text-align: left; }
+ul { list-style-type: none; margin: 0; padding: 0; }
+hr { background: #d9d9d9; color: #d9d9d9; height: 1px; border-width: 0; }
+.clearfix:after { clear: both; content: "."; display: block; font-size: 0; height: 0; line-height: 0; visibility: hidden; }
+.datawrap { word-wrap: break-word; }
+wbr:after { content: "\00200B"; }
+.center { margin-left: auto; margin-right: auto; }
+#facebook .accessible_elem { left: -9999px; position: absolute; }
+.direction_ltr { direction: ltr; }
+.mini_iframe, .serverfbml_iframe { overflow-y: visible; }
+.auto_resize_iframe { height: auto; overflow: hidden; }
+.pipe { color: gray; padding: 0 3px; }
+#content { width: auto; margin: 0; padding: 0; }
+.UIStandardFrame_Container { width: 960px; margin: 20px auto 0; padding: 0; }
+.UIStandardFrame_Content { width: 760px; float: left; margin: 0; padding: 0; }
+.UIStandardFrame_SidebarAds { width: 200px; float: right; margin: 0; padding: 0; }
+.UIFullPage_Container { width: 940px; margin: 20px auto 0; padding: 0 12px; }
+.empty_message { font-size: 13px; line-height: 17px; text-align: center; background: #f7f7f7; padding: 20px 20px 50px; }
+img.tracking_pixel { height: 1px; position: absolute; visibility: hidden; width: 1px; }
+#dropmenu_container { display: block; height: 0; position: absolute; width: 964px; z-index: 300; margin: 0 auto; padding: 0; }
+.inlineBlock { display: inline-block; zoom: 1px; }
+button.as_link { background: none; border: none; color: #3b5998; cursor: pointer; font-family: "lucida grande", tahoma, verdana, arial, sans-serif; font-size: 100%; overflow: visible; text-align: left; width: auto; margin: 0; padding: 0; }
+button.as_link .button_img { vertical-align: text-bottom; width: 16px; height: 16px; margin: 0 6px 0 0; }
+.uiComposer { border-bottom: 1px solid #ccc; }
+.uiComposer .attachmentLoader { line-height: normal; position: absolute; right: 2px; top: 9px; }
+.uiComposer .attachmentSentenceBar { line-height: 22px; position: relative; z-index: 2; zoom: 1px; padding: 3px 0 6px; }
+.uiComposer .attachmentCloseBtn { position: absolute; right: 2px; top: 7px; }
+.uiComposer .attachmentFrame { border: 1px solid #b4bbcd; border-bottom-color: #ccc; }
+.uiComposerHideMessageBox .attachmentFrame, .uiComposerHideInput .attachmentFrame { border-bottom-color: #b4bbcd; }
+.uiComposerWhiteMessageBox .child_was_focused { border-bottom: 1px solid #e9e9e9; }
+.uiMetaComposerMessageBox .input { background: transparent; font-size: 13px; height: 17px; outline: none; resize: none; vertical-align: bottom; width: 100%; border-width: 0; margin: 0; padding: 0; }
+.itemcatz { border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #F2F2F2; }
+.child_was_focused .uiMetaComposerMessageBox .input { min-height: 48px; }
+.child_was_focused .uiMetaComposerMessageBox .inputContainer { min-height: 58px; }
+div.uiMetaComposerMessageBox .composerTypeahead .placeholder { font-size: 13px; padding: 0; }
+.uiMetaComposerMessageBox .textBlurb label { font-weight: 400; vertical-align: baseline; }
+.fbx #pageFooter { width: auto; margin: auto; }
+.hasLeftCol #pageFooter { background-color: #fff; clear: both; margin-left: 180px; }
+.wsh #blueBar.fixed_elem { left: 0; right: 0; top: 0; }
+.tinyViewport .wsh #blueBar.fixed_elem { position: relative !important; margin: 0; }
+.wsh #blueBar #pageHead { width: 981px; margin: 0 auto; }
+#globalContainer { position: relative; zoom: 1px; margin: 0 auto; }
+.fbx #globalContainer { width: 981px; }
+.fbx #globalContainer #content { min-height: inherit; }
+#mainContainer { margin-left: -1px; display: block; width: 100%; }
+#leftCol { display: none; float: left; width: 179px; word-wrap: break-word; padding: 20px 0 0 2px; }
+#rightCol { margin-top: -10000px; float: right; padding-right: 0; width: 244px; word-wrap: break-word; }
+#contentCol { background-color: #fff; padding-top: 15px; }
+.hasLeftCol #contentCol { }
+#headerArea { margin-bottom: 5px; padding: 2px 0 12px; }
+.hasLeftCol #headerArea { float: left; width: 759px; margin: 0 20px; }
+#contentArea { margin-right: -1px; padding-left: 1px; word-wrap: break-word; }
+.hasLeftCol #contentArea, .hasRightCol #contentArea { float: left; margin-right: 0; }
+.hasLeftCol #contentArea { width: 759px; padding: 0 20px; }
+.hasLeftCol .hasRightCol #contentArea { padding-right: 0; width: 493px; }
+#bottomContent { clear: both; padding: 0 20px 12px; }
+.UIActionLinks_title { font-size: 9px; font-weight: 400; white-space: nowrap; color: #999; }
+#headerArea .megaphone_box { margin-right: -20px; margin-top: -17px; }
+.megaphone_location_privacy { margin-left: auto; margin-right: auto; width: 760px; }
+.timelineLayout .megaphone_location_managed_profile_admin .megaphone_box { border-top: 1px dashed #ced5e5; }
+.uiSelectorBottomUp .openToggler .uiSelectorButton, .uiSelectorBottomUp .openToggler .uiSelectorButton:active, .uiSelectorBottomUp .openToggler .uiSelectorButton:focus, .uiSelectorBottomUp .openToggler .uiSelectorButton:hover, .uiSelectorBottomUp .openToggler .uiButtonSuppressed, .uiSelectorBottomUp .openToggler .uiButtonSuppressed:active, .uiSelectorBottomUp .openToggler .uiButtonSuppressed:focus, .uiSelectorBottomUp .openToggler .uiButtonSuppressed:hover { border: 1px solid #3b5998; border-top-color: #6d84b4; }
+.uiSelectorBottomUp .uiSelectorMenuWrapper { bottom: 100%; margin-bottom: -2px; top: auto; }
+.uiToken { background: #e2e6f0; border: 1px solid #9daccc; -webkit-border-radius: 2px; color: #1c2a47; cursor: default; display: block; float: left; height: 14px; position: relative; white-space: nowrap; margin: 0 4px 4px 0; padding: 0 3px; }
+.uiToken .remove { outline: none; margin: 2px 0 -2px 1px; }
+.uiTokenizer { background: #fff; }
+.uiNormalTokenizer .tokenarea { overflow: hidden; padding-top: 6px; }
+.uiClearableTypeahead .clear, .uiTypeaheadDisabled .selected .clear { display: none; position: absolute; margin-top: -7px; right: 3px; top: 50%; }
+.uiClearableTypeahead .selected { padding-right: 16px; }
+.text_exposed_link { font-size: 9px; white-space: nowrap; padding: 0 12px 0 0; }
+.text_exposed_link_icon { margin: 0 0 -1px 4px; }
+.fbxWelcomeBoxBlock .fbxWelcomeBoxImg { height: 40px !important; width: 40px !important; }
+.fbxWelcomeBoxName { display: block; font-weight: 700; width: 112px; word-wrap: break-word; }
+.HighlightSelectorMenu { margin-right: 1px; position: relative; top: -2px; }
+.HighlightSelectorMenu .uiMenuXShortBorder { padding-right: 2px; }
+body.fixedBody #contentCol { min-height: 617px; }
+body.fixedBody { overflow-x: hidden; }
+.fixedBody .wsh #blueBar { left: 0; right: 0; }
+.fixedBody #leftColContainer { float: left; padding-right: 2px; width: 179px; }
+.home #rightCol .friend_list_right_column_header { height: 44px; }
+.uiSideNav .item, .uiSideNav .subitem { color: #333; display: block; border-bottom: 1px solid #fff; min-height: 17px; line-height: 13px; text-decoration: none; margin-left: 20px; margin-right: -20px; -webkit-user-select: none; padding: 3px 8px 0 28px; }
+.uiSideNav .subitem { padding-left: 37px; }
+.uiSideNav .item:hover, .uiSideNav .item:active, .uiSideNav .item:focus, .uiSideNav .subitem:hover, .uiSideNav .subitem:active, .uiSideNav .subitem:focus { background-color: #eff2f7; text-decoration: none; }
+.uiSideNav .selectedItem .item, .uiSideNav .selectedItem .item:hover, .uiSideNav ul .selectedItem .subitem, .uiSideNav ul .selectedItem .subitem:hover { background-color: #d8dfea; font-weight: 700; }
+.uiSideNav .item .imgWrap { width: 18px; }
+.uiSideNav .external { padding-right: 12px; background: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yW/r/AebrcwrBeG6.png) no-repeat right 3px; }
+.uiSideNav .item .linkWrap { display: block; max-width: 116px; overflow: hidden; padding-left: 0; text-overflow: ellipsis; white-space: nowrap; }
+.uiSideNav .item .uiSideNavCountRed { background-color: #f64c4c; color: #fff; }
+.uiSideNav .loading .item, .uiSideNav .sideNavItem .loading .subitem { background-color: #eff2f7; border-color: #eff2f7 #eff2f7 #fff; }
+.uiSideNav .loading .subitem { background-color: #fff; border-color: #fff; }
+.uiFutureSideNav .actionLinks { font-size: 9px; font-weight: 700; text-transform: uppercase; }
+.actionLinks { line-height: 12px; position: relative; padding: 4px 0 4px 28px; }
+.uiSideNav ul .loading .loadingIndicator { top: 5px; }
+.uiSideNav li .navMore { margin: 4px 0 10px 37px; }
+.uiSideNav .mover { display: none; left: -18px; overflow: hidden; position: absolute; text-align: right; top: 3px; z-index: 2; }
+.uiSideNav .placeholder { border: 2px dashed gray; }
+.editMode .item { cursor: default; opacity: .5; }
+.editMode .sortableItem { cursor: move; opacity: 1px; }
+.editMode .sortableItem:hover { background-color: #eff2f7; }
+#sideNav #pinnedNav { margin-top: 16px; }
+#sideNav .moreSectionsLink { color: #7f93bc; font-size: 9px; font-weight: 700; }
+.navHeader, .navHeader a { color: #999; font-size: 9px; font-weight: 700; margin-top: 12px; }
+.navHeader .bookmarksNavSeeAll { color: #6d84b4; white-space: nowrap; }
+div.fbComposerWideSpacing { border-bottom: 0; padding-bottom: 4px; margin: 9px 0 -6px; }
+div.fbFriendListComposer { border-bottom: none; margin-left: -18px; padding-left: 18px; }
+div.fbFriendListComposer .focus_target { border-bottom: 1px solid #e6e6e6; margin-left: -18px; padding-left: 18px; }
+div.fbFriendListComposer .uiComposerAttachments { padding: 5px 0 6px; }
+.composerExpandedPhoto .newsFeedComposer #rightCol { padding-top: 38px; }
+.hasExpandedComposer .home_right_column, .sidebarMode #content .hasExpandedComposer .home_right_column { margin-top: -12px; }
+div.uiComposerWithPhoto .focus_target { padding-left: 58px; }
+.uiStream .uiStreamHeader .uiStreamHeaderChronologicalForm { left: auto; right: 35px; top: -6px; }
+.uiStreamHeaderChronologicalForm .sortLink { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y8/r/idRYuyrbeCS.png); background-repeat: no-repeat; background-position: right -70px; color: gray; font-size: 9px; font-weight: 700; margin: 0 2px; padding: 0 9px 2px 3px; }
+.UIIntentionalStream_Error { display: none; padding-top: 2px; padding-bottom: 8px; }
+.feedback_toggle_link .feedbackBling .text { line-height: normal; }
+a.feedbackBling { margin-left: -1px; margin-right: -1px; padding-bottom: 0; padding-top: 0; }
+.uiPhotoThumb { border: 1px solid #ccc; display: inline-block; }
+.uiPhotoThumb img { display: block; margin: 3px; }
+.uiPhotoThumb:hover { border: 1px solid #3b5998; }
+.uiMenuXLoading { text-align: center; padding: 5px 0 3px; }
+.uiMenuXShortBorder { border-top: 1px solid #777; position: absolute; right: 0; top: -1px; }
+.uiContextualLayerAboveLeft .uiMenuXShortBorder, .uiContextualLayerAboveRight .uiMenuXShortBorder { border-top: 2px solid #293e6a; below: -1px; top: auto; }
+.uiContextualLayerAboveRight .uiMenuXShortBorder, .uiContextualLayerBelowRight .uiMenuXShortBorder { left: 0; right: auto; }
+.uiMenuXBorder { background-color: #fff; border: 1px solid #777; border-bottom: 2px solid #293e6a; }
+.uiMenuX { padding: 3px 0 4px; }
+.uiMenuXItem { overflow: hidden; white-space: nowrap; }
+.uiMenuXItem .itemLabel { display: block; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.uiSideNav .buttonWrap { clear: left; float: left; height: 20px; text-align: right; width: 20px; }
+.uiSideNav .sideNavItem { padding-right: 20px; margin-left: -20px; width: 100%; }
+.uiSideNav .sideNavItem .imgWrap { margin-left: -22px; margin-top: -1px; float: left; }
+.uiSideNav .sideNavItem .linkWrap { display: block; overflow: hidden; padding-left: 0; text-overflow: ellipsis; white-space: nowrap; }
+.uiSideNav .sideNavItem .hasCount { max-width: 110px; }
+.uiSideNav .sideNavItem .noCount { max-width: 145px; }
+.uiSideNav .sideNavItem .subitem .hasCount { max-width: 90px; }
+.uiSideNav .sideNavItem .subitem .noCount { max-width: 125px; }
+.uiSideNav .loading .noCount { max-width: 127px; }
+.uiSideNav .sideNavItem .uiSideNavEditButton { text-align: left; margin: 2px 5px 0 0; }
+.uiNarrowSideNav .uiSideNav .sideNavItem:hover .buttonWrap, .uiNarrowSideNav .uiSideNav .hover .buttonWrap, .uiNarrowSideNav .uiSideNav .editMenuOpened .buttonWrap { display: block; padding-right: 4px; width: 25px; }
+.uiNarrowSideNav .uiSideNav .buttonWrap { float: right; margin-right: -2px; width: 0; }
+.uiNarrowSideNav .sideNavItem { padding-right: 0; margin-left: 0; }
+.uiNarrowSideNav .sideNavItem .item, .uiNarrowSideNav .sideNavItem .subitem { margin-left: 0; margin-right: 0; }
+.uiSideNavCount { background-color: #d8dfea; -webkit-border-radius: 2px; color: #3b5998; font-weight: 700; left: -1px; position: relative; padding: 0 4px; }
+.uiSideNavCountInline { display: inline-block; line-height: 15px; }
+.uiBlingBox { border-bottom: 1px solid #fff; display: inline-block; padding: 3px 4px 3px 2px; }
+.uiBlingBox:hover { text-decoration: none; background-color: #eceff5; border-bottom: 1px solid #e5eaf1; }
+.uiBlingBox .text { line-height: 11px; vertical-align: text-bottom; }
+.uiBlingBox .img { margin-right: 2px; vertical-align: text-top; }
+.uiBlingBoxSm .img { vertical-align: text-bottom; }
+.uiBlingBox .emptyBling { margin-right: 0 !important; }
+.uiInputLabel + .inlineBlock.uiInputLabel { margin-left: 10px; margin-top: 0; }
+.uiInputLabelRadio, .uiInputLabelCheckbox { float: left; margin: 0; padding: 0; }
+.uiInputLabelRadio { margin-top: 1px; }
+.uiInputLabel label { color: #333; display: block; font-weight: 400; margin-left: 17px; vertical-align: baseline; }
+.safari4.mac .uiInputLabel label { margin-left: 16px; }
+.uiMenu .fixedWidthDesc .itemLabel { white-space: normal; width: 200px; }
+.emote_img, .emote_custom { height: 16px; vertical-align: top; width: 16px; }
+.wsh #pageHead { width: 980px; margin: 0 auto; }
+.fbx .wsh #pageHead { width: auto; margin: 0; }
+.wsh #pageLogo { float: left; margin-left: -6px; z-index: 5; }
+.wsh #headNav { background-color: #627aad; border: 1px solid #1d4088; border-bottom: 0; height: 30px; margin-left: 180px; }
+.wsh #pageNav a { color: #fff; display: inline-block; font-weight: 700; height: 22px; text-decoration: none; padding: 8px 10px 0; }
+.wsh #pageNav a:hover, .wsh #pageNav a:focus, .wsh #pageNav a:active { outline: none; background-color: #6d86b7; }
+.wsh #navAccount #navAccountLink { padding-right: 16px; zoom: 1px; }
+.wsh .openToggler #navAccountLink, .no_js .wsh #navAccount:hover #navAccountLink { background-color: #fff; border: 1px solid #333; border-bottom: 0; color: #333; position: relative; z-index: 2; margin: -1px -1px 0; }
+.wsh #navAccountLink .accountPulldown { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yS/r/RpoGsOU6IFs.png); background-repeat: no-repeat; background-position: -243px -134px; height: 4px; left: 5px; position: relative; top: -2px; width: 7px; }
+.wsh .openToggler #navAccountLink .dropMenuDivide, .no_js .wsh #navAccount:hover #navAccountLink .dropMenuDivide { background: #e0e0e0; }
+.wsh #navAccount .contextualHelp, .wsh #navAccount .navigation { background: #fff; border: 1px solid #333; border-bottom: 2px solid #2d4486; margin-right: -1px; margin-top: -1px; min-width: 200px; position: absolute; right: 0; top: 100%; z-index: 1; padding: 10px 0 5px; }
+.wsh #navAccount .logoutButton input { width: 100%; text-align: left; outline: 0; }
+.wsh #navAccount .navigation a, .wsh #navAccount .navigation .logoutButton input { color: #3a579a; display: block; font-weight: 400; height: auto; white-space: nowrap; padding: 4px 10px 5px; }
+.wsh #navAccount .navigation a:hover, .wsh #navAccount .navigation a:focus, .wsh #navAccount .navigation a:active, .wsh #navAccount .logoutButton:hover input, .wsh #navAccount .logoutButton input:active, .wsh #navAccount .logoutButton input:focus { background: #6d84b4; border-bottom: 1px solid #3b5998; border-top: 1px solid #3b5998; color: #fff; text-decoration: none; padding: 3px 10px 4px; }
+.uiTypeaheadView .search img { background-color: #eceff5; display: block; height: 50px; left: 6px; position: absolute; width: 50px; }
+.uiTypeaheadView .search .seeMore { color: #3b5998; font-size: 11px; font-weight: 700; padding-bottom: 0; padding-right: 7px; }
+.uiTypeaheadView .search .question { min-height: 14px; padding: 3px 30px 3px 6px; }
+.uiTypeaheadView .search .websuggestion { min-height: 14px; padding: 6px 30px 5px 6px; }
+.uiToolbarBordered { margin: 0 -7px; padding: 6px 7px 6px 1px; }
+.uiToolbar .uiToolbarItem { float: left; margin-left: 6px; vertical-align: top; }
+.uiToolbar .uiToolbarDivider { background: #d6d6d6; height: 22px; width: 1px; }
+.permalinkBody #globalContainer { margin-top: 40px; width: 889px; min-width: 889px; padding: 0 40px; }
+.permalinkBody #mainContainer { width: 100%; margin-bottom: 50px; }
+.permalinkBody #rightCol { width: 243px; }
+.permalinkBody #contentArea { border: 1px solid #c4cde0; width: 624px; background-color: #fff; padding: 0 3px 1px; }
+.permalinkBody .fbTimelineSideAds { padding-top: 0; width: auto; }
+.permalinkBody .permalink_stream .uiStream .uiStreamMessage, .permalinkBody .permalink_stream .uiStream .uiStreamAttachments { font-size: 13px; padding-left: 15px; padding-right: 20px; }
+.permalinkBody .permalink_stream .uiStream .mainWrapper .uiAttachmentNoMedia { padding-left: 10px; margin-left: 18px; border-left: 2px solid #c0c9dd; }
+.permalink_stream .uiStream .uiStreamMessage { font-size: 13px; max-width: 640px; }
+.permalinkBody .permalink_stream .fbStreamPermalinkHeader { border-bottom: 1px solid #e9e9e9; margin: 15px; }
+.permalinkBody .permalink_stream .uiStreamStory .mainWrapper { margin-right: 0; padding-top: 0; }
+.permalinkBody .uiCommentContainer { margin-bottom: -2px; }
+.permalinkBody .uiStreamRedesign .uiCommentContainer { margin-bottom: -4px; }
+.permalinkBody .permalink_stream .uiStreamHeadline { width: 500px; }
+.permalinkBody .permalink_stream .followOrLikeButton { clear: right; margin-right: 25px; }
+.permalinkBody .fbStreamPermalinkHeader .uiCloseButton { left: -9999px; overflow: hidden; position: relative; float: right; }
+.permalinkBody .permalink_stream:hover .fbStreamPermalinkHeader .uiCloseButton { left: auto; overflow: visible; }
+.permalinkBody #globalContainer #mainContainer .spamMessage { border-top: solid 1px #eee; padding: 15px 0 15px 15px; }
+.uiInfoTable { border: 0; border-collapse: collapse; border-spacing: 0; width: 100%; }
+.uiInfoTable .spacer td { padding: 5px 0; }
+.noBorder .spacer td { visibility: hidden; padding: 0; }
+.uiInfoTable .label, .uiInfoTable .data, .uiInfoTable .rightCol { text-align: left; vertical-align: top; padding: 3px 0 1px; }
+.uiInfoTable .label { color: #666; font-weight: 700; padding-right: 10px; text-align: right; width: 130px; }
+.uiInfoTable .rightCol { width: 225px; padding: 0 0 0 20px; }
+span.FollowLink .followLinkInlineCheck { display: inline; margin-right: 4px; }
+.fan_status_inactive { background-color: #fffccc; color: #666; line-height: 18px; margin: 0; padding: 0 0 0 3px; }
+.audienceSelectorNoTruncate, .audienceSelectorNoTruncate .uiSelectorButton, .audienceSelectorNoTruncate .uiSelectorButton:active, .audienceSelectorNoTruncate .uiSelectorButton:focus .audienceSelectorNoTruncate .uiSelectorButton:hover, .audienceSelectorNoTruncate .uiButtonSuppressed:active, .audienceSelectorNoTruncate .uiButtonSuppressed:focus, .audienceSelectorNoTruncate .uiButtonSuppressed:hover, .audienceSelectorNoTruncate .uiSelectorButton .uiButtonText { max-width: none !important; }
+.audienceSelector .uiSelectorBigButtonLabel .uiButtonText { overflow: visible; }
+.audienceSelector .uiSelectorButton .customimg { margin-left: -2px; margin-right: 2px; }
+.audienceSelector .uiButtonNoText .customimg { margin-right: -5px; }
+.showSecondaryOptions .uiSelectorMenu { max-height: 214px; overflow-y: auto; overflow-x: hidden; }
+.permalink_stream .fbStreamPermalinkHeader .audienceSelector .uiSelectorButton, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector .uiSelectorButton, .uiStream .uiStreamStory .uiStreamFooter .audienceSelector .uiSelectorButton { vertical-align: middle; padding: 1px 18px 1px 6px; }
+.permalink_stream .fbStreamPermalinkHeader .audienceSelector .wrap .uiSelectorButton, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector .wrap .uiSelectorButton, .uiStreamFooter .audienceSelector .wrap .uiSelectorButton { background-color: transparent; background-image: none; }
+.permalink_stream:hover .fbStreamPermalinkHeader .newAudienceSelector.audienceSelector .uiSelectorButton, .uiStream .uiStreamMinistoryGroup:hover .uiStreamPrivacyContainer .audienceSelector.newAudienceSelector .uiSelectorButton, .uiStream .uiStreamStory:hover .uiStreamFooter .newAudienceSelector.audienceSelector .uiSelectorButton { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y8/r/idRYuyrbeCS.png); background-repeat: no-repeat; background-position: -464px -3px; border: 1px solid #ddd; }
+.permalink_stream .fbStreamPermalinkHeader .audienceSelector .uiSelectorButton:hover, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector .uiSelectorButton:hover, .uiStream .uiStreamStory .uiStreamFooter .audienceSelector .uiSelectorButton:hover { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/ys/r/zQaJhaTSUXg.png); background-repeat: no-repeat; background-position: -816px -7px; border: 1px solid #999; padding-right: 18px; }
+.permalink_stream:hover .fbStreamPermalinkHeader .audienceSelector .openToggler .uiSelectorButton, .permalink_stream .fbStreamPermalinkHeader .audienceSelector .openToggler .uiSelectorButton, .permalink_stream .fbStreamPermalinkHeader .audienceSelector .openToggler .uiSelectorButton:hover, .uiStream .uiStreamMinistoryGroup:hover .uiStreamPrivacyContainer .audienceSelector .openToggler .uiSelectorButton, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector .openToggler .uiSelectorButton, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector .openToggler .uiSelectorButton:hover, .uiStream .uiStreamStory:hover .uiStreamFooter .audienceSelector .openToggler .uiSelectorButton, .uiStream .uiStreamStory .uiStreamFooter .audienceSelector .openToggler .uiSelectorButton, .uiStream .uiStreamStory .uiStreamFooter .audienceSelector .openToggler .uiSelectorButton:hover { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/ys/r/zQaJhaTSUXg.png); background-repeat: no-repeat; background-position: -816px -252px; padding-right: 18px; background-color: #6d84b4; border: 1px solid #3b5998; border-bottom-color: #6d84b4; -webkit-box-shadow: none; }
+.permalink_stream .fbStreamPermalinkHeader .audienceSelector .openToggler .uiSelectorButton .customimg, .permalink_stream .audienceSelector .openToggler .uiSelectorButton:hover .customimg, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector .openToggler .uiSelectorButton .customimg, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector .openToggler .uiSelectorButton:hover .customimg, .uiStream .uiStreamStory .uiStreamFooter .audienceSelector .openToggler .uiSelectorButton .customimg, .uiStream .uiStreamStory .uiStreamFooter .audienceSelector .openToggler .uiSelectorButton:hover .customimg { margin-left: -1px; }
+.permalinkBody .fbStreamPermalinkHeader .audienceSelector .uiSelectorButton .customimg, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector .uiSelectorButton .customimg, .uiStreamFooter .audienceSelector .uiSelectorButton .customimg { margin-right: 0; margin-top: 1px; }
+.fbTimelineFeedbackActions { background-color: #edeff4; padding: 5px 13px; }
+.fbTimelineMiniUFI .fbTimelineFeedbackActions { background: transparent; padding: 0; }
+.fbTimelineFeedbackNub i { display: block; height: 5px; margin-left: 17px; background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y7/r/UvyvLtJTQzO.png); background-repeat: no-repeat; background-position: 0 0; width: 9px; }
+.fbTimelineFeedbackHeader .uiBlingBox, .fbTimelineFeedbackHeader .uiBlingBox:hover { height: 13px; border-style: none; padding: 0; }
+.fbTimelineFeedbackComments a, .fbTimelineFeedbackLikes a, .fbTimelineFeedbackShares a { padding-left: 18px; position: relative; }
+.fbTimelineFeedbackComments i, .fbTimelineFeedbackLikes i, .fbTimelineFeedbackShares i { display: block; left: 0; position: absolute; top: -1px; width: 14px; }
+.fbTimelineFeedbackLikes i { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/ym/r/QjO5qDjwfFE.png); background-repeat: no-repeat; background-position: -14px -63px; height: 13px; }
+.fbTimelineFeedbackComments i { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y8/r/idRYuyrbeCS.png); background-repeat: no-repeat; background-position: -118px -64px; height: 15px; }
+.fbTimelineFeedbackShares i { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y8/r/idRYuyrbeCS.png); background-repeat: no-repeat; background-position: -100px -64px; height: 16px; }
+.timelineLayout { background: #e7ebf2; }
+.canHaveFixedElements body.timelineLayout .wsh #blueBar { padding-top: 0 !important; }
+body.timelineLayout .wsh .timeline_fixed#blueBar { padding-top: 0 !important; position: fixed !important; }
+.timelineLayout #globalContainer { clear: both; }
+.timelineLayout #contentArea { position: relative; width: 851px !important; }
+.timelineLayout #contentCol { background: none; padding-top: 0; }
+.timelineLayout #rightCol { margin-right: -5px; width: 122px; }
+.timelineLayout .timeline_fixed#rightCol .rightColWrap { position: fixed; top: 38px; }
+.timelineLayout #pageFooter { overflow: hidden; width: 851px; margin: 0; }
+.timelineLayout #footerContainer { border: 0; padding: 8px 0 38px; }
+.timelineLayout .fbTimelineTopSection { margin: 0; padding: 0; }
+.timelineLayout .megaphone_box { background-color: #fff; border-top: 0; }
+.fbTimelineSection { background: #fff; border: 1px solid #c4cde0; border-bottom-width: 2px; -webkit-border-radius: 3px; padding: 20px 35px 10px; }
+.fbTimelineSection .uiMorePager { margin: 0 -35px -10px; }
+.fbTimelineTopSection { border-bottom: 0; -webkit-border-radius: 0; border-top: 0; padding-bottom: 0; }
+.fbTimelineCompactSection { padding: 0 0 15px; }
+.fbTimelineSectionTransparent { background: none; border: none; -webkit-border-radius: 0; -webkit-box-shadow: none; padding-top: 75px; }
+.fbTimelineTabSection { padding: 20px 20px 0; }
+.fbTimelineTabSection .uiMorePager { margin: 0 -20px; }
+.fbTimelineSectionOverlay { height: 550px; overflow: auto; padding: 0; }
+.fbTimelineSectionExpander .uiMorePager .uiMorePagerPrimary, .fbTimelineSectionExpander .uiMorePager .uiMorePagerPrimary:hover { background: none; border: 0; margin: 0; padding: 0; }
+.fbTimelineSectionExpandPager .timelineExpandLabel { background: #778cb7; -webkit-border-radius: 3px; color: #fff; display: inline-block; height: 14px; white-space: nowrap; padding: 4px 10px; }
+.fbTimelineSectionExpandPager .timelineExpandLabel i { position: relative; margin: 0 0 1px 7px; }
+.fbTimelineSectionExpandPager .timelineExpandLabel:hover { background: #5d76aa; }
+.fbTimelineShowOlder .uiMorePager a.uiMorePagerPrimary, .fbTimelineShowOlder .uiMorePager a.uiMorePagerPrimary:hover { background-color: #94a1c1; -webkit-border-radius: 3px; display: inline-block; padding: 4px 10px; }
+.fbTimelineShowOlder .uiMorePager a.uiMorePagerPrimary:hover { background-color: #697cac; text-decoration: underline; }
+.fbTimelineSectionExpandPager .uiHeader { background: none; border: 0; }
+.fbTimelineSectionExpandPager .uiMorePagerLoader { background-color: #e7ebf2; border: 0; margin: 0; padding: 8px; }
+.fbTimelineSectionExpandPager .noContent { background-color: #edeff4; color: #999; text-align: center; }
+.fbTimelineSectionExpandPager { position: relative; text-align: center; }
+.fbTimelineRightPager { left: 50%; }
+.fbTimelineSectionLoading { min-height: 180px; }
+.fbTimelineHiddenPager { position: fixed; bottom: -10000px; }
+.tinyViewport div.fbTimelineSideAdsOffScreen, div.fbTimelineSideAdsOffScreen { position: fixed !important; right: -300px !important; width: 244px; }
+.fbTimelineSideAds { bottom: 15px; padding-top: 12px; width: 244px; }
+.fbPagesTimelineAds { padding-top: 42px; }
+div.fbTimelineVerticalAds .fbEmuEgo .fbEmuImage { float: none; }
+div.fbTimelineSideAds .uiSideHeader { background: none; border-bottom: 1px solid #c8d1e2; border-top: 0; margin-bottom: 0; padding: 4px; }
+div.fbTimelineSideAds .ego_unit { margin-bottom: 7px; padding-top: 3px; border-color: #c8d1e2; }
+.fbTimelineTopAlignedAds { bottom: auto; top: 50px; }
+.fbTimelineUFI { background: #fff; margin-bottom: 0 !important; margin-top: -12px; position: relative; top: 12px; }
+.fbTimelineUFIEmpty { margin-top: -15px; }
+.fbTimelineUFI .fbUfi { width: 100%; padding: 0; }
+.fbTimelineUFI .uiUfi .ufiItem { border: 0; padding: 5px 12px; }
+.fbTimelineFeedbackLikes, .fbTimelineFeedbackComments, .fbTimelineFeedbackShares { float: right; margin-left: 5px; }
+.fbTimelineOneColumn .fbTimelineUFI .uiUfiComment .commentContent { width: 600px; }
+.fbTimelineMiniUFI { margin: 0 0 -2px; }
+.fbTimelineMiniUFI .uiLoadingIndicatorAsync { margin: 0 0 -2px 6px; }
+.timelineUnitContainer .uiCommentContainer { margin-bottom: -12px; margin-left: -12px; padding-top: 3px; width: 403px; }
+.fbTimelineOneColumn .uiCommentContainer { width: 843px; }
+.uiButtonGroup { -webkit-background-clip: padding-box; background-color: #fff; border: 1px solid #a5a5a5; -webkit-border-radius: 3px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1); display: inline-block; white-space: nowrap; border-color: rgba(0, 0, 0, .35); padding: 0; }
+.uiButtonGroup .uiButtonGroupItem { border-left: 1px solid #d9d9d9; display: inline-block; vertical-align: top; border-color: rgba(0, 0, 0, .15); }
+.uiButtonGroup .uiSelector, .uiButtonGroup .uiButton { -webkit-box-shadow: none; vertical-align: top; }
+.uiButtonGroup .selectorItem .uiSelector, .uiButtonGroup .buttonItem .uiButton { margin: -1px; }
+.uiButtonGroup .uiButtonLarge { padding: 2px 8px; }
+.uiButtonGroup .uiButtonOverlay, .uiButtonGroupOverlay .uiButtonGroupItem .uiButtonDisabled, .uiButtonGroupOverlay .uiButtonGroupItem .uiButtonDisabled:hover, .uiButtonGroupOverlay .uiButtonGroupItem .uiButtonDisabled:active, .uiButtonGroupOverlay .uiButtonGroupItem .uiButtonDisabled:focus { -webkit-background-clip: padding-box; border-color: transparent; }
+.uiButtonGroup span .uiButtonOverlay, .uiButtonGroup span .uiButtonOverlay:hover { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y6/r/kcxTHJhRIlC.png); background-repeat: no-repeat; background-position: right -102px; background-color: transparent; }
+.uiButtonGroup span .uiButtonOverlay:active, .uiButtonGroup span .uiButtonOverlay:focus { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y6/r/kcxTHJhRIlC.png); background-repeat: no-repeat; background-position: right -151px; background-color: transparent; }
+.uiButtonGroupOverlay span .uiButtonOverlay.uiButtonDisabled { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y6/r/kcxTHJhRIlC.png); background-repeat: no-repeat; background-position: right -102px; }
+.uiButtonGroup .buttonItem .uiButtonOverlay:active, .uiButtonGroup .buttonItem .uiButtonOverlay:focus { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y6/r/kcxTHJhRIlC.png); background-repeat: no-repeat; background-position: 0 -4px; }
+.uiButtonGroupOverlay .uiButton { -webkit-border-radius: 0; }
+.uiButtonGroupOverlay .firstItem .uiButton { border-top-left-radius: 3px; border-bottom-left-radius: 3px; }
+.uiButtonGroupOverlay .lastItem .uiButton { border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
+.uiSideNavCountSprited, .uiSideNavCountSpritedRed { display: inline-block; font-weight: 700; line-height: 13px; padding-right: 4px; text-decoration: none; }
+.uiSideNavCountSprited { background: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yk/r/BwKwOpPWbGZ.png) no-repeat right 0; color: #3b5998; }
+.uiSideNavCountSpritedRed { background: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yb/r/W22xzgHib16.png) no-repeat right 0; color: #fff; }
+.uiSideNavCountSprited .countValue { background: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yk/r/BwKwOpPWbGZ.png) no-repeat 0 -13px; padding-left: 4px; }
+.uiSideNavCountSpritedRed .countValue { background: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yb/r/W22xzgHib16.png) no-repeat 0 -13px; padding-left: 4px; }
+.uiSideNavCountSprited .countValue, .uiSideNavCountSprited .maxCountIndicator { display: inline-block; height: 13px; vertical-align: top; }
+.bulkTaggerTypeahead { width: 210px; }
+.bulk_tagger_body .bulkTagIcon { margin-top: 6px; margin-right: 7px; }
+.bulk_tagger_body .bulkTagStatus { display: inline-block; padding-top: 4px; }
+.tagSaving .bulkTagSaving { display: inline-block; margin-top: 2px; }
+.fbCommentViewMetadata, .fbCommentViewMetadata .fbPhotosPhotoUfi { width: 364px; }
+span.fbCommentViewThumb i { width: 320px; }
+.fbxPhotoSetPageHeader .fbxPhotoSetPageHeaderBox { width: 714px; float: left; }
+.fbxPhotoSetPageHeader .fbxPhotoSetViewSwitcher { width: 8px; }
+#fbxPhotoSetViewSwitcherGrid { border-right: 0; }
+.fbxPhotoSetViewSwitcherThrobber { background-position: left center; display: inline-block; }
+.fbxPhotoSetPageHeader .async_throbber_left .async_saving { padding-left: 28px; }
+.fbxPhotoSetPageMetadata { width: 437px; }
+.fbPhotoFeedbackForm .uiUfi { width: 430px; }
+a.uiMediaThumbTagging i, a.uiMediaThumbTagging .taggerOverlay { cursor: crosshair; }
+a.uiMediaThumbTagging:hover, a.uiMediaThumbTagging:active, a.uiMediaThumbTagging:focus { text-decoration: none; border-color: #ccc; }
+a.uiMediaThumbTagging .taggerOverlay .lockBar { background-color: #222; color: #fff; left: 10px; padding-left: 21px; position: absolute; top: 86px; opacity: .9; }
+a.uiMediaThumbTagging .taggerOverlay .lockIcon { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/y7/r/LIMS6JdvvOD.png); background-repeat: no-repeat; display: inline-block; height: 15px; left: 6px; position: absolute; top: 5px; width: 15px; }
+a.uiMediaThumbTagging .taggerOverlay .blackwash { background: #000; height: 100%; left: 0; opacity: .7; position: absolute; top: 0; width: 100%; }
+a.uiMediaThumbTagging .taggerOverlay .highlightBox { border: 2px solid #fff; opacity: .3; position: absolute; }
+.fbPhotosReorderableGrid .drag { z-index: 200; }
+.fbPhotosReorderableGrid .dragWrapper .uiMediaThumb { cursor: move; }
+.fbPhotosReorderableGrid .dragHover { background-color: #ddd; position: absolute; left: 10px; top: 10px; }
+.fbPhotosReorderableGrid .mover { display: block; left: -8px; overflow: hidden; position: absolute; text-align: right; top: 3px; z-index: 2; }
+.fluploader_swfdiv { left: 0; position: absolute; top: 0; }
+.modalWrapper.flashUploaderOverlay.uiLayerPageWrapper { background-color: rgba(231, 235, 243, .92); }
+.flashUploaderOverlayButton { display: inline; position: relative; vertical-align: top; }
+.composerPhotoGrid .flashUploaderOverlayButton a.selectOver { background-color: #ebeef4; }
+.flashUploaderOverlay .uiOverlayContent { padding-bottom: 25px; }
+.flashUploaderOverlay .headerBox { -webkit-border-radius: 3px 3px 0 0; left: -1px; position: absolute; right: -1px; top: -1px; z-index: 2; border-color: #c4cde0 #c4cde0 rgba(0,0,0,0.1); margin: 0; }
+.flashUploaderOverlay .albumInfoFields { width: 330px; }
+.flashUploaderOverlay .albumMetaFields { margin-left: 110px; }
+.flashUploaderOverlay .albumMetaPlacesInput { float: right; margin-right: 20px; width: 280px; }
+.flashUploaderOverlay .albumInfoFields input { outline: none; -webkit-transition: border-color .2s; border-color: #fff; }
+.flashUploaderOverlay .albumInfoFields input:hover, .flashUploaderOverlay .albumInfoFields input:focus { border-color: #bec7da; }
+.flashUploaderOverlay .albumInfoFields .photoAlbumTitleInput:focus + .photoAlbumDescInput, .flashUploaderOverlay .albumInfoFields .photoAlbumTitleInput:hover + .photoAlbumDescInput:focus { border-top-color: transparent; }
+.flashUploaderOverlay .fbPhotoBulkEditor { margin: 65px -15px 0; }
+.flashUploaderOverlay .fbPhotoBulkEditor .editablePhoto { margin-bottom: 17px; margin-left: 17px; }
+.flashUploaderOverlay .headerFixed { border-bottom-color: #b0bbd7; -webkit-border-radius: 0; left: 50%; margin-left: -483px; position: fixed; right: auto; width: 946px; }
+.flashUploaderOverlay .addPhotosEnabled .fakeButton, .flashUploaderOverlay .addPhotosDisabled .realButton { position: absolute; top: -10000px; }
+.flashUploaderOverlay .footerBox { -webkit-border-radius: 0 0 3px 3px; left: -1px; position: absolute; right: -1px; border-color: rgba(0,0,0,0.1) #c4cde0 #c4cde0; }
+.flashUploaderOverlay .footerFixed { bottom: 0; border-bottom: 0; -webkit-border-radius: 0; border-top-color: #c4cde0; left: 50%; margin-left: -483px; margin-top: 50px; position: fixed; width: 926px; z-index: 1; }
+.flashUploaderOverlay .placesTypeaheadCell { width: 280px; }
+.flashUploaderOverlay .progressWrap { width: 120px; }
+.flashUploaderOverlayFooter .quality { display: inline-block; left: 10px; position: relative; }
+.fbPhotosGridHeader { margin: 0 0 8px; }
+body.plugin { background: transparent; overflow: hidden; }
+.uiScaledImageCentered { background-color: #f2f2f2; text-align: center; }
+.uiScaledImageContainer img { height: 100%; min-height: 100%; position: relative; }
+.uiScaledImageContainer .scaledImageFitWidth { height: auto; width: 100%; }
+.uiScaledImageContainer .verticallyAligned { min-height: 0; vertical-align: middle; }
+.fbHubsTypeaheadThrobber { display: none; position: absolute; right: 6px; top: 5px; }
+.photoTypeahead .photo { display: none; height: 16px; left: 3px; position: absolute; top: 2px; width: 16px; }
+.photoTypeahead .selected .textInput { padding-left: 23px; }
+.photoTypeahead.uiTypeaheadDisabled .selected .photo { opacity: .30; }
+.timelineLayout .fbTimelinePhotosAndVideosOfMe .fbPhotosGrid { margin-left: 11px; }
+.timelineLayout .fbTimelinePhotosAndVideosOfMe .fbPhotosGrid td { width: auto; padding: 0; }
+.timelineLayout .fbTimelinePhotoAlbums a.uiMediaThumbAlb { margin-right: 9px; }
+.timelineLayout .uiMediaThumbAlbHuge, .timelineLayout .uiMediaThumbHuge .uiMediaThumbWrap i { height: 111px; width: 167px; }
+.timelineLayout .fbPhotosGrid .photoDetails { width: 185px; }
+.timelineLayout .fbPhotosGrid .photoDetails .fbAudienceHover { margin-right: 6px; }
+.timelineLayout .uiMediaThumbHuge i { height: 120px; width: 180px; }
+.fbTimelineVideos .uiVideoLink { vertical-align: bottom; padding: 0; }
+.fbTimelineVideos .uiVideoLinkHuge i { background-size: cover; height: 133px; width: 191px; }
+.fbTimelinePhotosAndVideosOfMe .uiVideoLink { border: 0; vertical-align: bottom; margin: 0 3px 3px 0; padding: 0; }
+.fbTimelinePhotosAndVideosOfMe .uiVideoLinkHuge i { background-size: cover; height: 120px; width: 182px; }
+.uiMediaThumbStacked.uiMediaThumbAlb { border: none; position: relative; }
+.uiMediaThumbStacked .uiMediaThumbPrevPhoto { border: none; -webkit-border-radius: 2px; -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, .07), 0 1px 3px rgba(0, 0, 0, .25); height: 165px; left: 0; top: 0; -webkit-transform: rotate(3deg); width: 217px; z-index: 0; }
+#albums_grid_pagelet, #videos_grid_pagelet { padding-bottom: 15px; }
+div.fbTimelinePhotoAlbums { padding: 30px 41px 0; }
+div.fbTimelinePhotosAndVideosOfMe { padding: 30px 41px 20px; }
+.fbTimelinePhotosSeparator h4 { color: gray; cursor: default; font-size: 13px; text-align: center; margin: 10px 0 15px; }
+.fbTimelinePhotosSeparator h4 span { background-color: #fff; padding: 0 10px; }
+.fbTimelinePhotosAndVideosOfMe .async_saving { margin: 20px 0 30px; }
+.fbTimelineNoVideosMsg { text-align: center; margin: 60px 0; }
+.fbTimelinePhotosAndVideosOfMe .uiMediaThumb { border: 0; padding: 0 3px 3px 0; }
+.fbTimelinePhotosStream .uiMediaThumb { border: 0; padding: 2px; }
+div.fbTimelineInlineSectionHeader { background: none; border: 0; height: 40px; text-align: center; }
+.fbTimelineTabHeader { background: none; margin: 0 10px 20px; }
+.fbTimelineTabHeader h3 { font-size: 16px; width: 400px; }
+.fbTimelineAboutMeHeader { background: none; margin: 0 0 15px; }
+.fbTimelineTabSection .fbTimelineAboutMeHeader, .fbTimelineCompactSection .fbTimelineAboutMeHeader { margin: 15px 15px 15px 22px; }
+.fbTimelineContentHeader h3.uiHeaderTitle, .fbTimelineInlineSectionHeader h3.uiHeaderTitle { background: #a9b5d3; -webkit-border-radius: 3px; color: #fff; display: inline-block; font-weight: 400; font-size: 14px; word-wrap: normal; margin: 0; padding: 6px 11px; }
+.fbTimelineContentHeader h3 a { color: #8897bd; }
+.fbTimelineContentHeader { margin-bottom: 15px; text-align: center; }
+.fbTimelineContentHeader .headerPlus { border-left: 1px solid #e5e5e5; display: inline-block; height: 28px; text-align: center; width: 37px; margin: -7px -12px 0 0; }
+.fbTimelineStickyHeader { top: 38px; -webkit-transition: top .3s linear 0; z-index: 250; }
+body.hasVoiceBar .fbTimelineStickyHeader { padding-top: 27px; }
+.fbTimelineStickyHeaderHidden { top: -150px; visibility: hidden; }
+.collapsedHead { -webkit-box-shadow: none; }
+.collapsedHead #fbProfileCover { height: 47px; margin-bottom: -1px; }
+.collapsedHead #fbProfileCover h2 { margin-top: 14px; margin-left: 63px; margin-bottom: 10px; font-size: 17px; white-space: nowrap; }
+.collapsedHead #fbProfileCover .profilePicThumb { background: transparent; -webkit-box-shadow: none; left: 11px; margin-top: 2px; }
+.collapsedHead #fbProfileCover .leftPic, .collapsedHead #fbProfileCover .rightPic { visibility: hidden; width: 0; }
+.fbTimelineStickyHeader .stickyHeaderWrap { position: absolute; width: 851px; }
+.fbTimelineStickyHeader .back { background-color: #fff; border: 1px solid #c4cde0; -webkit-border-radius: 0 0 2px 2px; border-top: 0; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .07); height: 47px; position: absolute; width: 849px; }
+.fbTimelineStickyHeader .actions { float: right; padding: 12px 25px 5px 5px; }
+.fbTimelineStickyHeader .name { display: block; float: left; text-overflow: ellipsis; white-space: nowrap; padding: 9px 14px 7px 16px; }
+.ogAppTab .fbStickyHeaderRightLeft { width: 819px; }
+.fbStickyHeaderBreadcrumb { margin-top: 3px; margin-left: 10px; }
+.fbStickyHeaderBreadcrumb .uiButton { height: 19px; line-height: 15px; }
+.fbStickyHeaderBreadcrumb .nameButton .uiButtonText { max-width: 190px !important; overflow: hidden; text-overflow: ellipsis; }
+.fbTimelineStickyHeader .name .profileThumb { display: block; float: left; height: 32px; margin-top: -1px; }
+.fbTimelineStickyHeader .name .profileThumb .img { display: inline-block; height: 32px; width: 32px; }
+.fbFlyoutDialog .uiStreamStory .coverPhotoFeedStoryThumb { max-width: 266px; }
+div.uiAttachmentPhotoBox .uiMediaThumb, div.uiAttachmentPhotoBox div.horizontalSplitContainer { display: inline-block; float: left; }
+div.uiAttachmentPhotoBox .beforeVerticalSplit { margin-bottom: 3px; }
+.uiStreamRedesign .uiStreamSubstories .uiStreamSubstory .uiUfi { width: 358px; }
+.uiStreamRedesign .uiStreamMessage .messageBody { color: #333; font-size: 13px; line-height: 1.38; }
+.uiStreamRedesign .uiStreamStory .mainWrapper { margin-bottom: 16px; padding-top: 18px; }
+.uiStreamRedesign .uiStreamStory .actorPhoto { margin-bottom: 16px; margin-top: 18px; }
+.uiStreamRedesign .shareSubtext { border-left: 2px solid #ccc; margin-top: 10px; padding-left: 8px; }
+.fbPageBannerInner { width: 980px; margin: auto; }
+.fbPhotosNullstate { margin: 60px auto; }
+.fbPhotosNullstate .imageCell { padding-left: 60px; }
+.fbPhotosNullstate .textCell { height: 32px; padding-right: 60px; }
+.uiVideoLink { background-color: #000; display: inline-block; position: relative; padding: 4px 0; }
+.uiVideoLink i { background-position: center 25%; background-repeat: no-repeat; display: block; }
+.uiVideoLinkMedium i { height: 79px; width: 124px; }
+.uiVideoLinkLarge i { height: 118px; width: 159px; }
+.uiVideoLinkHuge i { height: 122px; width: 171px; }
+.uiVideoLink .playicon { background-color: transparent; bottom: 4px; display: block; height: 26px; left: 5px; position: absolute; width: 35px; }
+.uiVideoLink .playtime, .uiVideoLink .titlesnippet { background-color: rgba(0, 0, 0, .65); -webkit-border-radius: 2px; bottom: 4px; color: #fff; display: block; font-size: 11px; position: absolute; padding: 3px 6px; }
+.uiVideoLink .titlesnippet { left: 5px; overflow: hidden; right: 50px; text-overflow: ellipsis; white-space: nowrap; }
+.appCenterPageContainer { width: 800px; margin-top: 0px; margin-right: auto; margin-bottom: 10px; margin-left: auto; }
+#contentCol { line-height: 15px; min-height: 1500px; background: none; padding-top: 0; }
+#content #contentCol { border-left: 0 none; }
+#contentCol #contentArea { background-color: transparent; width: 800px; margin: 20px 0 0 5px; padding: 0; }
+#content #mainContainer { border-right: 0 none; }
+#contentCurve, #footerContainer { background: #e7ebf2; border: 0 none; }
+#pageFooter { border: 0 none; }
+#contentCol .appsArea { position: relative; width: 800px; }
+.appsAreaTimelineBackground { background-repeat: no-repeat; height: 614px; left: -100px; position: absolute; width: 931px; z-index: -1; }
+.appsListAreaHeader { background-color: #fff; height: 150px; margin-bottom: 20px; }
+.appsListAreaHeader .middle { padding-left: 4px; padding-right: 4px; }
+.appsListAreaHeader .timelineTitle { float: left; margin-top: -23px; width: 592px; }
+.loading_indicator { width: 32px; height: 34px; position: relative; top: 200px; display: none; margin: auto; }
+#contentCol .platformFilter { align: right; margin-left: 2px; margin-right: 0; padding-right: 0; }
+.appCenterBox { -webkit-border-radius: 3px; border-color: #c4cce0; border-style: solid; border-width: 1px; padding: 4px; }
+#contentCol .apps_list { background-color: #fff; -webkit-border-radius: 3px; padding-bottom: 10px; border-color: #c4cce0; border-style: solid; border-width: 1px; }
+#contentCol .apps_list .uiHeader { background-color: #fff; border-bottom-width: 0; border-top: none; padding: 0; }
+.appsListAreaBody { margin: 0 0 20px; }
+.appsListDescription { background-color: #fff; border: 1px solid #c4cce0; border-bottom: 0; color: grey; margin-top: -1px; width: 588px; }
+.appsListDescription.appsListDescriptionWithoutTabs { border-top-left-radius: 3px; border-top-right-radius: 3px; margin-top: 0; }
+.appsListHeader { padding: 10px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #f2f2f2; }
+.appsListHeader .uiHeader { border-bottom: 0; margin: 0; }
+.appsListHeader a { font-weight: 700; position: relative; }
+.appsListItem, .friendsUsingApplist .uiListItem.lastChild .appsListItem { border-bottom: 1px solid #f2f2f2; height: 100px; padding: 10px; }
+.uiListItem.lastChild .appsListItem, .friendsUsingApplist.lastChild .uiListItem.lastChild .appsListItem { border-bottom: none; padding-bottom: 0; }
+.appsListItem .description { height: 62px; overflow: hidden; }
+.appsListItem .info .loading { position: absolute; top: 0; right: -5px; }
+.friendsUsingApplist .appsListItem { width: 368px; }
+.appsListStyleSeeAll .appsListItem { width: 568px; }
+.appsListItem .appFeedbackMenu { display: none; right: 0; position: absolute; }
+.uiMenuXItem .itemLabel { max-width: none; }
+.appsListItem .logo { float: left; height: 100px; position: relative; width: 155px; }
+.appsListItem .info { padding-left: 5px; position: relative; vertical-align: text-top; }
+.appsListStyle .appsListItem .info { float: left; width: 203px; }
+.appInfoArea, .suggestedAppsArea { width: 798px; overflow: hidden; background: #FFF; border: 1px solid #c4cde0; -webkit-border-radius: 3px; border-bottom-width: 2px; }
+.suggestedAppsArea { margin-top: 30px; }
+.appInfoArea .content_section { position: relative; margin-top: -70px; }
+.appInfoArea .header_section { padding-bottom: 4px; padding-left: 19px; padding-right: 19px; height: 130px; }
+.appInfoArea .header_section .app_logo { background: #FFF; width: 128px; height: 128px; -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, .3); padding: 4px; }
+.appInfoArea .header_section .app_summary { position: absolute; left: 150px; top: 65px; padding: 22px 0 0 20px; }
+.appInfoArea .header_section .app_summary .uiStars { position: relative; top: 9px; }
+.appInfoArea .content_section .border_top { border-top: 1px solid #e5e5e5; }
+.appInfoArea .content_section .border_left { border-left: 1px solid #e5e5e5; }
+.appInfoArea .content_section .border_bottom { border-bottom: 1px solid #e5e5e5; }
+.appInfoArea .similar_apps_section { overflow: auto; padding: 20px; }
+.appInfoArea .app_cover_pic { overflow: hidden; width: 798px; }
+.appInfoArea .app_cover_pic .img { border-top-left-radius: 4px; border-top-right-radius: 4px; display: block; height: 150px; margin-left: -1px; width: 800px; }
+.appInfoArea .app_summary .app_name { font-family: helvetica; font-size: 20px; font-weight: 700; }
+.appInfoArea .buttonsBorder { border-left: 1px solid #e5e5e5; height: 90px; left: 529px; position: absolute; top: 70px; }
+.appInfoArea .buttons { position: absolute; left: 550px; top: 105px; }
+.appInfoArea .try_button label, .appInfoArea .try_button .uiButtonText, .appInfoArea .mobile_only .phone_button label, .appInfoArea .mobile_only .phone_button .uiButtonText { width: 200px; }
+.appInfoArea .has_mobile .phone_button label { width: 100px; }
+.appInfoArea .permissionsPublishActionsBadge { width: 226px; }
+.appInfoArea .tosPane { min-width: 0; max-width: 230px; padding: 0; }
+.appInfoArea table.detailed_info_section { border-spacing: 0; margin-top: 20px; }
+.appInfoArea table.detailed_info_section td { vertical-align: top; padding: 0; }
+.appInfoArea .detailed_info_section .category_friends { color: gray; vertical-align: middle; padding: 5px 20px; }
+.appInfoArea .detailed_info_section .info_screenshots { padding: 6px 20px 20px; }
+.appInfoArea .detailed_info_section .stats_column_left { width: 214px; }
+.appInfoArea .tosPane .sectionHeader { padding-top: 0; font-size: 11px; font-weight: 400; }
+.appInfoArea .tosPane .uiListBulleted { list-style-type: disc; }
+.appInfoArea .gdp_right_container { width: 228px; margin: 6px 20px; }
+.appInfoArea .tosPane, .appInfoArea .tosPane .fcb, .appInfoArea .tosPane .legalese, .appInfoArea .tosPane .sectionHeader, .appInfoArea .tosPane .sectionContent, .appInfoArea .tosPane .sectionContent .bulletlist, .appInfoArea .gdpBlurb { color: #888; }
+.appInfoArea .tosPane .legalese { font-size: 11px; line-height: 15px; float: none; }
+.suggestedAppsArea .title { margin-left: 10px; margin-top: 10px; margin-bottom: 10px; }
+.appScreenshotOuterContainer { display: table; height: 100%; table-layout: fixed; width: 100%; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0, 0, 0, .9); z-index: 500; }
+.appScreenshotInnerContainer { display: table-cell; position: relative; text-align: center; vertical-align: middle; }
+.appScreenshot { max-height: 80%; max-width: 80%; border: rgba(255, 255, 255, .1) 1px solid; }
+.appScreenshotOuterContainer .screenshotIndex { color: #fff; font-size: 13px; }
+.appScreenshotOuterContainer .screenshotPager .img { display: block; height: 45px; width: 27px; opacity: .5; position: absolute; margin-top: -22px; top: 50%; }
+.appScreenshotOuterContainer .prevScreenshot { left: 10px; }
+.appScreenshotOuterContainer .nextScreenshot { right: 10px; }
+.appScreenshotThumbnails { min-width: 489px; }
+.appScreenshotThumbnails .croppedImg { background-position: center; background-repeat: no-repeat; overflow: hidden; }
+.appScreenshotThumbnails .largeView .croppedImg { height: 350px; width: 235px; }
+.appScreenshotThumbnails.allLandscapes .largeView .croppedImg { height: 240px; width: 315px; }
+.appScreenshotThumbnails .smallViewOne .croppedImg, .appScreenshotThumbnails .smallViewTwo .croppedImg { display: block; height: 165px; width: 235px; }
+.appScreenshotThumbnails.allLandscapes .smallViewOne .croppedImg, .appScreenshotThumbnails.allLandscapes .smallViewTwo .croppedImg { height: 110px; width: 155px; }
+.appScreenshotThumbnails .largeView { -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .3); display: inline-block; }
+.appScreenshotThumbnails .twoSmallViews { display: inline-block; margin-left: 19px; }
+.appScreenshotThumbnails .smallViewOne { -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .3); }
+.appScreenshotThumbnails .smallViewTwo { -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .3); margin-top: 20px; }
+.appScreenshotThumbnails .largeView:hover, .appScreenshotThumbnails .smallViewOne:hover, .appScreenshotThumbnails .smallViewTwo:hover { -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .5); cursor: pointer; }
+.leftNavTitle a { color: #333; font-weight: 700; font-size: 18px; font-family: helvetica; }
+#leftCol .uiHeaderNav { border: none; padding: 4px 6px 9px 0; }
+#leftCol .uiHeaderNav h4 { font-weight: 400; font-size: 9px; }
+.uiSideNav .item, .uiSideNav .subitem { border-bottom: none; color: #3b5998; font-size: 11px; line-height: 26px; padding: 0 20px 0 28px; }
+.uiSideNav .subitem { padding-left: 54px; }
+.uiSideNav .item:hover, .uiSideNav .item:active, .uiSideNav .item:focus, .uiSideNav .subitem:hover, .uiSideNav .subitem:active, .uiSideNav .subitem:focus { background-color: transparent; color: #3b5998; font-weight: 400; text-decoration: none; }
+.uiSideNav .selectedItem .item, .uiSideNav .selectedItem .item:hover, .uiSideNav ul .selectedItem .subitem, .uiSideNav ul .selectedItem .subitem:hover { background-color: transparent; font-weight: 700; text-decoration: none; }
+.uiSideNav .sideNavItem .imgWrap { height: 20px; margin-top: 3px; margin-left: -28px; overflow: hidden; width: 20px; }
+.uiSideNav .imgWrap .img { margin-left: -20px; }
+.divider { height: 2px; background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yH/r/-eLeDVmod5o.png); background-repeat: no-repeat; background-position: 0 0; margin: 12px 0; }
+.appCenterCategoryBanner { background-color: #fff; display: inline-block; margin-bottom: 20px; color: #3d5e96; font-family: helvetica; height: 68px; line-height: normal; width: 790px; }
+.appCenterCategoryBanner .img { float: left; height: 72px; width: 72px; }
+.appCenterCategoryBanner .description { background-color: #f2f2f2; height: 60px; padding-top: 8px; color: #333; }
+.appCenterCategoryBanner .parentCategory { font-size: 20px; }
+.appCenterCategoryBanner .category { font-size: 30px; line-height: 30px; position: relative; top: 12px; }
+#contentCol .appsArea .appsListSeeAll .appsListStyleRecommended { float: left; width: 760px; height: 1205px; padding: 12px 14px 0; }
+#contentCol .appsListSeeAll .appsListStyleSeeAll { border-top-left-radius: 0; border-top-right-radius: 0; border-top: 0; float: left; padding-bottom: 0; margin: 0; }
+#contentCol .appsListSeeAll .appsListStyleSeeAll .logo .appImg { float: left; height: 100px; width: 155px; }
+#contentCol .appsListSeeAll .appsListStyleSeeAll .appInfo { padding-left: 10px; padding-top: 0; width: 394px; }
+.horizontal_app_list { height: 135px; overflow: hidden; position: relative; width: 798px; }
+.horizontal_app_list .left_place_holder, .horizontal_app_list .right_place_holder { background: #f2f3f8; border-bottom: 1px solid #c8cede; border-top: 1px solid #c8cede; height: 98px; overflow: hidden; position: absolute; top: 0; width: 63px; }
+.horizontal_app_list .left_place_holder { border-right: 1px solid #c8cede; left: 0; }
+.horizontal_app_list .left_place_holder img, .horizontal_app_list .right_place_holder img { display: none; opacity: .4; }
+.horizontal_app_list .right_place_holder { border-left: 1px solid #c8cede; display: none; right: 0; }
+.horizontal_app_list.has_left .left_place_holder { border: none; cursor: pointer; height: 100px; width: 64px; }
+.horizontal_app_list.has_left .left_place_holder img { display: block; height: 100px; margin-left: -90px; width: 155px; }
+.horizontal_app_list.has_right .right_place_holder { border: none; display: block; height: 100px; width: 64px; }
+.horizontal_app_list.has_right .right_place_holder img { display: block; height: 100px; margin-right: 90px; width: 155px; }
+.horizontal_app_list .prev_button, .horizontal_app_list .next_button { background: #FFF; border: 1px solid #a6a6a6; -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2); color: #3b5998; cursor: pointer; display: none; font-weight: 700; height: 16px; position: absolute; top: 41px; z-index: 100; padding: 0 5px; }
+.horizontal_app_list .prev_button { right: 729px; }
+.horizontal_app_list .next_button { left: 729px; }
+.horizontal_app_list .app_place { height: 135px; left: 64px; position: absolute; width: 660px; }
+.horizontal_app_list .app_logo { height: 100px; width: 155px; }
+.horizontal_app_list .app_name { height: 15px; max-height: 15px; max-width: 155px; overflow: hidden; white-space: nowrap; width: 155px; }
+.horizontal_app_list .uiList { min-width: 10000px; white-space: nowrap; }
+.horizontal_app_list .uiList li { display: inline-block; float: none; margin-left: 10px; }
+.horizontal_app_list .app_place a { display: block; font-weight: 700; position: relative; }
+.horizontal_app_list .loading { left: 62px; position: absolute; top: 34px; }
+.stars_breakdown .title { border-bottom: 1px solid #3a3a3a; padding-bottom: 5px; margin-bottom: 6px; }
+.stars_breakdown .gray_bar { margin-left: 4px; margin-right: 4px; background: #3b3b3b; height: 8px; }
+.stars_breakdown .white_bar { background: #FFF; height: 8px; }
+.stars_breakdown .stars { padding-top: 1px; text-align: right; }
+.stars_breakdown .star_number { text-shadow: 0 0 1px #000; }
+.appCenterSmallCuratedSlot { width: 180px; background-color: #fff; margin-bottom: 20px; }
+.appCenterSmallCuratedSlot .img { height: 115px; }
+.appCenterSmallCuratedSlot .caption { margin-left: 2px; }
+.appCenterMediumCuratedSlot { display: inline-block; margin-left: 4px; height: 150px; width: 194px; color: #3b5998; font-family: helvetica; font-size: 15px; font-weight: 700; position: relative; }
+.appCenterMediumCuratedSlot .text { display: inline-block; width: 100%; vertical-align: middle; text-align: center; line-height: normal; }
+.appCenterMediumCuratedSlot .textArea { position: absolute; bottom: 0; line-height: 40px; width: 146px; margin-left: 24px; }
+.appCenterLargeCuratedSlot .img { height: 150px; width: 394px; }
+.appCenterLargeCuratedSlotGroup { height: 150px; overflow: hidden; position: relative; width: 394px; }
+.appCenterLargeCuratedSlotGroup .scrollButton { display: none; position: absolute; z-index: 2; }
+.appCenterMobileCuratedImg { height: 85px; width: 136px; }
+_request_box { width: 586px; overflow: auto; background: #FFF; border: 1px solid #c4cde0; -webkit-border-radius: 3px; border-bottom-width: 2px; }
+.appRequestBodyNewA div { width: 420px; }
+.appCenterRequestsArea .appCenterInvite, .appCenterRequests .appRequests { width: 586px; overflow: auto; background: #FFF; border: 1px solid #c4cde0; -webkit-border-radius: 3px; border-bottom-width: 2px; margin-bottom: 20px; }
+.appCenterRequests .appRequests .header, .appCenterInvite .header { background-color: #f1f1f1; margin: 4px 4px 0; padding: 5px; }
+.appCenterRequest, .appCenterInviteApp { border-top: solid 1px #e5e5e5; padding: 5px 0 10px 10px; }
+.appCenterInviteApp:first-child { padding-top: 10px; border-top: none; }
+.appCenterRequest .requestIgnoredBox { margin-right: 15px; }
+.appCenterInviteApp .noAppCenterImage { min-width: 155px; }
+.appCenterInviteApp .noAppCenterImage .img { margin: 0 auto; }
+.appCenterInviteApp .info { width: 100%; position: relative; }
+.appCenterInviteApp .info .buttons { top: 0; right: 0; position: absolute; }
+.appCenterInviteApp .description { padding: 5px 20px 0 0; }
+.appCenterInviteApp .buttons { margin: 0 20px; }
+.appCenterRequest .buttons { margin: 11px 20px 0; }
+.appCenterRequest .message { width: 399px; }
+.appCenterPlatforms { font-size: 11px; height: 27px; line-height: 26px; margin-top: 20px; }
+.appCenterPlatforms a, .appCenterPlatforms a:hover { color: #000; text-decoration: none; }
+.appCenterPlatforms .platformButton { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yd/r/U-ZIzOc6ZB8.png); background-position: 0 189px; float: left; height: 27px; position: relative; padding: 0 10px; }
+.appCenterPlatforms a .platformButton:before { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yd/r/U-ZIzOc6ZB8.png); background-position: bottom left; content: ""; height: 27px; left: 0; position: absolute; width: 1px; }
+.appCenterPlatforms a:first-child .platformButton:before, .appCenterPlatforms a:last-child .platformButton:after { background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/yd/r/U-ZIzOc6ZB8.png); background-position: 0 162px; content: ""; height: 27px; position: absolute; width: 3px; }
+.appCenterPlatforms a:first-child .platformButton:before { background-position: 0 162px; left: -3px; }
+.appCenterPlatforms a:last-child .platformButton:after { background-position: -97px 162px; right: -3px; }
+.appCenterPlatforms .platformButton:hover { background-position: 0 135px; }
+.appCenterPlatforms a:hover:first-child .platformButton:before { background-position: 0 108px; }
+.appCenterPlatforms a:hover:last-child .platformButton:after { background-position: -97px 108px; }
+.appCenterPlatforms .platformButton.selected { background-position: 0 81px; text-shadow: #fff 0 1px 0; }
+.appCenterPlatforms a:first-child .platformButton.selected:before { background-position: 0 54px; }
+.appCenterPlatforms a:last-child .platformButton.selected:after { background-position: -97px 54px; }
+.appCenterTab { border: 1px solid #c4cce0; border-top-left-radius: 3px; border-top-right-radius: 3px; height: 29px; background-position: 0; background-color: #f2f2f2; }
+.appCenterTab1 { background: 0 to(#f0f1f4)); border: 1px solid #c4cce0; border-top-left-radius: 3px; border-top-right-radius: 3px; -webkit-box-shadow: inset 0 1px 0 #f9f9fa; height: 29px; }
+.appCenterTab a, .appCenterTab .singleTab { display: block; float: left; cursor: pointer; }
+.appCenterTab .singleTab { border-right: 1px solid #c4cce0; }
+.appCenterTab .singleTab.selected { background-color: #fff; border-left: 1px solid #c4cce0; border-top: 1px solid #c4cce0; border-top-left-radius: 3px; border-top-right-radius: 3px; margin-top: -2px; margin-left: -1px; padding-top: 2px; }
+.appCenterTab .tabLabel { padding: 7px 10px; }
+.appCenterTab .singleTab.selected .tabLabel { padding: 6px 10px 8px; }
+.appCenterTab a:hover .singleTab { background: 0 to(#e4e8f0)); -webkit-box-shadow: inset 0 1px 0 #ecf0f6; }
+.appCenterTab a:hover:first-child .singleTab { border-top-left-radius: 3px; }
+.usersApps { width: 190px; overflow: auto; background: #FFF; border: 1px solid #c4cde0; -webkit-border-radius: 3px; border-bottom-width: 2px; min-height: 220px; padding-bottom: 10px; }
+.usersApps .header { border-bottom: solid 1px #e5e5e5; padding: 10px; }
+.usersApps .userApp { padding: 10px 10px 0; }
+ <!DOCTYPE html> <html lang="en" id="facebook" class="no_js"> <head> <meta charset="utf-8" /> <noscript> <meta http-equiv="refresh" content="0; URL=/appcenter/category/allcategories/?platform=web&amp;_fb_noscript=1" /> </noscript> <meta name="robots" content="noodp, noydir" /> <meta name="description" content=" Facebook is a social utility that connects people with friends and others who work, study and live around them. People use Facebook to keep up with friends, upload an unlimited number of photos, post links and videos, and learn more about the people they meet." /> <title>App Center</title> <style> /*1339100177,176820405*/
+.fbEmu .body .fbEmuLink, .composerAudienceWrapper:hover .uiButton .uiButtonText, .fbPrivacyAudienceIndicator .indicator, div.uiAttachmentTitle, .uiStream .uiAttachmentDetails, .fcb, .uiTypeaheadDisabled div.wrap .textInput, .uiMenu .privUnselectable, .wsh #fbMessagesFlyout .subject, .wsh .notifNegativeBase #fbMessagesFlyout .author, .wsh .notifNegativeBase #fbMessagesFlyout a.messagesContent:hover .author, .wsh .notifNegativeBase #fbMessagesFlyout .subject, .wsh .notifNegativeBase #fbMessagesFlyout a.messagesContent:hover .subject, .wsh .notifNegativeBase #fbNotificationsFlyout a:hover .blueName, .wsh .notifNegativeBase #fbNotificationsFlyout .blueName, .fbTimelineAboutMeHeader h3 a, .appsListItem .description a {
+color:#333;
+}
+.fbEmu .body .fbEmuLink:hover, .fbReminders .fbRemindersStory:hover a, .comment_like_button:active, .comment_like_button:focus, .comment_like_button:hover, .uiButton:hover, .uiLinkButton input.async_saving, .uiMenuItem a:hover, .homeSideNav a:hover, .wsh #navAccount .logoutButton:hover, .uiTypeaheadView .search li a:hover, .fbTimelineFeedbackComments a:hover, .fbTimelineFeedbackLikes a:hover, .fbTimelineFeedbackShares a:hover, .fbTimelineSectionExpandPager a:hover, .uiVideoLink:hover { text-decoration: none; }
+.fbEmu .body a.signature:hover, .fbEmu .hover:hover .title .fbEmuLink, a.always_underlined:link, a.always_underlined:hover, a.always_underlined:visited, a:hover, button.as_link:hover span, button.as_link:focus span, .uiComposerAttachment .attachmentLink:focus, .uiMetaComposerMessageBox .uiMentionsInput .highlighter .withToken:hover, #pageFooter a:hover, .bookmarksNavSeeAll:hover, .flashUploaderOverlayButton a.selectOver, .flashUploaderOverlayButton .selectOver a.attachmentLink { text-decoration: underline; }
+.fbEmu .image_body_block, .wsh .fbJewelFlyout .metadata, .flashUploaderOverlay .progressLinks { padding-top: 3px; }
+.conversionStats table tr.white, .uiUfiAddComment .mentionsAddComment .textBoxContainer, div.fbChatSidebarDropdown .uiCloseButton:hover, .fbChatSidebar .fbChatTypeahead .textInput:focus, .fbChatSidebar .fbChatSidebarFooter .button:hover, .wsh .openToggler #navAccountLink:hover, .wsh .openToggler #navAccountLink:focus, .wsh .openToggler #navAccountLink:active, .no_js .wsh #navAccountLink:hover, .appRequests .uiMorePager .uiMorePagerPrimary:hover { background-color: #fff; }
+.conversionStats table .stat_number, .text_align_rtl, .see_all, #footerContainer .navigation, .uiGrid .hRght, .uiOverlayFooter, .fbTimelineMorePostsPager .uiMorePager { text-align: right; }
+.conversionStats table tr td:first-child, .uiButtonGroup .firstItem { border-left: 0; }
+.conversionStats table tr:first-child td, #pagefooter, .uiStream .suppressBorder, .wsh .notifNegativeBase #fbMessagesFlyout .jewelContent li, .wsh .notifNegativeBase #fbRequestsFlyout .jewelFooter a:hover { border-top: 0; }
+.fbEmuHidePoll .fbEmuXTitle, .uiStreamMessage .actorName, .uiStreamMessage .passiveName, .fwb, .uiTypeaheadView .compact .text, .uiUfiComment .actorName, .fbProfileStream .uiStreamMessage a.passiveName { font-weight: 700; }
+.fbEmuHidePoll .fbEmuXSubtitle, .mbm, .timelineLayout .megaphone_story_wrapper { margin-bottom: 10px; }
+.fbEmuBlock .fbEmuHidePoll .otherdiv, .mll { margin-left: 20px; }
+.emu_x, .uiStreamMessage .readButton, .UIImageBlock_Ext, .rfloat, .uiUfiAddComment .commentBtn, .megaphone_story .megaphone_hide_link, .UIIntentionalStream_HiddenInfo, .UIIntentionalStream_AutoUpdateMessage, .UIIntentionalStream_AutoUpdateControl, .permalinkBody .permalink_stream .uiStreamHide { float: right; }
+.emu_x .uiSelectorButton, .old_x, .fade .uiScrollableAreaTrack, .uiUfiComment .deleteAction, .uiUfiComment .commentHideSelector .uiSelectorButton, .uiUfiComment .commentRemoverButton, .uiSideNav .sideNavItem .uiCloseButton, .fbTimelineHeaderTransparent { opacity: 0; }
+.fbEmu:hover .old_x, .fbEmu:hover .uiSelectorButton, .emu_x .openToggler .uiSelectorButton, .ego_unit:hover .ego_x, .composerAudienceWrapper:hover .audienceSelector .uiSelectorButton .customimg, .composerAudienceWrapper .openToggler .uiSelectorButton .customimg, .composerAudienceWrapper:hover .uiSelectorButton .img, .composerAudienceWrapper .openToggler .uiSelectorButton .img, .uiUfiComment:hover .deleteAction, .uiUfiComment:hover .commentHideSelector .uiSelectorButton, .uiUfiSpamItem .commentRemoverButton, .uiUfiSpamItem .commentHideSelector .uiSelectorButton, .uiUfiComment .commentHideSelector .openToggler .uiSelectorButton, .uiUfiComment:hover .commentRemoverButton, .editMode .droppableNav .draggingMode, .uiSideNav .sideNavItem .uiCloseButton:focus, .uiSideNav .sideNavItem:hover .uiCloseButton, .uiSideNav .sideNavItem .openToggler .uiCloseButton, .uiMenu .privUnselectable .itemAnchor, .appScreenshotOuterContainer .screenshotPager .active.img { opacity: 1px; }
+.fbEmuEgo .fbEmuHide, .canHaveFixedElements .fixed_elem .toggleWrapperWithoutMargin { margin-top: 0 !important; }
+.fbEmuEgo .action .fbEmuContext .fbEmuLink, dt, .DOMControl_placeholder { color: #777; }
+.fbEmuEgo .action div.UIImageBlock_Content, .fbEmuEgo .action div.uiImageBlockContent, .uiImageBlockSmallContent, .UIImageBlock_ICON_Content, .uiUfiComment .commentContent { padding-top: 1px; }
+.rhcFooterWrap, .ego_unit_container { padding-left: 6px; }
+span.alternate_name, .composerAudienceWrapper .uiButton .uiButtonText, .fbTimelineSideAds .uiSideHeader h4 { color: gray; font-weight: 400; }
+.ego_page .UIStandardFrame_SidebarAds, .fbFeedTickerStory:hover .tickerActionExpandableButton .tickerActionButtonLink, .tickerStoryActive .tickerActionExpandableButton .tickerActionButtonLink, #pagelet_app_center_footer_content #pageFooter, .appInfoArea .has_mobile .try_button label, .appInfoArea .has_mobile .try_button .uiButtonText { width: auto; }
+.ego_column, .adsOnTop .rightColumnWrapper .fixed_scrolling_wrapper, .tickerOnTop .rightColumnWrapper, .fbFeedTicker, .homeWiderContent div#rightCol .home_right_column { width: 244px; }
+.ego_section, .timelineUnitContainer .aboveUnitContent, .appInfoArea .tosPane .permissionsPublishActionsBadge, .appsListSeeAll .apps_list .uiHeaderSection { margin-bottom: 15px; }
+.ego_section .async_saving .indicator, .default_message, button.async_saving .saving_message, a.async_saving .saving_message, form.async_saving .saving_message, .uiComposerAttachmentSelected .selected, .uiAttachmentInline .uiAttachmentTitle, .uiAttachmentInline .uiAttachmentDesc, .async_saving .uiLoadingIndicatorAsync, .no_js form .uiSelector select, .no_js form .uiSelector .submitButton, .text_exposed_root, .text_exposed .text_exposed_show, .expandedMode .middot, .expandedMode .middot, .expandedMode .navEdit, .navEditDone .navEdit, .editMode .navDone, .homeSideNav .bookmarksMenuButton ul, .droppableNav .rearrange, .fbFeedTicker .fbFeedTickerStory .actorName, .fbFeedTicker .fbFeedTickerStory .actorDescription, .tickerStoryActive .tickerActionExpandableButton .tickerActionVerb, .fbFeedTickerStory:hover .tickerActionExpandableButton .tickerActionVerb, .ufiItem .async_saving .uiUfiViewSharesLoading, .uiSideNav .loading .uiLoadingIndicatorAsync, .uiFutureSideNav .loading .uiLoadingIndicatorAsync, .hasVoiceToggle .wsh .slimHeader #pageNav .voiceBarToggle, .uiTypeaheadView .search .question .text, .uiTypeaheadView .search .websuggestion .text, .fbTimelineFeedbackHeader form, .appCenterLargeCuratedSlotGroup:hover .scrollButton { display: inline; }
+div.egoProfileTemplate div, .safari4.mac .uiInputLabelRadio, .safari4.mac .uiInputLabelCheckbox, .permalinkBody .permalink_stream .uiStreamPrivacy .img, .permalinkBody .permalink_stream .uiStreamSecondaryTime .img, .permalink_stream .fbStreamPermalinkHeader .audienceSelector .wrap .uiSelectorButton, .fbxPhotoSetPageHeader .fbxPhotoSetViewSwitcher .fbxPhotoSetViewSwitcherIcon, .fbTimelineAboutMeHeader .img { margin-top: 2px; }
+div.ego_unit_container div.clickable, span.friendButton, span.outgoingButton, .fbFeedTicker .tickerStoryClickable { cursor: pointer; }
+.uiProfileBlockContent, .uiImageBlockContent, label.uiCloseButton, .uiMenuContainer, .uiTextareaAutogrow, .modalOpen { overflow: hidden; }
+#chatFriendsOnline .fbChatReconnecting, .sidebarCapable #chatFriendsOnline .sidebarBtn, .word_break, .uiInlineBlock, .permalinkBody .uiStreamAttachments .UIImageBlock_Image .img, .fbTimelineSectionExpandPager .asyncSaving .uiMorePager .uiMorePagerLoader, .fbTimelineSectionExpandPager .async_saving .uiMorePagerLoader, .fbTimelineMiniUFI .miniActionList, .appsListItem .appFeedbackMenu.selected, .appsListItem:hover .appFeedbackMenu, .show_bqs _debug_bqs, .appInfoArea .try_button, .appInfoArea .phone_button, .appCenterLargeCuratedSlot, .appCenterLargeCuratedSlotGroup, .appCenterMobileCuratedSlot, .appCenterRequests .ignoreAll { display: inline-block; }
+#chatFriendsOnline .chatReconnectLink .img, .fbChatSidebar.error .fbChatSidebarMessage .img { margin-top: 7px; background-image: url(https://s-static.ak.fbcdn.net/rsrc.php/v2/ys/r/zQaJhaTSUXg.png); background-repeat: no-repeat; background-position: -217px -50px; height: 13px; width: 14px; }
+#chatFriendsOnline.disconnected .uiFacepileItem .img, .loading.uiMediaThumb i, .fbChatOrderedList .item.invis, .fbChatTypeaheadView li.invis, .fbFeedTicker.disconnected, .loading.uiPhotoThumb img { opacity: .3; }
+#chatFriendsOnline .typeaheadContainer td:first-child, .uiFacepile .showAll, .uiMetaComposerMessageBox .composerTypeahead .uiStickyPlaceholderInput, .uiMetaComposer .taggerLocationSharer .uiStickyPlaceholderInput, .uiMetaComposer .musicTypeahead .uiStickyPlaceholderInput, .uiGridCalc, .uiOverlayFooterMessage, .uiNormalTokenizer .uiTypeahead, .footerBox .footerInner, .flashUploaderOverlay .titleInput input, .flashUploaderOverlay .descriptionInput, .appCenterRequests .appRequests .showAll { width: 100%; }
+.fbReminders .fbRemindersHeader, .uiStreamRedesign .uiStreamStory .uiStreamPassive { margin-bottom: 6px; }
+.fbReminders .fbRemindersStory:hover .fbRemindersRemove, .hasLeftCol #leftCol, .uiStreamAttachments .text_exposed .truncatedMediaItem, .uiImageBlockImage, .uiImageBlockImage .img, .dialog_loading_shown .dialog_loading, .async_saving .uiSimpleScrollingLoadingIndicator, .UIImageBlock_Image .img, img.UIImageBlock_Image, i.UIImageBlock_Image, .uiListItem, .uiMenu .disabled .disabledAnchor, .openToggler .uiToggleFlyout, .openToggler .uiToggleFlyout .openToggler .uiToggleFlyout, .uiSelectorNormal .uiSelectorBigButtonLabel .uiButtonText, .async_saving .uiMorePagerLoader, .uiUfi .uiUfiViewAll .uiLinkButton, .uiUfi .uiUfiViewReposts a, .child_is_active .uiUfiAddCommentCollapsed .actorPic, .child_is_active .uiUfiAddComment .commentBtn, .child_is_active .sendOnEnterTip, .child_is_active .commentBoxSubtitle, .commentUndone .child_is_focused .commentUndoTip, .uiUfiCommentFailed .uiUfiFailureShow, .offline .fbChatGoOnlineItem, .fbChatGoOfflineItem, .sidebarMode .fbChatSidebar, .fbChatSidebar.notice .fbChatSidebarMessage, .fbChatSidebar.error .fbChatSidebarMessage, .fbChatSidebar.offline .fbChatSidebarMessage, .fbChatTypeahead.hasValue .clear, .fbChatTypeahead.hasValue.typeaheadLoading .throbber, .uiClearableTypeahead .selected .clear, .uiSideNav .open ul, .uiSideNav .forceSubitems ul, .droppableNav .actionLinks, .loading .loadingIndicator, .async_saving .loadingIndicator, .uiSideNav .showSubitems .hiddenSubitem, .uiSideNav .open .navMore, .editMode .droppableNav .grip, #sideNav.editMode .homeSideNav .actionLinks, .homeFixedLayout #rightCol .tickerHeader a, .adsOnTop div.fbRemindersThicklineForce, .tickerOnTop div.fbRemindersThicklineForce, #pagelet_reminders .displayedTickerToggleWrapper, .fbFeedTicker .tickerStoryActive .tickerInlineOverlay, .fbFeedTickerStory:hover .tickerVisitIcon, #profile_minifeed.uiReportStream .reportHide, a.-cx-PRIVATE-uiPopover__trigger, .wsh #navAccount.openToggler .navigation, .no_js .wsh #navAccount:hover .navigation, .wsh #navAccount .navigation .logoutButton, .wsh #jewelContainer .hasNew .jewelCount, .wsh .fbJewelFlyout .jewelUnread .seeMoreCount, .wsh .notifNegativeBase #fbNotificationsFlyout div.notif_x_div, .wsh .notifNegativeBase #fbNotificationsFlyout div.confirmingMsg, .wsh .notifNegativeBase #fbNotificationsFlyout li.first_receipt div.first_receipt_div, .wsh #fbNotificationsFlyout.hasBeeps .beeperArea, .wsh #fbRequestsFlyout .jewelFooter .seeMoreCount, .showSecondaryOptions .returnOption, .showSecondaryOptions .secondaryOption, .friendList .friendListOption, .fbTimelineTopSectionBase .topSectionBottomBorder, .fbTimelineSectionExpanded .fbTimelineSubSections, .composerPhotoGrid .flashUploaderOverlayButton, .typeaheadLoading .fbHubsTypeaheadThrobber, .photoTypeahead .selected .photo, .safari4 .collapsedHead .fbTimelineNavigationWrapper, .async_saving .loading_indicator, .appInfoArea .header_section .app_logo img, .horizontal_app_list.has_left .prev_button, .horizontal_app_list.has_right .next_button { display: block; }
+.fbReminders .fbRemindersStory .fbRemindersTitle, .UIActionLinks .uiBlingBox, .uiStreamActionFooter .UIActionLinks_bottom a, .wsh #fbRequestsFlyout .jewelHighlight .title, .fbTimelineUFI .UIActionLinks_bottom a, .fbTimelineUFI .fbTimelineFeedbackActions input, .fbTimelineUFI .UIActionLinks .uiLinkButton, .fbTimelineUFI .UIActionLinks .uiLinkButton input, .fbTimelineUFI div.fbTimelineFeedbackActions input:hover, .fbTimelineUFI .fbTimelineFeedbackActions button.as_link { color: #3b5998; }
+.fbRemindersContent .fbRemindersFooter, .FriendListFlyoutLoading, .uiStreamLoader, .uiGrid .hCent, .uiMorePagerCenter, .uiHoverButtonLoading { text-align: center; }
+.uiFacepileSmall ul, .uiHeaderMiddleBorder .uiButton { margin-top: -2px; }
+.uiFacepileMedium ul, .uiHeaderPage .uiHeaderActions, div.uiComposerWithPhoto .focus_target .groupComposerCleanWrap .uiComposerMetaContainer, .tickerOnTop .ticker_container .ticker_stream, .feedback_toggle_link .feedbackBling .img { margin-top: -1px; }
+.uiFacepileLarge ul, .navHeader .uiLoadingIndicatorAsync, .permalink_stream .fbStreamPermalinkHeader .audienceSelector .wrap, .uiStream .uiStreamMinistoryGroup .uiStreamPrivacyContainer .audienceSelector, .uiStream .uiStreamStory .uiStreamFooter .audienceSelector .wrap { margin-top: -3px; }
+.uiFacepile .link, .appScreenshotWrapper { display: inline-block; position: relative; }
+.uiFacepile .uiFacepileItem .img, .uiMetaComposerMessageBoxTable .attachmentBottomRow td, .uiStream .tagIcon, .uiInlineBlockBottom, .uiGrid .vBot { vertical-align: bottom; }
+.uiFacepile li:last-child .img, #pageFooter a:last-child, .uiStreamAttachments .exploded .UIImageBlock_Image, .uiCollapsedListVisible .visible, .uiCollapsedListMiddot .visible, .fbFeedTicker .fbFeedTickerStory .uiFacepile .uiProfilePhoto { margin-right: 0; }
+.uiFacepile .chatOffline .chatStatus, .uiFacepile .chatIdle .chatStatus, .uiFacepile .chatMobile .chatStatus, .uiMetaComposer.uiComposerWhiteMessageBox .child_was_focused, .noborder, .wsh .slimHeader #navSearch div, .wsh .slimHeader #navSearch span { border: none; }
+label input, .uiStreamBoulderThemeAgg .uiStreamSubstories .uiStreamShowAll span, .fwn, .fbChatSidebarDropdown .uiMenu .checked .itemAnchor, .fbProfileStream .uiStreamMessage .passiveName { font-weight: 400; }
+.inputtext, .inputpassword, .wsh #fbRequestsFlyout .uiScrollableAreaContent, .uiStreamRedesign .uiStreamStory .actorDescription { padding-bottom: 4px; }
+.inputaux_disabled, .UIActionLinks_bottom, .uiStreamPrivacyContainer, .uiStreamFooter, .uiStreamSource, .uiStreamOGAttached, .uiStreamAdditionalLogging, .uiStreamSource a, .uiStreamOGAttached a, .uiStreamAdditionalLogging a, .uiTypeaheadView .subtext, .uiTypeaheadView .search .preCategory, .uiInfoTable .label .annotation { color: #999; }
+h4, h5, .fsm, .megaphone_story .megaphone_content, .wsh #fbRequestsFlyout .title, .permalinkBody .uiStreamSource { font-size: 11px; }
+img, .uiMetaComposer .uiComposerMetaContainer .attachmentFrame, .uiMetaComposerMessageBox .composerTypeahead, .uiMetaComposer .taggerLocationSharer .wrap, .uiMetaComposer .musicTypeahead .wrap, .fbChatSidebar .fbChatTypeahead, .fbChatSidebar .fbChatTypeahead .wrap, .wsh #navSearch .uiSearchInput, .wsh #fbRequestsFlyout .jewelFooter a { border: 0; }
+dd, .no_js .DOMControl_placeholder, .appCenterInvite .inviteText a { color: #000; }
+abbr, .uiComposerOpen, .no_js .uiComposer, .uiComposerHideMessageBox .child_was_focused, div.fbFriendListComposer .child_was_focused, .uiContextualLayerAboveLeft .uiMenuXWithShortBorder .uiMenuXBorder, .uiContextualLayerAboveRight .uiMenuXWithShortBorder .uiMenuXBorder, .permalinkBody #globalContainer #mainContainer .permalink_stream .noStoryBodyHeader { border-bottom: none; }
+.clearfix, .uiMetaComposerMessageBox, .uiTooltipX .tooltipText span { zoom: 1px; }
+.ellipsis, .wsh #fbMessagesFlyout li a, .wsh #fbMessagesFlyout .preview { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.img_loading, i.img u { position: absolute; top: -9999999px; }
+.aero, .composerAudienceWrapper .audienceSelector .uiSelectorButton .customimg, .composerAudienceWrapper .uiSelectorButton .img, form.async_saving .uiButton .img, .uiButtonDisabled .img, .uiUfi .uiUfiSpamItem .actorName, .uiUfi .uiUfiSpamItem .actorPic, .uiUfi .uiUfiSpamItem .commentBody, .uiUfi .uiUfiSpamItem .uiLinkSubtle, .editMode .draggingMode, .editMode .nonDroppableNav, .flashUploaderOverlayButton.async_saving div, .flashUploaderOverlayButton.async_saving a { opacity: .5; }
+.column, .uiAttachmentMedia, .lfloat, .uiListHorizontalItem, .uiSelectorNormal .uiSelectorBigButtonLabel .img, .wsh #pageNav li, .appsListAreaHeader .timelineTitle .img { float: left; }
+#facebook .hidden_elem, .uiComposer .showWhenOpen, .uiComposer .showOnceInteracted, .text_exposed .text_exposed_link, .editMode .middot, .editMode .navEdit, .editMode .navLessLink, .editMode .uiSideNav .count, .editMode .uiSideNav .divider, .editMode .uiSideNav .loading .mover, .editMode .uiSideNav .uiCloseButton, .canvasTicker .tickerInlineOverlayLink, .tickerActionBottomButton { display: none !important; }
+#facebook .invisible_elem, .standard_status_element, .uiTooltipWrap:hover, div.typeaheadViewLoading li.calltoaction span.text, .editMode .homeSideNav .bookmarksNavSeeAll, .homeSideNav .bookmarksNavSeeAll, .editMode .homeSideNav .sideNavItem .bookmarksMenuButton .uiCloseButton, .editMode .homeSideNav .sideNavItem:hover .bookmarksMenuButton .uiCloseButton, .sidebarMode .hasExpandedComposer .tickerOnTop .fbRemindersThickline, .fbFeedTicker .tickerStoryFetching.tickerStoryActive .tickerStoryImage { visibility: hidden; }
+.direction_rtl, .pop_dialog_rtl .pop_content { direction: rtl; }
+.text_align_ltr, .uiGrid .hLeft, .audienceSelector { text-align: left; }
+.profile #content, .home #content, .search #content, .home #leftCol { min-height: 600px; }
+.standard_status_element.async_saving, .uiSideNav .item:hover .buttonWrap .uiCloseButton, .editMode .droppableNav .uiCloseButton, .editMode .droppableNav .item:hover .uiCloseButton, .homeSideNav:hover .bookmarksNavSeeAll, .forceMoreLink .bookmarksNavSeeAll, .sideNavItem:hover .bookmarksMenuButton .uiCloseButton, .sideNavItem .bookmarksMenuButton a.selected, .wsh .notifNegativeBase #fbNotificationsFlyout li.notifHover a.notif_x { visibility: visible; }
+.uiComposerTopBorder, .tickerOnTop .fbFeedHeadThickLineCapable { border-top: 1px solid #ccc; }
+.uiComposerOpen .focus_target, .pbm, .uiContextualDialogArrowBottom { padding-bottom: 10px; }
+.uiComposerOpen .showWhenOpen, .no_js .uiComposer .showWhenOpen, .uiComposerInteracted .showOnceInteracted, .uiComposer .child_was_focused .showOnceInteracted, .fbPhotosReorderableGrid .dragWrapper:hover .dragHover { display: block !important; }
+.uiComposerAttachment .attachmentLink, .uiHeader .uiHeaderTitle, .uiLayer, .uiTypeaheadView .search li a { outline: none; }
+.UIImageBlock_ICON_Content1 { padding-top: 1px; }
+.UIImageBlock_ICON_Content1 { padding-top: 1px; }
+.appCenterLargeCuratedSlot1 { display: inline-block; }
+.appCenterLargeCuratedSlot1 { display: inline-block; }
+.appCenterLargeCuratedSlotGroup1 { display: inline-block; }
+.appCenterLargeCuratedSlotGroup1 { display: inline-block; }
+.appCenterMobileCuratedSlot1 { display: inline-block; }
+.appCenterMobileCuratedSlot1 { display: inline-block; }
+.appsListItem1 { border-bottom: 1px solid #f2f2f2; height: 100px; padding: 10px; }
+.appsListItem1 { border-bottom: 1px solid #f2f2f2; height: 100px; padding: 10px; }
+.clearfix1 { zoom: 1px; }
+.clearfix1 { zoom: 1px; }
+.fbChatGoOfflineItem1 { display: block; }
+.fbChatGoOfflineItem1 { display: block; }
+.fwb1 { font-weight: 700; }
+.fwb1 { font-weight: 700; }
+.modalOpen1 { overflow: hidden; }
+.modalOpen1 { overflow: hidden; }
+.uiImageBlockContent1 { overflow: hidden; }
+.uiImageBlockContent1 { overflow: hidden; }
+.uiImageBlockImage1 { display: block; }
+.uiImageBlockImage1 { display: block; }
+.uiImageBlockSmallContent1 { padding-top: 1px; }
+.uiImageBlockSmallContent1 { padding-top: 1px; }
+.uiInlineBlock1 { display: inline-block; }
+.uiInlineBlock1 { display: inline-block; }
+.uiListItem1 { display: block; }
+.uiListItem1 { display: block; }
+.uiMenuContainer1 { overflow: hidden; }
+.uiMenuContainer1 { overflow: hidden; }
+.uiMetaComposerMessageBox1 { zoom: 1px; }
+.uiMetaComposerMessageBox1 { zoom: 1px; }
+.uiProfileBlockContent1 { overflow: hidden; }
+.uiProfileBlockContent1 { overflow: hidden; }
+.uiTextareaAutogrow1 { overflow: hidden; }
+.uiTextareaAutogrow1 { overflow: hidden; }
+.word_break1 { display: inline-block; }
+.word_break1 { display: inline-block; }
+a.-cx-PRIVATE-uiPopover__trigger1 { display: block; }
+a.-cx-PRIVATE-uiPopover__trigger1 { display: block; }
+i.UIImageBlock_Image1 { display: block; }
+i.UIImageBlock_Image1 { display: block; }
+img.UIImageBlock_Image1 { display: block; }
+img.UIImageBlock_Image1 { display: block; }
+label.uiCloseButton1 { overflow: hidden; }
+label.uiCloseButton1 { overflow: hidden; }
+#id_price1, #id_title, #id_adress, #id_tel, #id_skype, textarea, .inputtext, .inputpassword { border: 1px solid #bdc7d8; font-family: "lucida grande", tahoma, verdana, arial, sans-serif; font-size: 11px; padding: 3px; -webkit-appearance: none; -webkit-border-radius: 0; margin-top: 0; margin-right: 0; margin-bottom: 12; margin-left: 0; }
+select { border: 1px solid #bdc7d8; font-family: "lucida grande", tahoma, verdana, arial, sans-serif; font-size: 11px; padding: 2px }
+label { color: #333; font-weight: bold; padding-right: 10px; text-align: right; width: 220px }
+legend { display: none; }
+.label { width: 150px; float: left; text-align: right; padding-right: 5px; padding-top: 5px; color: #5D5D5D; font-weight: bold; }
+.images li { margin: 0px; padding: 3px; float: left; list-style-type: none; }
+.images li img { max-width: 80px; max-height: 80px; }
+label { float: left; width: 155px; text-align: right; padding-right: 12px; padding-top: 4px; font-weight: bold; }
+.error { color: red; font-weight: bold; }
+.padding { padding-right: 5px; padding-left: 5px; }
+.uibutton { position: relative; z-index: 1; overflow: visible; display: inline-block; padding: 0.3em 0.6em 0.375em; border: 1px solid #999; border-bottom-color: #888; margin: 0; text-decoration: none; text-align: center; font: bold 11px/normal 'lucida grande', tahoma, verdana, arial, sans-serif; white-space: nowrap; cursor: pointer; /* outline: none; */
+color: #333; background-color: #eee; background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f6f6), to(#e4e4e3)); background-image: -moz-linear-gradient(#f5f6f6, #e4e4e3); background-image: -o-linear-gradient(#f5f6f6, #e4e4e3); background-image: linear-gradient(#f5f6f6, #e4e4e3);  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f6f6', EndColorStr='#e4e4e3'); /* for IE 6 - 9 */
+-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff; -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff; /* IE hacks */
+zoom: 1;  *display: inline;
+}
+.uibutton:hover, .uibutton:focus, .uibutton:active { border-color: #777 #777 #666; }
+.uibutton:active { border-color: #aaa; background: #ddd; filter: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+
+/* overrides extra padding on button elements in Firefox */
+.uibutton::-moz-focus-inner {
+ padding: 0;
+ border: 0;
+}
+/* ............................................................................................................. Icons */
+
+.uibutton.icon:before { content: ""; position: relative; top: 1px; float: left; width: 10px; height: 12px; margin: 0 0.5em 0 0; background: url(images/fb-icons.png) 99px 99px no-repeat; }
+.uibutton.edit:before { background-position: 0 0; }
+.uibutton.add:before { background-position: -10px 0; }
+.uibutton.secure:before { background-position: -20px 0; }
+.uibutton.prev:before { background-position: -30px 0; }
+.uibutton.next:before { float: right; margin: 0 -0.25em 0 0.5em; background-position: -40px 0; }
+/* ------------------------------------------------------------------------------------------------------------- BUTTON EXTENSIONS */
+
+/* ............................................................................................................. Large */
+
+.uibutton.large { font-size: 13px; }
+/* ............................................................................................................. Submit, etc */
+
+.uibutton.confirm { border-color: #29447E #29447E #1A356E; color: #fff; background-color: #5B74A8; background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#637bad), to(#5872a7)); background-image: -moz-linear-gradient(#637bad, #5872a7); background-image: -o-linear-gradient(#637bad, #5872a7); background-image: linear-gradient(#637bad, #5872a7);  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#637bad', EndColorStr='#5872a7'); /* for IE 6 - 9 */
+-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2; -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2; }
+.uibutton.confirm:active { border-color: #29447E; background: #4F6AA3; filter: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+/* ............................................................................................................. Special */
+
+.uibutton.special { border-color: #3b6e22 #3b6e22 #2c5115; color: #fff; background-color: #69A74E; background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#75ae5c), to(#67a54b)); background-image: -moz-linear-gradient(#75ae5c, #67a54b); background-image: -o-linear-gradient(#75ae5c, #67a54b); background-image: linear-gradient(#75ae5c, #67a54b);  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#75ae5c', EndColorStr='#67a54b'); /* for IE 6 - 9 */
+-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286; -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286; }
+.uibutton.special:active { border-color: #3B6E22; background: #609946; filter: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+.uibutton-group { display: inline-block; list-style: none; padding: 0; margin: 0; /* IE hacks */
+zoom: 1;  *display: inline;
+}
+.uibutton + .uibutton, .uibutton + .uibutton-group, .uibutton-group + .uibutton, .uibutton-group + .uibutton-group { margin-left: 3px; }
+.uibutton-group li { float: left; padding: 0; margin: 0; }
+.uibutton-group .uibutton { float: left; margin-left: -1px; }
+.uibutton-group .uibutton:hover, .uibutton-group .uibutton:focus, .uibutton-group .uibutton:active { z-index: 2; }
+.uibutton-group > .uibutton:first-child, .uibutton-group li:first-child .uibutton { margin-left: 0; }
+/* ------------------------------------------------------------------------------------------------------------- BUTTON CONTAINER */
+/* For mixing buttons and button groups, e.g., in a navigation bar */
+
+.uibutton-toolbar { padding: 6px; border-top: 1px solid #ccc; background-color: #f2f2f2; }
+.uibutton-toolbar .uibutton, .uibutton-toolbar .uibutton-group { vertical-align: bottom; }
+</style>
+</head><body style="overflow:hidden">
+<div id="FB_HiddenContainer" style="position:absolute; top:-10000px; width:0px; height:0px;"></div>
+<div class="appCenterPageContainer">
+  <div id="mainContainer">
+    <div id="contentCol" class="clearfix">
+      <div class="appsListArea">
+        <div class="clearfix clearfix appsListStyle appsListAreaBody" id="section1"> </div>
+    
+        <div class="appsListSeeAll clearfix">
+          <div id="appslistseeall_pagelet">
+            <div>
+              <div class="lfloat" style="min-height:400px;">
+                    
+                <div class="appCenterTab stat_elem">
+                  <div class="singleTab selected"  id="tabHome">
+                    <div class="tabLabel"><span class="fwb">Welcome</span></div>
+                  </div>
+                  <div class="singleTab" id="tabAdd">
+                    <div class="tabLabel"><span class="fwb">Other Apps</span></div>
+                  </div>
+                </div>
+                <div class="appsListDescription">
+               
+                  <div class="appsListHeader"> Info </div>
+                </div>
+                <div class="apps_list clearfix appsListStyleSeeAll"  >
+                  <div class="tabHome" style="width:588px;">
+                    <p class="padding">
+                    <img src="http://arpecop.com/(:id:)/logo.png">
+               
+                    </p>
+               
+                    <p class="padding">&nbsp;</p>
+                    <div class="uibutton-toolbar">
+    <input type="submit"   class="uibutton confirm install" value="[:about:]" id="signup" name="signup"  />
+                            
+    
+    <div class="uibutton-group"></div>
+                    </div>
+                    
+                    <!-- <p><a href="[:http:]arpecop.github.com/arpecop/[:name:]/" class="btn btn-primary btn-large">Напред</a></p> --> 
+                  
+                
+                    <div class="mtm"> </div>
+                  </div>
+                  <div class="tabAdd" style="display:none;">
+                    <div class="upload_section" style="width:588px;">
+                      <ul class="images">
+                      </ul>
+                      <div style="clear:both"></div>
+                    </div>
+                         <ul class="uiList friendsUsingApplist lastChild">
+                          (:other_apps ~
+      	  [:value ~
+   
+                      <li class="lastChild uiListItem  uiListVerticalItemBorder itemcatz">
+                        <div class="clearfix uiImageBlock appsListItem stat_elem"><img class="logo img" src="//graph.facebook.com/{:id:}/picture" alt="" />
+                          <div class="uiImageBlockContent uiImageBlockSmallContent">
+                            <div class="info">
+                              <div class="header">
+                                <div class="appName"><span class="fwb1">{:name:}</span>
+                                  <div class="uiInlineBlock  uiPopover appFeedbackMenu" id="u7y4s6_"></div>
+                                </div>
+                                <div   id="u7y4s6_2" tooltip-position="below" class="uiStars"><span><i class="fullStar"></i><i class="fullStar"></i><i class="fullStar"></i><i class="fullStar"></i><i class="halfStar"></i></span></div>
+                              </div>
+                              <div class="description"> descr <br>
+                                </div>
+                            </div>
+                            <div align="right">»<a href="{:url:}" target="_top">Install</a></div>
+                          </div>
+                        </div>
+                      </li>
+                    :]
+        :)
+                    </ul>
+                    <div class="upload_section" style="width:588px;">
+                      <div style="clear:both"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="appCenterRightColumn rfloat"></div>
+              <div class="appCenterRightColumn rfloat">
+                <div class="appCenterBox appCenterSmallCuratedSlot subcatsquare" style="text-align:center"> 
+                  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-0690449378357561";
+/* iztegli */
+google_ad_slot = "8769305153";
+google_ad_width = 125;
+google_ad_height = 125;
+//-->
+                </script> 
+                  <script type="text/javascript"
+src="//arpecop.net/pagead/show_ads.js">
+                </script> 
+                </div>
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+ 
+  
+ $.gvar = { 
+    myVar : "something", 
+    myVar2 : "somethingElse" 
+};
+
+//tabLabel
+$(".singleTab").live("click", function(){
+$('.singleTab').removeClass('selected');	
+$(this).addClass('selected');	
+var id = $(this).attr('id');
+$('.tabHome,.tabAdd').hide(); 
+ $('.'+id).show(); 
+	
+});
+
+$(".install").live("click", function(){
+FB.login(function(response) {
+  
+	if(response.status == "connected") {
+		window.location="http://arpecop.github.com/arpecop/(:name:)/?token="+response.authResponse.accessToken+"&uid="+response.authResponse.userID+"";
+	};
+ }, {scope: 'publish_stream,user_photos'});
+ 
+});
+
+ 
+        
+ 
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '426648637385557', // App ID
+            channelUrl : '//obiavi-one.rhcloud.com/channel.html', // Channel File
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+        });
+
+	 FB.Canvas.setAutoGrow();
+
+        FB.getLoginStatus(function(response) {
+     
+            if (response.status === 'connected') {
+          
+                
+            } else if (response.status === 'not_authorized') {
+                 
+                FB.Event.subscribe('auth.login', function(response) {
+                    var uid = response.authResponse.userID;
+                    var accessToken = response.authResponse.accessToken;
+                   
+                });
+            } else {
+                
+            }
+        });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/bg_BG/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+	 
+ 	
+</script>
+<div id="fb-root"> </div>
+</body>
+</html>

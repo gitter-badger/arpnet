@@ -1,0 +1,71 @@
+<html>
+<head>
+<style type="text/css">
+.container {
+	background-image: url(http://s3.amazonaws.com/twitter_production/profile_background_images/30426678/secretbox.png);
+	height: 321px;
+	width: 760px;
+}
+#apDiv1 { position:absolute; left:475px; top:182px; width:267px; height:54px; z-index:1; font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; font-weight: bold; font-size: 14px; } 
+#apDiv2 {
+	position:absolute;
+	left:475px;
+	top:240px;
+	width:267px;
+	height:64px;
+	z-index:4;
+}
+body {
+	margin: 0px;
+}
+
+#apDiv4 { position:absolute; left:445px; top:335px; width:300px; height:267px; z-index:5; }
+a img { border-style: none; }
+</style>
+<title>Mystic Box</title>
+</head>
+
+<body style="overflow:hidden">
+<? 
+$user_id =  $_GET[fb_sig_user];
+if(!isset($user_id)) {
+require_once "../fb/facebook.php"; $appapikey = '3b24d5a790fb9c633348db91a0807001'; $appsecret = 'f3f13ab74ec47408c776ed5fa6a5f226'; $facebook = new Facebook($appapikey, $appsecret);$user_id = $facebook->require_login();
+ 
+}
+
+$contents = file_get_contents("adm/tmp/feed.txt"); $chars = preg_split('/,/', $contents, -1, PREG_SPLIT_NO_EMPTY);    $rand_key1 = array_rand($chars);   $rand_key =  $chars[$rand_key1]; 
+ 
+  ?>
+<div id="FB_HiddenIFrameContainer" style="display:none; position:absolute; left:-100px; top:-100px; width:0px; height: 0px;"></div>
+ <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_GB" type="text/javascript"></script><script type="text/javascript">FB.init("3b24d5a790fb9c633348db91a0807001");
+  <? $refer = $_SERVER['HTTP_REFERER']; $chars = preg_split('/\//', $refer); $app = $chars[2];   if($app = "apps.facebook.com") {    
+echo(' function call(msg, attachment, action_link) {
+  FB.ensureInit(function () {
+    FB.Connect.streamPublish(\'\', attachment, [{\'text\':\'Open The Mystery Box\',\'href\':\'http://apps.facebook.com/mysticbox/\'}]);
+  });
+} ');
+}
+?>
+ </script>
+
+<div id="apDiv1">to: <fb:name uid="loggedinuser" useyou="false" linked="false"></fb:name><br /> from: Anonimous Busterd </div>
+<div class="container">
+
+  <div id="apDiv2"> <a  onclick="call('',{'caption':'{*actor*}  openned The Mystic Box  ','name':'[  THE MYSTYC BOX  ]','media':[{'type':'image','src':'http://s3.amazonaws.com/fbox/<?=$rand_key?>','href':'http://apps.facebook.com/mysticbox/'},{'type':'image','src':'http://ferdi.s3.amazonaws.com/luck/mysticnew1.png','href':'http://apps.facebook.com/mysticbox/'}]});return false;" href="#"> <img src="../spacer.gif" width="267" height="64" border="0"> </a></div>
+</div>
+<!-- footer -->
+<div class="footer">
+  <div><img src="http://photos-f.ak.fbcdn.net/hphotos-ak-snc1/hs167.snc1/6251_105672978379_572383379_2246013_1245359_n.jpg" />
+    <div id="apDiv4">
+      <iframe frameborder='0' scrolling='no' marginheight='0' marginwidth='0' width='302' height='265' src='http://www.adparlor.com/serveIFrameAd.aspx?appId=9517671&adtype=7&birthday=<>&gender=<>&RelationshipStatus=<>&adTBG=000000&adTColor=FFFFFF&adCntColor=000000&adBG=FFFFFF' id='AdParlorAd'></iframe>
+    </div>
+  </div>
+  <div><a href="http://apps.facebook.com/fotoday/"  target="_top"><img src="http://photos-h.ak.fbcdn.net/hphotos-ak-snc1/hs270.snc1/9727_155618103379_572383379_2812337_4674826_n.jpg" /></a>&nbsp;&nbsp;&nbsp; <a href="http://apps.facebook.com/girloftheday/"  target="_top"><img src="http://photos-f.ak.fbcdn.net/hphotos-ak-snc1/hs270.snc1/9727_155620503379_572383379_2812341_1575118_n.jpg" /></a></div>
+  <br />
+  <a href="http://apps.facebook.com/myfortunekookie/"  target="_top"><img src="http://photos-e.ak.fbcdn.net/hphotos-ak-snc1/hs140.snc1/5971_106719058379_572383379_2266740_3781855_n.jpg" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://apps.facebook.com/myluckycard/"  target="_top"><img src="http://photos-f.ak.fbcdn.net/hphotos-ak-snc1/hs235.snc1/8231_143518403379_572383379_2720813_6797811_n.jpg" /></a> </div>
+<div align="center">
+  <iframe src='http://rya.rockyou.com/ams/ad.php?placeguid=13CCC33352&type=Leaderboard&fb_sig_user=<?=$user_id?>' style='border:0px;' width='728' height='90' scrolling='no' frameborder='0'/>
+</div>
+<!-- /footer -->
+</body>
+</html>

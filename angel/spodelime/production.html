@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# dvanadeset: http://ogp.me/ns/fb/dvanadeset#">
+ 
+ 
+<title>Спо / Ме</title>
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:app_id" content="455845877841696" />
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:admins" content="572383379" />
+<meta property="og:title" content="Спо / Ме - Харесвам" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="(:url:)" />
+<meta property="og:image" content="https://(:img:)" />
+<meta property="og:description" content="&nbsp; (:descr:) Виж тук" />
+<meta property="og:site_name" content="Спо / Ме" />
+
+<!-- Le styles -->
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=cyrillic-ext" type="text/css" />
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="src/json.js"></script>
+<style type="text/css">
+body {
+	font-family: 'Open Sans';
+	background-color: #FFF;
+			font-weight: 300;
+       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+       color: #6d6d6d;
+}
+ 
+#items .row-fluid {
+	margin-bottom: 10px;
+	clear:both;
+}
+.thumbnail img {
+	cursor: pointer;
+}
+#single_image {
+	display: none;
+}
+#single_image .thumbnail {
+	padding-left: auto;
+	padding-right: auto;
+}
+body,td,th , div{
+	font-family: "Open Sans", Verdana, Geneva, sans-serif;
+	color: #34495e;
+		font-weight: 300;
+
+}
+.header { 
+color: #FFF;
+font-family: "Open Sans";
+font-weight:300;
+	text-shadow: 0px 1px 1px #2c3e50;
+	background-color:#34495e;
+	padding:20px; 
+	font-size: 40px;
+
+}
+.subheader {
+	font-size: 35px;
+	color:#FFF;
+	font-weight:300;
+	padding:10px;
+	background-color:#2c3e50;
+	text-shadow: 0px 1px 1px #34495e;
+	 
+	
+	}
+	.subheader .col-sm-6 {
+	color:#FFF;
+	
+	}
+	.subheader .selected {
+		text-decoration:none;
+		color:#FFF;
+		}
+		
+			.subheader a {
+		text-decoration:none;
+		color:#CCC;
+		margin-right: 15px;
+		font-size: 40px;
+		text-shadow: 0px 1px 1px #333;
+		}
+		
+			.subheader a:hover {
+				font-size: 43px;
+			}
+	.footer {
+		background-color:#2ecc71;
+			padding:10px;
+				background-color:#34495e;
+		}
+		.list-group li {
+		font-weight:300;
+		font-size: 30px;
+		color:#3498db;
+		background-color:#e74c3c;	
+			
+		}
+		.tooltip {
+			font-weight:300;
+					font-size: 20px;
+		}
+
+
+
+ #pagination {text-align: center;}
+.thumbnail {
+  border-radius: none;
+  padding: 10px; 
+}
+.well {-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;}
+#items img {cursor: pointer;}
+.well {display: none;}
+ 
+</style>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]> 
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+ 
+
+</head>
+
+<body>
+ 
+<div class="header">
+  Спо / Ме
+
+</div>
+<div class="subheader">
+<div class="row-fluid">
+<div class="col-sm-6">
+ <a href="#" class="icon-camera-retro selected" data-toggle="tooltip" data-placement="right" title="Картинки" id="photo"></a>
+ <a href="#" class="icon-facetime-video" data-toggle="tooltip" data-placement="right" title="Видео" id="video"></a>
+  <a href="#" class="icon-edit" data-toggle="tooltip" data-placement="right" title="Статуси" id="status"></a>
+  <a href="#" class="icon-link" data-toggle="tooltip" data-placement="right" title="Линкове" id="link"></a>
+</div> 
+
+<div class="col-sm-6"  style="text-align:right;">
+Категория: <span id="cat-name">Картинки</span>
+</div>
+<div style="clear:both"></div>
+</div>
+
+
+</div>
+ 
+ 
+
+<div class="container "> 
+  <div class="well" id="display_content">
+    <hr>
+    <div style="text-align:center;">
+<img src="" id="photo_content">
+<div id="like">
+
+  </div>
+  
+</div>
+
+  </div>
+
+
+
+  <!-- container-->
+ 
+  <div>
+ 
+  
+    <div id="items"> </div>
+    <div style="clear:both"></div>
+    <ul id="pagination" class="pagination">
+    </ul>
+  </div>
+  
+  <!-- end container--> 
+</div>
+
+ 
+<script type="text/javascript">
+
+
+ 
+  $('.imgitem').popover(function(argument) {});
+
+$(document).on('click', '#items img', function() {
+  FB.Canvas.scrollTo(0,0);
+  var img = $(this).attr('src');
+  img = img.replace('_a.jpg','_n.jpg');
+    var type = $(this).attr('alt');
+
+ if (type == "photo") {
+  $('.well').show();
+  $('#photo_content').attr('src',img);
+
+$('#like').html('<div class="fb-like" data-href="https://apps.facebook.com/spodelibg/?image='+img+'" data-width="450" data-show-faces="false" data-send="false"></div>');
+  FB.XFBML.parse(document.getElementById('like'));
+ } else if (type == "video") {
+
+ } else if (type == "status") {
+
+
+ }
+
+
+
+
+});
+
+
+
+$('.subheader a').tooltip();
+Array.prototype.chunk = function(chunkSize) {
+  var array = this;
+  return [].concat.apply([],
+    array.map(function(elem, i) {
+      return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+    })
+  );
+}
+
+function pagination(all, current, type) {
+
+  var arr = [];
+  var start;
+  var end;
+  var temp = Math.round(all - current);
+
+  if (temp >= 5) {
+    start = Math.round(all - current) - 5
+     end = Math.round(start) + 10;
+  } else {
+    start = 0;
+    end = 10;
+  }
+
+
+
+
+  for (var i = start; i <= end; i++) {
+ 
+    // console.log('realid' + (all - i))
+    var realid = Math.round(all - i);
+    var id = i + 1;
+     if (realid == current) {
+    arr.push('<li class="active"><a href="#" alt="' + realid + '" title="'+type+'">' + id + '</a></li>');
+     } else {
+       arr.push('<li><a href="#" alt="' + realid + '" title="'+type+'">' + id + '</a></li>');
+     }
+
+
+  }
+
+   
+
+
+
+  $('#pagination').html(arr.join(''));
+}
+
+
+
+function provide_content(type, page) {
+  // body...
+
+  $.getJSON('//arpecop.net/quotepublisher/db/stack-hlikes' + type, function(data) {
+    var latest_page = Math.round(data.value / 10 - 1);
+    var content_page = latest_page;
+
+    if (page) {
+      content_page = page;
+    };
+
+
+
+    pagination(latest_page, content_page,type)
+
+
+    $.getJSON('//arpecop.net/quotepublisher/db/hlikes' + type + '' + content_page, function(data) {
+    
+      var arr_items = [];
+ if (type == "photo") {
+ 
+
+      $.each(data.items, function(index, value) {
+        var data = JSON.parse(value.data);
+   
+        var img = data.picture;
+        img = img.replace('_s.jpg', '');
+      arr_items.push('<div class="col-sm-3" style="text-align:center;"><img data-src="' + img + '_a.jpg" alt="'+type+'" src="' + img + '_a.jpg" class="col-sm-12 imgitem"></div>');
+        // arr_items.push('<div class="fb-post" data-href="https://www.facebook.com/arpecop/posts/10151672365918380"><div class="fb-xfbml-parse-ignore">  </div></div>');
+      });
+    } else if (type == "status") {
+
+      $.each(data.items, function(index, value) {
+        var data = JSON.parse(value.data);
+       
+        arr_items.push('<div><pre><img src="//graph.facebook.com/'+data.from.id+'/picture"> '+data.from.name+':\n'+data.message+'</pre></div>');
+      });
+
+    } else if (type == "video") {
+ $.each(data.items, function(index, value) {
+        var data = JSON.parse(value.data);
+      
+        if (data.caption == "youtube") {
+            arr_items.push('');
+        } else {
+    arr_items.push('<video width="560" height="340" controls><source src="'+data.source+'" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\'></video>');
+        }
+       
+    
+      });
+
+    } else if (type == "link") {
+       $.each(data.items, function(index, value) {
+  var data = JSON.parse(value.data);
+   
+  var story = data.story;
+  if (!story) {
+    story = data.message;
+  };
+  arr_items.push('<div class="col-sm-3"><p class="lead"><a href="'+data.link+'" target="_top">'+story+'</a></p> </div>');
+       });
+
+    }
+
+      var chunks_arr = arr_items.chunk(4);
+      var arr_items2 = [];
+      $.each(chunks_arr, function(index, val) {
+         
+        arr_items2.push('<div class="row-fluid">' + val.join('') + '</div><div style="clear:both; height:90px; width:728px; margin-right:auto; margin-left:auto;"><iframe src="//arpecop.net/angel/sortexbg/ad.html" frameborder="0" width="728" height="90"></iframe></div>');
+      })
+
+
+
+      var final_item = '<div class="row-fluid">' + arr_items2.join('') + '</div>';
+
+      $('#items').html(final_item);
+
+
+
+
+    });
+
+
+  });
+}
+provide_content('photo');
+
+/// pagination click
+$(document).on('click', '#pagination a', function() {
+  FB.Canvas.scrollTo(0,0);
+  $('.well').hide();
+  var page = $(this).attr('alt');
+  var type = $(this).attr('title');
+  $('.well').hide();
+  provide_content(type, page);
+
+
+
+});
+
+////////// fix
+$(document).on('click', '.subheader a', function() {
+  $('.well').hide();
+  var text = $(this).attr('data-original-title');
+  $('#cat-name').text(text)
+  $('.subheader a').removeClass('selected');
+  $(this).addClass('selected');
+  var type = $(this).attr('id');
+
+  provide_content(type);
+ 
+
+
+});
+
+
+ 
+
+
+
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '455845877841696', // App ID
+    channelUrl: '//www.secretzone.bg/channel.html', // Channel File
+    status: true,
+    cookie: true,
+    xfbml: true, // parse XFBML
+    frictionlessRequests: true
+  });
+  FB.Canvas.setAutoGrow();
+  var image = "(:img:)";
+
+if (image.length > 5) {
+    $('.well').show();
+  $('#photo_content').attr('src','https://'+image);
+  $('#like').html('<div class="fb-like" data-href="https://apps.facebook.com/spodelibg/?image='+image+'" data-width="450" data-show-faces="false" data-send="false"></div>');
+  FB.XFBML.parse(document.getElementById('like'));
+};
+
+  },
+
+// Load the SDK Asynchronously
+(function(d) {
+  var js, id = 'facebook-jssdk',
+    ref = d.getElementsByTagName('script')[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement('script');
+  js.id = id;
+  js.async = true;
+  js.src = "//connect.facebook.net/bg_BG/all.js";
+  ref.parentNode.insertBefore(js, ref);
+}(document));
+
+</script>
+<div class="footer">
+ 
+</div>
+<script type="text/javascript">
+   
+
+ 
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+</script>
+ 
+</body>
+</html>

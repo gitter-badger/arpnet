@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<style type="text/css">
+body,td,th {
+	font-family: Ubuntu;
+	font-weight:200;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(http://aws.arpecop.net/server/static/teglilka/predishen/predishen.jpg);
+	background-repeat: no-repeat;
+  text-shadow: 1px 1px 1px #FFF; 
+}
+#apDiv1 {
+	position: absolute;
+	left: 25px;
+	top: 87px;
+	width: 50px;
+	height: 50px;
+	z-index: 1;
+	border-radius: 5px;
+	background-color: #FFF;
+	-webkit-transform: skew(0deg,17deg); /* Safari and Chrome */
+}
+#apDiv2 {
+	position: absolute;
+	left: 24px;
+	top: 296px;
+	width: 335px;
+	text-align: center;
+	z-index: 2;
+	background-color: #FFF;
+	border-radius: 5px;
+	background: rgba(255, 255, 255, .5);
+	padding: 5px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+#apDiv3 {
+	position: absolute;
+	left: 22px;
+	top: 7px;
+	width: 335px;
+	text-align: center;
+	z-index: 2;
+	background-color: #FFF;
+	border-radius: 5px;
+	background: rgba(255, 255, 255, .5);
+	padding: 5px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+#apDiv4 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 400px;
+	height: 400px;
+	z-index: 3;
+}
+</style>
+</head>
+
+<body>
+ <img src="https://graph.facebook.com/(:uid:)/picture" id="apDiv1">
+<div id="apDiv2">&nbsp;<span id="nameuser"> </span> - <span id="quote"> </span>&nbsp;</div> 
+<div id="apDiv3">Какъв сте били в предишен живот?</div> 
+<div id="apDiv4"></div>
+<script>
+ 
+var arr = [
+    "странстваш танцьор",
+    "певец",
+    "блестящ интелектуалец",
+    "известен бунтовник",
+    "авантюрист с нежно сърце",
+    "голям оратор",
+    "образован мъдрец",
+    "завоевател и покорител",
+    "любимец на крале и управляващи",
+    "господар на империя",
+    "добронравен разбойник",
+    "изявен защитник на правдата",
+    "странстващ артист",
+    "гуру с широко сърце",
+    "строител на църкви, храмове, катедрали",
+    "строител на пътища, мостове, пристанища",
+    "химик, алхимик, майстор на отрови",
+    "медик, хирург, лекар-знахар",
+    "философ, мислител",
+    "бижутер, часовникар",
+    "майстор-заначтчия",
+    "инжинер",
+    "вожд (лидер)",
+    "военен - майор/капитан",
+    "коняр",
+    "обущар"
+  ];
+  
+   $('#quote').text(arr[(:quote:)])
+  $.getJSON('https://graph.facebook.com/(:uid:)/?fields=first_name', function(data) {
+ 
+   $('#nameuser').text(data.first_name)
+  });
+  
+</script>
+</body>
+</html>
+

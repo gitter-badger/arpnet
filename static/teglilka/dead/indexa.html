@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<style type="text/css">
+body,td,th {
+	font-family: "Times New Roman", Times, serif;
+	font-weight: lighter;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(http://aws.arpecop.net/server/static/teglilka/dead/thomb.jpg);
+	background-repeat: no-repeat;
+	text-shadow: 1px 1px 1px #FFF;
+}
+#apDiv1 {
+	position: absolute;
+	left: 201px;
+	top: 66px;
+	width: 50px;
+	height: 50px;
+	z-index: 1;
+	border-radius: 5px;
+	width: 30px;
+	height: 30px;
+	background-color: #FFF;
+	-webkit-transform: skew(0deg,6deg); /* Safari and Chrome */
+	 -webkit-filter: grayscale(100%);
+}
+#apDiv2 {
+	position: absolute;
+	left: 163px;
+	top: 228px;
+	width: 89px;
+	text-align: center;
+	z-index: 2;
+	background-color: #FFF;
+	border-radius: 5px;
+	background: rgba(255, 255, 255, .5);
+	padding: 5px;
+	font-weight: 700;
+	text-transform: uppercase;
+	-webkit-transform: skew(0deg,-9deg); /* Safari and Chrome */
+}
+ 
+#apDiv4 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 400px;
+	height: 400px;
+	z-index: 3;
+}
+</style>
+</head>
+
+<body>
+ <img src="https://graph.facebook.com/(:uid:)/picture" id="apDiv1">
+<div id="apDiv2">&nbsp;<span id="nameuser"> </span>  <div id="quote">(:quote:) - (:quote1:)</div></div> 
+ 
+<div id="apDiv4"></div>
+<script>
+ 
+ 
+  //(:uid:)
+  
+  // $('#quote').text(arr[(:quote:)])
+  $.getJSON('https://graph.facebook.com/(:uid:)/?fields=name', function(data) {
+ 
+   $('#nameuser').text(data.name)
+  }); 
+  
+</script>
+</body>
+</html>
+

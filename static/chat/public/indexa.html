@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Support chat</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="./socket.io/socket.io.js"></script>
+<script type="text/javascript" src="./js/chat.js"></script>
+<style type="text/css">
+body, td, th {
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	font-size: 11px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.container1 #chat-wrap {
+}
+.container1 #chat-wrap #users {
+	height: 500px;
+	background-color: #F2F4F8;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #DDD;
+	width: 159px;
+}
+.container1 label #div_1 {
+	width: 200px;
+	cursor: pointer;
+}
+.scrollchat {
+	height: 500px;
+	overflow: hidden;
+}
+</style>
+</head>
+<body style="overflow:hidden">
+
+ 
+<script>
+     
+	 
+
+$(document).ready(function() {
+	var myWidth = 0,
+		myHeight = 0;
+	if (typeof(window.innerWidth) == 'number') {  
+		myWidth = window.innerWidth;
+	} else if (document.documentElement && (document.documentElement.clientWidth)) {  
+		myWidth = document.documentElement.clientWidth;
+	} else if (document.body && (document.body.clientWidth)) { 
+		myWidth = document.body.clientWidth;
+	}
+	var scroll = myWidth - 160;
+	$('.scrollchat').css('width', scroll + 'px') 
+	var chat,  
+	json = JSON.stringify,
+		socket = new io.connect();
+	var log = $("#log"),
+		chatMsg = $("#chatMsg"),
+		status = $("#status"),
+		nick = $("#nick");
+	users = $("#users"), changename = $("#changename"), tot = $("#tot"), selected = $("#selected"), broadcast = $("#broadcast");
+	status.html("Connecting.");
+	chatMsg.focus();
+	socket.on("changenickname", function(data) {
+	//	nick.text(data.nick);
+		$('.' + data.id).text(data.nick);
+		$.each(data.userlist, function(index, value) {
+			var cur_id = $('.' + value).attr('id');
+			var nick = data[value].nick;
+			if (nick !== cur_id) {
+				var element = $('#' + cur_id),
+					isSet = element.text();
+				$('#' + cur_id).text(nick);
+			}
+		});
+	});
+	chatMsg.keydown(function(e) {
+		var msg = chatMsg.val();
+		if (e.keyCode === 13) {
+			if (msg) {
+				if (selected.attr("alt") == "broadcast") {
+					socket.emit("chat", {
+						room: '(:room:)',
+						msg: msg
+					});
+				} else {
+					socket.emit("private", {
+						room: '(:room:)',
+						msg: msg,
+						to: selected.attr("alt")
+					});
+				}
+				chatMsg.val('');
+			}
+		}
+	});
+	broadcast.bind("click", function() {
+		selected.attr('alt', 'broadcast');
+		selected.text('broadcast');
+		chatMsg.focus();
+	});
+	socket.on("users", function(data) {
+		var users = [];
+		data.users.userlist.forEach(function(sessid) {
+			users.push('<li><a class="userNick ' + sessid + '" id="' + sessid + '" href="#" title="Send a private message to this user">' + data.users[sessid].nick + '</a></li>');
+		});
+		$('#users').html(users.join(''));
+	});
+	$(".userNick").on("click", function() {
+		selected.attr('alt', $(this).attr('id'));
+		selected.text($(this).text());
+		chatMsg.focus();
+	});
+	
+	
+	socket.on("chat", function(data) {
+		var now = moment();
+		 var from = $('#' + data.from).text(); 
+	 
+		$('.' + data.room).append(' <tr> <td>  <span class="label">' + from + '</span><br> ' + data.msg + ' </td>  <td width="100">' + now.format("h:mm:ss  D/MM-YY") + '</td></tr> ');
+		$(".lastelement").scrollTop(300);
+		var container = $('.scrollchat'),
+			scrollTo = $('.lastelement');
+		container.scrollTop(scrollTo.offset().top - container.offset().top + container.scrollTop());
+	});
+	
+	
+	socket.on("private", function(data) {
+		var now = moment();
+		 var from = $('#' + data.from).text(); 
+		$('.(:room:)').append(' <tr> <td>  <span class="label label-warning">private message </span><br><a class="userNick ' + data.from + '" id="' + data.from + '" href="#" title="Send a private message to this user">' + from + '</a>: ' + data.msg + ' </td>  <td width="100">' + now.format("h:mm:ss  D/MM-YY") + '</td></tr> ');
+		var container = $('.scrollchat'),
+			scrollTo = $('.lastelement');
+		container.scrollTop(scrollTo.offset().top - container.offset().top + container.scrollTop());
+	});
+	 
+	 $('.editnickname').on('keydown' , function(e) {
+	 
+		
+		if (e.keyCode === 13) {
+			////console.log(e.keyCode);
+	 var nick = $('.editnickname').val();
+ 
+		socket.emit("changenickname", { nick: nick });
+var items = $('.(:room:)')
+//var last_two = items.filter('tr:gt('+ items.length-5 +')')
+//var html = last_two.html();
+ 
+ 		//$('#myModal').modal('hide');
+		
+		}
+	 })
+	 
+	 
+});
+
+ 
+  
+ </script>
+   <input class="editnickname" id="div_1" type="text" placeholder="Type nickname and press Enter…" style="width:80%">
+<ul class="breadcrumb">
+  <li>#</li>
+</ul>
+<div class="container1">
+  <div id="chat-wrap">
+    <table  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td  valign="top"><div class="scrollchat">dasdasd
+            <table class="table table-striped">
+              <tbody  id="log" class="(:room:)">
+              </tbody>
+            </table>
+            <div class="lastelement"></div>
+          </div></td>
+        <td width="159" valign="top"><div id="users"> </div></td>
+    </table>
+  </div>
+</div>
+<ul class="breadcrumb">
+  <div align="center">
+    <div id="talkto"> You are talking to: <strong><span id="selected" alt="broadcast">broadcast</span></strong> <a id="broadcast"  href="#" title="Talk to everyone">broadcast</a></div>
+ 
+    <div class="input-group">
+         
+               <input name="chatMsg" type="text" id="chatMsg"  value=""  class="form-control">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+  </div>
+</ul>
+<div align="right"><a href="https://www.facebook.com/pages/Chat-Tab-for-Pages/291949690874538" target="_top">Chat tab for FB Pages</a></div>
+</body>
+<div id="fb-root"></div>
+</html>

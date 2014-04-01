@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>(:title:)</title>
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:app_id" content="283536375115012" />
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:admins" content="572383379" />
+<meta property="og:title" content=" (:title:)" />
+<meta property="og:type" content="Снимката на" />
+<meta property="og:url" content="(:url:)" />
+<meta property="og:image" content="(:image:)" />
+<meta property="og:description" content="&nbsp; " />
+<meta property="og:site_name" content="Яките снимки на приятели" />
+<!-- Loading Bootstrap -->
+ 
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<!-- Loading Flat UI -->
+ 
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="//ads.lfstmedia.com/getad?site=161034" type="text/javascript"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+<script src="//apicall.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="../dvanadeset/src/jq.js"></script>
+  <link rel="stylesheet" href="css/iosOverlay.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+ 
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300,400&subset=cyrillic' rel='stylesheet' type='text/css'>
+ <script src="js/iosOverlay.js"></script>
+ 
+
+<style>
+body, td, th, button, div, h1,h2,h3,h4,a {
+  font-family: 'Open Sans';
+    font-weight: 300;
+ 
+}
+
+button,a {
+  font-weight: 400;
+}
+.loaded {
+	display: none
+}
+ body {
+ 
+	background-image: url(//arpecop.net/angel/sortexbg/images/noise-2.png);
+  background-color: #edeeef;
+}
+#section_home .items { text-align: center;}
+.wrapcontrolz {   margin-left: auto; margin-right: auto; text-align: left; display: block; margin-top: 30px;}
+
+.container #section_home .items .controlz {
+	 
+	position: absolute;
+	color: #FFF;
+	padding: 5px;
+}
+#wrapcontrolz form {position: absolute; margin-top: 50px; margin-left: 5px; }
+.bs-docs-nav {
+  background-color: #563d7c;
+}
+.bs-old-docs {
+  padding: 15px 20px;
+  color: #777;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+}
+.darkpink_text {
+  color: #A63856;
+}
+.pink_text {
+  color: #F20F62;
+}
+ 
+.size2 {
+  font-size: 25px;
+    font-weight: 300;
+}
+#likes_section,#otherpics_section, .well {display: none;}
+button i {font-size: 17px;}
+.itemad {
+  width: 50%;
+  float: left;
+  height: 80px;
+}
+.panel {padding: 10px;}
+.items img {max-width: 100%}
+.items {text-align: center;}
+.label {margin-bottom: 5px;}
+</style>
+</head>
+
+<body style="overflow:hidden"> 
+ 
+  <div class="bs-old-docs">
+  <div class="container">
+    <div class="col-sm-4">
+      <span  style="font-size:30px;" class="pink_text"><i class="icon-instagram"></i>  
+  SortexBg
+  </span><br>
+ Най-яките снимки споделени от приятели
+ </div>
+ <div class="col-sm-8" style="text-align:right;" id="panelnav">
+<ul class="nav nav-pills" style="float:right;">
+   <li id="home" class="active"> <a href="#"><i class="icon-home"></i> Гласувай  </a></li>
+   <li id="likes"> <a href="#"><i class="icon-heart"></i> Харесвания <span class="badge">3</span></a></li>
+        <li id="otherpics"> <a href="#"><i class="icon-camera"></i> Други Картинки</a></li>
+          <li id="otherapps"> <a href="#"><i class="icon-stackexchange"></i> Други Приложения</a></li>
+ 
+      </ul>
+ </div>
+ <div id="appatize"></div>
+  </div>
+</div>
+  
+ 
+  
+ 
+   
+  <section class="row-fluid" id="home_section">
+   <div class="wrapcontrolz">
+ 
+           <div id="controlz" class="container">
+                 <button   class="btn btn-link col-sm-6 size2 pink_text" style="text-decoration:none; text-align:left;"><i class="icon-camera"></i>&nbsp; <span class="snimkaname"></span></button>
+         
+
+     </div>
+     <div class="container">
+     <div class="row-fluid">
+   <div class="items col-sm-9">
+
+      </div>
+      <div class="col-sm-3">
+        <div class="btn-group loaded row-fluid">
+       <button   class="btn btn-info" id="ocenilike"><i class="icon-heart pink_text"></i>  Харесвам</button>
+       <button id="right" class="btn  btn-info"><i class="icon-forward"></i> Следваща</button>
+            
+
+    </div>
+    <div style="clear:both"></div>
+   
+ <div class="loaded">
+ <button class="label btn label-info" value="сладка">сладка</button>
+  <button class="label btn label-success" value="сексапилна">сексапилна</button>
+   <button class="label btn label-primary" value="гореща">гореща</button>
+<button class="label btn label-default" value="разкошна">разкошна</button>
+<button class="label btn label-warning" value="зашеметяваща">зашеметяваща</button>
+<button class="label btn label-danger" value="секси">секси</button>
+<button class="label btn label-success" value="привлекателна">привлекателна</button>
+<button class="label btn label-default" value="стилна">стилна</button>
+<button class="label btn label-danger" value="оригинална">оригинална</button>
+<button class="label btn label-primary" value="Pimp">Pimp</button>
+<button class="label btn label-default" value="забавна">забавна</button>
+<button class="label btn label-warning" value="готина">готина</button>
+<button class="label btn label-primary" value="красива">красива</button>
+<button class="label btn label-success" value="елегантна">елегантна</button>
+</div>
+ 
+ 
+      </div>
+      </div>
+</div>
+      
+ 
+ </div>
+     </section>
+     <section id="otherpics_section" class="container panel">
+
+
+     </section>
+
+     <script type="text/javascript">
+
+       iosOverlay({
+  
+    icon: "//arpecop.net/angel/dvanadeset/src/loading.gif"
+  });
+ $.getJSON('//arpecop.net/quotepublisher/db/stack-hlikesphoto', function(data) {
+    var latest_page = Math.round(data.value / 10 - 3);
+ 
+
+    
+
+
+    $.getJSON('//arpecop.net/quotepublisher/db/hlikesphoto' + latest_page, function(data) {
+      var arr_items = [];
+ 
+
+
+      $.each(data.items, function(index, value) {
+        var data = JSON.parse(value.data);
+         
+         
+        var img = data.picture;
+        img = img.replace('_s.jpg', '');
+        arr_items.push('<div class="col-sm-3" style="text-align:center;"><a href="https://apps.facebook.com/spodelibg/" target="_top"><img data-src="' + img + '_a.jpg"  src="' + img + '_a.jpg" class="col-sm-12 imgitem"></a></div>');
+      });
+ 
+      var chunks_arr = arr_items.chunk(4);
+      var arr_items2 = [];
+      $.each(chunks_arr, function(index, val) {
+         
+        arr_items2.push('<div class="row-fluid">' + val.join('') + '</div><div style="clear:both"></div><hr>')
+      })
+
+
+
+      var final_item = '<div class="row-fluid">' + arr_items2.join('') + '</div>';
+
+      $('#otherpics_section').html(final_item);
+
+
+
+    });
+
+
+  });
+     </script>
+
+     <section id="likes_section" class="container panel">
+
+ 
+
+   
+     </section>
+  
+  <div class="container">
+<section id="otherapps_section" style="display:none" class="panel">
+<div id="cross" style="text-align:center;">
+    <div class="itemad">
+      <div class="section"><a href="https://www.facebook.com/imetoti/app_455845877841696" target="_top"><img src="https://graph.facebook.com/131839906957023/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/imetoti/app_455845877841696" target="_top">Тълкуване на буквите на името</a></strong><br>
+        &nbsp;&nbsp;Тълкуване на буквите на името</div>
+    </div>
+    <div class="itemad">
+      <div class="section"><a href="https://www.facebook.com/predishenjivot/app_455845877841696" target="_top"><img src="https://graph.facebook.com/333747356705341/picture" style="float:right;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/predishenjivot/app_455845877841696" target="_top">Какъв сте били в предишен живот?</a></strong><br>
+        &nbsp;&nbsp;Проверете с това забавно приложение</div>
+    </div>
+    <div class="itemad">
+      <div class="section"><a href="https://www.facebook.com/denposleden/app_455845877841696" target="_top"><img src="https://graph.facebook.com/432638250153045/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/denposleden/app_455845877841696" target="_top">Живей всеки ден, сякаш ти е последен</a></strong><br>
+        &nbsp;&nbsp;Провери колко ще живееш с това приложение</div>
+    </div>
+    <div class="itemad">
+      <div class="section"><a href="https://www.facebook.com/vazrast/app_455845877841696" target="_top"><img src="https://graph.facebook.com/246560865463407/picture" style="float:right;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/vazrast/app_455845877841696" target="_top">На колко години изглеждаш [Скенер]</a></strong><br>
+        &nbsp;&nbsp;На колко години изглеждаш [Скенер] </div>
+    </div>
+    <div class="itemad">
+      <div class="section"><a href="https://www.facebook.com/moiatazodia/app_455845877841696" target="_top"><img src="https://graph.facebook.com/295422490556486/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/moiatazodia/app_455845877841696" target="_top">Моята Зодия</a></strong><br>
+        &nbsp;&nbsp;Провери положителните черти според денят в който си роден</div>
+    </div>
+    <div class="itemad">
+      <div class="section"><a href="https://www.facebook.com/iaponskoime/app_455845877841696" target="_top"><img src="https://graph.facebook.com/132139833633587/picture" style="float:right;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/iaponskoime/app_455845877841696" target="_top">Японско Име</a></strong><br>
+        &nbsp;&nbsp;Провери как би се казвал ако си японец</div>
+    </div>
+    <div class="itemad">
+      <div class="section"><a href="https://www.facebook.com/indianskoime/app_455845877841696" target="_top"><img src="https://graph.facebook.com/indianskoime/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/indianskoime/app_455845877841696" target="_top">Индиянско име Име</a></strong><br>
+        &nbsp;&nbsp;Провери как би се казвал ако си индиянец</div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+</section>
+</div>
+
+
+     </div>
+    <div>
+      <div class="loaded" style="padding-bottom:10px; float:left;"></div>
+ 
+<div style="clear:both;"> </div>
+     
+    </div>
+       <div class="panel" style="width:755px; margin-left:auto; margin-right:auto;">
+      <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: 'd6e',
+            ad_size: '728x90',
+            slot: 'slot66623'
+        });
+    //]]>
+</script> 
+    </div>
+    <script>$('.nav-pills li').on('click', function() {
+  $('section').hide();
+  $('.nav-pills li').removeClass('active');
+  $(this).addClass('active');
+  var id = $(this).attr('id');
+  $('#' + id + '_section').show();
+
+})
+
+function init_db() {
+
+  $.getJSON('//arpecop.net/quotepublisher/db/' + window.key, function(data) {
+
+    if (data.message) {
+      $('#likes .badge').text('0');
+    } else {
+      $('#panelnav').show();
+      $('#likes .badge').text(data.total);
+      var arr = [];
+      $.each(data.items, function(index, value) {
+        var img = value.img.replace('_n.jpg', '');
+        arr.push('<div class="media"><a class="pull-left" href="#">  <img class="media-object" src="' + img + '_s.jpg"></a><div class="media-body"><h4 class="media-heading">' + value.name + '</h4>...</div></div>')
+      })
+      $('#likes_section').html(arr.join(''));
+    }
+  })
+}
+
+
+Array.prototype.chunk = function(chunkSize) {
+  var array = this;
+  return [].concat.apply([],
+    array.map(function(elem, i) {
+      return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+    })
+  );
+};
+
+function send_requests() {
+  FB.ui({
+    method: 'apprequests',
+    message: 'Виж старите снимки на приятели',
+    to: window.invites[window.next_chunk_invites]
+  }, function(response) {
+    if (response) {
+      window.next_chunk_invites++;
+    } else {
+
+    }
+  });
+};
+
+
+
+(function($) {
+
+  $.fn.shuffle = function() {
+    return this.each(function() {
+      var items = $(this).children().clone(true);
+      return (items.length) ? $(this).html($.shuffle(items)) : this;
+    });
+  }
+
+  $.shuffle = function(arr) {
+    for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+    return arr;
+  }
+
+})(jQuery);
+
+
+function debounce(fn) {
+  var delay;
+
+  var timer = null;
+  return function() {
+    $('.wrapcontrolz').show();
+    var context = this,
+      args = arguments;
+
+    if (arguments[0].type == "mouseleave") {
+
+      delay = 0;
+    } else {
+      delay = 2400;
+    }
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+
+
+
+window.prev = -1;
+window.next = 0;
+window.next_chunk = 0;
+window.preloadimage = "(:image:)";
+window.next_chunk_invites = 0;
+window.arr = [];
+window.images_loaded = 0;
+
+
+
+var socket = io.connect('//apicall.herokuapp.com/', {
+  resource: 'socket.io'
+})
+
+
+socket.on('populate', function(data) {
+  console.log(data);
+
+  $('.loaded').show();
+  $('#loading').hide();
+
+
+  if (window.arr[window.next].data.length == 1) {
+
+
+    fix_navs(window.arr[window.next]);
+
+
+
+  } else {
+    window.next++;
+    window.prev++;
+
+
+
+    fix_navs(window.arr[window.next]);
+
+  }
+});
+
+var fakearr = 0;
+socket.on('news', function(data) {
+  console.log(data);
+
+  if (data.data.length == 1) {
+    window.images_loaded++;
+    window.arr.push(data);
+
+
+    if (data.data[0].caption) {
+      caption = data.data[0].caption;
+
+
+      $('.items').append('<img id="photo-' + data.uid + '" src="' + data.data[0].src_big + '"  style="display:none;" class="img-rounded zitem">');
+
+    } else {
+
+
+      $('.items').append('<img id="photo-' + data.uid + '" src="' + data.data[0].src_big + '"  style="display:none;" class="img-rounded zitem">');
+
+    }
+
+
+  } else {
+
+
+    $('#photo-' + window.arr + ' .img').html('<img id="photo-' + data.uid + '" src="' + data.data[0].src_big + '"  style="display:none" class="img-rounded zitem">');
+
+  }
+  fakearr++;
+
+  if (window.arr.length <= 4) {
+
+    socket.emit('populate', 'fakearr');
+
+  };
+});
+
+
+
+// all data 
+
+
+
+socket.on('friends', function(data) {
+  if ($.isArray(data)) {
+    var shuffled = $.shuffle(data);
+    window.friends = shuffled.chunk(4);
+    var arr = [];
+    var arr_invites = []
+    $.each(shuffled, function(index, value) {
+      arr_invites[index] = value.id;
+    });
+
+
+    var invites = arr_invites.chunk(40);
+    var arr_invetes2 = [];
+    $.each(invites, function(index, value) {
+      arr_invetes2[index] = value.join(',');
+    });
+
+    window.invites = arr_invetes2;
+    socket.emit('news', window.friends[0], window.fb_accessToken, '0');
+    $('#loading').remove();
+
+  }
+});
+
+
+
+var facebookLoginWindow;
+var loginWindowTimer;
+
+//facebook login
+
+function facebookLogin() {
+  var loginUrl = "http://www.facebook.com/dialog/oauth/?" +
+    "scope=publish_actions,user_photos,friends_photos&" +
+    "client_id=283536375115012&" +
+    "redirect_uri=http://apps.facebook.com/sortexbg/&" +
+    "response_type=token&" +
+    "display=page";
+
+  top.location.href = loginUrl;
+}
+
+//facebook load
+ 
+
+///
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '283536375115012', // App ID
+    channelUrl: '//www.secretzone.bg/channel.html', // Channel File
+    status: true,
+    cookie: true,
+    xfbml: true, // parse XFBML
+    frictionlessRequests: true
+  });
+  FB.Canvas.setAutoGrow();
+
+  if (window.preloadimage) {
+
+
+    $('#myModal').modal('show');
+
+  } else {
+    FB.getLoginStatus(function(response) {
+
+      if (response.status === 'connected') {
+        window.fb_uid = response.authResponse.userID;
+        window.fb_accessToken = response.authResponse.accessToken;
+    
+
+
+        FB.api('/me', {
+          fields: 'username, third_party_id'
+        }, function(response1) {
+
+          $('#appatize').html('<iframe src="//app.appatyze.com/gateway.php?a=827&aid=' + response1.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+
+          window.key = 'sortlikeemup' + response1.username;
+          init_db(response1.username, response.authResponse.accessToken);
+
+        });
+
+
+        socket.emit('login', {
+          token: window.fb_accessToken,
+          uid: window.fb_uid
+        });
+      } else if (response.status === 'not_authorized') {
+        facebookLogin();
+      } else {
+        facebookLogin();
+      }
+    });
+  };
+};
+
+// Load the SDK Asynchronously
+(function(d) {
+  var js, id = 'facebook-jssdk',
+    ref = d.getElementsByTagName('script')[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement('script');
+  js.id = id;
+  js.async = true;
+  js.src = "//connect.facebook.net/bg_BG/all.js";
+  ref.parentNode.insertBefore(js, ref);
+}(document));
+
+
+
+function fix_navs(data) {
+
+  $('.zitem').hide();
+  $('#avatar').attr('src', 'https://graph.facebook.com/' + data.uid + '/picture');
+  $('#photo-' + data.uid + "").show();
+  var img_width = $('#photo-' + data.uid + "").width();
+
+  if (img_width > 10) {
+    //$('.wrapcontrolz').width(img_width)
+  }
+
+  $('.snimkaname').text(data.name);
+
+  $('.controls button').val(data.uid);
+
+
+
+};
+
+function fix_post(data) {
+
+
+
+  var img = data.data[0].src_big;
+
+
+  if (data.action) {
+     
+   
+
+    var json = {};
+    json.img = data.data[0].src_big;
+    json.key = window.key;
+    json.owner = data.uid;
+    json.name = data.name
+    json.uid = window.fb_uid;
+
+
+   
+
+
+
+    $.post("//arpecop.net/quotepublisher/db/" + window.key, json)
+      .done(function(data) {
+
+        init_db();
+      });
+
+    var urlxx = 'https://php2-cube.rhcloud.com/graphstory/?image=' + json.img + '&name=' + json.name+'&action='+data.action;
+
+ 
+
+    FB.api(
+      'me/og.likes',
+      'post', {
+        object: urlxx
+      },
+      function(response) {
+
+
+        // handle the response
+      }
+    );
+
+
+
+  }
+
+}
+
+$('img').on("mousemove", function(event) {
+   
+
+
+});
+
+
+$('button').on("click", function() {
+ 
+  window.next++;
+  $('#oceninapred').hide();
+  $('#ocenilike').show();
+  var id = $(this).val();
+  var action = $(this).val();
+ 
+
+
+  if (action) {
+    var previd = window.next - 1;
+    var dataz = window.arr[previd];
+    dataz.action = action;
+    fix_post(dataz);
+     
+  };
+
+
+
+  var data = window.arr[window.next];
+
+
+
+  fix_navs(data)
+
+
+
+  if (window.next == 5) {
+    send_requests();
+  }
+  var formula = (window.arr.length - window.next);
+
+  if (formula <= 5) {
+    window.next_chunk++;
+    socket.emit('news', window.friends[window.next_chunk], window.fb_accessToken, window.next_chunk);
+  };
+
+
+});
+ </script> 
+   </div>
+</div>
+<hr>
+<div class="row-fluid">
+ 
+  <div style="font-size:10px; text-align:center;"> Copyright © www.arpecop.net | 2013. Всички права запазени. <a href="#">Условия за ползване</a> :: <a href="">Поверителност на данните</a></div>
+</div>
+
+
+ <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="https://apps.facebook.com/sortexbg/" target="_top" class="close" aria-hidden="true">&times;</a>
+          <h4 class="modal-title">&nbsp;</h4>
+        </div>
+        <div class="modal-body">
+       <div class="row-fluid"><img src="(:image:)" class="col-sm-12"></div>
+       <div style="clear:both;"></div>
+ 
+        </div>
+        <div class="modal-footer">
+          <a href="https://apps.facebook.com/sortexbg/"  target="_top"  class="btn">Затвори</a>
+    
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+    
+ 
+<!-- Load JS here for greater good =============================--> 
+  
+<div id="fb-root">&nbsp;</div> 
+
+<script type="text/javascript">
+   
+
+ 
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+</script>
+ 
+ 
+</body>
+</html>

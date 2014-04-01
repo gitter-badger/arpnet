@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Поздрави Ме</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+<link href="https://arpecop.net/angel/pozdravime/src/style.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+ 
+</head>
+
+<body style="overflow:hidden">
+<div class="container">
+  <div class="wrapimage">
+    <div id="dialog" style="width:372px; height:200px; margin-left:429px;  background-image:url(src/design-dialog.png); position:absolute; display:none;">
+      <div style="text-align:center; padding-top:20px;"><span style="font-size: 150%">Поздрава за теб</span></div>
+      <div style="text-align:center; padding-top:20px; padding-left: 35px; padding-right: 45px;"><span style="font-size: 150%" id="songtitle"> </span></div>
+    </div>
+    <div class="video-wrap" style="text-align:center; padding-top:20px; padding-bottom:20px;">
+      <div id="loading" style="display:none">
+        <div><img src="https://arpecop.net/angel/pozdravime/src/loading.gif"></div>
+        <div><img src="https://arpecop.net/angel/pozdravime/src/tape.gif"></div>
+      </div>
+    </div>
+    <div class="padding" style="padding-top:385px;">
+    
+    </div>
+
+    <div class="nolist">
+      <span class="step2" style="display:none;"><a class="alignleft large button blue" id="like"><i class="icon-heart-alt"></i> Харесва Ми!</a></span>
+      <span class="step2" style="display:none;"><a class="large button pink" href="#" id="pozdravi_fr"><i class="icon-group-alt"></i> Поздрави Приятел</a></span>
+
+      <span class="step1"><a class="alignleft large button blue" alt="pozdravi_me"><i class="icon-play"></i> Пусни ми нещо от моите!</a></span>
+    </div>
+  </div>
+  <div class="accordion" id="accordion2">
+    <div class="accordion-group" id="artists"> </div>
+  </div>
+</div>
+<div id="fb-root"></div>
+
+  <div id="videoDiv"></div>
+<script>
+ 
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '293092847487051', // App ID
+      channelUrl : '//arpecop.net/static/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true, // parse XFBML
+      frictionlessRequests: true
+    });
+
+    // Additional init code here
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    // connected
+  } else {
+    // not_logged_in
+  }
+ });
+
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+ 
+ 
+$.gvar = {};
+$.gvar.mixtaping = "no";
+function Shuffle(o) {
+  for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+  return o;
+};
+ 
+ 
+$('li a').on('click',function(){
+  
+
+ // mixtape($(this).text());
+})
+
+
+function provide_video(zis) {
+  $.getJSON('https://gdata.youtube.com/feeds/api/videos?q='+zis+'&alt=json-in-script&callback=?',function(data) {
+    ////console.log(data.feed.entry[0].id['$t']);
+    var splitter = data.feed.entry[0].id['$t'].split("/");
+    ////console.log(splitter);
+    setTimeout(function() {
+    $('#dialog,#loading,.step1').hide();
+    $('.step2').show();
+    $('.video-wrap').html('<iframe class="youtube-player" type="text/html" width="640" height="385" src="https://www.youtube.com/embed/'+splitter[6]+'?autoplay=1&origin=https://arpecop.net" frameborder="0"></iframe>');
+  
+      }, 1500);
+     });
+}
+
+function mixtape(zis,user) {
+ 
+  FB.Canvas.scrollTo(0,0);
+  setTimeout(function() {
+   FB.Canvas.setAutoGrow();
+  $('#loading,#dialog,.step1,.padding').toggle();
+ 
+  var zis1 = Shuffle($(".accordion-inner ul li a" ))[0];
+  var zis = $(zis1).text();
+   $.gvar.songtitle = zis;
+  var image = $(zis1).attr('title');
+
+  $('#like').attr('title',image);
+
+  $('#songtitle').text(zis);
+ 
+  zis = zis.replace(' ','+');
+ 
+provide_video(zis);
+  
+  }, 2000);
+
+////console.log('CALleD i guess once');
+}
+
+  
+  function arrange(artist,next,maxnum) {
+        ////console.log('-----------------');
+ 
+    var limiter = next + 1;
+
+       ////console.log('length'+maxnum);
+    ////console.log('limit'+limiter);
+
+   if (limiter == maxnum) {
+   
+     $.gvar.mixtaping == "yes";
+      mixtape("none","me");
+ 
+    };
+     
+   
+      if($.gvar[artist]) {
+     
+    } else {
+    $.gvar[artist] = artist;
+    
+var newartist = artist.replace(' ','+');
+ 
+    $.ajax({
+  url: "https://itunes.apple.com/search",
+  dataType: 'jsonp',
+  data: {'term':newartist,'callback':'?'}, 
+  success: function(j){
+               
+  
+ if(j.results.length > 1) {
+        var options = '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#'+next+'">'+artist+'</a></div>  <div id="'+next+'" class="accordion-body collapse"><div class="accordion-inner"><ul class="nav nav-tabs nav-stacked">';
+    for (var i = 0; i < j.results.length; i++) {
+    if(j.results[i].artistName == artist) {
+      
+ 
+      options += '<li><a href="#" title="'+j.results[i].artworkUrl100+'">' + j.results[i].artistName + ' - ' + j.results[i].trackName + '</a></li>';
+      }
+    }
+  options += '</ul></div></div>';
+    $("#artists").append(options);
+   };
+  }
+});  
+  
+    }
+  }
+
+  // LIKE
+ $('#like').on('click',function(){
+
+ 
+   $.getJSON('https://graph.facebook.com/me/?fields=first_name&access_token='+$.gvar.token+'&callback=?',function(dataxx) {
+     
+
+var image = $('#like').attr('title');
+ var urltoget =  encodeURIComponent('http://aws.arpecop.net/server/static/djrudix/?quote='+$.gvar.songtitle+'&uid='+dataxx.id+'&name='+dataxx.first_name+'&img='+image);
+ 
+   $.getJSON('http://aws.arpecop.net/server/?id='+urltoget+'&token='+$.gvar.token+'&uid='+dataxx.id+'&text=Поздравчета според вкуса Ви http://goo.gl/CmbON', function(data) {  
+  $('#like').hide();
+   });
+
+        });
+
+ });
+
+ //STEP 1
+
+
+  $('.step1 a').on('click',function(){
+      var to = $(this).attr('alt');
+		  $('#loading').show();
+          
+    FB.login(function(response) {
+  $.gvar.token = response.authResponse.accessToken;
+   
+   pozdravi_me('me',response.authResponse.accessToken);
+  
+ }, {scope: 'user_likes,user_actions.music,friends_likes,user_photos,publish_stream'});
+
+  })
+  
+function pozdravi_me(user,token) {
+  var getone = 'https://graph.facebook.com/'+user+'/music.listens?access_token='+token+'&callback=?';  
+  
+  $.getJSON(getone, function(data) {
+        var next = 1;
+        var arr = [];
+  
+ ////console.log(data.data.length)
+  
+  if(data.data[0]) {
+     
+  $.each(data.data,function(index,value){
+    if(value.data.musician) {
+      arr.push(value.data.musician.title)
+    //  arrange(value.data.musician.title,next,data.data.length);
+   
+    }; 
+  });
+  };
+ 
+
+  var fql = encodeURIComponent('SELECT name, type FROM page WHERE page_id IN (SELECT page_id FROM page_fan WHERE uid=me() AND profile_section="music")');
+  $.getJSON('https://graph.facebook.com/fql/?q='+fql+'&access_token='+token+'&callback=?', function(data) {
+ 
+     if(data.data.length > 1) {
+  $.each(data.data,function(index,value){
+    ////console.log(value.name)
+     arr.push(value.name)
+   // arrange(value.name,next,data.data.length);
+  
+   
+    
+  });
+     }
+     var lengther = arr.length;
+       $.each(arr,function(index,value){
+      arrange(value,index,lengther);
+
+       });
+
+     ////console.log(arr);
+   
+  });
+ 
+});
+
+  };
+ 
+ 
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

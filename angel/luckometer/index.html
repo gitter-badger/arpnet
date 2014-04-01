@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>LuckOmeter</title>
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+ 
+<link href="stylesheets/base.css" rel="stylesheet" type="text/css" />
+ 
+<style type="text/css">
+.floatleft {
+	float: left;
+	text-align: center;
+	font-weight: bold;
+}
+ .ui-progressbar-value  {
+	color: #ffffff;
+	height:35px;
+	background-image:url(images/nav_link_bg.png)
+}
+  #love .ui-progressbar-value {
+	background-position: 0px 140px;
+	 
+}
+  #career .ui-progressbar-value {
+	background-position: 0px 105px;
+	 
+}
+  #money .ui-progressbar-value {
+	background-position: 0px 70px;
+	 
+}
+  #love .ui-progressbar-value { background-color: #C60000}
+.logo {
+	width: 150px;
+	float: left;
+	height: 400px;
+}
+body {
+	background-image: url(images/flirtbot.png);
+	background-repeat: no-repeat;
+}
+.autoalign {
+	width: 550px;
+	margin: auto;
+}
+</style>
+</head>
+<body style="overflow:hidden">
+<div id="fb-root"></div>
+<div class="container" style="min-height:410px">
+<div class="somegame">
+  <h1>LuckOmeter <span class="name"> </span></h1>
+  <div class="autoalign"><img src="images/lovemoney.jpg" /> 
+<div class="love floatleft" style="width:120px">Love:</div></strong><div class="money floatleft" style="width:150px">Money:</div><div class="party floatleft" style="width:110px">Party:</div><div class="career floatleft" style="width:120px">Career:</div></div>  <div style="clear:both"></div></div>
+ 
+ 
+ 
+
+  <table width="100%" class="bordered-table zebra-striped">
+        <tbody>
+          <tr>
+            <td width="50">Love</td>
+            <td id="love"></td>
+          </tr>
+          <tr>
+            <td>Money</td>
+            <td id="money"> </td>
+          </tr>
+          <tr>
+            <td>Career</td>
+            <td id="career"> </td>
+          </tr>
+          <tr>
+            <td>Party</td>
+            <td id="party"></td>
+          </tr>
+           
+        </tbody>
+      </table>
+  <div align="right" style="height:34px;float:right">
+  <label class="uiButton uiButtonLarge uiButtonConfirm">
+    <input type="button" name="publish" value="Share" id="publish" />
+  </label>
+</div>
+<div style="clear:both"></div>
+</div><div align="center" style="height:90px" id="advert">
+</div>
+</div>
+ 
+ 
+ <script>
+function randomFromTo(from, to) {
+	return Math.floor(Math.random() * (to - from + 1) + from);
+}
+$.gvar = {
+	love: randomFromTo(40, 90),
+	money: randomFromTo(10, 90),
+	career: randomFromTo(10, 90),
+	party: randomFromTo(0, 100)	 
+};
+
+var test    = {
+	love: ''+$.gvar.love+' %',
+	money: ''+$.gvar.money+' %',
+	career: ''+$.gvar.career+' %',
+	party: ''+$.gvar.party +' %'
+};
+//$(document).ready(function() {
+ //
+ $.getScript("https://connect.facebook.net/en_US/all.js").done(function(script, textStatus) {
+$.each($.gvar, function(index, value) {
+	$('.' + index).text('' + value + ' %');
+	$('#'+index).progressbar({
+		value: value
+	});
+  
+});
+$.gvar.loveimg = 'https://arpecop.net/angel/luckometer/images/love_' + (101 - $.gvar.love) + '.png';
+$.gvar.moneyimg = 'https://arpecop.net/angel/luckometer/images/love_' + (101 - $.gvar.money) + '.png';
+$.gvar.careerimg = 'https://arpecop.net/angel/luckometer/images/love_' + (101 - $.gvar.career) + '.png';
+$.gvar.partyimg = 'https://arpecop.net/angel/luckometer/images/love_' + (101 - $.gvar.party) + '.png';
+
+
+	 
+	$(".scale").css("width", "" + $.gvar.sexometer + "%");
+	$("#sexometerbar").progressbar({
+		value: $.gvar.sexometer
+	});
+	FB.init({
+		appId: '105397064351',
+		status: true,
+		cookie: true,
+		xfbml: true
+	});
+FB.Canvas.setAutoGrow;
+
+FB.getLoginStatus(function(response) {
+	////console.log(response);
+  if (response.status === 'connected') {
+    // the user is logged in and has authenticated your
+    // app, and response.authResponse supplies
+    // the user's ID, a valid access token, a signed
+    // request, and the time the access token 
+    // and signed request each expire
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+     
+
+    	 $.getJSON('https://graph.facebook.com/'+uid+'?fields=first_name,third_party_id&access_token='+accessToken+'&callback=?',function(response) { 
+ $("#advert").html('<iframe src="http://app.appatyze.com/gateway.php?a=936&aid='+response.third_party_id+'" width="760" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+  $('.name').text(response.first_name);  
+});
+  } else {
+    // the user isn't logged in to Facebook.
+    top.location="https://www.facebook.com/dialog/oauth?client_id=105397064351&redirect_uri=http%3A%2F%2Fapps.facebook.com%2Fluckometer%2F";
+  }
+ });
+
+  });
+	 
+		
+ 
+	 
+$('#publish').click(function() {
+	FB.ui({
+		display: 'iframe',
+		method: 'stream.publish',
+		attachment: {
+			caption: '{*actor*}\'s LuckOmeter',
+			properties: test,
+			media: [{
+				"type": "image",
+				"src": $.gvar.loveimg,
+				"href": "https://apps.facebook.com/luckometer/"
+			}]
+		}
+	}, function(response) {
+		if (response && response.post_id) {
+			FB.ui({
+				method: 'apprequests',
+				message: 'Check how lucky you are today.',
+				data: 'luckometer'
+			});
+		}
+	});
+});
+
+
+
+
+      </script>
+ 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

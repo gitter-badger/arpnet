@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<meta charset="UTF-8">
+<meta name="robots" content="noodp, noydir">
+<title>Коледни Късметчета  късмети зодии гадания щастие</title>
+<meta name="description"  content="Усмивка, смях. Не ги пази! Раздавай! За да усетиш">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+<link href='//fonts.googleapis.com/css?family=Ubuntu:300&subset=cyrillic-ext,latin,greek' rel='stylesheet' type='text/css'>
+<script src="https://arpecop.net/static/PAGES/src/(:id:).js"></script>
+<style type="text/css">
+body, td, th, div, span {
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+ .fb-comments, .adzense {display:none};
+</style>
+</head>
+<body>
+ 
+  <div class="navbar">
+    <div class="navbar-inner"> <a class="brand appname" href="#"> </a>
+ 
+      <ul class="nav pull-right">
+                      <li style="text-align:right;"><a href="#"><span class="likes"></span> <i class="icon-thumbs-up"></i>Likes</a></li>
+                
+                    </ul>
+    </div>
+  </div>
+  <div class="container">
+  <div class="adzense" style="text-align:center; padding-bottom:5px; display:none">
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-0690449378357561";
+/* 728x90, created 1/18/08 */
+google_ad_slot = "3522810169";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="//arpecop.net/pagead/show_ads.js">
+</script>
+  </div>
+      <div style="text-align:center">
+  <button onclick="fb_login(); return false;" class="btn btn-large   btn-primary" type="button" id="launch"> </button>
+  </div>
+ 
+  <div class="result" style="text-align:center">
+ 
+  </div>
+    <div class="adsense" style="text-align:center">
+  
+  </div>
+<div class="comments" style="text-align:center">
+
+</div>
+ <div class="adzense" style="text-align:center; padding-top:10px; display:none;">
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-0690449378357561";
+/* 728x90, created 1/18/08 */
+google_ad_slot = "3522810169";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="//arpecop.net/pagead/show_ads.js">
+</script>
+  </div>
+ 
+  </div>
+<script>
+$.getJSON('https://graph.facebook.com/(:id:)', function(data) {
+ 
+ 
+ $('.appname').text(data.name);
+ if(data.likes > 100) {
+ $('.likes').text(data.likes);
+ } else {
+  $('.pull-right').remove();
+ }
+ $('#launch').text(data.description);
+ $('.comments').html(' <div class="fb-comments" style="display:none" data-href="'+data.link+'?sk=app_111960175483400" data-width="710" data-num-posts="50"></div>');
+ $('.adzense').show();
+ 
+ 
+});
+ function randomFromTo(from, to){
+       return Math.floor(Math.random() * (to - from + 1) + from);
+    }
+
+function fb_login() {
+	    FB.login(function(response) {
+	        if (response.authResponse) {
+	            var uid = response.authResponse.userID;
+	            var accessToken = response.authResponse.accessToken;
+ 
+       app_(:id:)(response.authResponse.userID,response.authResponse.accessToken)
+	        } else {
+	        
+	        }
+	    }, {
+	        scope: 'publish_stream,photo_upload,user_photos,user_birthday'
+	    });
+	};
+
+     window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '111960175483400', // App ID
+          channelUrl : 'https://staticapp.herokuapp.com/channel.html', // Channel File
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          xfbml      : true // parse XFBML
+        });
+
+        FB.Canvas.setAutoGrow();
+      };
+ 
+      // Load the SDK Asynchronously
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+  
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  
+  
+  ////////////////
+  function display_result(uid,quote,token,text,slug) {
+ 
+     $.getJSON('https://graph.facebook.com/'+uid+'/?fields=first_name', function(dataxx) {  
+      
+var parse =  "http://aws.arpecop.net/"+slug+"/?text="+text+"&uid="+uid+"&quote="+quote+"&name="+dataxx.first_name+"&token="+token;
+ 
+
+ $('.btn,#get-started,.fb-comments').toggle();
+ 		  $('.result').html('<div><p class="lead">'+quote+'</p><img src="https://graph.facebook.com/'+uid+'/picture"></div><p class="lead sometext"><img src="'+parse+'" class="img-rounded"></p>');
+ });
+}
+
+  
+  
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<div id="fb-root"></div>
+</body>
+</html>

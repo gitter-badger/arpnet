@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Mystic Box</title>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<script src="//ads.lfstmedia.com/getad?site=13005" type="text/javascript"></script>
+<style type="text/css">
+.containerxx {
+	background-image: url(https://s3.amazonaws.com/twitter_production/profile_background_images/30426678/secretbox.png);
+	height: 321px;
+	width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.ad {
+	height: 90px;
+	width: 728px;
+	margin-right: auto;
+	margin-left: auto;
+	}
+  .result {
+  height: 130px;
+  width: 130px;
+ margin-left: 325px;
+  display: none;
+  position: absolute;
+  }
+
+ 
+#apDiv4 {
+	position: absolute;
+	left: 445px;
+	top: 335px;
+	width: 300px;
+	height: 267px;
+	z-index: 5;
+}
+a img {
+	border-style: none;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+#cross {
+	width: 760px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.apDiv2 {
+	padding-top: 200px;
+	padding-left: 472px;
+}
+  #publish {
+	cursor: pointer;
+	width: 270px;
+	height: 52px;
+}
+
+#publishfather {
+  width: 270px;
+  height: 52px;
+  background-color: #FFF;
+  display: none;
+
+  }
+.containerxx .apDiv2 #userinfo {
+	height: 50px;
+ 
+}
+.logged {display: none;}
+body, td, th {
+	font-family: "Open Sans";
+}
+</style>
+</head>
+
+<body style="overflow:hidden">
+<div class="ad">
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '2f5',
+            ad_size: '728x90',
+            slot: 'slot450'
+        });
+    //]]>
+</script>
+</div>
+
+<div class="containerxx">
+<div class="result"></div>
+  <div class="apDiv2">
+    <div id="userinfo"><div class="logged">From:  Anonimous Busterd <br>
+      to: <span id="username"></span></div>
+      </div>
+    <div id="publish"> </div>
+    <div id="publishfather"> </div>
+  </div>
+</div>
+<div class="ad">
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '2f5',
+            ad_size: '728x90',
+            slot: 'slot450'
+        });
+    //]]>
+</script>
+</div>
+<div id="fb-root"></div>
+<script>
+ 
+  window.fbAsyncInit = function() {
+ 
+ FB.init({
+    appId  : '128280664728',
+    status : true,  
+    cookie : true, 
+    xfbml  : true   
+  }); 
+	FB.Canvas.setAutoGrow();
+ 
+ 
+FB.Event.subscribe('auth.authResponseChange', function(response) {
+  
+
+   if (response.status === "connected") {
+FB.api('/me', function(data) {
+           $('#username').text(data.first_name);
+           $('.logged').show();
+      
+    });
+
+	   $.getJSON('https://api.facebook.com/method/fql.query?query=' + encodeURIComponent('SELECT uid,first_name,is_app_user FROM user WHERE is_app_user AND uid IN (SELECT uid2 FROM friend WHERE uid1 = me())') + '&access_token=' + response.authResponse.accessToken + '&format=json&callback=?', function (fql) {
+      var dat = new Date();
+      var _id = 'mystic10000_'+response.authResponse.userID+''+dat.getDate()+''+dat.getMonth()+''+dat.getFullYear();
+
+        
+
+      $.getJSON('https://arpecop.net/angel/db2/'+_id,function(nosqldata) {
+        
+        if (nosqldata.message) {
+          $.each(fql,function(index,value){
+         
+             $.post("https://graph.facebook.com/"+value.uid+"/notifications", { url: "https://apps.facebook.com/mysticbox/", access_token: "128280664728|CJhLJ8Bneo1-iqK1nt1u1nS0JyE" ,template: ""+value.first_name+", there is a mystery box delivered to your front door" },function(data) { 
+         
+ });
+
+          })
+ 
+         $.post('https://arpecop.net/angel/db2/'+_id,{key:_id},function(nosqldata) {   });
+        };
+
+      });
+
+      
+
+
+   
+   
+	   });
+	   
+	 
+	  
+	  
+   }
+});
+
+ 
+$('#publish').on('click', function() {
+ 
+$.getJSON('items.json',function(itemz){
+var randomnumber=Math.floor(Math.random()*itemz.length);
+var pre_item = itemz[randomnumber];
+//$('.apDiv2').hide();
+$('.logged').show().html(pre_item.name);
+$('#publishfather,#publish').toggle();
+    $('.result').show('slow').html('<img src="https://graph.facebook.com/'+pre_item.img+'/picture?type=normal">');
+
+ 
+FB.login(function(response) {
+	 
+
+  if (response.status === "connected") {
+	  FB.api('/me', function(data) {
+		   
+     FB.api('/me/links', 'post', {
+            link: 'https://www.facebook.com/photo.php?fbid='+pre_item.img,
+            message: "  " + data.first_name + " openned the mystic box \n and found:\n" + pre_item.name + "\n"
+        });
+		
+		  });
+
+
+  } else {
+    // user is not logged in
+  }
+}, {scope:'publish_stream'});
+
+
+
+ 
+ 
+
+ 
+//	
+});
+});
+
+  };
+
+  (function() {
+    var e = document.createElement('script');
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+  }());
+ 
+// providecross('en')
+</script> 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

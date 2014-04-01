@@ -1,0 +1,1044 @@
+<!doctype html>
+
+<head>            
+<title>ФейсБи България - флирт и закачки</title>
+<meta charset="UTF-8" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300,800&subset=cyrillic' rel='stylesheet' type='text/css'>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="src/transit.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/ago.js" type="text/javascript" charset="utf-8"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="src/css.css" rel="stylesheet">
+<script src="//ads.lfstmedia.com/getad?site=203036" type="text/javascript"></script>
+<style type="text/css">
+.list-group-item .badge {
+  font-size: 9px;
+}
+.mislish .lead {
+  height: 35px;
+}
+.alert {
+  font-size: 14px;
+}
+.navver li a {font-size:16px; font-weight:300;}
+.helpsection {display:none}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex2-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <a class="navbar-brand" href="http://flirtbot.net/bg/" target="_top"><img src="//arpecop.net/angel/dvanadeset/src/iconrollover.png" id="rolloverlogo"></a> </div>
+  <div class="collapse navbar-collapse navbar-ex2-collapse">
+    <div class="pull-right" style="margin-top:40px; font-size:13px">
+      <ul class="nav nav-pills navver">
+      <li><a href="#" class="helpmain"><i class="icon-question"></i> Help</a> </li>
+      <li><a href="#"><i class="gittip"></i> Флирт Точки: <span class="badge gold_points">0</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div id="appatyze"></div>
+<div class="container1">
+<div class="info">
+  <div class="alert alert-warning">Съберете 5 Флирт Точки като направите няколко комплимента на профилите долу<span class="pull-right icon-remove"> </span></div>
+</div>
+<div>
+ 
+    <div class="helpsection alert alert-warning fade in">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <strong>Здравей! </strong>FlirtBot e приложение за чат и закачки което бързо ще харесате поради факта че контрола  е изцяло ваш. В случай че имате нов комплимент натиснете <i class="icon-key"></i> под силуета и ако профила ви допада натиснете иконката <i class="icon-comments-alt"></i> и &quot;прати благодаря&quot;, или напишете лично съобщение ... само тогава профила ще може да ви отговори<br>
+      <i class="icon-money"></i> &quot;Отключващите точки&quot; са ви нужни за
+    да продължите разговора или видите от кого е пратено съобщението 5 точки се събърат като пратите комплимент на 5 човека.</div>
+ 
+  
+  <div class="container1"  id= "vaprosi" style="padding-top:10px; display:none;">
+    <div class="add visible-lg visible-md" id="add1"> 
+      <script type="text/javascript">
+  
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '05a',
+            ad_size: '728x90',
+            slot: 'slot80232'
+        });
+    //]]>
+ 
+
+        var QueryString = function () {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+      // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = pair[1];
+      // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]], pair[1] ];
+      query_string[pair[0]] = arr;
+      // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(pair[1]);
+    }
+  } 
+    return query_string;
+} ();
+    //]]>
+</script>
+      <div>
+        <button class="loading btn btn-default"> <img src="//arpecop.net/angel/dvanadeset/src/loading.gif"> </button>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="tab-pane fade" id="mislish"> </div>
+    </div>
+    <div class="row-fluid" style="margin-top:10px;">
+      <div id="mislish">
+        <ul class="breadcrumb">
+          <li class="active"><i class="icon-th-list"></i> <span class="title1">Въпроси</span></li>
+        </ul>
+        <div id="login" style="display:none">
+          <div>
+            <div class="alert alert-error"> <i class="icon-arrow-down"></i>За да продължите към следващата стъпка трябва да оторизирате приложението .</div>
+          </div>
+          <div>
+            <button class="btn btn-mini btn-primary" type="button" id="loginbutton">Login</button>
+          </div>
+        </div>
+        <div class="mislish_igra row-fluid">
+          <div class="row-fluid">
+            <div class="col-sm-3"><img src="src/blank.gif" class="img-rounded img-attendee img-responsive"></div>
+            <div class="col-sm-9">
+              <p class="lead"><i class="icon-angle-right"></i> </p>
+              <div class="row-fluid">
+                <button class="btn  answervalue btn-success" value="Да">&nbsp;<i class="icon-double-angle-up"></i> Да&nbsp;&nbsp;</button>
+                <button class="btn answervalue btn-success" value="Не">&nbsp;&nbsp;<i class="icon-double-angle-down"></i> Не&nbsp;&nbsp;</button>
+                <button value="2" class="btn  btn-info answervalue"><i class="icon-rotate-right"></i>&nbsp;Прескочи&nbsp;</button>
+                <hr>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="ownanswer" placeholder="... друг отговор">
+                  <span class="input-group-btn">
+                  <button class="btn btn-success  answervalue" type="button" id="ownanswersend">Прати</button>
+                  </span> </div>
+                <!-- /input-group --></div>
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid mislish_nav">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-9">
+            <input name="attendees" type="hidden" id="attendees" value="">
+            <div style="text-align:right"> </div>
+          </div>
+        </div>
+        <div class="proceed">
+<div class="alert" id="sendpleasedialog" style="display:none"> <span class="btn btn-mini" id="sendplease" style="float:right">OK!</span> <strong>Внимание!</strong> Известете приятелите си в диалога за да знаят за вашите отговориИзвестете приятелите си в диалога за да знаят за вашите отговори </div>
+        </div>
+      </div>
+      <div class="col-sm-6 moretochkas" id="unlocks">
+        <ul class="breadcrumb">
+          <li class="active"><i class="icon-inbox"></i> <span class="title2">Неотключени Отговори от приятели <span class="label label-info nonunlocked"></span></span></li>
+        </ul>
+        <i class="icon-arrow-left"></i> Отговори на 5 Въпроса с <img src="https://arpecop.net/angel/dvanadeset/src/dane.png"> за да откл 1 отговор <!-- ,или натисни  <img src="https://arpecop.net/angel/dvanadeset/src/dane1.gif"> за да отключиш с покана  -->
+        
+        <hr>
+        <div class="progress" style="display:none;"><span class="infotochka"> </span>
+          <div class="bar" style="width: 0%;"></div>
+        </div>
+        <div class="media-list"> </div>
+      </div>
+    </div>
+    <hr class="soften">
+    <div class="add visible-lg visible-md" id="add2"> 
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '05a',
+            ad_size: '728x90',
+            slot: 'slot80232'
+        });
+    //]]>
+</script>
+    </div>
+    <div> 
+      <!-- end ryad tag --> 
+      
+    </div>
+  </div>
+</div>
+<div id="gameflirt">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="row">
+        <div class="row">
+          <div class="breadcrumb col-sm-10">
+            <li class="active"> <i class="icon-heart"></i> <span id="imgname">Направи Комплимент</span> </li>
+          </div>
+          <button  class="col-sm-2 btn help btn-default" data-toggle="tooltip" data-placement="left" title="" data-original-title="За колкото повече профила гласувате, толкова шанса да ви отговорят е по-голям" id="skip" alt="skip"><i class="icon-chevron-right"></i></button>
+          </ul>
+        </div>
+        <div class="col-sm-7 col-md-8"> <img src="" id="imgflirt" class="img-rounded"> </div>
+        <div class="col-sm-5 col-md-4">
+          <div id="forboys">
+            <ul  class="nav nav-pills nav-stacked">
+              <li><a href="#" alt="сладка">сладка</a></li>
+              <li><a href="#" alt="сексапилна">сексапилна</a></li>
+              <li><a href="#" alt="гореща">гореща</a></li>
+              <li><a href="#" alt="разкошна">разкошна</a></li>
+              <li><a href="#" alt="зашеметяваща">зашеметяваща</a></li>
+              <li><a href="#" alt="секси">секси</a></li>
+              <li><a href="#" alt="привлекателна">привлекателна</a></li>
+              <li><a href="#" alt="стилна">стилна</a></li>
+              <li><a href="#" alt="оригинална">оригинална</a></li>
+              <li><a href="#" alt="забавна">забавна</a></li>
+              <li><a href="#" alt="готина">готина</a></li>
+              <li> <a href="#" alt="красива">красива</a></li>
+              <li><a href="#" alt="елегантна">елегантна</a></li>
+            </ul>
+          </div>
+          <div id="forgirls">
+            <ul  class="nav nav-pills nav-stacked">
+              <li><a href="#" alt="сладък">сладък</a></li>
+              <li><a href="#" alt="сексапилен">сексапилен</a></li>
+              <li><a href="#" alt="горещ">горещ</a></li>
+              <li><a href="#" alt="разкошен">разкошен</a></li>
+              <li><a href="#" alt="зашеметяващ">зашеметяващ</a></li>
+              <li><a href="#" alt="привлекателен">привлекателен</a></li>
+              <li><a href="#" alt="стилна">стилен</a></li>
+              <li><a href="#" alt="оригинален">оригинален</a></li>
+              <li><a href="#" alt="забавен">забавен</a></li>
+              <li><a href="#" alt="готин">готин</a></li>
+              <li><a href="#" alt="красив">красив</a></li>
+              <li><a href="#" alt="елегантен">елегантен</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="col-sm-7 dividzer">
+      <div  id="chat">
+        <div class="clozse"><a href="#" class="icon-remove-sign pull-right"></a></div>
+        <div class="panel-body">
+          <ul class="list-group">
+          </ul>
+          <div class="input-group">
+            <input type="text" class="form-control" id="placeholderchat">
+            <span class="input-group-btn">
+            <button class="btn btn-default"  placeholder="Прати отговор" type="button" id="sendmessage">прати</button>
+            </span> </div>
+        </div>
+        <hr>
+      </div>
+      <ul class="breadcrumb">
+        <li class="active"><i class="icon-th-list"></i> <span class="title1">Активност</span></li>
+      </ul>
+      <span id="inbox1" class="row"> </span> <span id="inbox" class="row"> </span>
+      <hr>
+    </div>
+  </div>
+  <div  class="add2"> 
+
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '05a',
+            ad_size: '728x90',
+            slot: 'slot80232'
+        });
+    //]]>
+</script>
+  </div>
+</div>
+<script type="text/javascript">
+$.gvar = {};
+$.gvar.app = QueryString.id;
+$.gvar.notifications = 0;
+var currentz1 = 0;
+var nextxz1 = 1;
+var prev = 0;
+var next = 1;
+var supernext = 2;
+
+
+$(document).on('click','.helpmain',function(){
+  $('.helpsection').show('slow');
+});
+
+$(document).on('mouseover','.help',function(){
+ 
+$(this).removeAttr('data-original-title');
+});
+
+
+function merge_options(obj1, obj2) {
+  var obj3 = {};
+  for (var attrname in obj1) {
+    obj3[attrname] = obj1[attrname];
+  }
+  for (var attrname in obj2) {
+    obj3[attrname] = obj2[attrname];
+  }
+  return obj3;
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+(function($) {
+
+  $.fn.shuffle = function() {
+    return this.each(function() {
+      var items = $(this).children().clone(true);
+      return (items.length) ? $(this).html($.shuffle(items)) : this;
+    });
+  }
+
+  $.shuffle = function(arr) {
+    for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+    return arr;
+  }
+
+})(jQuery);
+Array.prototype.chunk = function(n) {
+  if (!this.length) {
+    return [];
+  }
+  return [this.slice(0, n)].concat(this.slice(n).chunk(n));
+};
+
+
+function template_message(from, to, timestamp, message) {
+  return ('<li class="list-group-item"><span class="badge">' + timestamp + '</span><img src="https://graph.facebook.com/' + from + '/picture" class="img-rounded" width="40" height="40">&nbsp;&nbsp;' + message + '</li>');
+}
+
+
+function template_unlocked(i, session, from, vote) {
+  return ('<div class="col-sm-6 col-md-4 col-lg-3" id="flirtunlocked' + i + '"><div class="thumbnail1"><img  src="https://graph.facebook.com/' + from + '/picture?type=large"></div><div class="btn-group" id="' + session + '">   <button value="' + i + '" class="btn btn-default deleteflirt2" ><i class="icon-trash"></i></button> <button type="button" class="btn btn-default flirtchat" value="' + session + '" ><i class="icon-comments-alt"></i></button> </div></div>');
+}
+
+function template_locked(i, session, from, vote, gender) {
+  return ('<div class="col-sm-6 col-md-4 col-lg-3" id="flirt' + i + '"> <div class="thumbnail1"><img src="//arpecop.net/angel/dvanadeset/src/unlock' + gender + '.png"><div> Някой си мисли за теб:<br>' + vote + '<br>Отключи срещу 5 точки</div></div><div class="btn-group">   <button value="' + i + '" class="btn btn-default deleteflirt"><i class="icon-trash"></i></button> <button type="button" class="btn btn-default  unlockflirt" value="' + i + '"><i class="icon-key"></i> Отключи</button> </div></div>');
+}
+
+
+var populate = 0;
+
+function prepare_content(userdata, key, total) {
+
+  //remove
+  var json = userdata;
+
+  if (key && total) {
+    $.gvar.user = userdata;
+
+    var rkey = getRandomInt(2, total);
+    var urltoget;
+    if ($.gvar.user.id == '572383379') {
+      urltoget = 'devjson.json';
+    } else {
+      urltoget = '//arpecop.net/quotepublisher/db/' + key + '' + rkey;
+    }
+
+    $.getJSON(urltoget, function(data) {
+      json.arr = data.items;
+
+      $.gvar.userdata = userdata;
+
+      $.gvar.chunkflirts = data.items;
+
+      populate_content(populate);
+      var arr = [];
+      $.each(data.items,function(index,value){
+        arr.push('<img src="//graph.facebook.com/'+value.uid+'/picture?type=large" width="1" height="1">');
+      });
+      $('#preload').html(arr.join(''));
+
+
+    });
+
+  }
+  var dataxxx;
+  var dataxx;
+
+
+
+  $.getJSON('//arpecop.net/angel/db2/comparestreamone' + json.id, function(dataxx2) {
+
+    if (!dataxx2.message) {
+      if (!dataxx2.length) {
+        dataxxx = new Array;
+        dataxxx.push(dataxx2);
+
+      } else {
+        dataxxx = dataxx2;
+      }
+      $.gvar.stream2 = dataxxx;
+
+      var arr = [];
+      $.each(dataxxx, function(index, value) {
+        $.getJSON('//arpecop.net/angel/db2/' + value.session, function(data) {
+          var matahari;
+          if (!data.length) {
+            matahari = new Array;
+            matahari.push(data);
+          } else {
+            matahari = data;
+          }
+          var arr = [];
+          $.each(matahari, function(index, value) {
+            var timestamp;
+            if (!value.timestamp) {
+              timestamp = value.key;
+            } else {
+              timestamp = value.timestamp
+            }
+
+
+            if (timestamp > $.gvar.lastonline) {
+              arr.push('x');
+              $.gvar.notifications++;
+            };
+          })
+
+          var extendchat = "Чат";
+          if (arr.length > 0) {
+            extendchat = arr.length;
+          }
+
+          $('#' + value.session + ' .flirtchat').html(' <i class="icon-comments"></i> ' + extendchat + ' ');
+
+
+          //$.gvar.notifications = Math.round($.gvar.notifications + matahari.length); 
+
+
+
+        });
+        arr.push(template_unlocked(index, value.session, value.from, value.vote));
+
+      });
+
+      if ($.gvar.notifications > 0) {
+        $('#notifications').show('slow').html('<a href="#"><span class="label label-warning"><i class="icon-comments"></i> ' + $.gvar.notifications + '<span></a>');
+      }
+
+      $('#inbox1').html(arr.join(''));
+
+
+
+    }
+
+  });
+
+  $.getJSON('//arpecop.net/angel/db2/comparestream' + json.id, function(dataxx1) {
+    if (!dataxx1.message) {
+
+      if (!dataxx1.length) {
+        dataxx = new Array;
+        dataxx.push(dataxx1);
+      } else {
+        dataxx = dataxx1;
+      }
+      var arr = [];
+      var i = 0;
+      var i1 = 0;
+      $.gvar.stream1 = dataxx;
+      $.each(dataxx, function(index, value) {
+
+        var picture;
+        if (value.unlocked == "yes") {
+          picture = template_unlocked(i, value.session, value.to);
+          i++;
+          $.gvar.unlockedid = i;
+        } else {
+          picture = template_locked(i1, value.session, value.to, value.vote, value.gender);
+
+          i1++;
+        }
+        arr.push('' + picture + '');
+
+      });
+      $('#inbox').html(arr.join(''));
+      $('.help').tooltip();
+    }
+
+  });
+
+}
+
+function populate_content(chunk) {
+  var data = $.gvar.chunkflirts[chunk];
+  $('#imgflirt').attr('src', '//graph.facebook.com/' + data.uid + '/picture?type=large');
+  $('#imgname').text(data.firstname);
+
+}
+
+
+
+$(document).on('click', '.deleteflirt', function() {
+     $('#chat').hide();
+  var id = $(this).val();
+
+  if (id == 0) {
+    $('#flirt0').remove();
+  };
+
+  //  $('#flirt' + id).remove('slow');
+
+  $.post('https://arpecop.net/angel/db2/delete/comparestream' + $.gvar.user.id, $.gvar.stream1[id], function(data) {
+
+    //  $.gvar.stream.remove(id);
+    prepare_content($.gvar.user);
+  });
+});
+
+$(document).on('click', '.deleteflirt2', function() {
+     $('#chat').hide();
+  var id = $(this).val();
+  if (id == 0) {
+    $('#flirtunlocked0').remove();
+  };
+  //   $('#flirtunlocked' + id).hide('slow');
+
+  $.post('https://arpecop.net/angel/db2/delete/comparestreamone' + $.gvar.user.id, $.gvar.stream2[id], function(data) {
+
+    prepare_content($.gvar.user);
+  });
+});
+
+
+////ФЧАТ
+
+function sendmessage(message) {
+  
+  if (message == "form") {
+    message = $('#placeholderchat').val();
+  }  
+  
+  $('#placeholderchat').val('');
+  if (message) {
+    $.getJSON('//arpecop.net/angel/db2/' + $.gvar.cursession, function(data) {
+      var dataxx;
+      if (!data.length) {
+        dataxx = new Array;
+        dataxx.push(data);
+      } else {
+        dataxx = data;
+      }
+
+
+      var to;
+      var json = {};
+
+      if ($.gvar.userdata.id == dataxx[0].from) {
+        json.from = dataxx[0].from;
+        json.to = dataxx[0].to;
+      } else {
+        json.from = dataxx[0].to;
+        json.to = dataxx[0].from;
+      }
+
+
+      json.key = $.gvar.cursession;
+      json.message = message;
+      json.timestamp = "" + new Date().getTime() + "";
+       
+
+      $.getJSON('//arpecop.net/angel/db2/comparestreamone' + json.to, function(data) {
+     
+ 
+        $.post("https://graph.facebook.com/" + json.to + "/notifications", {
+          href: "flirt/",
+          access_token: "181361935494|UBiDJEKsqWEwbKdWfXVYBgr-qNw",
+          template: " новo съобщение в чата на flirtbot",
+        }, function(data) {  });
+ 
+
+
+
+         var matahari;
+          var mson = {};
+        //mson.key = 
+        mson.key = 'comparestreamone' + json.to;
+        mson.from = $.gvar.userdata.id;
+        mson.to = json.to;
+        mson.unlocked = 'yes';
+        mson.session = $.gvar.cursession;
+        mson.vote = $.gvar.userdata.first_name + ': ' + message;
+      
+
+          if (data.message) {
+
+       
+        
+        $.post('https://arpecop.net/angel/db2/insert', mson, function(data) {});
+} else {
+      if (!data.length) {
+            matahari = new Array;
+            matahari.push(data);
+          } else {
+            matahari = data;
+          }
+        var arr = []
+        var exist = "no"
+        $.each(matahari,function(index,value){
+          if(value.session == $.gvar.cursession) {
+            exist = "yes"
+          }
+        });
+        if (exist == "no") {
+          $.post('https://arpecop.net/angel/db2/insert', mson, function(data) {});
+        };
+       
+}
+         
+
+   
+
+        
+
+      });
+
+      $.gvar.lastonline = new Date().getTime();
+
+      $.post('//arpecop.net/angel/db2/insert', {
+        key: 'lastonline' + $.gvar.userdata.id,
+        'value': $.gvar.lastonline
+      }, function(data) {});
+
+      $('#chat .list-group').append(template_message(json.from, json.to, $.timeago(new Date(parseInt(json.timestamp))), $.gvar.userdata.first_name + ': ' + json.message));
+
+      $.post('https://arpecop.net/angel/db2/' + $.gvar.cursession, json, function(data) {});
+
+
+
+    });
+
+    // 
+  }
+}
+
+$('.clozse a').on('click',function(){
+$('#chat').hide();
+});
+
+
+$(document).on('click', '.thanks', function() {
+$(this).hide();
+  var id = $(this).val();
+sendmessage(id);
+
+
+
+});
+
+$(document).on('click', '#sendmessage', function() {
+
+  sendmessage('form');
+});
+
+$("input").keypress(function(event) {
+  if (event.which == 13) {
+    sendmessage('form');
+  }
+});
+
+
+
+$(document).on('click', '.flirtchat', function() {
+  $('#chat').show();
+  $('#chat .list-group').html('');
+  var id = $(this).val();
+  $.gvar.cursession = id;
+  $.gvar.lastonline = new Date().getTime();
+
+  $.post('//arpecop.net/angel/db2/insert', {
+    key: 'lastonline' + $.gvar.userdata.id,
+    'value': $.gvar.lastonline
+  }, function(data) {});
+
+  $.getJSON('//arpecop.net/angel/db2/' + id, function(data) {
+
+    var dataxx;
+    if (!data.length) {
+      dataxx = new Array;
+      dataxx.push(data);
+    } else {
+      dataxx = data;
+    }
+
+ var lengther = dataxx.length;
+
+    $.each(dataxx.slice(0, 5).reverse(), function(index, value) {
+
+ 
+
+      //function template_message(from,to,timestamp,message) {
+      var timestamp;
+      var message;
+
+      if (!value.timestamp) {
+        timestamp = value.key;
+      } else {
+        timestamp = value.timestamp;
+      }
+      if (index == 0 && lengther == 1) {
+        message = value.message+'<div style="text-align:right;"><button class="btn btn-default thanks" value="Благодаря!">Прати &quot;Благодаря&quot;</button></div>';
+
+      } else {
+        message = value.message;
+      }
+
+
+      $('#chat .list-group').append(template_message(value.from, value.to, $.timeago(new Date(parseInt(timestamp))), message));
+
+    });
+
+  })
+
+
+});
+
+
+function unlock_flirt(id) {
+  var newval = Number($('.gold_points').text());
+  if (newval >= 5) {
+    $.update_gold($.gvar.user.id, 'unlocking');
+    $.post('https://arpecop.net/angel/db2/delete/comparestream' + $.gvar.user.id, $.gvar.stream1[id], function(data) {
+      $('#flirt' + id).hide();
+
+      $.gvar.stream1[id].key = 'comparestreamone' + $.gvar.user.id;
+      $.gvar.stream1[id].unlocked = 'yes';
+
+
+
+      $.post('https://arpecop.net/angel/db2/comparestreamone' + $.gvar.user.id, $.gvar.stream1[id], function(data) {
+        prepare_content($.gvar.user);
+
+      });
+
+
+
+    });
+
+    // $('#flirt' + id + '').html('<img src="https://graph.facebook.com/' + json.from + '/picture?type=large" class="thumbnail dialog" alt="' + json.session + '">');
+  } else {
+
+
+    $('.info').show();
+
+
+  }
+
+}
+
+$(document).on('click', '.unlockflirt', function() {
+   $('#chat').hide();
+  var id = $(this).val();
+  unlock_flirt(id);
+
+
+
+});
+
+
+
+//firstclick
+
+function first_click(vote) {
+
+  var data = $.gvar.chunkflirts[currentz1];
+ 
+
+  var to = data.uid;
+  populate_content(nextxz1);
+  if (nextxz1 == 9) {
+    $.initcompares($.gvar.userdata);
+    currentz1 = 0;
+    nextxz1 = 1;
+  } else {
+    nextxz1++;
+    currentz1++;
+  }
+
+  if (vote !== "skip") {
+
+    //change to data.uid
+    // var key = 'comparestream' + $.gvar.userdata.id;
+    var key = 'comparestream' + data.uid;
+    var timestamp = new Date().getTime();
+
+    $.post('//arpecop.net/angel/db2/comparestream', {
+      'key': key,
+      'vote': vote,
+      'from': $.gvar.userdata.id,
+      'to': to,
+      'gender': $.gvar.userdata.gender,
+      'session': timestamp,
+      'unlocked': 'no'
+    }, function(data) {
+      //  $('.gold_points').text(newval);
+      $.update_gold($.gvar.userdata.id, 'add');
+
+      $.post("https://graph.facebook.com/" + to + "/notifications", {
+        href: "flirt/",
+        access_token: "181361935494|UBiDJEKsqWEwbKdWfXVYBgr-qNw",
+        template: "Кой си мисли за теб, Нов Комплимент",
+      }, function(data) {
+
+
+
+      });
+
+      /*
+
+    $.post('https://graph.facebook.com/' + $.gvar.userdata.id + '/apprequests', {
+      message: 'Кой си мисли за теб, Нов Комплимент',
+      access_token: '181361935494|UBiDJEKsqWEwbKdWfXVYBgr-qNw'
+    }, function(data) {
+
+    });
+
+*/
+
+
+
+    });
+
+    $.post('//arpecop.net/angel/db2/insert', {
+      'key': timestamp,
+      'message': $.gvar.userdata.first_name + ' гласува за теб <span class="label label-success"><i class="icon-heart"></i> ' + vote + '</span>',
+      'from': $.gvar.userdata.id,
+      'to': to
+    }, function(data) {
+
+    });
+  }
+
+}
+
+$('#forboys  li a,#forgirls  li a,#skip').on('click', function() {
+  var vote = $(this).attr('alt');
+   $('#chat').hide();
+  first_click(vote);
+
+});
+
+
+$('#rolloverlogo').on('mouseover',function(){
+
+$('#rolloverlogo').transition({ scale: 1.5 }).attr('src','//arpecop.net/angel/dvanadeset/src/icon.png').transition({ scale: 1.0 });
+});
+
+///////////
+$.initnotifications = function(userdata) {
+  $.getJSON('//arpecop.net/angel/db2/lastonline' + userdata.id, function(data) {
+    if (data.message) {
+      $.gvar.lastonline = 1;
+    } else {
+      $.gvar.lastonline = data.value;
+    }
+  })
+}
+
+$.initcompares = function(userdata) {
+  $('#appatyze').html('<!-- begin apz html tag --><iframe src="//app.appatyze.com/gateway.php?a=353&aid='+userdata.third_party_id+'" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe><!-- end apz html tag -->')
+   
+
+  $.initnotifications(userdata);
+
+  $.update_gold(userdata.id, 'justcheck');
+
+  var dbget;
+  if (userdata.gender == "male") {
+    dbget = 'genderfemale';
+    $('#forboys').show();
+  } else {
+    dbget = 'gendermale';
+    $('#forgirls').show();
+  }
+  $.getJSON('//arpecop.net/quotepublisher/db/stack-' + dbget, function(data) {
+    var total = Math.round(data.value / 10);
+    prepare_content(userdata, dbget, total);
+  });
+
+}
+
+
+
+$.update_gold = function(user, action) {
+  var newval;
+  if (action == 'justcheck') {
+    $.getJSON('//arpecop.net/angel/db2/gold1-' + user, function(data) {
+      //error
+      if (data.message) {
+        $.post('//arpecop.net/angel/db2/insert', {
+          'key': 'gold1-' + user,
+          'value': 1
+        }, function(data) {
+          $('.gold_points').text('0');
+        });
+      } else {
+        $('.gold_points').text(data.value);
+      }
+    });
+  } else if (action == 'add') {
+    newval = Number($('.gold_points').text()) + 1;
+    $.post('//arpecop.net/angel/db2/insert', {
+      'key': 'gold1-' + user,
+      'value': newval
+    }, function(data) {
+      $('.gold_points').text(newval);
+    });
+
+  } else if (action == 'unlocking') {
+    newval = Number($('.gold_points').text()) - 5;
+    $.post('//arpecop.net/angel/db2/insert', {
+      'key': 'gold1-' + user,
+      'value': newval
+    }, function(data) {
+      $('.gold_points').text(newval);
+    });
+  }
+}
+
+
+function register() {
+  var extend = "";
+
+  if ($.gvar.app) {
+    extend = "?id=" + $.gvar.app;
+  }
+  var url = "https://apps.facebook.com/feis-be/flirt/";
+  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=181361935494&redirect_uri=" + encodeURIComponent("" + url + "") + "&scope=user_about_me";
+}
+$('.icon-remove').on('click', function() {
+  $('.info').hide();
+});
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '181361935494',
+    status: true,
+    cookie: true,
+    xfbml: true,
+    oauth: true,
+    frictionlessRequests: true
+  });
+
+  FB.Canvas.setAutoGrow();
+
+
+  FB.Event.subscribe('auth.authResponseChange', function(response) {
+    if (response.status === 'connected') {
+      var uid = response.authResponse.userID;
+      var accessToken = response.authResponse.accessToken;
+      if (!$.gvar.token) {
+        $.gvar.token = response.authResponse.accessToken;
+
+        if ($.gvar.app && $.gvar.app.length !== 6) {
+          $.getScript($.gvar.app + ".js").done(function(script, textStatus) {
+            $('#' + $.gvar.app + ' ,#gameflirt').toggle();
+
+            initialize(uid, accessToken);
+
+
+          });
+
+
+        } else {
+
+
+          FB.api('/me/?fields=first_name,id,name,third_party_id', function(response) {
+
+            $.initcompares(response);
+
+
+
+          });
+        }
+
+
+
+      };
+
+    } else {
+      register();
+
+    }
+  });
+
+
+
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+
+
+      var uid = response.authResponse.userID;
+
+      var accessToken = response.authResponse.accessToken;
+      if (!$.gvar.token) {
+        $.gvar.token = response.authResponse.accessToken;
+        FB.api('/me/?fields=first_name,id,name,third_party_id', function(response) {
+
+
+          $.initcompares(response);
+        });
+      }
+    } else {
+      // the user isn't logged in to Facebook.
+      register();
+    }
+  });
+
+
+};
+//mobile
+
+
+
+// Load the SDK asynchronously
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "//connect.facebook.net/bg_BG/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+  </script>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <ul class="nav navbar-nav">
+<li><a href="#"> <i class="icon-female"></i> 393,232 | <i class="icon-male"></i> 333,316 </a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="#">с намигване от Фейсби България © 2012 .</a></li>
+  </ul>
+</nav>
+<div id="fb-root"></div>
+</body>
+</html>

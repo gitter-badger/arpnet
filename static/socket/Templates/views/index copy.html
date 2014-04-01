@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+  <head>
+  <meta charset="UTF-8">
+  <title>Photo of the Day</title>
+  <meta property="og:title" content=""/>
+  <meta property="og:type" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="fb:app_id" content="423278631063908"/>
+  <script src="views/scripts/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+  <script src="views/scripts/bootstrap-tabs.js"></script>
+  <script src="https://connect.facebook.net/en_US/all.js"></script>
+  <link href="views/bootstrap.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+body { margin-left: 0px; margin-right: 0px; margin-top: 0px; background-image: url(views/bg.gif); }
+.pill-content { padding-top: 15px; }
+.gray { padding-bottom: 25px; margin-top: 20px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; }
+.gray img { width: 100%; max-height: 600px; max-width: 600px }
+.youphoto .photo { max-width: 600px; }
+.likeCommentGroup.lfloat { position: absolute; clip: rect(-40px, auto, auto, auto); }
+.image_friend {display: none}
+  </style>
+  <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  </head>
+
+  <body style="overflow:hidden">
+  <!-- (:signed:) -->
+<div class="logo" style="background-color:#FFF">  <img src="views/loho.png"> </div>
+<ul class="tabs">
+    <li class="active first"><a href="#you">Photos of You</a></li>
+    <li><a href="#friends">Friends Photos</a></li>
+    <li><a href="#funny">Funny Photos</a></li>
+  </ul>
+<div class="pill-content">
+    <div class="active" id="you">
+    <div class="youphoto" align="center">
+        <div class="gray">
+        <div class="photo"><img id="todaysphotosrc" src="views/load.gif" style="width:32px; height:32px">
+            <div class="likeCommentGroup lfloat" style="display:none"><span class="uiButtonGroup like uiButtonGroupOverlay"><span class="uiButtonGroupItem firstItem buttonItem"><a class="likeButton uiButton uiButtonOverlay"   href="#" id="publishphotome"><span class="uiButtonText">Make Photo of the day</span></a></span><span class="uiButtonGroupItem buttonItem"><a class="commentButton uiButton uiButtonOverlay"  href="#" id="print"><span class="uiButtonText">Print</span></a></span></span></div>
+          </div>
+      </div>
+      </div>
+  </div>
+    <div id="friends">
+    <div class="youphoto" align="center">
+        <div class="gray">
+        <div class="photo1">
+            <div class="likeCommentGroup lfloat"><span class="uiButtonGroup like uiButtonGroupOverlay"><span class="uiButtonGroupItem firstItem buttonItem"><a class="likeButton uiButton uiButtonOverlay"   href="#" id="publishphotofr"><span class="uiButtonText">Make Photo of the day</span></a></span><span class="uiButtonGroupItem buttonItem"><a class="commentButton uiButton uiButtonOverlay"  href="#"><span class="uiButtonText" id="like">Like</span></a></span></span></div>
+          </div>
+      </div>
+      </div>
+  </div>
+    <div id="funny">
+    <div class="youphoto" align="center">
+        <div class="gray">
+        <div class="photo2">
+            <div class="likeCommentGroup lfloat"><span class="uiButtonGroup like uiButtonGroupOverlay"><span class="uiButtonGroupItem firstItem buttonItem"><a class="likeButton uiButton uiButtonOverlay"   href="#" id="publishphotofun"><span class="uiButtonText">Make Photo of the day</span></a></span><span class="uiButtonGroupItem buttonItem"><a class="commentButton uiButton uiButtonOverlay" id="sendtofriend"  href="#"><span class="uiButtonText">Send to friend</span></a></span></span></div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+<br>
+<br>
+<div id="fb-root"></div>
+<script>
+$.gvar = {};
+$.gvar.next = 0;
+$.gvar.next_chunk = 0;
+$.gvar.arr = [];
+$.gvar.images_loaded = 0;
+ 
+(function($){
+  $.fn.shuffle = function() {
+    return this.each(function(){
+      var items = $(this).children();
+      return (items.length) 
+        ? $(this).html($.shuffle(items)) 
+        : this;
+    });
+  }
+   
+  $.shuffle = function(arr) {
+    for(
+      var j, x, i = arr.length; i; 
+      j = parseInt(Math.random() * i), 
+      x = arr[--i], arr[i] = arr[j], arr[j] = x
+    );
+    return arr;
+  } 
+})(jQuery);
+
+Array.prototype.chunk = function(chunkSize) {
+    var array=this;
+    return [].concat.apply([],
+        array.map(function(elem,i) {
+            return i%chunkSize ? [] : [array.slice(i,i+chunkSize)];
+        })
+    );
+}
+
+
+ 
+
+
+  var socket = io.connect();
+
+  // POPULATE
+ socket.on('populate', function (data) {
+ 
+  
+ 
+ 
+    $('#photo-'+$.gvar.arr[$.gvar.next].uid).show();
+ 
+ 
+ });
+
+
+ var fakearr = 0;
+  socket.on('news', function (data) {
+   
+   
+    if (data.data.length == 1) {
+   $.gvar.arr.push(data);
+//$('#photo-'+data.uid+'').show();
+////console.log($.gvar.next);
+
+$.gvar.chunk = data.chunk;
+ $.gvar.images_loaded++;
+$('#photo-'+data.uid+' .img').html('<img src="'+data.data[0].src_big+'">');
+
+    };
+    fakearr++;
+    
+  if ($.gvar.arr.length <= 3) {
+
+ socket.emit('populate', 'fakearr');
+
+};
+  });
+
+
+    socket.on('friends', function (data) {
+ 
+
+if ($.isArray(data)) {
+    var shuffled = $.shuffle(data);   
+    $.gvar.friends = shuffled.chunk(3);
+ //////console.log($.gvar.friends);
+ var arr = [];
+ $.each(shuffled, function(index, value) { 
+
+arr[index] = '<div id="photo-'+value.id+'" class="image_friend"><div class="name">'+value.name+'</div><div class="img"> </div><a href="#next" alt="'+value.id+'">Next</a></div>'; 
+});
+
+ $('.youphoto .gray').html(arr.join(''));
+  socket.emit('news', $.gvar.friends[0],$.gvar.fb_accessToken,'0');
+    } else {
+      ////console.log('already shuffled');
+    }
+    });
+
+ 
+
+
+$(".image_friend a").live("click", function(){ 
+  $.gvar.next++;
+ var data = $.gvar.arr[0];
+ ////console.log($.gvar.arr);
+//$('#photo-'+$.gvar.arr[$.gvar.next].uid).show();
+ $('#photo-'+$.data.uid).show();
+ 
+  if ($.gvar.arr.length <=3) {
+   $.gvar.next_chunk++;
+ ////console.log('small ammount');
+   socket.emit('news', $.gvar.friends[$.gvar.next_chunk],$.gvar.fb_accessToken,$.gvar.next_chunk);
+ };
+
+ 
+});  
+
+var facebookLoginWindow;
+var loginWindowTimer;
+function facebookLogin()
+{
+	var popupWidth=500;
+	var popupHeight=300;
+	var xPosition=($(window).width()-popupWidth)/2;
+	var yPosition=($(window).height()-popupHeight)/2;
+	var loginUrl="http://www.facebook.com/dialog/oauth/?"+
+		"scope=publish_stream,user_photos,friends_photos&"+
+		"client_id=423278631063908&"+
+		"redirect_uri=http://boxee.local&"+
+		"response_type=token&"+
+		"display=page";
+	 
+	 
+	 top.location.href = loginUrl;
+}
+  
+  $(function () {
+    $('.tabs').tabs()
+  });
+  //$(window).unload( function () { alert("Bye now!"); } );
+
+ 
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '423278631063908', // App ID
+            channelUrl : '//www.secretzone.bg/channel.html', // Channel File
+            status     : true, 
+            cookie     : true, 
+            xfbml      : true  // parse XFBML
+        });
+
+
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+               
+
+                                        $.gvar.fb_uid = response.authResponse.userID;
+                                        $.gvar.fb_accessToken = response.authResponse.accessToken;
+
+                                        socket.emit('login', { token: $.gvar.fb_accessToken,uid:$.gvar.fb_uid });
+                                        
+            
+            } else if (response.status === 'not_authorized') {
+                facebookLogin();
+            } else {
+                facebookLogin();
+            }
+        });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/bg_BG/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+</script>
+
+
+<div class="advert" align="center" style="height:90px"> </div>
+
+<!-- ${gvar.x} -->
+  </body>
+</html>

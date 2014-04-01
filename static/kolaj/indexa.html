@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>jQuery Tiles Gallery Demo</title>
+    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+ 
+	<script src="js/jquery.tilesgallery.js"  type="text/javascript"></script>
+ 
+	 
+
+ 
+	<link href="css/jquery-tilesgallery.css" rel="Stylesheet" />
+	<script type="text/javascript" src="syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+	<script type="text/javascript" src="syntaxhighlighter_3.0.83/scripts/shBrushJScript.js"></script>
+	<link href="syntaxhighlighter_3.0.83/styles/shCore.css" rel="Stylesheet" />
+	<link href="syntaxhighlighter_3.0.83/styles/shThemeDefault.css" rel="Stylesheet" />
+	<link href="syntaxhighlighter_3.0.83/styles/shThemeMidnight.css" rel="Stylesheet" />
+	<style type="text/css">
+	body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(http://aws.arpecop.net/server/static/kolaj/Screen%20shot%202013-01-02%20at%203.32.45%20AM.jpg);
+	background-repeat: no-repeat;
+}
+.tiles img {max-height:310px;}
+    </style>
+	<script>
+	 
+
+    </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body class="example1"> 
+	<div id="page">
+		 
+		
+	  
+		<div class="tiles">
+			
+	 
+	        
+		   
+	        
+	</div>
+<script>
+var fql = encodeURIComponent("SELECT src_big from photo where pid in (SELECT pid from photo_tag where subject =me() order by rand() limit 7)");
+$.getJSON('https://graph.facebook.com/fql?q='+fql+'&access_token=AAACEdEose0cBAPLB6mrZAKZABqfRxPtL4vazJJWBA2QsmZAPehsEOLld0VZCebZCojtHUehwjfEEyiC8QPf9vHiuBhjBEWdkxlQ6YQw54egZDZD&callback=?', function(data) {
+console.log(data)
+  var items = [];
+
+  $.each(data.data, function(key, val) {
+    items.push('<img src="' + val.src_big + '"  >');
+  });
+$('.tiles').html(items.join(''));
+ 
+ 
+$(document).ready(function() {
+	$(function () {		
+		$(".tiles").tilesGallery({
+			width: 520,
+			height: 520,
+			margin: 8,
+			caption: false,
+			captionOnMouseOver: false,
+			callback: function () {
+				 
+							}
+		});
+	});	
+});
+  
+});
+
+</script>
+	 
+  </body>
+</html>

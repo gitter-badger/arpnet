@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<title>MyFortuneKooKie</title>
+<meta charset="UTF-8">
+<script type="text/javascript" src="static/scripts/jquery.js"></script>
+<style type="text/css">
+a:link { 	color: #3B5998; 	text-decoration: none; } .item { 	border-top-width: 1px; 	border-top-style: solid; 	border-top-color: #999; } a:visited { 	text-decoration: none; 	color: #3B5998; } a:hover { 	text-decoration: underline; 	color: #3B5998; } a:active { 	text-decoration: none; 	color: #3B5998; } .create { 	background-image: url(static/fortunecookie.jpg); 	height: 320px; 	width: 760px; 	background-repeat: no-repeat; } #apDiv2 { 	position:absolute; 	left:160px; 	top:361px; 	width:411px; 	height:73px; 	z-index:4; 	overflow: hidden; } .publish_form_submit { 	background-repeat: no-repeat; 	background-color: transparent; 	border-top-style: none; 	border-right-style: none; 	border-bottom-style: none; 	border-left-style: none; 	cursor:hand; 	cursor:pointer; 	height: 200px; 	width: 410px; 	z-index: 99; 	overflow: hidden; } #apDiv1 { 	position:absolute; 	left:174px; 	top:212px; 	width:50px; 	height:50px; 	z-index:1; } .create #test { 	position: absolute; 	left: 282px; 	top: 67px; 	width: 130px; 	height: 130px; } #apDiv4 { 	position:absolute; 	left:440px; 	top:282px; 	width:300px; 	height:318px; 	z-index:5; } body { 	margin-left: 0px; 	margin-top: 0px; 	margin-right: 0px; 	margin-bottom: 0px; } .footer { } .footer h2 { 	color: #bcd201; 	font-size: 16px; 	font-family : 'Trebuchet MS',  Arial, Helvetica, sans-serif; 	font-weight: bold; } #apDiv2-1 { 	position:absolute; 	left:161px; 	top:201px; 	width:411px; 	height:73px; 	z-index:4; 	overflow: hidden; } #apDiv3 { 	position:absolute; 	left:16px; 	top:18px; 	width:728px; 	height:264px; 	z-index:6; 	background-color: #bbd000; } #apDiv3 #cancel { 	position: absolute; 	height: 26px; 	width: 117px; 	left: 609px; 	top: 231px; } a img { 	border-style: none; } .butonchi { 	width: 411px; 	height: 71px; 	cursor: pointer; 	cursor:hand; 	background-color: transparent; 	border: none; 	z-index: 55; } .create .subcreate { 	padding-top: 199px; 	padding-left: 160px; } #apDiv5 { 	position:absolute; 	left:445px; 	top:335px; 	width:300px; 	height:267px; 	z-index:5; } .footer { 	position: absolute; 	width: 728px; 	left: 11px; 	top: 14px; 	height: 280px; 	background-color: #BCD210; 	z-index: 2; 	text-align: center; }
+</style>
+</head>
+<body style="overflow:hidden">
+ 
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '119250176060', // App ID
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+//
+FB.Canvas.setAutoResize();
+
+ 
+$('#publish').bind('click', function() {     
+			//
+			FB.ui(
+			   {
+			     method: 'stream.publish',
+
+			  	 display: 'iframe',
+	attachment: {
+			caption: '{*actor*}\'s fortune cookie:',
+			 description: '(:quote:)',
+			media: [{
+				"type": "image",
+				"src": "https://myfortunekookie.herokuapp.com/static/fortune.png",
+				"href": "https://apps.facebook.com/myfortunekookie/"
+			}]
+		}
+				
+			}, function(response) {
+			     if (response && response.post_id) {
+				   FB.ui({method: 'apprequests',
+ message: 'Get your fortune cookie from the jar.',
+ data: 'cookie'});
+			       $('.footer').show();
+			     }  
+			   }); 
+			});      
+
+ 
+  };
+   (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+<div class="create">
+  <div class="subcreate"> <a href="#" id="publish"><img src="https://myfortunekookie.herokuapp.com/static/spacer.gif" width="412" height="75" class="butonchi" style="cursor:pointer; cursor: hand;" /></a> </div>
+</div>
+ 
+</div>
+<div id="apDiv1"> <img src="http://graph.facebook.com/(:uid:)/picture" /></div>
+ <div style="text-align: center;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-0690449378357561";
+/* 728x90, created 1/18/08 */
+google_ad_slot = "3522810169";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://arpecop.net/pagead/show_ads.js">
+</script></div>
+<!-- begin ryad tag -->
+<script type="text/javascript">    try {
+       var _ryadLibPath = document.location.protocol+"//cdnrockyou-a.akamaihd.net/apps/ams/interstitial/ryinterstitial_lib.js";
+        _ryadLibPath += '#{"placeguid":"A648B56292"}';
+        var _ryadLibTag = document.createElement("script");
+        _ryadLibTag.id = "ryinterstitial_lib";
+        _ryadLibTag.type = "text/javascript";
+        _ryadLibTag.src = _ryadLibPath;
+        var _documentHead = document.getElementsByTagName("head")[0];
+        _documentHead.appendChild(_ryadLibTag);
+    } catch(e) { }
+</script>
+ 
+</body>
+</html>

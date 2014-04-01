@@ -1,0 +1,69 @@
+
+body, div, td, tr, input, button {
+  font-family: "Open Sans";
+}
+#males,#females{display:none;}
+.btn {
+  font-weight: 600;
+}
+.container1 {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container1 #logo {
+  position: absolute;
+  top: 0px;
+}
+.result, #preload, .mislish_igra, #showinggold {
+  display: none;
+}
+.fancybox-title a {
+  color: #FFF;
+  text-decoration: none;
+  font-size: 20px;
+}
+#qus {
+  height: 50px;
+}
+.add {
+  height: 90px;
+  text-align: center;
+  clear: both;
+}
+.loading {
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+#unlocks {
+  display: none;
+}
+.itemad {
+  width: 50%;
+  float: left;
+  height: 80px;
+}
+.bs-old-docs {
+  padding: 15px 20px;
+  color: #777;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+}
+.nav-pills li a {cursor: default;}
+.nonunlocked {font-weight: 600; font-size: 14px; display:none;}
+.section img {width: 50px; height: 50px;}
+ 
+ 
+.breadcrumb {font-weight: 600;}
+ .anonim {max-width: 90px; white-space: normal; font-weight: 600; font-size: 12px;}
+ .resultunlocked .result {display:none;}
+  .resultunlocked .btn {display:block;}
+  small {font-weight: 300;}
+  .media-body {margin-left: 10px;}
+
+  .row { margin-right: 0; margin-left: 0; }
+  .imgnotmobile img{width:100%;}
+  .imgmobile {text-align: center;}
+   .imgmobile img {min-height: 100px; max-height: 100px;}
+ 

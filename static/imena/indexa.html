@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+	<meta charset="windows-1251">
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<style type="text/css">
+ 
+body {
+	background-image: url(http://aws.arpecop.net/server/static/imena/back.jpg);
+	background-repeat: no-repeat;
+	margin: 0px;
+	height: 400px;
+	width: 400px;
+	overflow: hidden;
+	background-color: #EBECEE;
+}
+#apDiv1 {
+	position: absolute;
+	left: 6px;
+	top: 36px;
+	width: 387px;
+	height: 78px;
+	z-index: 1;
+	color: #fff;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+	font: 50px 'Ubuntu';
+	text-align: center;
+	font-weight: 700;
+}
+#apDiv2 {
+	position: absolute;
+	left: 8px;
+	top: 138px;
+	width: 384px;
+	height: 204px;
+	z-index: 2;
+	text-align: center;
+	font-family: 'Ubuntu';
+	font-size: 20px;
+	color: #333;
+	font-weight: 200;
+}
+</style>
+
+</head>
+<body>
+	<div id="apDiv1"><span></span></div>
+	<div id="apDiv2"><span></span></div>
+	<script type="text/javascript">
+$.getJSON('json.json', function(data) {
+var obj = data['(:name:)'];
+var newname = obj.name.split('-')
+$('#apDiv1 span').text(newname[0]);
+$('#apDiv2 span').text(obj.descr);
+ 
+});
+	
+(function($) {
+    $.fn.textfill = function(options) {
+        var fontSize = options.maxFontPixels;
+        var ourText = $('span:visible:first', this);
+        var maxHeight = $(this).height();
+        var maxWidth = $(this).width();
+        var textHeight;
+        var textWidth;
+        do {
+            ourText.css('font-size', fontSize);
+            textHeight = ourText.height();
+            textWidth = ourText.width();
+            fontSize = fontSize - 1;
+        } while ((textHeight > maxHeight || textWidth > maxWidth) && fontSize > 3);
+        return this;
+    }
+})(jQuery);
+ 
+
+ 
+
+
+$(document).ready(function() {
+  $('#apDiv1').textfill({ maxFontPixels: 96 });
+ $('#apDiv2').textfill({ maxFontPixels: 45 });
+});
+</script>
+<div class="canvas" style="width:400px; height:400px;">
+
+</div>
+</body>
+</html>
+
+

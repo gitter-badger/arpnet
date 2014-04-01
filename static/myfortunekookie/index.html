@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<title>MyFortuneKooKie</title>
+<meta charset="UTF-8">
+<script type="text/javascript" src="static/scripts/jquery.js"></script>
+<style type="text/css">
+a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+.item {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #999;
+}
+a:visited {
+	text-decoration: none;
+	color: #3B5998;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3B5998;
+}
+a:active {
+	text-decoration: none;
+	color: #3B5998;
+}
+.create {
+	background-image: url(static/fortunecookie.jpg);
+	height: 320px;
+	width: 760px;
+	background-repeat: no-repeat;
+	margin-right: auto;
+	margin-left: auto;
+}
+#apDiv2 {
+	position: absolute;
+	left: 160px;
+	top: 361px;
+	width: 411px;
+	height: 73px;
+	z-index: 4;
+	overflow: hidden;
+}
+.publish_form_submit {
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	cursor: hand;
+	cursor: pointer;
+	height: 200px;
+	width: 410px;
+	z-index: 99;
+	overflow: hidden;
+}
+#apDiv1 {
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	z-index: 1;
+	clip: rect(auto,auto,auto,175px);
+	top: 212px;
+}
+.create #test {
+	position: absolute;
+	left: 282px;
+	top: 67px;
+	width: 130px;
+	height: 130px;
+}
+#apDiv4 {
+	position: absolute;
+	left: 440px;
+	top: 282px;
+	width: 300px;
+	height: 318px;
+	z-index: 5;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.footer {
+}
+.footer h2 {
+	color: #bcd201;
+	font-size: 16px;
+	font-family : 'Trebuchet MS', Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+#apDiv2-1 {
+	position: absolute;
+	left: 161px;
+	top: 201px;
+	width: 411px;
+	height: 73px;
+	z-index: 4;
+	overflow: hidden;
+}
+#apDiv3 {
+	position: absolute;
+	left: 16px;
+	top: 18px;
+	width: 728px;
+	height: 264px;
+	z-index: 6;
+	background-color: #bbd000;
+}
+#apDiv3 #cancel {
+	position: absolute;
+	height: 26px;
+	width: 117px;
+	left: 609px;
+	top: 231px;
+}
+a img {
+	border-style: none;
+}
+.butonchi {
+	width: 411px;
+	height: 71px;
+	cursor: pointer;
+	cursor: hand;
+	background-color: transparent;
+	border: none;
+	z-index: 55;
+}
+.create .subcreate {
+	padding-top: 199px;
+	padding-left: 160px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#apDiv5 {
+	position: absolute;
+	left: 445px;
+	top: 335px;
+	width: 300px;
+	height: 267px;
+	z-index: 5;
+}
+.footer {
+	position: absolute;
+	width: 728px;
+	left: 11px;
+	top: 14px;
+	height: 280px;
+	background-color: #BCD210;
+	z-index: 2;
+	text-align: center;
+}
+</style>
+</head>
+<body style="overflow:hidden">
+<div id="fb-root"></div>
+<script>
+var quotes = {0 : 'A firm friendship will prove the foundation on your success in life.',1 : 'A firm friendship will prove the foundation on your success in life.', 2 : 'A friend asks only for your time, not your money.', 3 : 'A friend is a present you give yourself.', 4 : 'A member of your family will soon do something that will make you proud.', 5 : 'A pleasant surprise is in store for you.', 6 : 'A quiet evening with friends is the best tonic for a long day.', 7 : 'A secret admirer will soon send you a sign of affection.', 8 : 'A single kind word will keep one warm for years.', 9 : 'A thrilling time is in your immediate future.', 10 : 'A warm smile is testimony of a generous nature.', 11 : 'Anger begins with folly, and ends with regret.', 12 : 'As the purse is emptied the heart is filled.', 13 : 'Be mischievous and you will not be lonesome.', 14 : 'Be prepared to accept a wondrous opportunity in the days ahead!', 15 : 'Count your blessings by thinking of those whom you love.', 16 : 'Dont forget, you are always on our minds.', 19 : 'Excitement and intrigue follow you closely wherever you go!', 20 : 'Fame  riches and romance are yours for the asking.', 21 : 'Generosity and perfection are your everlasting goals.', 22 : 'Good luck is the result of good planning.', 23 : 'Good things are being said about you.', 24 : 'Happy news is on its way to you.', 25 : 'He who laughs at himself never runs out of things to laugh at.', 26 : 'Hearts are not to be had as a gift, hearts are to be earned.', 27 : 'Ideas are like children   there are none so wonderful as your own.', 28 : 'If you continually give, you will continually have.', 29 : 'If you want the rainbow, you must put up with the rain.', 30 : 'If you would be loved, love and be lovable.', 31 : 'If your desires are not extravagant they will be granted.', 32 : 'In the end there are three things that last: faith, hope and love  and the greatest of these is love.', 33 : 'It takes more than good memory to have good memories.', 34 : 'Let there be magic in your smile and firmness in your handshake.', 35 : 'Look for new outlets for your own creative abilities.', 36 : 'Love always and deeply.', 37 : 'Love asks me no questions, and gives me endless support.', 38 : 'Love begets love.', 39 : 'Love conquers all.', 40 : 'Love is for the lucky and the brave.', 41 : 'Love is like wildflowers. it is often found in the most unlikely places.', 42 : 'Love is the only medicine for a broken heart.', 43 : 'Love is the triumph of imagination over intelligence.', 44 : 'Make two grins grow where there was only a grouch before.', 45 : 'May life throw you a pleasant curve.', 46 : 'Much more grows in the garden than that which is planted there.', 47 : 'Nature, time and patience are the three best physicians.', 48 : 'One who admires you greatly is hidden before your eyes.', 49 : 'Only love lets us see normal things in an extraordinary way.', 50 : 'Plan for many pleasures ahead.', 51 : 'Pray for what you want, but work for the things you need.', 52 : 'Smiling often can make you look and feel younger.', 53 : 'Someone is speaking well of you.', 54 : 'Something you lost will soon turn up.', 55 : 'Strong and bitter words indicate a weak cause.', 56 : 'The beginning of wisdom is to desire it.', 57 : 'The greatest gift is love.', 58 : 'The joyfulness of a man prolongeth his days.', 59 : 'The one you love is closer than you think.', 60 : 'The time is right to make new friends.', 61 : 'There is no limit to love s forbearance, to its trust, its hope, its power to endure.', 62 : 'Those who have love, have wealth beyond measure.', 63 : 'To love is to forgive.', 64 : 'We cannot do great things  only small things with great love.', 65 : 'You find beauty in ordinary things, do not lose this ability.', 66 : 'You have a deep appreciation of the arts and music.', 67 : 'You will be invited to an exciting event.', 68 : 'You will have a very pleasant experience.', 69 : 'You will inherit some money or a small piece of land.', 71 : 'You will live a long, happy life.', 72 : 'You will spend old age in comfort and material wealth.', 73 : 'You will step on the soil of many countries.', 74 : 'You will take a chance in something in the near future.', 75 : 'You will witness a special ceremony.', 76 : 'Your ability to juggle many tasks will take you far.', 77 : 'Your artistic talents win the approval and applause of others.', 78 : 'Your blessing is no more than being safe and sound for the whole lifetime.', 79 : 'Your everlasting patience will be rewarded sooner or later.', 81 : 'Your flair for the creative takes an important place in your life.', 82 : 'Your great attention to detail is both a blessing and a curse.', 83 : 'Your greatest fortune is the large number of friends you have.', 84 : 'Your heart is a place to draw true happiness.', 85 : 'Your heart is a place to draw true happiness.', 86 : 'Your heart is pure, and your mind clear, and your soul devout.', 87 : 'Your heart will always make itself known through your words.', 88 : 'Your life will be happy and peaceful.', 89 : 'Your many hidden talents will become obvious to those around you.'}; 
+ 
+
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '119250176060', // App ID
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+//
+ 
+ FB.Canvas.setAutoGrow();
+ 
+$('#publish').bind('click', function() {     
+			//
+			var randomnumber=Math.floor(Math.random()*89);
+			var quote = quotes[randomnumber];
+			FB.ui(
+			   {
+			     method: 'stream.publish',
+
+			  	 display: 'iframe',
+	attachment: {
+			caption: '{*actor*}\'s fortune cookie:',
+			 description: quote,
+			media: [{
+				"type": "image",
+				"src": "https://arpecop.net/static/myfortunekookie/static/fortune.png",
+				"href": "https://apps.facebook.com/myfortunekookie/"
+			}]
+		}
+				
+			}, function(response) {
+			     if (response && response.post_id) {
+				   FB.ui({method: 'apprequests',
+ message: 'Get your fortune cookie from the jar.',
+ data: 'cookie'});
+			       $('.footer').show();
+			     }  
+			   }); 
+			});      
+
+ 
+  };
+   (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+<div class="create">
+  <div class="subcreate"> 
+     <div id="apDiv1"> <img src="https://graph.facebook.com/arpecop/picture" /></div>
+    <a href="#" id="publish"><img src="https://arpecop.net/static/myfortunekookie/static/spacer.gif" width="412" height="75" class="butonchi" style="cursor:pointer; cursor: hand;" /></a> </div>
+</div>
+</div>
+<div style="text-align: center;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-0690449378357561";
+/* 728x90, created 1/18/08 */
+google_ad_slot = "3522810169";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script> 
+  <script type="text/javascript"
+src="//arpecop.net/pagead/show_ads.js">
+</script></div>
+<!-- begin ryad tag --> 
+<script src="//arpecop.net/static/cross.js"></script>
+<script>
+providecross('en');
+</script>
+ <div id="cross" style="width:760px; 	margin-right: auto; 	margin-left: auto;">
+  
+ </div>
+</body>
+</html>

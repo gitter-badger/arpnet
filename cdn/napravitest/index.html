@@ -1,0 +1,429 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="bg" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="bg" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="bg" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="bg" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+    <head prefix="og: http://ogp.me/ns#">
+	<meta charset="UTF-8">
+	<title>(:appname:)</title>
+	<meta name="description" content="(:description:)">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ 
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<!-- <script src="//ads.lfstmedia.com/getad?site=141097" type="text/javascript"></script> -->
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,600&subset=cyrillic' rel='stylesheet' type='text/css'>
+	<style>
+	body {
+		background-color: #f9f9f9;
+	}
+body, td, th, div, span,button {
+	font-size: 14px;
+	font-family: 'Open Sans', tahoma, verdana, arial, sans-serif;
+	font-weight: 300;
+}
+.question {
+	opacity: 0.25;
+}
+.question .btn {
+	text-align: left;
+}
+#q1 {
+	opacity: 1;
+}
+p {
+	margin: 10px 0px 10px;
+}
+.lead {
+	margin-bottom: 0px;
+}
+.results img {
+	max-width: 150px;
+}
+.icon-circle {display: none;}
+.header {
+	padding: 24px;
+	background-color: #516A85;
+	color: #FFF;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #34495e;
+		border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #34495e;
+}
+.appnametitle, .appnametitle span{font-size: 30px;}
+.btn-group-vertical {width: 100%;}
+.btn-default {background-color: #FFF; color: #34495e; font-weight: 600;}
+#last_step {display: none;}
+.preheader {padding: 5px; background-color: #FFF; text-align: right;}
+.others1 {text-align: left;}
+.description {font-weight: 600;}
+.lead1 { font-size: 24px; padding: 4px;   margin-bottom: 4px; margin-top: 4px;}
+.icon-circle,.icon-circle-blank {color: #2980b9; font-size: 15px;}
+.preheader {height: 45px;}
+    </style>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body> 
+	<div class="preheader"> <div class="col-sm-6" style="text-align:left; line-height:0px; color:#2c3e50;"><i class="icon-edit-sign" style="font-size:35px;"></i>  </div>
+<div class="col-sm-6">
+	 <div class="btn-group">
+  <button type="button" class="btn btn-default">Други Тестове</button>
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu others1 pull-right">
+  </ul>
+</div></div></div> 
+ <div class="header"> <img src="https://arpecop.net/angel/napravitest/data/images/(:reqid:).jpg" style="float:left; padding-right:10px;" class="img-rounded" id="quizimage">
+ 	    <div class="appnametitle"> <span class="appname"></span> </div>
+    <div class="description"> </div>
+    <div style="clear:both;"></div>
+ </div>
+<div class="container" style="margin-top:25px; margin-bottom:50px;">
+   <div class="appatyze"></div>
+      <div class="results" style="display:none">
+    <div class="row-fluid">
+          <div class="col-sm-8" id="rezese">  
+      </div>
+          <div class="col-sm-4">
+        <p class="lead"> Други тестове: </p>
+<ul class="list-group others">
+        </ul>
+        </p>
+      </div>
+          <div style="text-align:center" id="advert"> 
+        <!-- Begin Ad Call Tag - Do not Modify --> 
+        <div class="appatyze"></div>
+      </div>
+          <hr>
+          <div id="cross" class="row-fluid"></div>
+        </div>
+    <!-- End of Ad Call Tag --> 
+  </div>
+      <div class="populate"> </div>
+      <div class="preresults" style="display:none; padding-bottom:50px;">
+    <hr>
+    <input id="inviteids" value="" type="hidden">
+  </div>
+      <div class="progress" style="display:none"> </div>
+    </div>
+            <div class="header row-fluid" id="last_step">
+        <button class="btn btn-default btn-large"  value="Something">Ок, Покажи Резултата</button>
+        </div>
+<script>
+$.gvar = {};
+
+function numKeys(obj) {
+	var count = 0;
+	for (var prop in obj) {
+		count++;
+	}
+	return count;
+}
+
+function Shuffle(o) {
+	for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	return o;
+}
+$.getJSON('src/cross.json', function(data) {
+	var randomnumber = Math.floor(Math.random() * 64);
+	var randomnumber1 = randomnumber + 5;
+	var arr = [];
+	var arr1 = [];
+	for (var i = randomnumber; i <= randomnumber1; i++) {
+		arr.push('<a href="https://apps.facebook.com/napravitest/' + data[i].id + '" target="_top" class="list-group-item">' + data[i].appid + '</a>');
+		arr1.push('<li><a href="https://apps.facebook.com/napravitest/' + data[i].id + '" target="_top">' + data[i].appid + '</a></li>')
+	}
+	$.each(data, function(index, value) {});
+	$('.others').html(arr.join(''));
+	$('.others1').html(arr1.join(''));
+});
+$.gvar.id = "(:reqid:)";
+if ($.gvar.id.length < 4) {
+	$.gvar.id = "4c6bad9c9ee3f";
+	$('#quizimage').attr('src', 'https://arpecop.net/angel/napravitest/data/images/4c6bad9c9ee3f.jpg');
+}
+///
+
+function calculate() {
+	FB.Canvas.scrollTo(0, 0);
+	$('.preresults,.populate,#last_step').hide();
+	var results = $('.progress div');
+	var arr = [];
+	$.each(results, function(index, value) {
+		val1 = index + 1;
+		var percents = $('#' + value.id).attr('style').replace(/[^0-9]/g, '');
+		arr[percents] = {};
+		arr[percents].percents = percents;
+		arr[percents].id = val1;
+	});
+	var result = arr.reverse()[0];
+	$('.results').show();
+	$('#result' + result.id).show();
+	//
+	var uniqid = (new Date()).getTime();
+
+	FB.login(function(response) {
+		if (response.authResponse) {
+			var uid = response.authResponse.userID;
+			var accessToken = response.authResponse.accessToken;
+			 
+			 $.post("//arpecop.net/angel/db2/insert", {key:value.id + '' + $.gvar.id,value:'ok'},function(data){});
+			$.getJSON('https://graph.facebook.com/' + uid + '/friends?access_token=' + accessToken + '&callback=?', function(data) {
+				var urlcomponent = {};
+				urlcomponent.title = $('.appname').text();
+				urlcomponent.descr = $('.description').text();
+				urlcomponent.name = data.first_name;
+				urlcomponent.qtitle = $('#result' + result.id + ' .lead').text();
+				urlcomponent.qdescr = $('#result' + result.id + ' .result_full').text();
+				FB.api('/me', {
+					fields: 'first_name,third_party_id'
+				}, function(data) {
+					$('.appatyze').html('<iframe src="//app.appatyze.com/gateway.php?a=973&aid=' + data.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+
+					$.post("//arpecop.net/quotepublisher/iztegli/action/" + uniqid, {
+						text: data.first_name + ' ' + urlcomponent.qdescr,
+						appname: '[★' + urlcomponent.title + ' ★]',
+						appurl: 'http://apps.facebook.com/napravitest/' + $.gvar.id,
+						type: 'napravitest:quiz',
+						appid: '160206614136535',
+						description: urlcomponent.descr
+					}, function(data) {
+						FB.api('/me/friends', {
+							fields: 'installed'
+						}, function(data) {
+							
+							$.each(data.data, function(index, value) {
+								if (value.installed) {
+									$.getJSON('//arpecop.net/angel/db2/' + value.id + '' + $.gvar.id, function(instdata) {
+									 
+										if (instdata.message) {
+											$.post("//arpecop.net/angel/db2/insert", {key:value.id + '' + $.gvar.id,value:'ok'},function(data){});
+											$.post("https://graph.facebook.com/" + value.id + "/notifications", {
+												href: $.gvar.id ,
+												access_token: "160206614136535|7-z4flqlZsKpNvVCj1R5ZVMffZk",
+												template: "Направи теста - " + urlcomponent.title,
+											}, function(data) {
+											 
+
+											});
+										};
+
+									});
+								};
+							})
+
+						});
+
+						FB.api(
+							'me/napravitest:made',
+							'post', {
+								quiz: "http://arpecop.net/quotepublisher/iztegli/action/" + uniqid
+							},
+							function(response) {}
+						);
+
+					});
+				});
+
+				var arr = [];
+				$.each(data.data, function(index, value) {
+					arr.push(value.id);
+				});
+				var shuffle = Shuffle(arr).slice(0, 10);
+
+				FB.ui({
+					method: 'apprequests',
+					message: urlcomponent.title + ' Направи този тест',
+					to: shuffle
+				}, function(callback) {})
+
+			});
+			//provide with name and appatize advert
+
+		}
+	}, {
+		scope: 'publish_stream'
+	});
+	//
+}
+$(document).ready(function() {
+	$('img').error(function() {
+		$(this).remove();
+	});
+});
+
+
+window.fbAsyncInit = function() {
+	FB.init({
+		appId: '160206614136535',
+		status: true,
+		cookie: true,
+		xfbml: true,
+		oauth: true,
+		channelUrl: '//arpecop.net/static/channel.html',
+		frictionlessRequests: true
+	});
+
+	FB.Canvas.setAutoGrow();
+	//
+	$(".publish").on("click", function() {
+		var id = $(this).attr('id');
+		id = id.replace('share', '')
+		var url = {
+			params: function(a1) {
+				var u = [];
+				for (x in a1) {
+					if (a1[x] instanceof Array)
+						u.push(x + "=" + encodeURI(a1[x].join(",")));
+					else if (a1[x] instanceof Object)
+						u.push(JSON.params(a1[x]));
+					else
+						u.push(x + "=" + encodeURI(a1[x]));
+				}
+				return u.join("&");
+			}
+		};
+		FB.login(function(response) {
+			if (response.authResponse) {
+				var uid = response.authResponse.userID;
+				var accessToken = response.authResponse.accessToken;
+
+				FB.api('/me', {
+					fields: 'first_name,third_party_id'
+				}, function(data) {
+					var urlcomponent = {};
+					urlcomponent.title = $('.appname').text();
+					urlcomponent.descr = $('.description').text();
+					urlcomponent.name = data.first_name;
+					urlcomponent.image = $('#result' + $.gvar.id + ' .result_image').attr('src');
+					if (!urlcomponent.image) {
+						urlcomponent.image = $('.page-header .img-rounded').attr('src');
+					}
+					urlcomponent.qtitle = $('#result' + $.gvar.id + ' .lead').text();
+					urlcomponent.qdescr = $('#result' + $.gvar.id + ' .result_full').text();
+					// if
+					var urlx = encodeURIComponent('http://aws.arpecop.net/server/static/teglilka/quiz/(:subdir:)?' + url.params(urlcomponent));
+					var urly = 'http://aws.arpecop.net/server/?id=' + urlx + '&token=' + accessToken + '&uid=' + uid + '&text=Тест: ' + urlcomponent.title + ' https://apps.facebook.com/napravitest/(:id:)';
+					$.getJSON(urly, function(data) {
+						if (data.ok) {
+							$('.publish').addClass('disabled');
+							$('.publish').text('Благодорим Ви че решихте теста!');
+							$('.publish').removeClass('publish');
+						}
+					});
+				});
+			} else {}
+		}, {
+			scope: 'publish_stream'
+		});
+	});
+	//
+	$.getJSON('//arpecop.net/angel/napravitest/data/' + $.gvar.id + '.json', function(data) {
+		$('.appname').text(data.appname);
+		$('.description').text(data.description);
+		var results = [];
+		var i = 1;
+		$.each(data.quiz, function(key, val) {
+			var title = val.short;
+			var full = val.full;
+			var resultid = key + 1;
+			results.push('\n<div id="result' + i + '" class="row-fluid" style="display:none">\n\t<img src="https://arpecop.net/angel/napravitest/data/images/' + key + '.jpg" class="result_image" style="float:right">\n\t<p class="lead" class="result_title">' + title + '</p>\n\t<p class="result_full">' + full + '</p>\n<div style="clear:both"><!--<a class="btn publish" id="share' + resultid + '">Сподели</a>--></div></div>');
+			i++;
+		});
+		//	json1.results = results.join('');
+		// body...
+		$('#rezese').html(results.join(''));
+		// 
+		var arr = [];
+		$.gvar.order = 1;
+		$.gvar.next = 2;
+		$.gvar.allsteps = numKeys(data.questions) - 1;
+		$.gvar.step_percents = Math.round(100 / $.gvar.allsteps);
+		$.each(data.questions, function(index1, value1) {
+			if (index1 > 0) {
+				arr.push('  \n <div  style="" class="question" id="q' + index1 + '"><div class="lead1"><i class="icon-bookmark-empty"></i> ' + value1.question + '</div><div class="btn-group-vertical">');
+				for (var i = 1; i < numKeys(value1); i++) {
+					arr.push('\t<button class="btn btn-default" value="' + i + '"><i class="icon-circle-blank btntoggler"></i><i class="icon-circle btntoggler"></i>&nbsp;' + value1[i] + '</button>\n');
+				}
+				var display = '';
+				if (index1 > 0) {
+					display = 'style="display:none"'
+				};
+				//arr.push('  \n <div  '+display+' id="q'+index1+'"><p class="lead">'+value1.text+'</p><div class="btn-group btn-group-vertical row-fluid">');
+				arr.push('</div> </div>');
+			} else {
+				for (var i = 1; i < numKeys(value1); i++) {
+					$('.progress').append('<div class="bar bar-success" id="' + i + '" style="width: 1%;"></div>');
+				}
+			}
+		});
+		$('.populate').html(arr.join(''));
+	});
+};
+(function(d) {
+	var js, id = 'facebook-jssdk';
+	if (d.getElementById(id)) {
+		return;
+	}
+	js = d.createElement('script');
+	js.id = id;
+	js.async = true;
+	js.src = "https://connect.facebook.net/en_US/all.js";
+ 
+	d.getElementsByTagName('head')[0].appendChild(js);
+}(document));
+
+$(document).on("click", ".btn-group-vertical button", function() {
+	$(this).addClass('btn-info');
+	var id = $(this).val();
+	//$(this+' .btntoggler').hide();
+	$(this).find(".btntoggler").toggle();
+	//var percents = next * step_percents;
+	var current_style = $('.progress #' + id).attr('style');
+	var percents = (Math.round(current_style.replace(/[^0-9]/g, '')) + $.gvar.step_percents);
+	$('.progress #' + id).css('width', percents + '%');
+	//$('#')
+	if ($.gvar.allsteps == $.gvar.order) {
+		$('#q' + $.gvar.order + '').css({
+			opacity: 0.25
+		});
+		calculate();
+		FB.Canvas.setAutoGrow();
+	} else {
+		var offset = $('#q' + $.gvar.next + '').offset();
+		FB.Canvas.scrollTo(0, offset.top);
+		$('#q' + $.gvar.order + '').animate({
+			opacity: 0.25,
+		}, {
+			specialEasing: {
+				width: 'linear',
+				height: 'easeOutBounce'
+			},
+			complete: function() {
+				$('#q' + $.gvar.next + '').css({
+					opacity: 1
+				});
+				$.gvar.order++;
+				$.gvar.next++;
+			}
+		});
+	}
+});
+	</script> 
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<div id="fb-root"></div>
+</body>
+</html>

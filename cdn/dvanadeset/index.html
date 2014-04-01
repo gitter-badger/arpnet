@@ -1,0 +1,693 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8">
+<title>Какво говорят за теб в мрежата</title>
+<meta property="og:type"   content="dvanadeset:kaza" />
+<meta property="og:determiner" content="auto" />
+<meta property="profile:first_name" content="Rudi" />
+<meta property="profile:last_name" content="Opalchenov" />
+<meta property="profile:username" content="arpecop" />
+<meta property="profile:gender" content="male" />
+<meta property="fb:app_id" content="181361935494" />
+<meta property="og:title" content="Sample Profile @4 test pedras" />
+<meta property="og:image" content="//fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" />
+<meta property="og:url" content="//apps.facebook.com/feis-be/" />
+<meta property="og:type" content="profile" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css" rel="stylesheet">
+<link href="src/css.css" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300,600&subset=cyrillic' rel='stylesheet' type='text/css'>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]> 
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+ 
+<script src="//ads.lfstmedia.com/getad?site=203036" type="text/javascript"></script>
+</head>
+<body> <div id="fb-root"></div>
+ 
+  
+  
+      <div class="bs-old-docs">
+  <div class="row">
+    <div class="col-sm-1"><img src="//arpecop.net/angel/dvanadeset/src/icon.png"></div>
+    <div class="col-sm-11">
+      <ul class="nav nav-pills"  style="float:right;">
+        <li class="hidden-xs"><a href="#"><i class="fa fa-user"></i> <span class="username"></span></a></li>
+        <li class="active"><a href="#"><i class="fa fa-money"></i> Откл. Точки: <span class="badge gold_points">0</span> <i class="icon-arrow-left" id="showinggold"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+<div class="container" style="padding-top:10px;">
+
+  <div class="add hidden-xs" id="addx"> 
+
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '05a',
+            ad_size: '728x90',
+            slot: 'slot80232'
+        });
+    //]]>
+</script>
+    <div>
+      <button class="loading btn btn-default"> <img src="https://arpecop.net/angel/dvanadeset/src/loading.gif"> </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="tab-pane fade" id="mislish"> </div>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <div id="mislish">
+      <ul class="breadcrumb">
+        <li class="active"><i class="fa fa-users"></i> <span class="title1">Игра <small>всеки отговор +1 точка</small></span></li>
+      </ul>
+ 
+      <div class="mislish_igra">
+        <div class="row"> 
+          <div class="col-sm-3">
+            <div class="imgmobile visible-xs"><img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" class="img-rounded img-attendee"></div>
+            <div class="imgnotmobile hidden-xs"><img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" class="img-rounded img-attendee"></div></div>
+          <div class="col-sm-9">
+            <p class="lead"><i class="fa fa-angle-right"></i> <span id="qus"></span></p>
+            <div>
+              
+                <button class="btn  answervalue btn-lg btn-success" value="Да">&nbsp;&nbsp;Да&nbsp;&nbsp;</button>
+                <button class="btn answervalue btn-lg btn-success" value="Не">&nbsp;&nbsp;Не&nbsp;&nbsp;</button>
+                <button value="2" class="btn btn-link answervalue">&nbsp;Пропусни&nbsp;</button>
+           
+              <hr>
+              <div class="input-group" style="display:none;">
+                <input type="text" class="form-control" id="ownanswer" placeholder="... друг отговор">
+                <span class="input-group-btn">
+                <button class="btn btn-success  answervalue" type="button" id="ownanswersend">Прати</button>
+                </span> </div>
+              <!-- /input-group --></div>
+          </div>
+        </div>
+      </div>
+      <div class="row mislish_nav">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+          <input name="attendees" type="hidden" id="attendees" value="">
+          <div style="text-align:right"> 
+  
+          </div>
+        </div>
+      </div>
+      <div class="proceed">
+      <div id="attendeesgraph"></div>
+      <div class="alert" id="sendpleasedialog" style="display:none"> <span class="btn btn-mini" id="sendplease" style="float:right">OK!</span> <strong>Внимание!</strong> Известете приятелите си в диалога за да знаят за вашите отговориИзвестете приятелите си в диалога за да знаят за вашите отговори </div>
+      </div>
+    </div>
+    <div class="col-sm-6 moretochkas" id="unlocks">
+      <ul class="breadcrumb">
+        <li class="active"><i class="fa fa-inbox"></i> <span class="title2">Активност <span class="label label-info nonunlocked"></span> </span></li>
+      </ul>
+      
+
+
+      <hr>
+      <div class="progress" style="display:none;"><span class="infotochka"> </span>
+        <div class="bar" style="width: 0%;"></div>
+      </div>
+      <div class="media-list"> </div>
+    </div>
+  </div>
+  <hr class="soften">
+  <div class="add hidden-xs" id="add1"> 
+ <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '05a',
+            ad_size: '728x90',
+            slot: 'slot80232'
+        });
+    //]]>
+</script>
+  </div>
+  <div class="hidden-xs"> 
+  <ul class="breadcrumb">
+        <li class="active"><i class="fa fa-bookmark"></i> <span class="title2">Други приложения</li>
+      </ul>
+  <div id="cross"><div class="itemad"><div class="section"><a href="https://www.facebook.com/imetoti/app_455845877841696" target="_top"><img src="https://graph.facebook.com/131839906957023/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/imetoti/app_455845877841696" target="_top">Тълкуване на буквите на името</a></strong><br>&nbsp;&nbsp;Тълкуване на буквите на името</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/predishenjivot/app_455845877841696" target="_top"><img src="https://graph.facebook.com/333747356705341/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/predishenjivot/app_455845877841696" target="_top">Какъв сте били в предишен живот?</a></strong><br>&nbsp;&nbsp;Проверете с това забавно приложение</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/denposleden/app_455845877841696" target="_top"><img src="https://graph.facebook.com/432638250153045/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/denposleden/app_455845877841696" target="_top">Живей всеки ден, сякаш ти е последен</a></strong><br>&nbsp;&nbsp;Провери колко ще живееш с това приложение</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/vazrast/app_455845877841696" target="_top"><img src="https://graph.facebook.com/246560865463407/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/vazrast/app_455845877841696" target="_top">На колко години изглеждаш [Скенер]</a></strong><br>&nbsp;&nbsp;На колко години изглеждаш [Скенер]
+</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/moiatazodia/app_455845877841696" target="_top"><img src="https://graph.facebook.com/295422490556486/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/moiatazodia/app_455845877841696" target="_top">Моята Зодия</a></strong><br>&nbsp;&nbsp;Провери положителните черти според денят в който си роден</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/iaponskoime/app_455845877841696" target="_top"><img src="https://graph.facebook.com/132139833633587/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/iaponskoime/app_455845877841696" target="_top">Японско Име</a></strong><br>&nbsp;&nbsp;Провери как би се казвал ако си японец</div></div> <div class="itemad"><div class="section"><a href="https://www.facebook.com/indianskoime/app_455845877841696" target="_top"><img src="https://graph.facebook.com/indianskoime/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/indianskoime/app_455845877841696" target="_top">Индиянско име Име</a></strong><br>&nbsp;&nbsp;Провери как би се казвал ако си индиянец</div></div> <div style="clear:both;"></div></div></div>
+  <div> 
+    <!-- end ryad tag --> 
+    
+  </div>
+    <div class="add hidden-xs" id="add2"> 
+    <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '05a',
+            ad_size: '728x90',
+            slot: 'slot80232'
+        });
+    //]]>
+</script>
+  </div>
+</div>
+
+<img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" id="preload"> 
+<!-- Footer
+  ================================================== --> 
+
+<script>
+var prev = 0;
+var next = 1;
+var supernext = 2;
+$.gvar = {};
+
+
+
+(function($) {
+
+  $.fn.shuffle = function() {
+    return this.each(function() {
+      var items = $(this).children().clone(true);
+      return (items.length) ? $(this).html($.shuffle(items)) : this;
+    });
+  };
+
+  $.shuffle = function(arr) {
+    for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+    return arr;
+  };
+
+})(jQuery);
+Array.prototype.chunk = function(n) {
+  if (!this.length) {
+    return [];
+  }
+  return [this.slice(0, n)].concat(this.slice(n).chunk(n));
+};
+
+//OWNanswer
+
+$(document).on("keyup", "#ownanswer", function() {
+
+  var text = $(this).val();
+
+  if (text.length >= 2) {
+    $('#ownanswersend').val(text);
+    $('#ownanswersend').show();
+  }
+});
+
+
+//UNLOCK INVITES
+
+function inviteunlock(sqlid) {
+
+  // body...
+  FB.api({
+      method: 'fql.query',
+      query: 'SELECT uid FROM user WHERE is_app_user=0 AND uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
+    },
+    function(data) {
+      var arr = [];
+      $.each(data, function(index, value) {
+
+        arr.push(value.uid);
+      });
+      var marr = $.shuffle(arr).slice(0, 25);
+
+
+
+      FB.ui({
+        method: 'apprequests',
+        message: 'Забавлявай се с играта в която разбираш мнението на приятелите си',
+        to: marr.join(',')
+      }, function(callback) {
+        if (callback.to) {
+          $('#result' + sqlid + ' .result').show();
+          $('#result' + sqlid + ' button').remove();
+
+          $.post('//arpecop.net/angel/db2/delete/stream10-' + $.gvar.user.id, $.gvar.stream[sqlid], function(data) {
+
+
+          });
+
+        }
+      });
+
+    }
+  );
+}
+
+$(document).on("click", ".poke", function() {
+  var to = $(this).attr('alt');
+     var doc = {
+        key: "actionz" + to,
+        from: $.gvar.user.id,
+        text: 'Сръчкване',
+        action: 'poke',
+        date: new Date().getTime()
+      };
+    $(this).hide('slow');
+
+   $.post('//arpecop.net/angel/db2/insert', doc, function(data) {});
+      $.post("https://graph.facebook.com/" + to + "/notifications", {
+      href: "ask/",
+      access_token: "181361935494|UBiDJEKsqWEwbKdWfXVYBgr-qNw",
+      template: "Някой те сръчка",
+    }, function(data) {
+
+    });
+
+});
+
+
+   
+$(document).on("click", ".unlock_invite", function() {
+  var sqlid = $(this).val();
+
+  inviteunlock(sqlid);
+
+});
+//DELETE
+$(document).on("click", ".unlock_delete", function() {
+  var sqlid = $(this).val();
+  $.post('//arpecop.net/angel/db2/delete/stream10-' + $.gvar.user.id, $.gvar.stream[sqlid], function(data) {
+    $("#result" + sqlid + '').hide('slow');
+  });
+});
+
+//UNLOCK
+
+$(document).on("click", ".unlock", function() {
+  var sqlid = $(this).val();
+  $.getJSON('//arpecop.net/angel/db2/gold1-' + $.gvar.user.id, function(datagold) {
+
+    if (datagold.message) {
+      $("#error-" + sqlid + ', #showinggold').fadeIn('slow');
+
+      setTimeout(function() {
+        $("#error-" + sqlid + ', #showinggold').fadeOut('slow');
+      }, 2400);
+    } else if (Number(datagold.value) < 5) {
+      $("#error-" + sqlid + ', #showinggold').fadeIn('slow');
+
+      setTimeout(function() {
+        $("#error-" + sqlid + ', #showinggold').fadeOut('slow');
+      }, 2400);
+
+    } else {
+
+      $('#result' + sqlid + ' .result').show();
+      $('#result' + sqlid + ' button').remove();
+      update_gold($.gvar.user.id, 'unlocking');
+      $.post('//arpecop.net/angel/db2/delete/stream10-' + $.gvar.user.id, $.gvar.stream[sqlid], function(data) {});
+      var jsonxx = $.gvar.stream[sqlid];
+      jsonxx.unlocked = 1;
+      //$.post('//arpecop.net/angel/db2/insert', jsonxx, function(data) {  });
+
+    }
+
+
+  });
+
+
+});
+
+//LOGIN
+$("#loginbutton").on("click", function(e) {
+
+  FB.login(function(response) {
+    if (response.authResponse) {
+
+      top.location = "https://apps.facebook.com/feis-be/";
+
+    }
+  }, {
+    scope: 'publish_actions'
+  });
+
+});
+
+
+
+function update_gold(user, action) {
+  var newval;
+  if (action == 'justcheck') {
+    $.getJSON('//arpecop.net/angel/db2/gold1-' + user, function(data) {
+      //error
+      if (data.message) {
+        $.post('//arpecop.net/angel/db2/insert', {
+          'key': 'gold1-' + user,
+          'value': 1
+        }, function(data) {
+
+          $('.gold_points').text('0');
+        });
+
+      } else {
+        $('.gold_points').text(data.value);
+      }
+    });
+
+  } else if (action == 'add') {
+
+    newval = Number($('.gold_points').text()) + 1;
+
+    $.post('//arpecop.net/angel/db2/insert', {
+      'key': 'gold1-' + user,
+      'value': newval
+    }, function(data) {
+      $('.gold_points').text(newval);
+    });
+
+  } else if (action == 'unlocking') {
+
+    newval = Number($('.gold_points').text()) - 5;
+
+    $.post('//arpecop.net/angel/db2/insert', {
+      'key': 'gold1-' + user,
+      'value': newval
+    }, function(data) {
+      $('.gold_points').text(newval);
+    });
+
+  }
+
+
+}
+
+
+
+function providemislish(prevdata) {
+  var vapros = $.gvar.mislish[next].q;
+  var userid = $.gvar.fql[next].uid;
+  var username = $.gvar.fql[next].first_name;
+  $('.mislish_igra').show();
+  $('.loading').hide();
+  $('.img-attendee').attr('src', 'https://graph.facebook.com/' + userid + '/picture?width=200&height=200');
+
+  $('#qus').text('Мислиш ли че, ' + username + ' ' + vapros + ' ?');
+
+  $('#preload').attr('src', 'https://graph.facebook.com/' + $.gvar.fql[supernext].uid + '/picture?width=200&height=200');
+  if (prevdata) {
+$('#add'+Math.floor(Math.random()*2)).html('<iframe src="//app.appatyze.com/gateway.php?a=353&aid=' + $.gvar.user.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+    prevdata.fromname = $.gvar.user.first_name;
+    $('#ownanswersend,#ownanswer').val('');
+
+    $.post("https://graph.facebook.com/" + prevdata.to + "/notifications", {
+      href: "?x=vaprosi",
+      access_token: "181361935494|UBiDJEKsqWEwbKdWfXVYBgr-qNw",
+      template: "Някой каза нещо за теб",
+    }, function(data) {
+      if (!data.success) {
+        var errordata = prevdata;
+        errordata.key = errorlog;
+        $.post('//arpecop.net/angel/db2/errorlog', errordata, function() {});
+      }
+    });
+    prevdata.key = 'stream10-' + prevdata.to;
+    $.post('//arpecop.net/angel/db2/' + prevdata.to, prevdata, function(data) {
+
+    });
+
+  }
+
+  next++;
+  prev++;
+  supernext++;
+}
+
+function registertodb(uid, token) {
+  var prekey = "gender";
+  //FB.api('/me/friends', { fields: 'bio, movies' }, function(response) {
+  $.getJSON('//graph.facebook.com/' + uid + '/?fields=first_name,gender,username&callback=?', function(data_user) {
+    var checkid;
+    if (!data_user.username) {
+      checkid = data_user.id;
+    } else {
+      checkid = data_user.username;
+    }
+
+    //  initcompares(data_user);
+
+    $.getJSON('//arpecop.net/angel/db2/' + prekey + '' + checkid + '', function(dataxx) {
+
+
+
+      if (dataxx.message && data_user.gender) {
+        var json = {};
+        json.key = '' + prekey + '' + checkid + '';
+        json.value = 'ok';
+
+        $.post('//arpecop.net/angel/db2/insert', json, function(data) {
+          var bson = {};
+          bson.key = '' + prekey + '' + data_user.gender;
+          bson.firstname = data_user.first_name;
+
+          bson.uid = uid;
+
+          $.post('//arpecop.net/quotepublisher/db/' + bson.key, bson, function(dat) {
+
+          });
+
+        });
+      }
+
+    });
+  });
+}
+
+function initialize(uid, token) {
+
+
+  // registertodb(uid, token);
+  update_gold(uid, 'justcheck');
+  ///
+
+
+  FB.api({
+      method: 'fql.query',
+      query: 'SELECT uid,first_name,is_app_user FROM user WHERE is_app_user AND uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
+    },
+    function(fql) {
+
+      $.gvar.fql = $.shuffle(fql);
+      FB.api('/me/', {
+        fields: 'name,first_name,third_party_id'
+      }, function(user) {
+        $.gvar.user = user;
+       // 
+
+        if (!fql.error_code) {
+          $.getJSON('//arpecop.net/angel/dvanadeset/src/vaprosibg.json', function(qus) {
+            $.gvar.mislish = $.shuffle(qus);
+            providemislish(null);
+            $('.username').text($.gvar.user.name);
+            $.getJSON('//arpecop.net/angel/db2/stream10-' + uid, function(dataxx1) {
+
+              if (!dataxx1.message) {
+
+                var dataxx;
+
+                if (!dataxx1.length) {
+                  dataxx = [];
+                  dataxx.push(dataxx1);
+                } else {
+                  dataxx = dataxx1;
+                }
+
+                $.gvar.stream = dataxx;
+
+                if (!dataxx.message) {
+                  $.gvar.stream = dataxx;
+                  var joinitems = [];
+                  var nonunlocked = 0;
+
+
+
+                  $('#unlocks').show();
+                  $('#unlocks,#mislish').addClass('col-sm-6');
+
+                  $.each(dataxx.slice(0, 5), function(index, value) {
+
+                    var classx;
+                    if (value.unlocked === 0) {
+                      classx = '';
+                      nonunlocked++;
+                    } else {
+                      classx = ' resultunlocked';
+                    }
+
+                    joinitems.push('<div class="media' + classx + '" id="result' + index + '">  <div class="pull-left"><button class="btn btn-xs unlock anonim btn-default" value="' + index + '"><i class="fa fa-unlock"></i> Разбери кой е отговорил, срещу 5 точки</button>  <img class="img-circle result" src="https://graph.facebook.com/' + value.from + '/picture"> </div><div class="media-body">   <div>Мислиш ли че, ' + $.gvar.user.name + ' ' + value.q + '?<div><strong><span class="result">' + value.fromname + '</span> oтговор<span class="result">и</span>: ' + value.result + '</strong>  <div class="result"><a class="btn btn-xs btn-default poke" alt="' + value.from + '">Сръчкай ' + value.fromname + '</a></div></div><div><button class="btn btn-xs unlock_invite" value="' + index + '"><i class="fa fa-unlock"></i> Откл. с покана</button></div></div>  </div>  </div>  <div id="error-' + index + '" style="display:none"> <br><div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button><strong>Опс!</strong> Събери 5 точки за да отключиш автора на отговора.</div></div>');
+                  });
+                  $('.media-list').html(joinitems.join(''));
+                  if (nonunlocked > 0) {
+                    $('.nonunlocked').show().text('' + nonunlocked + '');
+                  }
+
+                } else {
+
+                  $('#mislish').addClass('col-lg-12');
+                  $('.moretochkas').remove();
+                }
+              }
+            });
+
+
+
+          });
+        }
+
+      });
+    });
+
+  ///
+
+}
+
+
+
+$(document).on("click", ".answervalue", function(e) {
+
+  var gold = $('.gold_points').text();
+  $('.infotochka').remove();
+  var prevdata = {};
+
+
+
+  prevdata.result = $(this).val();
+  prevdata.q = $.gvar.mislish[prev].q;
+  prevdata.to = $.gvar.fql[prev].uid;
+  prevdata.from = $.gvar.user.id;
+  prevdata.unlocked = "0";
+  if (prevdata.result != 2) {
+    providemislish(prevdata);
+    update_gold($.gvar.user.id, 'add');
+
+
+
+  } else {
+    providemislish(null);
+  }
+
+});
+
+function register() {
+  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=181361935494&redirect_uri=https://apps.facebook.com/feis-be/&scope=user_about_me";
+}
+
+function getURLParameter(name) {
+  return decodeURI(
+    (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]
+  );
+}
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '181361935494',
+    status: true,
+    cookie: true,
+    xfbml: true,
+    oauth: true,
+    channelUrl: '//arpecop.net/static/channel.html',
+    frictionlessRequests: true
+  });
+
+  var request = getURLParameter('request_ids');
+
+  if (request.length >= 5) {
+    top.location.href = "http://feis.be/";
+  }
+
+
+  FB.Canvas.setAutoGrow();
+
+  FB.Event.subscribe('auth.authResponseChange', function(response) {
+    if (response.status === 'connected') {
+      var uid = response.authResponse.userID;
+      var accessToken = response.authResponse.accessToken;
+
+      if (!$.gvar.token) {
+        $.gvar.token = response.authResponse.accessToken;
+        initialize(uid, accessToken);
+      }
+
+    } else {
+      register();
+
+    }
+  });
+
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      var uid = response.authResponse.userID;
+      var accessToken = response.authResponse.accessToken;
+      if (!$.gvar.token) {
+        $.gvar.token = response.authResponse.accessToken;
+        initialize(uid, accessToken);
+      }
+    } else {
+      register();
+    }
+  });
+
+
+
+};
+//mobile
+
+
+
+// Load the SDK asynchronously
+(function(d) {
+  var js, id = 'facebook-jssdk';
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement('script');
+  js.id = id;
+  js.async = true;
+  js.src = "https://connect.facebook.net/en_US/all.js";
+  //js.src = "//tabletr.herokuapp.com/js/all.js";
+  d.getElementsByTagName('head')[0].appendChild(js);
+}(document));
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+
+ 
+
+</script>
+ 
+ 
+<hr>
+ 
+ 
+<div id="mobilez">
+
+ 
+</div>
+<div class="row">
+<div class="col-sm-6"> <a href="http://adf.ly/?id=217038" target="_new"> Правете пари от линковете които споделяте във FB </a></div>
+<div class="col-sm-6" style="text-align:right;"><a href="#">TOS</a> :: <a href="#">Privacy Policy</a> Copyright © 2013 Rudi<br>Powered by: <a href="http://iwstack.com/" target="_new">iwstack cloud</a></div>
+</div>
+</body>
+</html>

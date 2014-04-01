@@ -1,0 +1,10 @@
+[32minfo[39m:    Forever processes running
+[90mdata[39m:    [37m   [39m [37muid[39m  [90mcommand[39m             [90mscript[39m                                         [37mforever[39m [37mpid[39m  [35mlogfile[39m                 [33muptime[39m        
+[90mdata[39m:    [0] qgGo [90m/usr/local/bin/node[39m [90m/usr/share/nginx/html/angel/server.js[39m           2355    2496 [35m/root/.forever/qgGo.log[39m [33m0:9:53:30.883[39m 
+[90mdata[39m:    [1] sP36 [90m/usr/local/bin/node[39m [90m/usr/share/nginx/html/quiz/server.js[39m           2365    2495 [35m/root/.forever/sP36.log[39m [33m0:9:53:30.890[39m 
+[90mdata[39m:    [2] L4L3 [90m/usr/local/bin/node[39m [90m/usr/share/nginx/html/quotepublisher/server.js[39m 2375    2494 [35m/root/.forever/L4L3.log[39m [33m0:9:53:30.894[39m 
+[90mdata[39m:    [3] 0NQK [90m/usr/local/bin/node[39m [90m/usr/share/nginx/html/vaprosi/server.js[39m        2385    2497 [35m/root/.forever/0NQK.log[39m [33m0:9:53:30.886[39m 
+[90mdata[39m:    [4] Zb2h [90m/usr/local/bin/node[39m [90m/usr/share/nginx/html/legacyappz/server.js[39m     2395    2493 [35m/root/.forever/Zb2h.log[39m [33m0:9:53:30.890[39m 
+[90mdata[39m:    [5] QP-0 [90m/usr/local/bin/node[39m [90m/usr/share/nginx/html/troll/server.js[39m          2405    2492 [35m/root/.forever/QP-0.log[39m [33m0:9:53:30.907[39m 
+[90mdata[39m:    [6] ygIH [90m/usr/local/bin/node[39m [90m/usr/share/nginx/html/couchpress/server.js[39m     2415    2490 [35m/root/.forever/ygIH.log[39m [33m0:9:53:30.904[39m 
+[90mdata[39m:    [7] lbwN [90m/usr/local/bin/node[39m [90m/usr/share/nginx/html/socket/server.js[39m         2425    2491 [35m/root/.forever/lbwN.log[39m [33m0:9:53:30.909[39m 

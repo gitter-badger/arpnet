@@ -1,0 +1,395 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Page title -->
+<title>Space - Minimalist portfolio template</title>
+
+<!-- Page icon -->
+<link rel="shortcut icon" href="favicon.png">
+
+<!-- Viewport -->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/supersized.css">
+<style type="text/css">
+.item { display: none; text-align: center }
+.items { width: 820px; margin-right: auto; margin-left: auto; }
+.item .img { margin-right: auto; margin-left: auto; width: 300px; }
+.item .img img { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-color: #FFF; padding: 5px; margin-right: auto; margin-left: auto; }
+.name { position: absolute; margin: 5px; background-color: #FFF; padding: 5px; }
+.gallery_nav li { float: left; margin: 0px; padding: 0px; list-style-type: none; }
+.gallery_nav { margin-right: auto; margin-left: auto; width: 338px; height: 33px; }
+.add .animation { position: absolute; height: 12px; width: 184px; text-align: right; }
+</style>
+
+<!-- Modernizr -->
+<script src="js/libs/modernizr-2.0.6.min.js"></script>
+
+<!-- jQuery -->
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+</head>
+<body class="black">
+
+<!-- Background -->
+<div id="background"></div>
+<div id="container"> 
+  
+  <!-- SECTIONS begin --> 
+  
+  <!-- Home -->
+  <section id="home" class="home">
+    <div class="content">
+      <div class="height_count"> 
+        
+        <!-- Title -->
+        <h2> PhotoVerse </h2>
+        
+        <!-- Navigation -->
+        <nav class="sub portfolio_nav">
+          <ul>
+            <li><a href="#portfolio" data-tag="all" class="selected">All</a></li>
+            <li><a href="#portfolio" data-tag="webdesign">Collection</a></li>
+            <li><a href="#portfolio" data-tag="illustrations">Likes</a></li>
+          </ul>
+        </nav>
+        <div class="items">
+          <div align="center"> <img src="views/load.gif"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div style="text-align:center">
+        <!-- Begin Ad Call Tag - Do not Modify -->
+<iframe width='728' height='90' frameborder='no' framespacing='0' scrolling='no' src='//ads.lfstmedia.com/slot/slot50021?ad_size=728x90&adkey=b09'></iframe>
+<!-- End of Ad Call Tag -->
+        </div>
+      </div>
+      <!-- Side navigation -->
+      <nav class="side" data-type="portfolio-3-col"> <a href="#" class="previous">&nbsp;</a> <a href="#" class="next">&nbsp;</a> </nav>
+      
+      <!-- Items -->
+      <div class="height_count" style="display:none">
+        <div class="portfolio">
+          <div class="pages" data-type="portfolio-3-col" data-current="1">
+            <div class="pages_content">
+              <div class="page">
+                <ul class="portfolio">
+                  <li class="all webdesign print"> <a href="img/placeholders/original/1.jpg" class="top"> <img src="img/placeholders/260x150/1.jpg" alt=""> </a>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat odio id nibh adipiscing ac tincidunt est.</p>
+                  </li>
+                  <li class="all illustrations print"> <a href="img/placeholders/original/2.jpg" class="top"> <img src="img/placeholders/260x150/2.jpg" alt=""> </a>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat odio id nibh adipiscing ac tincidunt est.</p>
+                  </li>
+                  <li class="last all webdesign"> <a href="img/placeholders/original/3.jpg" class="top"> <img src="img/placeholders/260x150/3.jpg" alt=""> </a>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat odio id nibh adipiscing ac tincidunt est.</p>
+                  </li>
+                  
+                      <li class="last all webdesign"> <a href="img/placeholders/original/3.jpg" class="top"> <img src="img/placeholders/260x150/3.jpg" alt=""> </a>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat odio id nibh adipiscing ac tincidunt est.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </section>
+  <section id="portfolio" class="portfolio"> portfolio </section>
+  <!-- Portfolio - 3 columns --> 
+  
+  <!-- SECTIONS end --> 
+  
+</div>
+
+<!-- JavaScript --> 
+<script src="js/libs/jquery.scrollTo-1.4.2.js"></script> 
+<script src="js/libs/jquery.easing.min.js"></script> 
+<script src="js/libs/supersized.3.2.6.min.js"></script> 
+<script src="js/libs/jquery.fancybox-1.3.4.pack.js"></script> 
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<script src="js/script.js"></script> 
+
+<!-- Google Analytics --> 
+
+<script>
+$.gvar = {};
+$.gvar.next = 0;
+$.gvar.next_chunk = 0;
+$.gvar.next_chunk_invites = 0;
+$.gvar.arr = [];
+$.gvar.images_loaded = 0;
+
+window.log = function(){
+  log.history = log.history || [];   // store logs to an array for reference
+  log.history.push(arguments);
+  if(this.console){
+    ////console.log( arguments );
+  }
+};
+ 
+(function($){
+  $.fn.shuffle = function() {
+    return this.each(function(){
+      var items = $(this).children();
+      return (items.length) 
+        ? $(this).html($.shuffle(items)) 
+        : this;
+    });
+  }
+   
+  $.shuffle = function(arr) {
+    for(
+      var j, x, i = arr.length; i; 
+      j = parseInt(Math.random() * i), 
+      x = arr[--i], arr[i] = arr[j], arr[j] = x
+    );
+    return arr;
+  } 
+})(jQuery);
+
+Array.prototype.chunk = function(chunkSize) {
+    var array=this;
+    return [].concat.apply([],
+        array.map(function(elem,i) {
+            return i%chunkSize ? [] : [array.slice(i,i+chunkSize)];
+        })
+    );
+};
+
+function send_requests() {
+        FB.ui({method: 'apprequests',
+          message: 'Just rated for your photo',
+          to: $.gvar.invites[$.gvar.next_chunk_invites]
+        }, function (response) {
+       if(response) {
+         $.gvar.next_chunk_invites++;
+       } else {
+         
+       }
+    }); 
+};
+
+ 
+
+  var socket = io.connect();
+
+  // POPULATE
+ socket.on('populate', function (data) {
+ if ($.gvar.arr[$.gvar.next].data.length == 1) {
+    $('#photo-'+$.gvar.arr[$.gvar.next].uid).show();
+    } else {
+    $.gvar.next++;
+    //log('trying another one');
+      $('#photo-'+$.gvar.arr[$.gvar.next].uid).show();
+    }
+ });
+
+ var fakearr = 0;
+  socket.on('news', function (data) {
+ 
+    if (data.data.length == 1) {
+         $.gvar.images_loaded++;
+         $.gvar.arr.push(data);
+         if (data.data[0].caption) {
+           $('#photo-'+data.uid+' .caption').html('<h3>'+data.data[0].caption+'</h3>');
+         };
+$('#photo-'+data.uid+' .img').html('<img src="'+data.data[0].src_big+'" alt="'+data.uid+'">');
+ 
+
+    } else {
+     
+   // $('#photo-'+ $.gvar.arr +' .img').html('<img src="'+data.data[0].src_big+'" alt="'+data.uid+'" style="max-height:260px">');
+   
+    }
+    fakearr++;
+    
+  if ($.gvar.arr.length <= 4) {
+
+ socket.emit('populate', 'fakearr');
+
+};
+  });
+
+// all data 
+socket.on('friends', function (data) {
+ 
+
+if ($.isArray(data)) {
+    var shuffled = $.shuffle(data);   
+    $.gvar.friends = shuffled.chunk(4);
+   
+ var arr = [];
+ var arr_invites = []
+ $.each(shuffled, function(index, value) { 
+ 
+  arr_invites[index] = value.id; 
+  
+  
+  arr[index] = '<div id="photo-'+value.id+'" class="item"><table border="0" class="table"><tr><ul class="gallery_nav"><li class="like"><img src="img/but_01.png" width="71" height="34" alt="'+value.id+'" title="like" /></li> <li class="add"> <div class="animation"></div><img src="img/but_02.png" width="185" height="34"  alt="'+value.id+'" title="add"/></li> <li class="next"><img src="img/but_03.png" width="80" height="34" alt="'+value.id+'" /></li></ul><td><div class="name"><strong>Photo by:  '+value.name+'</strong></div></td>  </tr> <tr>  <td><a href="#" class="img"> </a> </td></tr><tr><td>&nbsp;</td></tr></table></div>'; 
+});
+
+ 
+
+  var invites = arr_invites.chunk(40);
+  var arr_invetes2 = [];
+$.each(invites, function(index, value) { 
+   arr_invetes2[index] = value.join(',');
+});
+ $.gvar.invites = arr_invetes2;
+ 
+
+  $('.items').html(arr.join(''));
+  socket.emit('news', $.gvar.friends[0],$.gvar.fb_accessToken,'0');
+  send_requests();
+    } else {
+    }
+    });
+
+ 
+//
+
+$(".gallery_nav li img,.img img").live({
+	
+  click: function() {
+	  var id = $(this).attr('alt');
+	  var action = $(this).attr('title');
+	  
+	  if (action) {
+	  if (action == "add") {
+		  var img = $('#photo-'+id+' .img img').attr('src');
+		   
+		  
+$.post("/favorites", { id: $.gvar.fb_uid, img: img },  function(data) {
+      
+});
+		  
+	 $(".animation").html('<img src="img/plusone.gif" width="22" height="34" />');
+	 
+setTimeout(function() {	 $(".animation img").remove();  }, 1200); 
+			  
+			  };
+		  };
+		  
+		  
+ var id = $(this).attr('alt');
+
+
+ 
+ 
+  if($.gvar.arr[$.gvar.next]) {
+      $.gvar.next++;
+     var data = $.gvar.arr[$.gvar.next];
+  } 
+
+ $('#photo-'+id+'').remove();
+ $('#photo-'+data.uid+'').show();
+
+ 
+ var formula = ($.gvar.arr.length - $.gvar.next);
+  
+  if (formula <=2) {
+   $.gvar.next_chunk++;
+  
+   socket.emit('news', $.gvar.friends[$.gvar.next_chunk],$.gvar.fb_accessToken,$.gvar.next_chunk);
+ };
+		  
+ 
+  },
+  mouseover: function() {
+    var img = $(this).attr('src');
+	var new_img = img.replace('.png','_hover.png');
+	$(this).attr('src',new_img);
+  },
+  mouseout: function() {
+    var img = $(this).attr('src');
+	var new_img = img.replace('_hover.png','.png');
+	$(this).attr('src',new_img);
+  }
+});
+
+//
+
+
+ 
+
+var facebookLoginWindow;
+var loginWindowTimer;
+
+//facebook login
+function facebookLogin()
+{
+   
+   
+  var loginUrl="http://www.facebook.com/dialog/oauth/?"+
+    "scope=publish_actions,friends_actions.news,friends_actions.video,user_photos,friends_photos&"+
+    "client_id=423278631063908&"+
+    "redirect_uri=http://apps.facebook.com/photoverse&"+
+    "response_type=token&"+
+    "display=page";
+
+   top.location.href = loginUrl;
+}
+  
+//facebook load
+ 
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '423278631063908', // App ID
+            channelUrl : '//www.secretzone.bg/channel.html', // Channel File
+            status     : true, 
+            cookie     : true, 
+            xfbml      : true, // parse XFBML
+            frictionlessRequests: true
+        });
+FB.Canvas.setAutoGrow();
+//if connected
+
+  FB.getLoginStatus(function(response) {
+ 
+            if (response.status === 'connected') {
+                                        $.gvar.fb_uid = response.authResponse.userID;
+                                        $.gvar.fb_accessToken = response.authResponse.accessToken;
+                                        socket.emit('login', { token: $.gvar.fb_accessToken,uid:$.gvar.fb_uid });
+                                      
+
+
+            } else if (response.status === 'not_authorized') {
+                facebookLogin();
+            } else {
+                facebookLogin();
+            }
+        });
+    };
+
+// Load the SDK Asynchronously
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/bg_BG/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+</script> 
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+<div id="fb-root"></div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!-- InstanceBegin template="/Templates/index.dwt" codeOutsideHTMLIsLocked="false" --><!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>Photo of the Day</title>
+<meta property="og:title" content=""/>
+<meta property="og:type" content=""/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content=""/>
+<meta property="og:site_name" content=""/>
+<meta property="fb:app_id" content="423278631063908"/>
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="/socket.io/socket.io.js"></script>
+<!-- InstanceBeginEditable name="head" --> 
+
+<style>
+.img {text-align:center}
+.image_friend {display:none}
+</style>
+<!-- InstanceEndEditable -->
+<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body style="overflow:hidden">
+
+<!--  --> 
+<!-- InstanceBeginRepeat name="nav" --><!-- InstanceBeginRepeatEntry -->
+<div class="logo" style="background-color:#FFF; height:40px;"> <img src="views/loho.png"></div>
+<!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat --><!-- InstanceBeginEditable name="content" -->
+<div class="container">
+ 
+    <div class="active" id="you">
+      <div class="youphoto">
+        <div class="gray">
+        
+        <div id="photo-1273399579" class="image_friend" style=""><div class="caption"><h3>Акваристична среща!</h3></div><button class="btn btn-primary">Like</button>  <button class="btn btn-success">Add to Collection</button>  <button class="btn" value="skip">Skip  </button><div class="name">Photo of:<br>Николай Цветков</div><div class="img"><img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/47211_1183048034365_7779482_n.jpg" alt="1273399579" class="img-rounded"></div></div>
+          <div align="center"><img src="views/load.gif" alt=""></div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+<!-- InstanceEndEditable -->
+</div>
+<div style="clear:both"></div>
+<script>
+$.gvar = {};
+$.gvar.next = 0;
+$.gvar.next_chunk = 0;
+$.gvar.next_chunk_invites = 0;
+$.gvar.arr = [];
+$.gvar.images_loaded = 0;
+
+window.log = function(){
+  log.history = log.history || [];   // store logs to an array for reference
+  log.history.push(arguments);
+  if(this.console){
+    ////console.log( arguments );
+  }
+};
+ 
+(function($){
+  $.fn.shuffle = function() {
+    return this.each(function(){
+      var items = $(this).children();
+      return (items.length) 
+        ? $(this).html($.shuffle(items)) 
+        : this;
+    });
+  }
+   
+  $.shuffle = function(arr) {
+    for(
+      var j, x, i = arr.length; i; 
+      j = parseInt(Math.random() * i), 
+      x = arr[--i], arr[i] = arr[j], arr[j] = x
+    );
+    return arr;
+  } 
+})(jQuery);
+
+Array.prototype.chunk = function(chunkSize) {
+    var array=this;
+    return [].concat.apply([],
+        array.map(function(elem,i) {
+            return i%chunkSize ? [] : [array.slice(i,i+chunkSize)];
+        })
+    );
+};
+
+function send_requests() {
+        FB.ui({method: 'apprequests',
+          message: 'Just rated for your photo',
+          to: $.gvar.invites[$.gvar.next_chunk_invites]
+        }, function (response) {
+			 if(response) {
+				 $.gvar.next_chunk_invites++;
+			 } else {
+				 
+			 }
+		}); 
+};
+
+ 
+
+  var socket = io.connect();
+
+  // POPULATE
+ socket.on('populate', function (data) {
+ if ($.gvar.arr[$.gvar.next].data.length == 1) {
+    $('#photo-'+$.gvar.arr[$.gvar.next].uid).show();
+    } else {
+    $.gvar.next++;
+    log('trying another one');
+	    $('#photo-'+$.gvar.arr[$.gvar.next].uid).show();
+    }
+ });
+
+ var fakearr = 0;
+  socket.on('news', function (data) {
+  log(data);
+    if (data.data.length == 1) {
+			   $.gvar.images_loaded++;
+ 			   $.gvar.arr.push(data);
+ 			   if (data.data[0].caption) {
+	 			   $('#photo-'+data.uid+' .caption').html('<h3>'+data.data[0].caption+'</h3>');
+ 			   };
+$('#photo-'+data.uid+' .img').html('<img src="'+data.data[0].src_big+'" alt="'+data.uid+'">');
+
+    } else {
+    log('one of them failed to load');
+   // $('#photo-'+ $.gvar.arr +' .img').html('<img src="'+data.data[0].src_big+'" alt="'+data.uid+'">');
+	 
+    }
+    fakearr++;
+    
+  if ($.gvar.arr.length <= 4) {
+
+ socket.emit('populate', 'fakearr');
+
+};
+  });
+
+// all data 
+socket.on('friends', function (data) {
+ 
+
+if ($.isArray(data)) {
+    var shuffled = $.shuffle(data);   
+    $.gvar.friends = shuffled.chunk(4);
+	 
+ var arr = [];
+ var arr_invites = []
+ $.each(shuffled, function(index, value) { 
+ 
+	arr_invites[index] = value.id;
+	arr[index] = '<div id="photo-'+value.id+'" class="image_friend"><div class="caption"></div><button class="btn btn-primary">Like</button>  <button class="btn btn-success">Add to Collection</button>  <button class="btn" value="skip">Skip  </button><div class="name">Photo of:<br>'+value.name+'</div><div class="img">  </div></div>'; 
+});
+
+  var invites = arr_invites.chunk(40);
+  var arr_invetes2 = [];
+$.each(invites, function(index, value) { 
+   arr_invetes2[index] = value.join(',');
+});
+ $.gvar.invites = arr_invetes2;
+ 
+
+ $('.youphoto .gray').html(arr.join(''));
+  socket.emit('news', $.gvar.friends[0],$.gvar.fb_accessToken,'0');
+  //send_requests();
+    } else {
+    }
+    });
+
+ 
+
+
+$(".image_friend a,.img img,button").live("click", function(){ 
+
+ 
+ log($(this));
+
+
+  var id = $(this).attr('alt');
+
+
+ 
+ 
+  if($.gvar.arr[$.gvar.next]) {
+    	$.gvar.next++;
+	   var data = $.gvar.arr[$.gvar.next];
+  } 
+
+ $('#photo-'+id+'').remove();
+ $('#photo-'+data.uid+'').show();
+
+ 
+ var formula = ($.gvar.arr.length - $.gvar.next);
+  
+  if (formula <=2) {
+   $.gvar.next_chunk++;
+  
+   socket.emit('news', $.gvar.friends[$.gvar.next_chunk],$.gvar.fb_accessToken,$.gvar.next_chunk);
+ };
+
+ 
+});  
+
+var facebookLoginWindow;
+var loginWindowTimer;
+
+//facebook login
+function facebookLogin()
+{
+	 
+	 
+	var loginUrl="http://www.facebook.com/dialog/oauth/?"+
+		"scope=publish_actions,friends_actions.news,friends_actions.video,user_photos,friends_photos&"+
+		"client_id=423278631063908&"+
+		"redirect_uri=http://boxee.local&"+
+		"response_type=token&"+
+		"display=page";
+
+	 top.location.href = loginUrl;
+}
+  
+//facebook load
+ 
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '423278631063908', // App ID
+            channelUrl : '//www.secretzone.bg/channel.html', // Channel File
+            status     : true, 
+            cookie     : true, 
+            xfbml      : true, // parse XFBML
+			frictionlessRequests: true
+        });
+FB.Canvas.setAutoGrow();
+//if connected
+
+        FB.getLoginStatus(function(response) {
+	log(response);
+            if (response.status === 'connected') {
+                                        $.gvar.fb_uid = response.authResponse.userID;
+                                        $.gvar.fb_accessToken = response.authResponse.accessToken;
+                                        socket.emit('login', { token: $.gvar.fb_accessToken,uid:$.gvar.fb_uid });
+            } else if (response.status === 'not_authorized') {
+                facebookLogin();
+            } else {
+                facebookLogin();
+            }
+        });
+    };
+
+// Load the SDK Asynchronously
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/bg_BG/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+</script>
+<div id="fb-root"></div>
+<!-- InstanceBeginRepeat name="footer" --><!-- InstanceBeginRepeatEntry -->
+<div class="advert" align="center" style="height:90px"> </div>
+<!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat --> 
+<!-- ${gvar.x} -->
+</body>
+<!-- InstanceEnd --></html>

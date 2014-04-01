@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+  <head>
+  <meta charset="UTF-8">
+  <title>Photo of the Day</title>
+  <meta property="og:title" content=""/>
+  <meta property="og:type" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="fb:app_id" content="423278631063908"/>
+  <script src="views/scripts/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="views/scripts/bootstrap-tabs.js"></script>
+  <script src="https://connect.facebook.net/en_US/all.js"></script>
+  <link href="views/bootstrap.css" rel="stylesheet" type="text/css">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+</body>
+</html>

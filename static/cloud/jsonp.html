@@ -1,0 +1,13 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script>
+var script = document.createElement("script");
+script.src = decodeURIComponent(location.search.substring(1)) + "&callback=callback";
+document.body.appendChild(script);
+
+function callback(json) {
+  parent.postMessage(JSON.stringify(json), "*");
+}
+</script>

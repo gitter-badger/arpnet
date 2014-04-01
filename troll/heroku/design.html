@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>(:name:)&nbsp;</title>
+<meta name="description" content="(:description:) &nbsp;">
+<meta property="og:title" content="(:name:)&nbsp;">
+<meta property="og:type" content="website">
+<meta property="og:url" content="(:ogurl:)">
+<meta property="og:image" content="(:imgsrc:)">
+<meta property="og:site_name" content="Troll">
+<meta property="fb:admins" content="572383379">
+<meta property="og:description" content="(:description:)&nbsp;">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+	    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+		    <link rel="stylesheet" href="//rofl.sytes.net/troll/src/stylesheets/styles.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//rofl.sytes.net/troll/src/stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style type="text/css">
+ 
+#header_nav {
+    width:100%;
+    height:100px;
+    background-color:#ecf0f1;
+    position:fixed;
+    overflow:hidden;
+    top:0;
+    left:0;
+    z-index: 100;
+}
+#shares {display: none;}
+ 
+.view {min-height: 40px; max-height: 100px; overflow:hidden; font-size: 17px;}
+.navbar-nav {display:none;}
+ .item {min-height: 300px;}
+ .itemimgz {text-align: center;}
+
+</style>
+ 
+
+  </head> 
+<body class="post-template" data-spy="scroll">
+
+
+
+ <div id="header_nav">
+  <img src="http://rofl.sytes.net/troll/src/logo.png">
+ <ul class="nav navbar-nav">
+            (:links1:)
+   </div>
+
+    <div class="wrapper">
+      <!-- begin apz html tag -->
+<iframe src="//app.appatyze.com/gateway.php?a=1728" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" class="hidden-sm"></iframe>
+<!-- end apz html tag -->
+      <header>
+        
+     
+
+        <h1 class="view">  (:name:)  </h1>
+
+
+     
+		
+		<ul>
+          <li><a href="https://www.facebook.com/sharer/sharer.php?u=(:ogurl:)" rel="nofollow" id="fbshare"><strong><i class="fa fa-facebook-square"></i> (:ilike:)</strong> <span id="shares" style="display: inline;">1</span> </a></li>
+           <li><a href="https://plus.google.com/share?url=(:ogurl:)" rel="nofollow" id="gshare"><strong><i class="fa fa-google-plus-square"></i>  (:ilike:)</strong>Google+ </a></li>
+          <li> </li>
+        </ul>
+      </header>
+      <section data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
+      <div id="firstlike"></div>
+ <div id="(:id:)" class="item1"><img src="(:imgsrc:)" id="the_img" class="img-rounded"></div>
+ 
+<p id="comments">
+ 
+  (:commentz ~
+      <div class="media"> <a class="pull-left" href="#"> [:from ~ <img class="img-circle" src="//graph.facebook.com/{:id:}/picture"></a>
+        <div class="media-body">
+          <div class="media-heading1">
+            <div class="row-fluid"> :] </div>
+          </div>
+          <div class="col-sm-12">[:message:]</div>
+        </div>
+      </div>
+      :)</p>
+ 
+       (:links2:)
+       <ul class="idems">
+   
+    </ul>
+   
+      </section>
+      <footer>
+      
+        <p><small>© rofl.sytes 2012 - All rights reserved&mdash; Theme by </small></p>
+      </footer>
+    </div>
+
+
+
+
+
+
+ 
+
+<script>
+ 
+//CAAAAHJBZCQF8BAL5dJpLjEd7xNxdyhAUfBPoDcJYk1dM2qoZBKRyRAuxTS9nxKMmphGBp3RzTixazxCET3q1pGTCiMtN9QtHvSdvFKxKSOccMNVsIrrTjxNjRa4Kn8bLLpDRd4muzCyJMIq9UMqEidg2pouBZBFM2T5vCZAZA9YVA0QM7ZAdTvemprrCAAAAHJBZCQF8BAGiBl6epy8QIhA2GMKTKelR2xNkli4aNqjMWPnKmMho4k1hZCpvLzkcDS9tcF4i0FL6O7CZB1wTvScR8Qh2aTXfiJRW2Rcv5ifdrCTRLabhy4tLLxqLNx0fTleotZBiZCESubZBXlQFPQi5Of6lmNmcp3sEYc74CT0q9XqaXZB
+$('#firstlike').html('<iframe src="//www.facebook.com/plugins/like.php?href='+encodeURIComponent('(:ogurl:)')+'&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=119250176060" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>')
+ var bheight = $(window).height();
+ $( document ).ready(function() {
+   $('.item,.item1').css('height',bheight+'px');
+
+
+   var offset = bheight  / 2;
+ 
+
+     $('body').scrollspy({
+ offset:offset
+});
+
+    });
+
+
+
+
+
+      
+    $('body').on('activate.bs.scrollspy', function () {
+       
+      var active = $('.navbar-nav .active a').attr('href');
+      var id = active.replace('#','');
+
+     var title = $(active).attr('title');
+     var img = $(active).attr('alt');
+
+ 
+       
+      $(active).html('<hr><iframe src="//www.facebook.com/plugins/like.php?href='+encodeURIComponent('http://rofl.sytes.net/'+id)+'&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=119250176060" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe><div class="itemimgz"><img src="https://graph.facebook.com/'+id+'/picture?access_token=CAAAAHJBZCQF8BAGiBl6epy8QIhA2GMKTKelR2xNkli4aNqjMWPnKmMho4k1hZCpvLzkcDS9tcF4i0FL6O7CZB1wTvScR8Qh2aTXfiJRW2Rcv5ifdrCTRLabhy4tLLxqLNx0fTleotZBiZCESubZBXlQFPQi5Of6lmNmcp3sEYc74CT0q9XqaXZB" class="img-rounded"></div>');
+     
+             $('header .view').text(title);
+  
+ 
+
+          
+ 
+ 
+
+     $('#fbshare').attr('href','https://www.facebook.com/sharer/sharer.php?u=http://rofl.sytes.net/troll/'+id+'');
+$('#gshare').attr('href','https://plus.google.com/share?url=http://rofl.sytes.net/troll/'+id+'');
+      $.getJSON('http://graph.facebook.com/?id=http://rofl.sytes.net/troll/'+active+'&callback=?',function (data) {
+        console.log(data);
+     
+      if (data.shares) {
+        $('#shares').text(data.shares);
+      } else {
+  $('#shares').text(Math.floor((Math.random()*100)+1));
+      }
+      
+    });
+   
+
+      
+  // do something…
+});
+
+ 
+
+ $.getJSON('http://graph.facebook.com/?id=(:ogurl:)&callback=?',function (data) {
+     
+      if (data.shares) {
+        $('#shares').show().text(data.shares);
+      };
+      
+    });
+   
+//
+$(function(){
+    $('#header_nav').data('size','big');
+});
+
+var sectionw = $('section').width();
+ 
+//$('#comments').html('<div class="fb-comments" data-href="(:ogurl:)" data-numposts="5" data-width="'+sectionw+'"></div>')
+
+$(window).scroll(function(){
+    if($(document).scrollTop() > 0)
+    {
+        if($('#header_nav').data('size') == 'big')
+        {
+            $('#header_nav').data('size','small');
+            $('#header_nav').stop().animate({
+                height:'40px'
+            },600);
+        }
+    }
+    else
+    {
+        if($('#header_nav').data('size') == 'small')
+        {
+            $('#header_nav').data('size','big');
+            $('#header_nav').stop().animate({
+                height:'100px'
+            },600);
+        }  
+    }
+});
+
+
+//
+
+ 
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+
+    </script>
+
+ 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/bg_BG/all.js#xfbml=1&appId=119250176060";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="http://assets.tumblr.com/images/favicon.gif?2" type="image/gif"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-dns-prefetch-control" content="off"/>
+<meta name="robots" content="noindex"/>
+<meta property="og:title" content="(:appname:)" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://obiavi-one.rhcloud.com/staticapp/" />
+<meta property="og:image" content="https://obiavi-one.rhcloud.com/staticapp/logo.png" />
+<meta property="og:site_name" content="(:appname:)" />
+<meta property="og:description" content="&nbsp;" />
+<meta property="fb:app_id" content="(:appname:)" />
+<link href="//fonts.googleapis.com/css?family=Ubuntu:700&subset=cyrillic-ext,latin" rel="stylesheet" type="text/css">
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//ads.lfstmedia.com/getad?site=114071" type="text/javascript"></script>
+<style>
+body {
+	height: 100%;
+	font-family: 'Ubuntu', 'Helvetica Neue', Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+h1 {
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	color: #FFF;
+	font-size: 30px;
+	font-weight: 700;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.68);
+	letter-spacing: -1px;
+	margin: 0
+}
+.ad2  {
+	display: none
+}
+</style>
+<title>Not found.</title>
+</head>
+<body>
+<div style="text-align:right"><span class="label likes"> </span></div>
+<script type="text/javascript" src="//arpecop.net/quotepublisher/staticapp/scripts/zodia.js"></script>
+<div style="text-align:center">
+  <div class="adsense" style="height:90px; text-align:center; display:none;"> </div>
+  <span class="label">
+  <h1 id="l10n_title">(:appname:)</h1>
+  </span>
+  <div class="sorry" style="padding-top:20px; padding-bottom:20px;">
+    <p id="l10n_sorry_1">
+      <button onclick="fb_login(); return false;"  class="btn btn-large   btn-primary" type="button" id="trigger">(:button:)</button>
+    </p>
+    <p id="l10n_sorry_2">
+    <div class="preresult"></div>
+    <div class="result" style="text-align:center"> </div>
+    </p>
+  </div>
+</div>
+</p>
+<div style="text-align:center">
+  <button  class="btn btn-large   btn-primary" type="button" id="publish" style="display:none">Сподели</button>
+</div>
+<div class="alert fade in" id="alertor" style="display:none">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+</div>
+<hr>
+</div>
+<div class="adsense" style="height:90px; text-align:center; display:none;"> </div>
+<div class="comments" style="text-align:center">
+  <div class="fb-comments" data-href="(:url:)" data-width="770" data-num-posts="10" style="display:none" order_by="reverse_time"></div>
+  <div class="ad2" > 
+    <!-- begin apz html tag --> 
+    <!-- Begin Ad Call Tag - Do not Modify --> 
+    <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '652',
+            ad_size: '720x300',
+            slot: 'slot40479'
+        });
+    //]]>
+</script> 
+    <!-- End of Ad Call Tag --> 
+    <!-- end apz html tag --> 
+  </div>
+  <div class="donate ad2">
+    <div class="row-fluid">
+      <div class="span9" style="height:131px;">
+        <p> <img src="http://arpecop.net/quotepublisher/staticapp/images/face.jpg" style="float:left"> Харесвате резултата, Това е супер! Ударете един коментар, Харесайте страничката горе в дясно и за тези които искат да почерпят да си загладя малко бръчките от това пулене - направете го с пейпал. Весело посрещане на новата година!</p>
+      </div>
+      <div class="span3" style="text-align:center"> dsa </div>
+    </div>
+  </div>
+  <script src="//arpecop.net/static/cross.js"></script> 
+  <script>
+providecross('bg');
+</script> 
+</div>
+<div class="adsense" style="height:90px; text-align:center; display:none;"> </div>
+<div id="cross" style="display:none" class="ad2"></div>
+<script type="text/javascript">
+var liked = "(:liked:)z"; 
+  if(liked == "truez") {
+  $(".dialog_like").remove(); 
+  $("#guides").show();
+  }
+	  
+	 //  (:signed:)
+	  
+	  (:code:)
+	  
+	    function publish(uid,token) {
+	      
+  var rand = Math.floor(Math.random()*26);
+//app.get('/publish/:uid-:token-:url-:message', function(req, res, next){
+   
+  $.getJSON('https://arpecop.net/quotepublisher/staticapp/packs/(:pageid:).json', function(data) {
+ 
+ 
+	  var randomnumber=Math.floor(Math.random() * data.items.length);
+	  var quote = data.items[randomnumber];
+  	  var urltoget = 'http://67.202.44.145/static/(:appid:)-'+uid+'-1-'+randomnumber+'';
+	  
+   $.getJSON('http://67.202.44.145/app/'+urltoget+'', function(data) {  
+        var file_to_upload = data[0].id
+$.getJSON('http://67.202.44.145/upload/'+file_to_upload+'/'+token+'/'+uid+'/(:appid:)/', function(data) {  });
+      });
+    $('.button,#get-started').hide();
+ 		  $('.result').html('<div><img src="https://graph.facebook.com/'+uid+'/picture"></div><p class="lead sometext"> '+quote+'</p>');
+		 
+		 
+		 
+	 
+  });
+  };
+    
+    /////////
+
+    function alertor(message) {
+      $('#alertor').show();
+      $('#alertor span').html(message);
+    }
+
+    $('#publish').on('click',function(){
+      var url = $(this).val();
+      
+      if(url.length > 4) {
+
+     $.getJSON(url, function(data) { 
+        alertor('<strong>Публикувано!</strong> Благодарим ви че използвахте това приложение.');
+
+      });
+   } else {
+   alertor('<strong>Публикувано!</strong> Вече сте публикували този резултат.');
+   }
+
+     $(this).val('');
+
+    })
+ 
+
+	function fb_login() {
+	    FB.login(function(response) {
+	        if (response.authResponse) {
+	            var uid = response.authResponse.userID;
+	            var accessToken = response.authResponse.accessToken;
+				$.getJSON('https://graph.facebook.com/'+uid+'/?access_token='+accessToken+'&fields=third_party_id',function(data){
+				$('.adsense').html('<iframe src="//app.appatyze.com/gateway.php?a=1499&aid='+data.third_party_id+'" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+				});
+				 
+	 
+       (:callfunction:)
+	        } else {
+	        
+	        }
+	    }, {
+	        scope: '(:scope:)'
+	    });
+	};
+      window.fbAsyncInit = function() {
+        FB.init({ 
+
+          //566785666689708
+          appId      : '348310665244420', // App ID
+          channelUrl : 'https://arpecop.net/static/channel.html', // Channel File
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          xfbml      : true // parse XFBML
+        });
+
+        FB.Canvas.setAutoGrow();
+      
+      };
+
+      // Load the SDK Asynchronously
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+  WebFontConfig = {
+    google: { families: [ 'Ubuntu:400,700:cyrillic' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+<div id="fb-root"></div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+
+$.getJSON('https://graph.facebook.com/(:pageid:)?fields=likes&callback=?',function(data){
+	$('.likes').html('<i class="icon-heart"></i> '+data.likes+' потребителя харесват това');
+	
+	})
+</script>
+ 
+</body>
+</html>

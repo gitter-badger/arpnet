@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings
+	duration="52"
+	transition="push up" 
+	auto_slide="false"
+	banner_click_action="true"
+	mouse_move_time="1"
+	mouse_move_shape_color="0xffffff"
+	mouse_move_shape_alpha="1"
+	colorize_color="0xD3BBB0"
+	colorize_amount="1"
+
+	control_layout="b"
+	control_position_x="center"
+	control_position_y="center"
+	control_position_padding="20"
+	control_color="0x000000"
+	control_color_over="0x8AD6DA"
+	control_blendmode="layer"
+
+	close_btn_color="0xffffff"
+	close_btn_color_over="0x000000"
+	close_btn_blendmode="normal"
+
+	video_control_position_x="left"
+	video_control_position_y="bottom"
+	video_control_position_padding="75"
+	video_control_color="0x1a1a1a"
+	video_control_color_over="0xff0000"
+	video_control_progress_color="0x1a1a1a"
+	video_control_progress_alpha=".75"
+	video_control_clock_color1="0x000000"
+	video_control_clock_color2="0xffffff"	
+	video_control_blendmode="normal"
+	video_colorize_color="0xD3BBB0"
+	video_colorize_amount="1"
+	back_of_video_color="0xffffff"
+	video_buffer="3"
+	video_close_btn_color="0x1a1a1a"
+	video_close_btn_color_over="0xff0000"
+	video_close_btn_blendmode="normal"
+	video_action_after_played="close"
+	control_h1_size="25"
+	control_p_size="14.5"
+
+	cog_color="0xcccccc"
+	corner_radius="1"
+ 
+>
+	<banner>
+		<file>../static/images/(:the_id:).png</file>
+		<action>link</action>
+		<url target="_blank">https://apps.facebook.com/myfortunekookie/</url>
+		<text><![CDATA[<h1> dsdsd (:quote:) </h1> ]]></text>
+	</banner>
+
+	 
+	
+</settings>

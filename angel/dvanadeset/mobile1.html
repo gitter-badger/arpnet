@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Какво говорят за теб в мрежата</title>
+<meta property="og:type"   content="dvanadeset:kaza" />
+<meta property="og:determiner" content="auto" />
+<meta property="profile:first_name" content="Rudi" />
+<meta property="profile:last_name" content="Opalchenov" />
+<meta property="profile:username" content="arpecop" />
+<meta property="profile:gender" content="male" />
+<meta property="fb:app_id" content="181361935494" />
+<meta property="og:title" content="Sample Profile @4 test pedras" />
+<meta property="og:image" content="//fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" />
+<meta property="og:url" content="//apps.facebook.com/feis-be/" />
+<meta property="og:type" content="profile" />
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+ 
+<link href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" rel="stylesheet">
+ 
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300,600&subset=cyrillic' rel='stylesheet' type='text/css'>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]> 
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <style type="text/css">
+body,div,span,h1,h2,h3 {font-family: "Open Sans"; font-weight: 300;}
+#qus {font-size: 22px; text-align: center; white-space: pre-wrap;}
+ .ad {text-align: center; background-color: #FFF;}
+  .result {display:none}
+      </style>
+
+ 
+</head>
+<body> 
+
+
+
+<div data-role="page" id="main">  
+ 
+
+ 
+  <div role="main" class="ui-content">
+<div data-role="header"  data-position="fixed">
+<h1>&nbsp;</h1>
+ <a href="#"  class="ui-btn-left username"></a>
+    <a href="#"  class="ui-btn-right">Откл. Точки: <span class="badge gold_points"></span> <i class="icon-arrow-left" id="showinggold"></i></a>
+ 
+   
+</div><!-- /header -->
+ 
+  <div id="fb-root"></div>
+  
+      <a href="#" class="ui-btn ui-icon-loading ui-btn-icon-left loading"> Зареждане </a>
+
+ 
+    <div id="mislish">
+      <ul data-role="listview" data-inset="true">
+ 
+    <li> 
+        <img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" class="img-rounded img-attendee"> 
+    <div id="qus"> </div>
+   
+    </li>
+   
+        <li><a href="#" class="ui-btn ui-btn-inline answervalue"  value="Да">Да</a></li>
+         <li><a href="#" class="ui-btn ui-btn-inline answervalue" value="Не">Не</a></li>
+        <li><a href="#" value="2" class="ui-btn ui-btn-inline answervalue">Пропусни</a></li>
+ 
+ 
+</ul>
+ 
+
+      <div class="mislish_igra">
+  
+                  <div data-role="navbar">
+  
+</div><!-- /navbar -->
+  <div class="ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- responsive -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8516663490098995"
+     data-ad-slot="8412096865"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    <div data-role="footer" data-position="fixed" style="text-align:center;"> 
+<div data-role="navbar">
+        <ul>
+            <li>  <a href="#inbox" class="ui-btn ui-btn-inline">Активност <span class="ui-li-count nonunlocked"></span>  </a></li>
+            
+        </ul>
+    </div><!-- /navbar -->
+
+     
+
+   
+        
+    </div><!-- /header -->
+   
+ 
+    </div>
+ 
+  </div>
+ 
+ 
+   
+    <!-- end ryad tag --> 
+    
+  </div>
+ 
+</div>
+
+<div data-role="page" id="inbox">
+  <div data-role="header"  data-position="fixed">
+<h1>&nbsp;</h1>
+ <a href="#main"  class="ui-btn-left">Назад</a>
+  
+ 
+   
+</div><!-- /header -->
+  Неотключени:
+ <div class="media-list">
+ 
+</div>
+
+<div data-role="popup" id="popupBasic">
+<p id="resultxxy"></p>
+</div>
+</div>
+
+<img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" id="preload" width="1" height="1"> 
+ 
+ 
+ <script type="text/javascript">
+function template_unlock(classx, index, from, you, q, result, fromname) {
+
+  return('<div class="ui-corner-all custom-corners media' + classx + '" id="result' + index + '">'+
+  '<div class="ui-bar ui-bar-a">'+
+  '  <h3>Мислиш ли че, ' + you + ' ' + q + '?</h3>'+
+  '</div>'+
+ ' <div class="ui-body ui-body-a">'+
+   ' <p><a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline unlock1" data-transition="pop" alt="'+index+'">Разбери кой е отговорил, срещу 5 точки</a>   </p>'+
+  '<div class="result"><img src="https://graph.facebook.com/'+from+'/picture"> ' + fromname + '</span> oтговори</span>: ' + result + '</strong></div></div>'+
+'</div>');
+ 
+}
+ </script>
+ 
+ 
+<script src="app.js"></script>
+ <script type="text/javascript">
+$(document).on("click", ".unlock1", function() {
+  var sqlid = $(this).attr('alt');
+  var gold =  $('.gold_points').text();
+ 
+  
+  if (gold <= 4) {
+    $('#resultxxy').text('Недостатъчно отключващи точки');
+
+    } else {
+     
+      var html = $('#result' + sqlid + ' .result').html();
+      $('#result' + sqlid + '').hide('slow');
+      $('#resultxxy').html(html);
+
+
+   update_gold($.gvar.user.id, 'unlocking');
+   $.post('//arpecop.net/angel/db2/delete/stream10-' + $.gvar.user.id, $.gvar.stream[sqlid], function(data) {});
+    
+    }
+
+
+ 
+
+
+});
+ </script>
+</div>
+ </div>
+</body>
+</html>

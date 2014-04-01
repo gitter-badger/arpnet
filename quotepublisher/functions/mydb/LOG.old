@@ -1,0 +1,6 @@
+2013/08/04-17:43:51.607048 7fee62ffd700 Recovering log #307
+2013/08/04-17:43:51.607150 7fee62ffd700 Level-0 table #309: started
+2013/08/04-17:43:51.699063 7fee62ffd700 Level-0 table #309: 530 bytes OK
+2013/08/04-17:43:51.758291 7fee62ffd700 Delete type=0 #307
+2013/08/04-17:43:51.758345 7fee62ffd700 Delete type=3 #306
+2013/08/04-17:43:51.793905 7fee627fc700 Moved #294 to level-1 430 bytes OK: files[ 3 14 0 0 0 0 0 ]

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+
+<meta charset="UTF-8">
+<meta name="robots" content="noodp, noydir">
+<title>Индиянското ти име (забавни) късмети зодии гадания щастие</title>
+<meta name="description"  content="Гръмотевичния облак">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+<link href="//arpecop.net/grafiti/src/jquery.miniColors.css" rel="stylesheet">
+<script src="//arpecop.net/grafiti/src/jquery.miniColors.js"></script>
+<script src="src/fabric.js"></script>
+<script src="https://arpecop.net/static/analytics.js"></script>
+<link href='//fonts.googleapis.com/css?family=Ubuntu:300&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+<style type="text/css">
+@font-face {
+    font-family:Sick Capital Vice;
+    src: url("src/fonts/1.eot") /* EOT file for IE */
+}
+@font-face {
+    font-family:CANDY;
+    src: url("src/fonts/3.ttf") /* EOT file for IE */
+}
+@font-face {
+    font-family:Amsterdam;
+    src: url("src/fonts/4.ttf") /* EOT file for IE */
+}
+@font-face {
+    font-family: Sick Capital Vice;
+    src: url("src/fonts/1.ttf") 
+}
+@font-face {
+    font-family: Most Wasted;
+    src: url("src/fonts/2.ttf") 
+}
+@font-face {
+    font-family: Stylin;
+    src: url("src/fonts/5.ttf") 
+}
+@font-face {
+    font-family: Stylin;
+    src: url("src/fonts/5.otf") 
+}
+@font-face {
+    font-family: Bomb;
+    src: url("src/fonts/6.otf") 
+}
+@font-face {
+    font-family: Kir;
+    src: url("src/fonts/7.ttf") 
+}
+body, td, th, div, span {
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+.containerx {
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+ 
+	position: relative;
+}
+.containerx #canvas {
+}
+
+
+   
+.docs-input-sizes select,
+.docs-input-sizes input[type=text] {
+  display: block;
+  margin-bottom: 9px;
+}
+
+/* Icons
+------------------------- */
+.the-icons {
+  margin-left: 0;
+  list-style: none;
+}
+.the-icons li {
+  float: left;
+  width: 25%;
+  line-height: 25px;
+}
+.the-icons i:hover {
+  background-color: rgba(255,0,0,.25);
+}
+
+/* Example page
+------------------------- */
+.bootstrap-examples p {
+  font-size: 13px;
+  line-height: 18px;
+}
+.bootstrap-examples .thumbnail {
+  margin-bottom: 9px;
+  background-color: #fff;
+}
+
+
+
+/* Bootstrap code examples
+-------------------------------------------------- */
+
+/* Base class */
+.bs-docs-example {
+	position: relative;
+  *padding-top: 19px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin-top: 15px;
+	margin-right: 0;
+	margin-bottom: 15px;
+	margin-left: 0;
+	padding-top: 39px;
+	padding-right: 0px;
+	padding-bottom: 14px;
+	padding-left: 0px;
+}
+
+/* Echo out a label for the example */
+ 
+/* Tweak examples
+------------------------- */
+ 
+.bs-navbar-top-example .navbar-fixed-top,
+.bs-navbar-bottom-example .navbar-fixed-bottom {
+  margin-left: 0;
+  margin-right: 0;
+}
+.bs-navbar-top-example {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+.bs-navbar-top-example:after {
+  top: auto;
+  bottom: -1px;
+  -webkit-border-radius: 0 4px 0 4px;
+     -moz-border-radius: 0 4px 0 4px;
+          border-radius: 0 4px 0 4px;
+}
+.bs-navbar-bottom-example {
+  -webkit-border-radius: 4px 4px 0 0;
+     -moz-border-radius: 4px 4px 0 0;
+          border-radius: 4px 4px 0 0;
+}
+.bs-navbar-bottom-example .navbar {
+  margin-bottom: 0;
+}
+form.bs-docs-example {
+  padding-bottom: 19px;
+}
+#controls {
+	position: absolute;
+ 
+ 
+	z-index: 1;
+	display:none;
+ 
+}
+#fontlist   li  {
+cursor:pointer;
+}
+.minicolors input {display:  none};
+
+</style>
+</head>
+<body>
+
+<div class="containerx">
+<div class="bs-docs-example bs-navbar-top-example">
+            <div class="navbar navbar-fixed-top" style="position: absolute;">
+              <div class="navbar-inner">
+                <div class="container" style="width: auto; padding: 0 20px;">
+                 
+                  <ul class="nav">
+                   
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <b class="caret"></b></a>
+                        <ul class="dropdown-menu" id="file">
+                          <li><a href="#" id="newfile">New</a></li>
+                       
+                          <li class="divider"></li>
+                          <li class="nav-header"><i class="icon-facebook"></i>Share</li>
+                          <li><a href="#" id="sharemine">Your Wall</a></li>
+                          <li><a href="#">Friends Wall</a></li>
+                        </ul>
+                      </li>
+                     <li id="loading" style="display:none"><a  href="#"> <img src="https://arpecop.net/static/cloud/src/loading.gif"> </a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            
+            
+             <div id="controls">
+        <div class="input-prepend input-append">
+  <div class="btn-group">
+    <button class="btn" value="deleteme">
+ <i class="icon-trash"></i>
+    </button>  
+    
+    <ul class="dropdown-menu">
+ 
+                           
+            
+
+    </ul>
+   
+  </div>
+  <input class="span2" id="textinpus" type="text">
+  <div class="btn-group">
+    <button class="btn dropdown-toggle" data-toggle="dropdown">
+     
+      <span class="icon-font"></span> Font
+    </button>
+    <input type="minicolors" value="#00cc00">  
+  <ul class="dropdown-menu" id="fontlist">
+  
+    </ul>
+  </div>
+ 
+            
+             
+            </div></div><canvas id="canvas" width="798" height="532"></canvas>
+              <div class="navbar navbar-fixed-bottom" style="position: absolute;">
+              <div class="navbar-inner">
+                <div class="container" style="width: auto; padding: 0 20px;">
+                  <a class="brand" href="#">graffitR</a>
+                  <ul class="nav">
+                       <li class="divider-vertical"></li>
+                    <li><a href="#" id="addtext">Add Text</a></li>
+                       <li class="divider-vertical"></li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown">Change Wall</a>
+                      <ul class="dropdown-menu" id="backgrounds">
+                          <li><a href="#" id="emptywall">Bricks</a></li>
+                           <li><a href="#" id="exhibition">Exhibition</a></li>
+                          <li><a href="#" id="school">School</a></li>
+                              <li><a href="#" id="indoors">Indoors 1</a></li>
+                                <li><a href="#" id="blackboard">Blackboard</a></li>
+                      </ul>
+                      </li>   <li class="divider-vertical"></li>
+                   
+                  </ul>
+                  <ul class="nav pull-right">
+                       <li class="divider-vertical"></li>
+                      <li><a href="#" id="shareonfbdown">Share on Facebook</a></li>
+                   
+                       
+                    </ul>
+                </div>
+              </div>
+            </div> 
+            
+            
+          </div>
+
+  <script type="text/javascript">
+ $('.minicolors input').live('change', function(){
+ 
+    canvas.getActiveObject().set("fill", $(this).attr('value'));
+   canvas.renderAll();
+});
+  
+  var fonts = [
+  {"name":"Кирилица","slug":"7","ttf":"Kir"},
+  {"name":"Sick Capital Vice","slug":"1","ttf":"Sick Capital Vice"},
+  {"name":"Most Wanted","slug":"2","ttf":"Most Wasted"},
+    {"name":"Amsterdam","slug":"4","ttf":"Amsterdam"},
+    {"name":"Stylin","slug":"5","ttf":"Stylin"},
+        {"name":"Bomb","slug":"6","ttf":"Bomb"},
+   {"name":"Candy","slug":"3","ttf":"CANDY"}
+  ];
+ fontarr = []
+  $.each( fonts, function( key, value ) {
+  fontarr.push('<li><a id="'+value.ttf+'">'+value.name+'</a></li>');
+});
+  
+  $('#fontlist').html(fontarr.join(''))
+  
+ 
+ function wheretoputit(obj) {
+ var coordinates = {};
+  
+coordinates.left =  obj.target.left - (obj.target.currentWidth / 2) - 5;
+coordinates.top =  obj.target.top - (obj.target.currentHeight / 2) + 20;
+  
+ $('#controls').css({
+    'top': coordinates.top+'px', 
+    'left': coordinates.left+'px'
+});
+
+
+}
+ 
+ 
+$("#textinpus").live('keyup',function(){
+canvas.getActiveObject().set("text", this.value);
+ //canvas.set(canvas.getActiveObject().target.oppacity = 0.5);
+  canvas.renderAll();
+
+}); 
+ 
+ $("#file li a").live("click", function() { 
+ var funkt = $(this).attr('id');
+  
+ if(funkt == "newfile") {
+
+var curSelectedObjects = canvas.getObjects(canvas.getActiveGroup);
+
+     canvas.discardActiveGroup();
+    for (var i = 0; i < curSelectedObjects.length; i++)
+    {
+        canvas.remove(curSelectedObjects[i]);
+    }
+     $('#controls,#loading').hide();
+  basic();
+ } else if(funkt == "sharemine") {
+  rasterize();
+ }
+
+ });
+
+ $("#shareonfbdown").live('click',function(){
+  rasterize();
+ });
+ 
+$('#addtext').live('click',function() {
+ 
+  $('#controls').hide();
+  basic();
+ 
+
+})
+
+ $('#fontlist li a').live('click',function(){
+ 
+ 
+ var fontname = $(this).attr('id');
+ canvas.getActiveObject().set("fontFamily", fontname);
+ 
+   canvas.renderAll();
+ })
+ 
+$("button").live("click", function() { 
+var funkt = $(this).attr('value');
+ if(funkt == "deleteme") {
+ canvas.remove(canvas.getActiveObject());
+  $('#controls').hide();
+ } 
+ 
+ 
+  canvas.renderAll();
+ }); 
+ 
+ function rasterize() {
+
+if (!fabric.Canvas.supports('toDataURL')) {
+      alert('This browser doesn\'t provide means to serialize canvas to an image');
+    }
+    else {
+      $('#loading').show();
+
+      FB.login(function(response) {
+          if (response.authResponse) {
+            //  $.gvar.uid = response.authResponse.userID;
+             // $.gvar.token = response.authResponse.accessToken;
+    
+ 
+        $.post("http://aws.arpecop.net/cloud/wall/", { str: canvas.toDataURL("image/png"), token: response.authResponse.accessToken},
+   function(data) {
+      //$('#loading').hide();
+     $('#loading').html('<a href="#"><i class="icon-github-alt"></i> Thank You ;)!</a>')
+   });
+
+          }  
+      }, {
+          scope: 'publish_stream,photo_upload,user_photos,friends_photos'
+      });
+    }
+ }
+ 
+$('#backgrounds li a').live('click',function(){
+var id = $(this).attr('id');
+  canvas.setBackgroundImage('src/images/'+id+'.jpg', function() { 
+  canvas.renderAll(); 
+}); 
+
+});
+
+
+ ///
+ var canvas = new fabric.Canvas('canvas');
+ canvas.on({
+    'mouse:down': function(e) {
+
+      if (e.target) {
+           
+          if(e.target.text) {
+          $("#textinpus").val(e.target.text);
+          $(".minicolors").val(e.target.fill);
+
+          //
+          
+          }
+        e.target.opacity = 0.5;
+         $('#controls').hide();
+        canvas.renderAll();
+      } else {
+        $('#controls').hide();
+      }
+    },
+    'mouse:up': function(e) {
+      if (e.target) {
+       $('#controls').show();
+	 
+		  wheretoputit(e)
+        e.target.opacity = 1;
+        canvas.renderAll();
+      }
+    } 
+	
+ });
+  canvas.setBackgroundImage('src/images/emptywall.jpg');
+ function basic() {
+      var textObj = new fabric.Text('Hello Wall!', { 
+          fontFamily: 'Amsterdam', 
+          left: 400,
+          top: 225,
+          fontSize: 80,
+          textAlign: "left",
+          fill:"#706f70"   
+      });
+      canvas.add(textObj);
+        canvas.renderAll();
+      }
+basic();
+
+
+ 
+ ///
+ 
+ function new_file() {
+ var canvas = new fabric.Canvas('canvas');
+
+}
+ //analytics.initialize({    'KISSmetrics'      : '23ec69ed3c336757d54079416122f6a40c4bfc75'});
+	
+	  	 
+    </script>
+
+
+    <script type="text/javascript">
+
+ //
+ window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '242639605867837', // App ID from the App Dashboard
+      channelUrl : '//arpecop.net/static/channel.html', // Channel File for x-domain communication
+      status     : true, // check the login status upon init?
+      cookie     : true, // set sessions cookies to allow your server to access the session?
+      xfbml      : true  // parse XFBML tags on this page?
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+
+  };
+
+  // Load the SDK's source Asynchronously
+  // Note that the debug version is being actively developed and might 
+  // contain some type checks that are overly strict. 
+  // Please report such bugs using the bugs tool.
+  (function(d, debug){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document, /*debug*/ false));
+
+
+ //
+ $(document).ready(function() {
+ $('#mainbutton i').attr('class','icon-facebook-sign');
+ $('#mainbutton .buttontext').text('Generate');
+});
+ 
+
+    </script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29127191-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</div>
+<div id="fb-root"></div>
+</body>
+</html>

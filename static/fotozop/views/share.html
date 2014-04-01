@@ -1,0 +1,115 @@
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+	<meta charset="UTF-8">
+     <title>Photo of the Day</title>
+    <meta property="og:title" content="Funny Photos"/>
+ <meta property="og:type" content="website"/>
+    <meta property="og:image" content="${gvar.id}"/>
+    <meta property="og:site_name" content="Photo of the Day"/>
+    <meta property="fb:app_id" content="150286524724"/>
+      <script src="/public/scripts/socket.io.js"></script>
+      <script src="/public/scripts/jquery.min.js"></script>
+       <script src="https://connect.facebook.net/en_US/all.js"></script>
+<style type="text/css">
+.gray { background-color: rgb(246,246,246); margin: 10px; }
+.likeCommentGroup {position: absolute; clip: rect(-40px,auto,auto,auto); }
+/* Like button main text color */
+div.like span.connect_widget_text {color:#fff;}
+div.like div.connect_widget_confirmation {color:#fff;}
+div.like span.connect_widget_text a {color:#ffc6ff;}
+.liketext{font-size:24px};
+</style>
+<link href="public/bootstrap.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body { margin-left: 130px; margin-right: 130px; }
+</style>
+</head>
+<body style="overflow:hidden"><div class="advert" align="center" style="height:90px">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-0690449378357561";
+/* 728x90, created 1/18/08 */
+google_ad_slot = "3522810169";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://arpecop.net/pagead/show_ads.js">
+</script>
+</div>
+<div id="fb-root" style="padding-top:30px"></div>
+
+<script>
+ FB.init({
+      appId  : '150286524724',
+      status : true, // check login status
+      cookie : true, // enable cookies to allow the server to access the session
+      xfbml  : true,  // parse XFBML
+      frictionlessRequests : true
+	});
+ var socket = io.connect();
+      socket.on('connect', function() {
+      socket.emit('auth', '${gvar.socket}');
+	socket.on('funny', function(funny_photos) {
+		
+ 
+ 
+	 FB.Canvas.setAutoGrow();
+		 
+		var num = 0;
+		function showphoto(number) {
+		$('#funnyphoto').attr('src','https://fbcdn-sphotos-a.akamaihd.net'+funny_photos[number].src_big);
+			var img = encodeURIComponent('https://fbcdn-sphotos-a.akamaihd.net'+funny_photos[number].src_big+'');
+			$('.fb-like').html(' <div class="fb-like" style="clear:both" data-href="https://apps.facebook.com/fotoday/share?id='+img+'" data-send="false" data-width="450" data-show-faces="false"></div>');
+			FB.XFBML.parse();
+			FB.Canvas.setAutoGrow();
+		}
+	 if(!$('#funnyphoto').attr('src')) {
+	 showphoto('1');
+	 
+	 }
+		$("#funnyphoto,#next").live("click", function(){ 
+		showphoto(num);
+		 num++;
+		});
+	});
+	
+	  });
+
+ </script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center"><div class="active" id="you">
+  <div class="youphoto" align="center">
+    <div class="gray">
+      <div class="photo"><div align="center"><img id="funnyphoto" src="${gvar.id}"></div><div style="clear:both"></div>
+      <div id="fb-like">
+       <div class="fb-like" style="clear:both" data-href="https://apps.facebook.com/fotoday/share?id=${gvar.id}" data-send="false" data-width="450" data-show-faces="false"></div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div> </td>
+    <td width="40px" align="center" valign="middle"><img src="public/next.png" width="32" height="32" style="cursor:pointer" id="next"></td>
+  </tr>
+</table>
+
+      
+<div class="advert" align="center" style="height:90px; padding-top:30px;">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-0690449378357561";
+/* 728x90, created 1/18/08 */
+google_ad_slot = "3522810169";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://arpecop.net/pagead/show_ads.js">
+</script>
+</div>
+ 
+
+</body>
+</html>

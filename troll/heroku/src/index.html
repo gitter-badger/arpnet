@@ -1,0 +1,158 @@
+<!DOCTYPE html manifest="cache.cfm"> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Mobile Web App</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link href="src/jqm.css" rel="stylesheet" type="text/css"/>
+<script src="src/jq.js" type="text/javascript"></script>
+<script src="nowjs/now.js"></script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script src="src/iscroll.js" type="text/javascript"></script>
+</head> 
+<body> 
+ 
+<div id="fb-root"></div>
+<script>
+var name = "${gvar.name}";
+if (name) {	
+now.name = "${gvar.name}";	
+} else {
+	(function() {
+      var e = document.createElement('script'); e.async = true;
+          e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+          document.getElementById('fb-root').appendChild(e);
+          }());
+    window.fbAsyncInit = function() {
+      FB.init({ appId: '225893114160771',  
+      status: true,  
+      cookie: true, 
+      xfbml: true, 
+      oauth: true});
+      FB.Event.subscribe('auth.statusChange',  handleStatusChange);	
+    };
+   function handleStatusChange(response) {
+
+		FB.api('/me/?fields=first_name, id',  function(user) {
+ 
+	  now.id = user.id;
+      now.name = user.first_name;
+
+	});	
+  }
+	
+	
+}
+  
+function setHeight() {
+	var headerH = document.getElementById('header').offsetHeight;
+	var footerH = document.getElementById('footer').offsetHeight;
+	var wrapperH = window.innerHeight - headerH - footerH;
+	document.getElementById('wrapper').style.height = wrapperH + 'px';
+}
+
+function loaded() {
+	setHeight();
+
+	myScroll = new iScroll('scroller');
+
+	/* myScroll = myScroll.destroy();	// Destroy the iScroll */
+}
+
+window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize',  setHeight,  false);
+document.addEventListener('touchstart',  function(e){ e.preventDefault(); },  true);
+document.addEventListener('DOMContentLoaded',  loaded,  false);
+         		
+ 
+  now.receiveMessage = function(name,  message, uid){
+	 
+	//<img src="'+image+'" class="ui-li-thumb">
+  if(message) {
+	$.get('/trollit?message='+message,  function(data) {
+		console.log(data);
+	   if(data && data !=="undefined") {
+		$("#thelist").append('<li class="ui-li ui-li-static ui-body-c ui-li-has-thumb"><img src="src/images/'+data+'.jpg" class="ui-li-thumb"><h3 class="ui-li-heading">'+name+'</h3><div class="message">'+message+'</div></li>');
+	myScroll.scrollToElement('#scroller > ul > li:last-child',  '0s');
+	} else {
+		$("#thelist").append('<li class="ui-li ui-li-static ui-body-c"><h3 class="ui-li-heading">'+name+'</h3><div class="message">'+message+'</div></li>');
+	myScroll.scrollToElement('#scroller > ul > li:last-child',  '0s');
+	}
+ 
+	});
+
+  }  
+  }
+$("#inputchat1").live({ 
+	touchstart: function() {
+	$("#inputchat, .ui-grid-b").toggle();	
+	   $("#inputchat").focus();
+ $("#footer").attr("align", "center");
+  } 
+});
+$("#inputchat").live({ 
+  focus: function() {
+ $("#footer").attr("align", "center");
+  },  focusout: function() {
+ 
+    var message = $(this).val();
+    now.distributeMessage($(this).val());
+ 	$("#inputchat, .ui-grid-b").toggle();
+    $("#inputchat").val("");
+  },   keypress: function() {
+	  if (event.keyCode == '13') {
+ 
+ $("#footer").attr("align", "left");
+    var message = $(this).val();
+    now.distributeMessage($("#inputchat").val());
+    $("#inputchat").val("");
+    }
+  }  
+});
+ $(".ui-block-a").live('click', function(event) {
+ $('.ui-grid-b, #inputchat').toggle();
+  }); 
+ 
+</script>
+
+<div id="header"><i><strong>iTroll</i> </div> 
+<div id="wrapper">
+	<div id="scroller">
+    <ul  id="thelist">
+      <li class="ui-li ui-li-static ui-body-c ui-li-has-thumb"><img src="src/images/troll.jpg" class="ui-li-thumb">
+      <h3 class="ui-li-heading">Trollbot</h3>
+      <div class="message">Use one of the following words in chat:<br>
+        accepted, close enough, gusta, okay, trombone, enough, poker, y u, alone, fap, problem, angry, fuck yeah, lol, rage, challenge, fuu, megusta, troll </div></li>
+ 
+		</ul>
+        <li><script type="text/javascript">
+var admob_vars = {
+ pubid: 'a14f1c8a19a8bbc', // publisher id
+ bgcolor: 'D9E3EC', // background color (hex)
+ text: '4C586A', // font-color (hex)
+ test: true // test mode, set to false to receive live ads
+};
+</script>
+<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script></li>
+	  </div>
+</div>
+<div   id="footer" role="contentinfo">
+		<div data-role="navbar" class="ui-navbar ui-navbar-noicons">
+		<input type="text" name="name" id="inputchat" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" style="display:none">
+			<ul class="ui-grid-b">
+				<li class="ui-block-a"><input type="text" name="name" id="inputchat1" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" style="width:80%"> </li>
+				<li class="ui-block-b"> </li>
+				<li class="ui-block-c"> </li>
+			</ul>
+		</div><!-- /navbar -->
+	</div>
+ 	  
+ 	       
+ 	         
+
+            
+ </div>
+</body>
+</html>
