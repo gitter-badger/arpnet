@@ -1,6 +1,7 @@
  var bind = require('bind');
  var get = require('get');
  var exec = require('child_process').exec;
+ var geoip = require('geoip-lite');
  var express = require('express');
  var crypto = require('crypto');
  var request = require('request');
@@ -147,8 +148,16 @@
      //POST
 
      if (req.method.toLowerCase() == "post") {
-         json.appjs = "app-min.js";
+         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
+         var country = geoip.lookup(ip).country;
+
+         if (country == "BG") {
+             json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="6136630466"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', , '</script>'].join('\n');
+         } else {
+
+         }
+         json.appjs = "app-min.js";
          json.url = req.protocol + "://" + req.get('host') + req.url;
          var file = '/usr/share/nginx/html/angel/' + url + '/production.html';
          var admin = req.headers['user-agent'].split(' ')[1];
@@ -201,14 +210,14 @@
 
          //GET
      } else {
-
+         json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="6136630466"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', , '</script>'].join('\n');
          json.appjs = "app.js";
          var filez2 = '/usr/share/nginx/html/angel/' + url + '/dev.html';
          var filez_mobile = '/usr/share/nginx/html/angel/' + url + '/mobile.html';
 
          fs.readFile(filez2, function read(err, dataz) {
              if (!err) {
-                  
+
                  if (is(req).desktop) {
                      bind.to(dataz.toString(), json, function callback(data) {
                          res.end(data);
@@ -218,7 +227,7 @@
                      fs.readFile(filez_mobile, function read(err, datamobile) {
                          if (!err) {
                              bind.to(datamobile, json, function(data) {
-                              
+
                                  res.end(data);
                              })
                          } else {

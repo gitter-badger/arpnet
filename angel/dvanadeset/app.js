@@ -372,7 +372,7 @@ function initialize(uid, token) {
           $('#females').show();
         }
         $.gvar.user = user;
-        $('#add1').html('<iframe src="//app.appatyze.com/gateway.php?a=353&aid=' + $.gvar.user.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+       // $('#add1').html('<iframe src="//app.appatyze.com/gateway.php?a=353&aid=' + $.gvar.user.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
 
         if (!fql.error_code) {
           $.getJSON('//arpecop.net/angel/dvanadeset/src/vaprosibg.json', function(qus) {
