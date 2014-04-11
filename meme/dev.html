@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<title>slick - the last carousel you'll ever need</title>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/styles/monokai.min.css">
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="description" content="slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping &amp; much more!">
+	<meta name="keywords" content="slick, responsive, carousel, slider, jQuery, plugin, CSS3, swipe, touch">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js" type="text/javascript"></script>
+	<style type="text/css">
+	.lazy {width: 160px; height: 160px;}
+	</style>
+
+</head>
+<body>
+<div id="fb-root"></div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+      <div class="form-group">
+    <label for="exampleInputEmail1">Caption Top (optional)</label>
+    <input type="text" class="form-control" id="top" placeholder="">
+  </div>
+<div style="text-align:center">
+<img src="" id="realimg">
+</div>
+       <div class="form-group">
+    <label for="exampleInputEmail1">Caption Bottom</label>
+    <input type="text" class="form-control" id="bottom" placeholder="">
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="preview">Preview</button>
+        <button type="button" class="btn btn-primary" id="loginandcontinue">Save changes and send</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<div class="header">
+			<div class="header-content">
+				<h1 class="title">chatAtach</h1>
+				<p class="subheading">Send custom memes on facebook chat for seconds</p>
+				<ul class="nav">
+					<li><a href="#demos">demos</a></li>
+					<li><a href="#getting-started">usage</a></li>
+					<li><a href="#settings">settings</a></li>
+					<li><a href="#go-get-it">get it now</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="fixed-header">
+			<div class="header-content">
+				<h1 class="title">chatAtach</h1>
+				<p class="subheading">the last carousel you'll ever need</p>
+				<ul class="nav">
+					<li><a href="#demos">demos</a></li>
+					<li><a href="#getting-started">usage</a></li>
+					<li><a href="#settings">settings</a></li>
+					<li><a href="#go-get-it">get it now</a></li>
+				</ul>
+			</div>
+		</div>
+
+		 <section class="blue">
+		 <div class="container">
+		 <div class="row" style="padding-top:80px;">
+		 (:items:)
+		 </div>
+		 </div>
+		</section>
+
+		<section id="go-get-it" class="white">
+			<div class="content">
+				<h2>Go Get It</h2>
+				<a class="button first" href="https://github.com/kenwheeler/slick/archive/master.zip">Download Now</a>
+				<a class="button last" href="https://github.com/kenwheeler/slick/">View On Github</a>
+				<hr/>
+				<p class="guff">If you like slick, and also like Sass, try my <a href="http://kenwheeler.github.io/guff">Guff</a> mixin library!</p>
+ 				<hr/>
+				<div id="disqus_thread"></div>
+			</div>
+		</section>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	 	<script src="js/lazy.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
+	
+	  <script>
+
+	  $(document).on('click','#loginandcontinue',function  () {
+	   login(function  (argument) {
+	   	 console.log(argument)
+	   });
+	  })
+ 
+
+
+ window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '281195208714145',                        // App ID from the app dashboard
+      channelUrl : '//arpecop.net/static/channel.html', // Channel file for x-domain comms
+      status     : true,                                 // Check Facebook Login status
+      xfbml      : true                                  // Look for social plugins on the page
+    });
+  FB.Canvas.setAutoGrow();
+    // Additional initialization code such as adding Event Listeners goes here
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+    (function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
+    (f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
+    l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-29127191-1');
+    ga('send', 'pageview');
+    </script>
+
+		 
+
+ 
+
+</body>
+</html>
