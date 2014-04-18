@@ -43,9 +43,9 @@ function dosomeshit(callback) {
 }
 
 
-
+db.update();
 app.get('/', function(req, res) {
-	//db.update();
+	//
 	dosomeshit(function(data) {
 		bind.toFile("./dev.html", {
 			items: data
