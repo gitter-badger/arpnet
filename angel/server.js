@@ -7,15 +7,17 @@
  var request = require('request');
  var fs = require('graceful-fs');
  var is = require('browseris');
+ var bodyParser = require('body-parser');
  var UglifyJS = require("uglify-js");
  var redis = require("redis"),
      client = redis.createClient();
  var app = express();
 
  app.disable('x-powered-by');
- app.use(express.urlencoded());
- app.use(express.json());
+
  app.use('/angel', express.static(__dirname + '/'));
+ app.use(bodyParser());
+
  var uuid = require('node-uuid');
 
 
@@ -153,7 +155,7 @@
          var country = geoip.lookup(ip).country;
 
          if (country == "BG") {
-             json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="6136630466"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', , '</script>'].join('\n');
+             json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="6136630466"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', '</script>'].join('\n');
          } else {
 
          }

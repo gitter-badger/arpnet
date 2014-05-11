@@ -95,14 +95,13 @@ $(document).on("click", ".poke", function() {
   $.post('//arpecop.net/angel/db2/insert', doc, function(data) {});
 
   $.post('https://graph.facebook.com/' + to + '/apprequests', {
-      access_token: gptoken(),
-      message: 'Някой те сръчка',
+    access_token: gptoken(),
+    message: 'Някой те сръчка',
 
-    }, function(data) {
- 
-    });
+  }, function(data) {
 
- 
+  });
+
 
 
 });
@@ -270,7 +269,7 @@ function providemislish(prevdata) {
       message: 'Някой посети: Профилната Ви снимка, +1 неотключен отговор',
 
     }, function(data) {
- 
+
     });
 
 
@@ -372,7 +371,7 @@ function initialize(uid, token) {
           $('#females').show();
         }
         $.gvar.user = user;
-       // $('#add1').html('<iframe src="//app.appatyze.com/gateway.php?a=353&aid=' + $.gvar.user.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+        // $('#add1').html('<iframe src="//app.appatyze.com/gateway.php?a=353&aid=' + $.gvar.user.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
 
         if (!fql.error_code) {
           $.getJSON('//arpecop.net/angel/dvanadeset/src/vaprosibg.json', function(qus) {
@@ -481,6 +480,7 @@ window.fbAsyncInit = function() {
     appId: '181361935494',
     status: true,
     cookie: true,
+    version: 'v2.0',
     xfbml: true,
     oauth: true,
     channelUrl: '//arpecop.net/static/channel.html',
@@ -536,7 +536,7 @@ window.fbAsyncInit = function() {
   js = d.createElement('script');
   js.id = id;
   js.async = true;
-  js.src = "https://connect.facebook.net/en_US/all.js";
+  js.src = "https://connect.facebook.net/en_US/sdk.js";
   //js.src = "//tabletr.herokuapp.com/js/all.js";
   d.getElementsByTagName('head')[0].appendChild(js);
 }(document));

@@ -1,754 +1,112 @@
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<title>Какво говорят за теб в мрежата</title>
-<meta property="og:type"   content="dvanadeset:kaza" />
-<meta property="og:determiner" content="auto" />
-<meta property="profile:first_name" content="Rudi" />
-<meta property="profile:last_name" content="Opalchenov" />
-<meta property="profile:username" content="arpecop" />
-<meta property="profile:gender" content="male" />
-<meta property="fb:app_id" content="181361935494" />
-<meta property="og:title" content="Sample Profile @4 test pedras" />
-<meta property="og:image" content="//fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" />
-<meta property="og:url" content="//apps.facebook.com/feis-be/" />
-<meta property="og:type" content="profile" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
+	<title></title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+	<style type="text/css">
 
-<!-- Le styles -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-<link href='//fonts.googleapis.com/css?family=Open+Sans:300,600&subset=cyrillic' rel='stylesheet' type='text/css'>
 
-<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]> 
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->
+.gold {float: right; margin-top: 10px; }
+.gold_points {font-weight: 700;}
+.arrowz { color: #9c3; }
 
-<style>
-body, div, td, tr, input, button {
-	font-family: "Open Sans";
-}
-.btn {
-	font-weight: 600;
-}
-.container1 {
-	width: 90%;
-	margin-right: auto;
-	margin-left: auto;
-}
-.container1 #logo {
-	position: absolute;
-	top: 0px;
-}
-.result, #preload, .mislish_igra, #showinggold {
-	display: none;
-}
-.fancybox-title a {
-	color: #FFF;
-	text-decoration: none;
-	font-size: 20px;
-}
-#qus {
-	height: 50px;
-}
-.add {
-	height: 90px;
-	text-align: center;
-	clear: both;
-}
-.loading {
-	padding: 20px;
-	margin-right: auto;
-	margin-left: auto;
-}
-#unlocks {
-	display: none;
-}
-.itemad {
-	width: 50%;
-	float: left;
-	height: 80px;
-}
-.bs-old-docs {
-	padding: 15px 20px;
-	color: #777;
-	background-color: #fafafa;
-	border-bottom: 1px solid #e5e5e5;
-}
-.nav-pills li a {
-	cursor: default;
-}
-.nonunlocked {
-	font-weight: 600;
-	font-size: 14px;
-}
-.section img {
-	width: 50px;
-	height: 50px;
-}
-.img-attendee {
-	min-width: 100%
-}
-.pokes {
-	text-align: center;
-	height: 50px;
-	overflow: hidden;
-}
-.breadcrumb {
-	font-weight: 600;
-}
-</style>
-<script src="//ads.lfstmedia.com/getad?site=203036" type="text/javascript"></script>
+	</style>
+
 </head>
 <body>
 <div id="fb-root"></div>
-<div id="testingarea" style="display:none">
-  <div class="row-fluid">
-    <div class="col-sm-3"> <img id="comparerimage" src="https://graph.facebook.com/655928871/picture?type=large"> </div>
-    <div class="col-sm-9">
-      <div class="femalelabels"> <span class="label">Gotina</span> </div>
-    </div>
-  </div>
-</div>
-<div class="bs-old-docs">
-  <div class="row-fluid">
-    <div class="col-sm-6"><img src="//arpecop.net/angel/dvanadeset/src/icon.png"></div>
-    <div class="col-sm-6">
-      <ul class="nav nav-pills"  style="float:right;">
-        <li><a href="#"><i class="icon-user"></i> <span class="username"></span></a></li>
-        <li class="active"><a href="#"><i class="icon-money"></i> Unlock Points: <span class="badge gold_points">0</span> <i class="icon-arrow-left" id="showinggold"></i></a></li>
-      </ul>
-    </div>
-  </div>
-  <div style="clear:both;"></div>
-</div>
-<div class="container1" style="padding-top:10px;">
-  <div class="add" id="add1"> 
-    <script type="text/javascript">
-    //<![CDATA[
-        LSM_Slot({
-            adkey: '05a',
-            ad_size: '728x90',
-            slot: 'slot80232'
-        });
-    //]]>
-</script>
-    <div>
-      <button class="loading btn btn-default"> <img src="https://arpecop.net/angel/dvanadeset/src/loading.gif"> </button>
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="tab-pane fade" id="mislish"> </div>
-  </div>
-  <div class="row-fluid" style="margin-top:10px;">
-    <div id="mislish">
-      <ul class="breadcrumb">
-        <li class="active"><i class="icon-th-list"></i> <span class="title1">Questions</span></li>
-      </ul>
-      <div id="login" style="display:none">
-        <div>
-          <div class="alert alert-error"> <i class="icon-arrow-down"></i>За да продължите към следващата стъпка трябва да оторизирате приложението .</div>
-        </div>
-        <div>
-          <button class="btn btn-mini btn-primary" type="button" id="loginbutton">Login</button>
-        </div>
+
+<div class="message-bar2">
+        <span class="lock-icon mod-orange"></span>
+        <img src="//arpecop.net/angel/dvanadeset/en/src/logo1.png" id="logoz">  <strong>Portfolio plan</strong>  
+        <div class="gold">Unlock Points: <span class="gold_points"></span></div>
       </div>
-      <div class="mislish_igra row-fluid">
-        <div class="row-fluid">
-          <div class="col-sm-3"><img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" class="img-rounded img-attendee img-responsive"></div>
-          <div class="col-sm-9">
-            <p class="lead"><i class="icon-angle-right"></i> <span id="qus"></span></p>
-            <div class="row-fluid">
-              <button class="btn  answervalue btn-success btn-lg" value="Yes">&nbsp;&nbsp;Yes&nbsp;&nbsp;</button>
-              <button class="btn answervalue btn-success btn-lg" value="No">&nbsp;&nbsp;No&nbsp;&nbsp;</button>
-              <button value="2" class="btn  btn-link answervalue">&nbsp;Skip&nbsp;</button>
-              <hr>
-              <div class="input-group">
-                <input type="text" class="form-control" id="ownanswer" placeholder="... other answer">
-                <span class="input-group-btn">
-                <button class="btn btn-success  answervalue" type="button" id="ownanswersend">Send</button>
-                </span> </div>
-              <!-- /input-group --></div>
-          </div>
-        </div>
-      </div>
-      <div class="row-fluid mislish_nav">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-9">
-          <input name="attendees" type="hidden" id="attendees" value="">
-          <div style="text-align:right"> </div>
-        </div>
-      </div>
-      <div class="proceed">
-        <div id="attendeesgraph"></div>
-    
-      </div>
-    </div>
-    <div class="col-sm-6 moretochkas" id="unlocks">
-      <ul class="breadcrumb">
-        <li class="active"><i class="icon-inbox"></i> <span class="title2">Activity <span class="label label-info nonunlocked"></span></span></li>
-      </ul>
-      <i class="icon-arrow-left"></i> Answer 5 questions with &quot;Yes&quot; or &quot;No&quot; to unlock the answer, or click &quot;Unlock with invite&quot;
-      <hr>
-      <div class="progress" style="display:none;"><span class="infotochka"> </span>
-        <div class="bar" style="width: 0%;"></div>
-      </div>
-      <div class="media-list"> </div>
-    </div>
-  </div>
-  <hr class="soften">
-  <div class="add" id="add2"> 
-    <script type="text/javascript">
-    //<![CDATA[
-        LSM_Slot({
-            adkey: '05a',
-            ad_size: '728x90',
-            slot: 'slot80232'
-        });
-    //]]>
-</script> 
-  </div>
-  <div> 
-    <!-- end ryad tag --> 
-    
-  </div>
-</div>
-<img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" id="preload"> 
-<!-- Footer
-  ================================================== --> 
 
-<script>
 
-var prev = 0;
-var next = 1;
-var supernext = 2;
+<div class="container">
+<div class="greenBorder" style="display: table; height: 230px; width:100%; margin-top:10px;  position: relative; overflow: hidden;">
+ <img src="" class="img-circle img-attendee" style="position:absolute;   right:0px;  width:230px; height:230px;">
 
-
-
-(function($) {
-
-  $.fn.shuffle = function() {
-    return this.each(function() {
-      var items = $(this).children().clone(true);
-      return (items.length) ? $(this).html($.shuffle(items)) : this;
-    });
-  }
-
-  $.shuffle = function(arr) {
-    for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
-    return arr;
-  }
-
-})(jQuery);
-Array.prototype.chunk = function(n) {
-  if (!this.length) {
-    return [];
-  }
-  return [this.slice(0, n)].concat(this.slice(n).chunk(n));
-};
-
-//OWNanswer
-
-$(document).on("keyup", "#ownanswer", function() {
-
-  var text = $(this).val();
-
-  if (text.length >= 2) {
-    $('#ownanswersend').val(text);
-    $('#ownanswersend').show();
-  }
-});
-
-
-//UNLOCK INVITES
-
-function inviteunlock(sqlid) {
-
-  // body...
-  FB.api({
-      method: 'fql.query',
-      query: 'SELECT uid FROM user WHERE is_app_user=0 AND uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
-    },
-    function(data) {
-      var arr = [];
-      $.each(data, function(index, value) {
-
-        arr.push(value.uid);
-      })
-      var marr = $.shuffle(arr).slice(0, 25);
-
-
-
-      FB.ui({
-        method: 'apprequests',
-        message: 'Entertain with the game which tells you what is your friends opinion',
-        to: marr.join(',')
-      }, function(callback) {
-        if (callback.to) {
-          $('#result' + sqlid + ' .result').show();
-          $('#result' + sqlid + ' button').remove();
-
-          $.post('//arpecop.net/angel/db2/delete/stream10-' + window.user.id, window.stream[sqlid], function(data) {
-
-
-          })
-
-        }
-      });
-
-    }
-  );
-}
-$(document).on("click", ".unlock_invite", function() {
-  var sqlid = $(this).attr('alt');
-
-  inviteunlock(sqlid);
-
-});
-//DELETE
-$(document).on("click", ".unlock_delete", function() {
-  var sqlid = $(this).attr('alt');
-  $.post('//arpecop.net/angel/db2/delete/stream10-' + window.user.id, window.stream[sqlid], function(data) {
-    $("#result" + sqlid + '').hide('slow');
-  });
-});
-
-//UNLOCK
-
-$(document).on("click", ".unlock", function() {
-  var sqlid = $(this).attr('alt');
-  $.getJSON('//arpecop.net/angel/db2/gold1-' + window.user.id, function(datagold) {
-
-    if (datagold.message) {
-      $("#error-" + sqlid + ', #showinggold').fadeIn('slow');
-
-      setTimeout(function() {
-        $("#error-" + sqlid + ', #showinggold').fadeOut('slow');
-      }, 2400);
-    } else if (Number(datagold.value) < 5) {
-      $("#error-" + sqlid + ', #showinggold').fadeIn('slow');
-
-      setTimeout(function() {
-        $("#error-" + sqlid + ', #showinggold').fadeOut('slow');
-      }, 2400);
-
-    } else {
-
-      $('#result' + sqlid + ' .result').show();
-      $('#result' + sqlid + ' button').remove();
-      update_gold(window.user.id, 'unlocking');
-      $.post('//arpecop.net/angel/db2/delete/stream10-' + window.user.id, window.stream[sqlid], function(data) {
-
-
-      })
-
-
-    }
-
-
-  });
-
-
-});
-
-//LOGIN
-$("#loginbutton").on("click", function(e) {
-
-  FB.login(function(response) {
-    if (response.authResponse) {
-
-      top.location = "https://apps.facebook.com/feis-be/";
-
-    }
-  }, {
-    scope: 'publish_actions'
-  });
-
-});
-
-
-
-function update_gold(user, action) {
-  var newval;
-  if (action == 'justcheck') {
-    $.getJSON('//arpecop.net/angel/db2/gold1-' + user, function(data) {
-      //error
-      if (data.message) {
-        $.post('//arpecop.net/angel/db2/insert', {
-          'key': 'gold1-' + user,
-          'value': 1
-        }, function(data) {
-
-          $('.gold_points').text('0');
-        });
-
-      } else {
-        $('.gold_points').text(data.value);
-      }
-    });
-
-  } else if (action == 'add') {
-
-    newval = Number($('.gold_points').text()) + 1;
-
-    $.post('//arpecop.net/angel/db2/insert', {
-      'key': 'gold1-' + user,
-      'value': newval
-    }, function(data) {
-      $('.gold_points').text(newval);
-    });
-
-  } else if (action == 'unlocking') {
-
-    newval = Number($('.gold_points').text()) - 5;
-
-    $.post('//arpecop.net/angel/db2/insert', {
-      'key': 'gold1-' + user,
-      'value': newval
-    }, function(data) {
-      $('.gold_points').text(newval);
-    });
-
-  }
-
-
-}
-
-
-
-function providemislish(prevdata) {
-  var vapros = window.mislish[next].q;
-  var userid = window.fql[next].uid;
-  var username = window.fql[next].first_name;
-  $('.mislish_igra').show();
-  $('.loading').hide();
-  $('.img-attendee').attr('src', 'https://graph.facebook.com/' + userid + '/picture?type=large');
-
-  $('#qus').text('Do you think that ' + username + ' ' + vapros + ' ?');
-
-  $('#preload').attr('src', 'https://graph.facebook.com/' + window.fql[supernext].uid + '/picture?type=large');
-  if (prevdata) {
-    prevdata.fromname = window.user.first_name;
-    $('#ownanswersend,#ownanswer').val('');
-    var randomnumber = Math.floor(Math.random() * 2)
-    $('#add' + randomnumber).html(window.iframe);
-    $.post("https://graph.facebook.com/" + prevdata.to + "/notifications", {
-      href: "?x=vaprosi",
-      access_token: "105397064351|9RQwsm6vf5nQJMhvyZYXmqpFYx8",
-      template: window.user.first_name + " said something about you",
-    }, function(data) {
-
-
-      if (!data.success) {
-        var errordata = prevdata;
-        errordata.key = errorlog
-        $.post('//arpecop.net/angel/db2/errorlog', errordata, function() {});
-      }
-    });
-    prevdata.key = 'stream10-' + prevdata.to;
-    $.post('//arpecop.net/angel/db2/' + prevdata.to, prevdata, function(data) {
-
-    });
-
-  }
-
-  next++;
-  prev++;
-  supernext++;
-
-
-
-}
-
-
-
-function registertodb(uid, token) {
-  var prekey = "gender";
-
-  $.getJSON('//graph.facebook.com/' + uid + '/?fields=first_name,gender,username&callback=?', function(data_user) {
-  var checkid;
-    if(!data_user.username) {
-        checkid = data_user.id;
-    } else {
-      checkid = data_user.username;
-    }
-   
-  //  initcompares(data_user);
+  <div style=" #position: absolute;  top: 50%;display: table-cell; vertical-align: middle;">
  
-    $.getJSON('//arpecop.net/angel/db2/' + prekey + '' + checkid + '', function(dataxx) {
-
-
-
-      if (dataxx.message && data_user.gender) {
-        var json = {};
-        json.key = '' + prekey + '' + checkid + '';
-        json.value = 'ok';
-
-        $.post('//arpecop.net/angel/db2/insert', json, function(data) {
-          var bson = {};
-          bson.key = '' + prekey + '' + data_user.gender;
-          bson.firstname = data_user.first_name;
-
-          bson.uid = uid;
-
-          $.post('//arpecop.net/quotepublisher/db/' + bson.key, bson, function(dat) {
-
-          });
-
-        });
-      }
-
-    });
-  });
-}
-
-function initialize(uid, token) {
-
-
-  registertodb(uid, token);
-  update_gold(uid, 'justcheck');
-  ///
-  $.getJSON('https://api.facebook.com/method/fql.query?query=' + encodeURIComponent('SELECT uid,first_name,is_app_user FROM user WHERE is_app_user AND uid IN (SELECT uid2 FROM friend WHERE uid1 = me())') + '&access_token=' + token + '&format=json&callback=?', function(fql) {
-
-    window.fql = $.shuffle(fql);
-
-var pokesarr = [];
-	$.each(window.fql.slice(0,20),function(index,value) {
-	 pokesarr.push('<a href="ask/"  data-toggle="tooltip" data-placement="top" title="" data-original-title="'+value.first_name+'"  ><img src="https://graph.facebook.com/'+value.uid+'/picture"></a>')
-		// registertodb(value.uid, token);
-
-    //<button type="button" class="btn btn-default" >Tooltip on left</button>
-	});
-  $('.pokes').html(pokesarr.join(''));
-  $('.pokes a').tooltip();
- 
-
-    $.getJSON('https://graph.facebook.com/me/?access_token=' + token + '&fields=name,first_name&callback=?', function(user) {
-      window.user = user;
-
-      //window.iframe = '<iframe src="//app.appatyze.com/gateway.php?a=353&aid='+user.third_party_id+'" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>'
-      window.iframe = '<iframe src="//arpecop.net/angel/dvanadeset/src/grabohttpschrome.html" width="728" height="90" style="width:728px; height:90px; border:0px solid; overflow:hidden;margin-left:auto; margin-right:auto;" border="0" frameborder="0" scrolling="no"></iframe>';
-
-
-      if (!fql.error_code) {
-        $.getJSON('//arpecop.net/angel/dvanadeset/src/vaprosien.json', function(qus) {
-          window.mislish = $.shuffle(qus);
-          providemislish(null);
-          $('.username').text(window.user.name);
-          $.getJSON('//arpecop.net/angel/db2/stream10-' + uid, function(dataxx1) {
-
-            if(!dataxx1.message) {
+    <span class="message-bar greenBorder lead" id="qus" style="position: relative;  top: -50%; ">
       
-            var dataxx;
+    </span>
+    <div>   <button type="button" class="button green center">Yes</button>
+    <button type="button" class="button red center">No</button>
+    <button type="button" class="button light center">Skip</button></div>
 
-            if (!dataxx1.length) {
-              dataxx = new Array;
-              dataxx.push(dataxx1);
-            } else {
-              dataxx = dataxx1;
-            }
-
-            window.stream = dataxx;
-           
-            if (!dataxx.message) {
-              window.stream = dataxx;
-              var joinitems = [];
-              var unlocked = dataxx.length;
-
-              $('.nonunlocked').text('' + unlocked + '');
-              if (unlocked > 0) {
-                $('#unlocks').show();
-                $('#unlocks,#mislish').addClass('col-sm-6');
-
-                $.each(dataxx, function(index, value) {
-                  joinitems.push('<div class="media" id="result' + index + '">  <span class="pull-left">  <img class="img-circle" src="https://graph.facebook.com/' + value.from + '/picture"> </span><div class="media-body">  <div class="row-fluid"><div>Do you think that  ' + window.user.name + ' ' + value.q + '?<div> <button class="btn btn-primary btn-xs unlock" alt="' + index + '"><i class="icon-lock"></i> Unlock</button>  <button class="btn btn-xs unlock_invite" alt="' + index + '"><i class="icon-lock"></i> Unlock with invite</button> <button class="btn btn-xs unlock_delete" alt="' + index + '"><i class="icon-trash"></i>&nbsp;</button></div><div class="result"><strong>Answer: ' + value.result + '</strong></div></div>  </div>  </div> </div><div id="error-' + index + '" style="display:none"> <br><div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button><strong>Опс!</strong> Collect 5 points to unlock this answer.</div></div><div id="errornonsend-' + index + '" style="display:none"> <br><div class="alert alert-error"><span class="btn btn-mini" id="sendplease" style="float:right">OK!</span><strong>Внимание!</strong> Известете приятелите си в диалога за да знаят за вашите отговориИзвестете приятелите си в диалога за да знаят за вашите отговори</div><hr></div>');
-                });
-                $('.media-list').html(joinitems.join(''));
-              }
-            } else {
-
-              $('#mislish').addClass('col-lg-12');
-              $('.moretochkas').remove();
-            }
-            }
-          });
-
-
-
-        });
-      }
-
-    });
-  });
-
-  ///
-
-}
-
-
-
-$(document).on("click", ".answervalue", function(e) {
-
-  var gold = $('.gold_points').text();
-  $('.infotochka').remove();
-  var prevdata = {};
-
-
-
-  prevdata.result = $(this).val();
-  prevdata.q = window.mislish[prev].q;
-  prevdata.to = window.fql[prev].uid;
-  prevdata.from = window.user.id;
-  prevdata.unlocked = "0";
-  if (prevdata.result != 2) {
-    providemislish(prevdata);
-    update_gold(window.user.id, 'add');
-
-
-
-  } else {
-    providemislish(null);
-  }
-
-});
-
-//
-$(document).on("click", "#loggmein", function() {
-  FB.login(function(response) {
-
-  });
-});
-
-
-function register() {
-  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=181361935494&redirect_uri=https://apps.facebook.com/feis-be/&scope=user_about_me";
-}
-
-function getURLParameter(name) {
-    return decodeURI(
-        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
-    );
-}
-
-window.fbAsyncInit = function() {
-  FB.init({
-    appId: '105397064351',
-    status: true,
-    cookie: true,
-    xfbml: true,
-    oauth: true,
-    channelUrl : '//arpecop.net/static/channel.html',
-    frictionlessRequests: true
-  });
-
-  var request = getURLParameter('request_ids');
-  
-  if (request.length >= 5) {
-  top.location.href = "http://feis.be/";
-  };
-
-
-  FB.Canvas.setAutoGrow();
-
-  FB.Event.subscribe('auth.authResponseChange', function(response) {
-    if (response.status === 'connected') {
-      var uid = response.authResponse.userID;
-      var accessToken = response.authResponse.accessToken;
-
-      if (!window.token) {
-        window.token = response.authResponse.accessToken;
-        initialize(uid, accessToken);
-      };
-
-    } else {
-      register();
-
-    }
-  });
-
-  FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-      var uid = response.authResponse.userID;
-      var accessToken = response.authResponse.accessToken;
-      if (!window.token) {
-        window.token = response.authResponse.accessToken;
-        initialize(uid, accessToken);
-      }
-    } else {
-      register();
-    }
-  });
-
-
-
-};
-//mobile
-
-
-
-// Load the SDK asynchronously
-(function(d){
-        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-        js = d.createElement('script'); js.id = id; js.async = true;
-        js.src = "https://connect.facebook.net/en_US/all.js";
-        //js.src = "//tabletr.herokuapp.com/js/all.js";
-        d.getElementsByTagName('head')[0].appendChild(js);
-    }(document));
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-29127191-1']);
-_gaq.push(['_trackPageview']);
-(function() {
-  var ga = document.createElement('script');
-  ga.type = 'text/javascript';
-  ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(ga, s);
-})();
-
-
-
-$.browser.device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
- 
-
-if ($.browser.device) {
-  $('html, body').css('overflow','block');
-  $('#add1, #add2, #add').remove();
- 
-
-
-
- 
-
- 
-
-} else {
-  $('html, body').css('overflow','hidden');
-}
-
-</script>
-<hr>
-
-<!--Place the code below everywhere where you want an ad to appear. --> 
-
-<!-- ATTENTION: The JavaScript Tag does not currently support Test Banners, and will show no ads until your website has been approved by MobFox. To request approval, please log-into your MobFox account, navigate to Sites&Apps, and click on the "Request Approval" link. --> 
-
-<script>
-
-</script>
-<div id="mobilez"> </div>
-<div class="row-fluid">
-  <div class="col-sm-6">
-    <iframe src="//www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Farpecop&amp;width=250&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;show_faces=true&amp;appId=455845877841696" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:21px;" allowTransparency="true"></iframe>
   </div>
-  <div class="col-sm-6" style="text-align:right;"><a href="#">TOS</a> :: <a href="#">Privacy Policy</a> Copyright © 2013 Rudi<br>
-    Powered by: <a href="http://iwstack.com/" target="_new">iwstack cloud</a></div>
+
+</div>
+</div>
+      
+ 
+ 
+  
+
+
+    
+   
+
+
+
+ 
+
+
+   <div class="uibutton-toolbar">
+            <a class="uibutton" href="#button">Mark as unread</a>
+
+            <div class="uibutton-group">
+                <a class="uibutton" href="#button">Report spam</a>
+                <a class="uibutton" href="#button">Delete</a>
+            </div>
+
+            <a class="uibutton" href="#button">Unsubscribe</a>
+        </div>
+ <script type="text/javascript">
+
+
+function template_unlock(classx, index, from, you, q, result, fromname) {
+  return ('<div class="media' + classx + '" id="result' + index + '">  <div class="pull-left"><button class="btn btn-xs unlock anonim btn-default" value="' + index + '"><i class="fa fa-unlock"></i> Find uot who answered for 5 points</button>  <img class="img-circle result" src="https://graph.facebook.com/v2.0/' + from + '/picture"> </div><div class="media-body">   <div>Мислиш ли че, ' + you + ' ' + q + '?<div><strong><span class="result">' + fromname + '</span> oтговор<span class="result">и</span>: ' + result + '</strong>  <div class="result"><a class="btn btn-xs btn-default poke" alt="' + from + '">Сръчкай ' + fromname + '</a></div></div><div><button class="btn btn-xs unlock_invite" value="' + index + '"><i class="fa fa-unlock"></i> Unlock with invite</button></div></div>  </div>  </div>  <div id="error-' + index + '" style="display:none"> <br><div class="alert alert-warning"><strong>Whoops!</strong> Collect 5 points to unlock the answer.</div></div>');
+}
+
+</script> 
+<script src="app.js"></script>
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+
+<script type="text/javascript">
+function getRandomArbitary (min, max) {
+    return Math.random() * (max - min) + min;
+}
+(function loop() {
+  var rd = getRandomArbitary(2000,6000)
+
+  setTimeout(function () {
+    console.log('')
+      $("#logoz").attr('src','//arpecop.net/angel/dvanadeset/en/src/logo1.png');
+        setTimeout(function () {   $("#logoz").attr('src','//arpecop.net/angel/dvanadeset/en/src/logo2.png'); }, 300);
+
+    loop()
+  }, rd);
+}());
+
+ 
+
+ 
+</script>
+
+<div id="status">
 </div>
 </body>
 </html>
