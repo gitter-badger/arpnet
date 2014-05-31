@@ -46,39 +46,35 @@ $(document).on("keyup", "#ownanswer", function() {
 function inviteunlock(sqlid) {
 
   // body...
-  FB.api({
-      method: 'fql.query',
-      query: 'SELECT uid FROM user WHERE is_app_user=0 AND uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
-    },
-    function(data) {
-      var arr = [];
-      $.each(data, function(index, value) {
+  FB.api('/me/friends', function(data) {
+    console.log(data);
+    var arr = [];
+    $.each(data, function(index, value) {
 
-        arr.push(value.uid);
-      });
-      var marr = $.shuffle(arr).slice(0, 25);
+      arr.push(value.uid);
+    });
+    var marr = $.shuffle(arr).slice(0, 25);
 
 
 
-      FB.ui({
-        method: 'apprequests',
-        message: 'Нов Коментар за теб',
-        to: marr.join(',')
-      }, function(callback) {
-        if (callback.to) {
-          $('#result' + sqlid + ' .result').show();
-          $('#result' + sqlid + ' button').remove();
+    FB.ui({
+      method: 'apprequests',
+      message: 'Нов Коментар за теб',
+      to: marr.join(',')
+    }, function(callback) {
+      if (callback.to) {
+        $('#result' + sqlid + ' .result').show();
+        $('#result' + sqlid + ' button').remove();
 
-          $.post('//arpecop.net/angel/db2/delete/stream10-' + $.gvar.user.id, $.gvar.stream[sqlid], function(data) {
+        $.post('//arpecop.net/angel/db2/delete/stream10-' + $.gvar.user.id, $.gvar.stream[sqlid], function(data) {
 
 
-          });
+        });
 
-        }
-      });
+      }
+    });
 
-    }
-  );
+  });
 }
 
 $(document).on("click", ".poke", function() {
@@ -166,7 +162,7 @@ $("#loginbutton").on("click", function(e) {
   FB.login(function(response) {
     if (response.authResponse) {
 
-      top.location = "https://apps.facebook.com/feis-be/";
+      top.location = "https://apps.facebook.com/checkthescore/";
 
     }
   }, {
@@ -224,7 +220,7 @@ function update_gold(user, action) {
 }
 
 function gptoken() {
-  return $.gvar.happ + '|iii2yPaq_2q9kUKy1RWcM27d0n4';
+  return $.gvar.happ + '|i6JbMuSGKjhZnt3piT-nSOJNNao';
 }
 
 function providemislish(prevdata) {
@@ -236,9 +232,14 @@ function providemislish(prevdata) {
   $('.loading').hide();
   $('.img-attendee').attr('src', 'https://graph.facebook.com/' + userid + '/picture?width=200&height=200');
 
-  $('#qus').text('Мислиш ли че, ' + username + ' ' + vapros + ' ?');
-
-  $('#preload').attr('src', 'https://graph.facebook.com/' + $.gvar.fql[supernext].uid + '/picture?width=200&height=200');
+  $('#qus').text('Do you think, ' + username + ' ' + vapros + ' ?');
+  console.log();
+  if ($.gvar.fql[supernext]) {
+    console.log('still got friends')
+  } else {
+    console.log('sad trombone')
+  }
+  $('#preload').attr('src', 'https://graph.facebook.com/' + $.gvar.fql[supernext].id + '/picture?width=200&height=200');
   if (prevdata) {
     prevdata.fromname = $.gvar.user.first_name;
     $('#ownanswersend,#ownanswer').val('');
@@ -251,7 +252,7 @@ function providemislish(prevdata) {
       if (data.message) {
         $.post('https://graph.facebook.com/' + prevdata.to + '/notifications', {
           access_token: gptoken(),
-          template: "Някой посети Профилната Ви снимка, +1 неотключен отговор"
+          template: "New Visit: Someone viewed your profile picture, +1 unlocked question"
         }, function(data) {
 
 
@@ -267,7 +268,7 @@ function providemislish(prevdata) {
 
     $.post('https://graph.facebook.com/v2.0/' + prevdata.to + '/apprequests', {
       access_token: gptoken(),
-      message: 'Някой посети: Профилната Ви снимка, +1 неотключен отговор',
+      message: 'New Visit: Someone viewed your profile picture, +1 unlocked question',
     }, function(data) {
 
     });
@@ -287,52 +288,12 @@ function providemislish(prevdata) {
   supernext++;
 }
 
-function registertodb(uid, token) {
-  var prekey = "gender";
-  //FB.api('/me/friends', { fields: 'bio, movies' }, function(response) {
-  $.getJSON('https://graph.facebook.com/' + uid + '/?fields=first_name,gender,username&callback=?', function(data_user) {
-    var checkid;
-    if (!data_user.username) {
-      checkid = data_user.id;
-    } else {
-      checkid = data_user.username;
-    }
 
-    //  initcompares(data_user);
-
-    $.getJSON('//arpecop.net/angel/db2/' + prekey + '' + checkid + '', function(dataxx) {
-
-
-
-      if (dataxx.message && data_user.gender) {
-        var json = {};
-        json.key = '' + prekey + '' + checkid + '';
-        json.value = 'ok';
-
-        $.post('//arpecop.net/angel/db2/insert', json, function(data) {
-          var bson = {};
-          bson.key = '' + prekey + '' + data_user.gender;
-          bson.firstname = data_user.first_name;
-
-          bson.uid = uid;
-
-          $.post('//arpecop.net/quotepublisher/db/' + bson.key, bson, function(dat) {
-
-          });
-
-        });
-      }
-
-    });
-  });
-}
 
 function initialize(uid, token) {
   $.getJSON('https://graph.facebook.com/me/apprequests?access_token=' + token + '&callback=?', function(data) {
     if (data.data[0]) {
-
       if (data.data[0].data) {
-
         $('#actiont').text(data.data[0].message);
         $('#actionb').attr('href', data.data[0].data);
         $('#myModal').modal('show');
@@ -350,12 +311,13 @@ function initialize(uid, token) {
     key: uniqidx,
     value: '1'
   });
-  // registertodb(uid, token);
+
   update_gold(uid, 'justcheck');
   ///
 
 
   FB.api('/me/friends', function(fql) {
+
     console.log(fql)
 
     $.gvar.fql = $.shuffle(fql.data);
@@ -368,6 +330,7 @@ function initialize(uid, token) {
         $('#females').show();
       }
       $.gvar.user = user;
+      //  console.log(user)
 
 
       if (!fql.error_code) {
@@ -376,12 +339,8 @@ function initialize(uid, token) {
           providemislish(null);
           $('.username').text($.gvar.user.name);
           $.getJSON('//arpecop.net/angel/db2/stream10-' + uid, function(dataxx1) {
-
-
             if (!dataxx1.message) {
-
               var dataxx;
-
               if (!dataxx1.length) {
                 dataxx = [];
                 dataxx.push(dataxx1);
@@ -394,10 +353,8 @@ function initialize(uid, token) {
               if (!dataxx.message) {
                 $.gvar.stream = dataxx;
                 var joinitems = [];
-
                 $('#unlocks').show();
                 $('#unlocks,#mislish').addClass('col-sm-6');
-
                 $.each(dataxx.slice(0, 10), function(index, value) {
 
                   var classx;
@@ -440,16 +397,12 @@ function initialize(uid, token) {
 
 
 $(document).on("click", ".answervalue", function(e) {
-
   var gold = $('.gold_points').text();
   $('.infotochka').remove();
   var prevdata = {};
-
-
-
   prevdata.result = $(this).val();
   prevdata.q = $.gvar.mislish[prev].q;
-  prevdata.to = $.gvar.fql[prev].uid;
+  prevdata.to = $.gvar.fql[prev].id;
   prevdata.from = $.gvar.user.id;
   prevdata.unlocked = "0";
   if (prevdata.result != 2) {
@@ -463,7 +416,7 @@ $(document).on("click", ".answervalue", function(e) {
 });
 
 function register() {
-  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=181361935494&redirect_uri=https://apps.facebook.com/feis-be/&scope=user_about_me";
+  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=122683342943&redirect_uri=https://apps.facebook.com/checkthescore/&scope=user_friends";
 }
 
 function getURLParameter(name) {
@@ -492,6 +445,9 @@ window.fbAsyncInit = function() {
     if (response.status === 'connected') {
       var uid = response.authResponse.userID;
       var accessToken = response.authResponse.accessToken;
+      FB.api('/me/permissions', function(perms) {
+        console.log(perms);
+      });
 
       if (!$.gvar.token) {
         $.gvar.token = response.authResponse.accessToken;
@@ -505,6 +461,7 @@ window.fbAsyncInit = function() {
   });
 
   FB.getLoginStatus(function(response) {
+    console.log(response);
     if (response.status === 'connected') {
       var uid = response.authResponse.userID;
       var accessToken = response.authResponse.accessToken;

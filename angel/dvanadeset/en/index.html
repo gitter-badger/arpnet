@@ -7,12 +7,25 @@
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./css/style.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//ads.lfstmedia.com/getad?site=235333" type="text/javascript"></script>
 	<style type="text/css">
 
 
 .gold {float: right; margin-top: 10px; }
 .gold_points {font-weight: 700;}
 .arrowz { color: #9c3; }
+#preload {display: none;}
+.result, #preload, .mislish_igra, #showinggold {
+  display: none;
+}
+
+.media {   border-top:1px solid #d3d6db; padding-top: 5px; }
+.uibutton-toolbar {
+padding: 6px;
+border-bottom: 1px solid #f2f2f2;
+ 
+}
+  .media  {margin: 0px;}
 
 	</style>
 
@@ -22,7 +35,7 @@
 
 <div class="message-bar2">
         <span class="lock-icon mod-orange"></span>
-        <img src="//arpecop.net/angel/dvanadeset/en/src/logo1.png" id="logoz">  <strong>Portfolio plan</strong>  
+        <img src="//arpecop.net/angel/dvanadeset/en/src/logo1.png" id="logoz">  <strong>Check Score</strong>         <img src="https://arpecop.net/angel/dvanadeset/src/loading.gif" class="loading"> 
         <div class="gold">Unlock Points: <span class="gold_points"></span></div>
       </div>
 
@@ -36,43 +49,23 @@
     <span class="message-bar greenBorder lead" id="qus" style="position: relative;  top: -50%; ">
       
     </span>
-    <div>   <button type="button" class="button green center">Yes</button>
-    <button type="button" class="button red center">No</button>
-    <button type="button" class="button light center">Skip</button></div>
+    <div>   <button type="button" class="button green center answervalue" value="Yes">Yes</button>
+    <button type="button" class="button red center answervalue" value="No">No</button>
+    <button type="button" class="button light center answervalue" value="2">Skip</button></div>
 
   </div>
 
 </div>
 </div>
-      
- 
- 
-  
+<div class="media-list"></div>
+ <img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" id="preload"> 
 
-
-    
    
-
-
-
- 
-
-
-   <div class="uibutton-toolbar">
-            <a class="uibutton" href="#button">Mark as unread</a>
-
-            <div class="uibutton-group">
-                <a class="uibutton" href="#button">Report spam</a>
-                <a class="uibutton" href="#button">Delete</a>
-            </div>
-
-            <a class="uibutton" href="#button">Unsubscribe</a>
-        </div>
  <script type="text/javascript">
 
 
 function template_unlock(classx, index, from, you, q, result, fromname) {
-  return ('<div class="media' + classx + '" id="result' + index + '">  <div class="pull-left"><button class="btn btn-xs unlock anonim btn-default" value="' + index + '"><i class="fa fa-unlock"></i> Find uot who answered for 5 points</button>  <img class="img-circle result" src="https://graph.facebook.com/v2.0/' + from + '/picture"> </div><div class="media-body">   <div>Мислиш ли че, ' + you + ' ' + q + '?<div><strong><span class="result">' + fromname + '</span> oтговор<span class="result">и</span>: ' + result + '</strong>  <div class="result"><a class="btn btn-xs btn-default poke" alt="' + from + '">Сръчкай ' + fromname + '</a></div></div><div><button class="btn btn-xs unlock_invite" value="' + index + '"><i class="fa fa-unlock"></i> Unlock with invite</button></div></div>  </div>  </div>  <div id="error-' + index + '" style="display:none"> <br><div class="alert alert-warning"><strong>Whoops!</strong> Collect 5 points to unlock the answer.</div></div>');
+  return ('<div class="media' + classx + '" id="result' + index + '">  <div class="pull-left">  <img class="img-circle result" src="https://graph.facebook.com/v2.0/' + from + '/picture"> </div><div class="media-body">   <div>Do you think, ' + you + ' ' + q + '?<div><strong><span class="result">' + fromname + '</span> answer<span class="result">ed</span>: ' + result + '</strong>  <div class="result"><a class="uibutton poke" alt="' + from + '">Сръчкай ' + fromname + '</a></div></div><div class="uibutton-toolbar"><div class="uibutton-group"><button class="unlock anonim uibutton" value="' + index + '"><i class="fa fa-unlock"></i> Find uot who answered for 5 points</button><button class="uibutton unlock_invite" value="' + index + '"><i class="fa fa-unlock"></i> Unlock with invite</button></div></div></div>  </div>  </div>  <div id="error-' + index + '" style="display:none"> <br><div class="alert alert-warning"><strong>Whoops!</strong> Collect 5 points to unlock the answer.</div></div>');
 }
 
 </script> 
@@ -83,7 +76,7 @@ function template_unlock(classx, index, from, you, q, result, fromname) {
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+ 
 
 <script type="text/javascript">
 function getRandomArbitary (min, max) {
@@ -105,7 +98,26 @@ function getRandomArbitary (min, max) {
 
  
 </script>
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '133',
+            slot: 'slot97824'
+        });
+    //]]>
+</script>
 
+<div style="text-align:center"><script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: 'eba',
+            ad_size: '728x90',
+            slot: 'slot98015'
+        });
+    //]]>
+</script></div>
+<hr>
+<div style="text-align:right"><a href="#">Privacy Policy</a></div>
 <div id="status">
 </div>
 </body>
