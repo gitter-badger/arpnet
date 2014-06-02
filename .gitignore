@@ -8,7 +8,6 @@ tmp/
 troll/PARSE/*
 troll/db/*
 angel/iztegli/imgs/*
-angel/napravitest/data/*
 */node-modules/*
 error.txt
 /error.txt

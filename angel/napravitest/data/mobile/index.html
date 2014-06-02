@@ -1,0 +1,171 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Mobile Web App</title>
+	<link href="images/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="images/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+	<style>
+	.btn {text-align: left;}
+	</style>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+</head> 
+<body> <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">Известни Цитати</a>
+          <div class="nav-collapse collapse">
+       
+          </div>
+        </div>
+      </div>
+    </div>
+ 	<div class="container" style="padding-top:40px">
+			<div class="populate">
+				
+				
+			</div><br>
+ 
+ <div class="progress">
+  <div class="bar bar-success" id="veren" style="width: 0%;"></div>
+    <div class="bar bar-danger" id="greshen" style="width: 0%;"></div>
+  </div>
+    	</div>
+	 
+
+	<script>
+	//<i class="icon-align-left"></i>
+	var quiz = {
+		"name": "Test Quiz",
+		"questions": [
+		{
+			"text": "&quot;Ако A е успехът в живота, то тогава A е равно на x + y + z, където x е работата, y е забавлението, а z е да си държиш устата затворена&quot;",
+			"options": ["Алберт Айнщайн", "Аристотел", "Балзак", "Волтер"],
+			"correct": "0",
+			"hint": "8"
+		},
+		{
+			"text": "&quotДа се съмняваш в Бог, означава да вярваш в него.&quot",
+			"options": ["Волтер", " Оноре дьо Балзак", "Аристотел", "Наполеон Бонапарт"],
+			"correct": "1",
+			"hint": "8"
+		} ,
+		{
+			"text": "&quotЧуждата глупост не ни прави по-умни&quot",
+			"options": ["Волтер", "Оноре дьо Балзак", "Наполеон Бонапарт", "Алберт Айнщайн"],
+			"correct": "2",
+			"hint": "8"
+		} ,
+	 
+		{
+			"text": "&quotПарите са добър слуга, но лош стопанин&quot",
+			"options": ["Френсис Бейкън", "Оноре дьо Балзак", "Наполеон Бонапарт", "Алберт Айнщайн"],
+			"correct": "0",
+			"hint": "8"
+		} 
+		]
+	};
+	var arr = [];
+	$.each(quiz.questions, function(index1, value1) { 
+		var display = '';
+		if (index1 > 0) {
+			display = 'style="display:none"'
+		};
+		
+		arr.push('  \n <div  '+display+' id="q'+index1+'"><p class="lead">'+value1.text+'</p><div class="btn-group btn-group-vertical row-fluid">');
+		$.each(value1.options, function(index, value) { 
+			var checked = '';
+			if (index == 0) {
+				checked = 'selected';
+			};
+			var correct = '';
+			
+			if (value1.correct == index) {
+				correct = 'yes';
+				
+			} else {
+			
+				correct = 'no';	
+				
+			}
+			
+			arr.push('\t<div class="btn '+correct+' btn-large" alt="'+correct+'"> '+value+'</div> \n');
+
+			
+		});
+		arr.push('</div> </div>');
+
+
+	});	 
+	$('.populate').html(arr.join(''));
+ 
+
+	var order = 0;
+	
+ var veren = 1;
+ var greshen = 1;
+     
+	
+
+	$(".btn-group .btn").live("click", function(){ 
+      		      
+
+var next = order + 1;
+
+ 
+if (next == quiz.questions.length) {
+   
+     setTimeout(function() {
+        var verni_procent = $('#veren').attr('style');
+     var greshni_procent =  $('#greshen').attr('style');
+     greshni_procent = greshni_procent.replace("width:","Грешни:")
+          verni_procent = verni_procent.replace("width:","Верни:")
+     ////console.log(verni_procent);
+     $('#veren').text(verni_procent);
+        $('#greshen').text(greshni_procent);
+},1250);
+    } else {
+    $('#q'+order+'').delay(2000).fadeOut('slow');
+	    $('#q'+next+'').delay(2000).fadeIn('slow'); 
+    }
+
+
+ 	$('#q'+order+' .btn').addClass('disabled');
+		if ($(this).attr('alt') == 'yes') {
+			$(this).addClass('btn-success');
+ $(this).prepend('<i class="icon-thumbs-up"></i>');
+ 
+  var sok =   25 * veren;
+ 
+			 $('#veren').css('width',sok+'%');	 
+			 veren++;
+	 
+			} else {
+			$('#q'+order+' .yes').addClass('btn-success');
+			$(this).addClass('disabled btn-danger');
+			$(this).prepend('<i class="icon-remove"></i>');	
+			var sok1 =   25 * greshen;
+			 $('#greshen').css('width',sok1+'%');	 
+			greshen++;
+			 
+			}
+			
+	 
+
+    order++;
+  
+
+  
+});  
+	
+	</script>
+	
+
+</body>
+</html>
