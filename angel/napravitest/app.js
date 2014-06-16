@@ -71,7 +71,7 @@ function calculate() {
 				FB.api('/me', {
 					fields: 'first_name,third_party_id'
 				}, function(data) {
-					$('.appatyze').html('<iframe src="//app.appatyze.com/gateway.php?a=973&aid=' + data.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+				 
 
 					var obj = {
 						app_id: "160206614136535",
