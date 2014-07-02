@@ -1,4 +1,3 @@
-
 function numKeys(obj) {
 	var count = 0;
 	for (var prop in obj) {
@@ -64,17 +63,17 @@ function calculate() {
 				urlcomponent.name = data.first_name;
 				urlcomponent.qtitle = $('#result' + result.id + ' .lead').text();
 				urlcomponent.qdescr = $('#result' + result.id + ' .result_full').text();
-					urlcomponent.image = $('#result' + result.id + ' .result_image').attr('src');
-					if (!urlcomponent.image) {
-						urlcomponent.image = $('.page-header .img-rounded').attr('src');
-					}
+				urlcomponent.image = $('#result' + result.id + ' .result_image').attr('src');
+				if (!urlcomponent.image) {
+					urlcomponent.image = $('.page-header .img-rounded').attr('src');
+				}
 				FB.api('/me', {
 					fields: 'first_name,third_party_id'
 				}, function(data) {
-				 
+
 
 					var obj = {
-						app_id: "160206614136535",
+						app_id: 160206614136535,
 						type: "napravitest:quiz",
 						appurl: "http://apps.facebook.com/napravitest/" + $.gvar.id,
 						url: "http://apps.facebook.com/napravitest/" + $.gvar.id,
@@ -85,17 +84,18 @@ function calculate() {
 						appid: "160206614136535",
 						description: urlcomponent.descr
 					}
-					 
+
 
 					$.post("//chimpsnap.herokuapp.com/" + uniqid, obj, function(data) {
-						 
+
 						FB.api(
 							'me/objects/napravitest:quiz',
 							'post', {
 								object: obj
 							},
 							function(response) {
-								 
+
+
 							}
 						);
 
@@ -211,8 +211,8 @@ window.fbAsyncInit = function() {
 					urlcomponent.qtitle = $('#result' + $.gvar.id + ' .lead').text();
 					urlcomponent.qdescr = $('#result' + $.gvar.id + ' .result_full').text();
 					// if
-				 
-				 
+
+
 				});
 			} else {}
 		}, {
