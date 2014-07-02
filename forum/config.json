@@ -1,0 +1,17 @@
+{
+    "base_url": "http://localhost",
+    "port": "94",
+    "secret": "cbc2ea26-071e-456c-8515-daca003767ab",
+    "bind_address": "0.0.0.0",
+    "database": "redis",
+    "redis": {
+        "host": "127.0.0.1",
+        "port": "6379",
+        "password": "",
+        "database": "0"
+    },
+    "bcrypt_rounds": 12,
+    "upload_path": "/public/uploads",
+    "use_port": true,
+    "relative_path": ""
+}
