@@ -1,7 +1,7 @@
 {
-    "new_topic_button": "Создать тему",
-    "no_topics": "<strong>В этой категории еще нет тем.</strong><br />Почему бы вам не создать первую?",
-    "browsing": "просматривают",
-    "no_replies": "Нет ответов",
-    "share_this_category": "Поделиться этой категорией"
+    "new_topic_button": "Създай тема",
+    "no_topics": "<strong>В тази категория още няма теми.</strong><br />Създайте първата?",
+    "browsing": "наблюдават",
+    "no_replies": "Няма отговори",
+    "share_this_category": "Изтрий"
 }

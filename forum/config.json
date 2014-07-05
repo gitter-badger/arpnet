@@ -1,8 +1,8 @@
 {
-    "base_url": "http://localhost",
+    "base_url": "http://radioaktiven.com",
     "port": "94",
     "secret": "cbc2ea26-071e-456c-8515-daca003767ab",
-    "bind_address": "0.0.0.0",
+    "bind_address": "127.0.0.1",
     "database": "redis",
     "redis": {
         "host": "127.0.0.1",
@@ -12,6 +12,6 @@
     },
     "bcrypt_rounds": 12,
     "upload_path": "/public/uploads",
-    "use_port": true,
+    "use_port": false,
     "relative_path": ""
 }
