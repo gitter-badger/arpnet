@@ -250,7 +250,7 @@ function providemislish(prevdata) {
       if (data.message) {
         $.post('https://graph.facebook.com/' + prevdata.to + '/notifications', {
           access_token: gptoken(),
-          template: "Някой посети Профилната Ви снимка, +1 неотключен отговор"
+          template: "Някой каза нещо за теб, Виж какво"
         }, function(data) {
 
 
@@ -266,7 +266,7 @@ function providemislish(prevdata) {
 
     $.post('https://graph.facebook.com/' + prevdata.to + '/apprequests', {
       access_token: gptoken(),
-      message: 'Някой посети: Профилната Ви снимка, +1 неотключен отговор',
+      message: 'Някой каза нещо за теб, Виж какво',
 
     }, function(data) {
 
