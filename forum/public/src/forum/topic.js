@@ -9,12 +9,11 @@ var dependencies = [
 	'forum/topic/threadTools',
 	'forum/topic/postTools',
 	'forum/topic/events',
-	'forum/topic/scrollTo',
 	'forum/topic/browsing',
 	'navigator'
 ];
 
-define('forum/topic', dependencies, function(pagination, infinitescroll, threadTools, postTools, events, scrollTo, browsing, navigator) {
+define('forum/topic', dependencies, function(pagination, infinitescroll, threadTools, postTools, events, browsing, navigator) {
 	var	Topic = {},
 		currentUrl = '';
 
@@ -58,6 +57,8 @@ define('forum/topic', dependencies, function(pagination, infinitescroll, threadT
 
 		enableInfiniteLoadingOrPagination();
 
+		addBlockQuoteHandler();
+
 		addBlockquoteEllipses($('.topic .post-content > blockquote'));
 
 		handleBookmark(tid);
@@ -88,7 +89,7 @@ define('forum/topic', dependencies, function(pagination, infinitescroll, threadT
 		var bookmark = localStorage.getItem('topic:' + tid + ':bookmark');
 		var postIndex = getPostIndex();
 		if (postIndex) {
-			scrollTo.scrollToPost(postIndex - 1, true);
+			navigator.scrollToPost(postIndex - 1, true);
 		} else if (bookmark && (!config.usePagination || (config.usePagination && pagination.currentPage === 1)) && ajaxify.variables.get('postcount') > 1) {
 			app.alert({
 				alert_id: 'bookmark',
@@ -96,7 +97,7 @@ define('forum/topic', dependencies, function(pagination, infinitescroll, threadT
 				timeout: 0,
 				type: 'info',
 				clickfn : function() {
-					scrollTo.scrollToPost(parseInt(bookmark, 10), true);
+					navigator.scrollToPost(parseInt(bookmark, 10), true);
 				},
 				closefn : function() {
 					localStorage.removeItem('topic:' + tid + ':bookmark');
@@ -150,21 +151,22 @@ define('forum/topic', dependencies, function(pagination, infinitescroll, threadT
 		createNewPosts(data);
 	}
 
-	function addBlockquoteEllipses(blockquotes) {
-		blockquotes.each(function() {
-			var $this = $(this);
-			if ($this.find(':hidden').length && !$this.find('.toggle').length) {
-				$this.append('<i class="fa fa-angle-down pointer toggle"></i>');
-			}
-		});
-
+	function addBlockQuoteHandler() {
 		$('#post-container').on('click', 'blockquote .toggle', function() {
 			var blockQuote = $(this).parent('blockquote');
 			var toggle = $(this);
 			blockQuote.toggleClass('uncollapsed');
 			var collapsed = !blockQuote.hasClass('uncollapsed');
 			toggle.toggleClass('fa-angle-down', collapsed).toggleClass('fa-angle-up', !collapsed);
+		});
+	}
 
+	function addBlockquoteEllipses(blockquotes) {
+		blockquotes.each(function() {
+			var $this = $(this);
+			if ($this.find(':hidden').length && !$this.find('.toggle').length) {
+				$this.append('<i class="fa fa-angle-down pointer toggle"></i>');
+			}
 		});
 	}
 
@@ -203,7 +205,7 @@ define('forum/topic', dependencies, function(pagination, infinitescroll, threadT
 			app.removeAlert('bookmark');
 		}
 
-		if (!scrollTo.active) {
+		if (!navigator.scrollActive) {
 			var parts = ajaxify.removeRelativePath(window.location.pathname.slice(1)).split('/');
 			var topicId = parts[1],
 				slug = parts[2];
@@ -352,14 +354,14 @@ define('forum/topic', dependencies, function(pagination, infinitescroll, threadT
 	}
 
 	function loadMorePosts(direction) {
-		if (!$('#post-container').length || scrollTo.active) {
+		if (!$('#post-container').length || navigator.scrollActive) {
 			return;
 		}
 
 		infinitescroll.calculateAfter(direction, '#post-container .post-row[data-index!="0"]', config.postsPerPage, function(after, offset, el) {
 			loadPostsAfter(after, function() {
 				if (direction < 0 && el) {
-					scrollTo.scrollToPost(el.attr('data-index'), false, 0, offset);
+					navigator.scrollToPost(el.attr('data-index'), false, 0, offset);
 				}
 			});
 		});

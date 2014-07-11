@@ -1,7 +1,7 @@
 {
-    "stats.online": "online",
-    "stats.users": "Потребители",
-    "stats.topics": "Теми",
-    "stats.posts": "Съобщения",
+    "stats.online": "В сети",
+    "stats.users": "Пользователей",
+    "stats.topics": "Тем",
+    "stats.posts": "Сообщений",
     "success": "успешно"
 }

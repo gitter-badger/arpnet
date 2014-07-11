@@ -40,22 +40,21 @@ var winston = require('winston'),
 				return callback(err);
 			}
 
-			posts.setPostFields(pid, {
-				edited: Date.now(),
-				editor: uid,
-				content: postData.content
-			});
-
-			events.logPostEdit(uid, pid);
-
 			async.parallel({
+				post: function(next) {
+					posts.setPostFields(pid, {
+						edited: Date.now(),
+						editor: uid,
+						content: postData.content
+					}, next);
+				},
 				topic: function(next) {
 					var tid = postData.tid;
 					posts.isMain(pid, function(err, isMainPost) {
 						if (err) {
 							return next(err);
 						}
-
+						options.tags = options.tags || [];
 						if (isMainPost) {
 							title = title.trim();
 
@@ -66,19 +65,19 @@ var winston = require('winston'),
 							if (options.topic_thumb) {
 								topicData.thumb = options.topic_thumb;
 							}
-							db.setObject('topic:' + tid, topicData);
+
+							db.setObject('topic:' + tid, topicData, function(err) {
+								plugins.fireHook('action:topic.edit', tid);
+							});
 
 							topics.updateTags(tid, options.tags);
-
-							plugins.fireHook('action:topic.edit', tid);
 						}
-
-						plugins.fireHook('action:post.edit', postData);
 
 						next(null, {
 							tid: tid,
 							title: validator.escape(title),
-							isMainPost: isMainPost
+							isMainPost: isMainPost,
+							tags: options.tags.map(function(tag) { return {name:tag}; })
 						});
 					});
 
@@ -86,7 +85,15 @@ var winston = require('winston'),
 				content: function(next) {
 					PostTools.parse(postData.content, next);
 				}
-			}, callback);
+			}, function(err, results) {
+				if (err) {
+					return callback(err);
+				}
+
+				events.logPostEdit(uid, pid);
+				plugins.fireHook('action:post.edit', postData);
+				callback(null, results);
+			});
 		});
 	};
 

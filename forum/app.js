@@ -117,16 +117,18 @@ function start() {
 		winston.info('Base Configuration OK.');
 	}
 
-	var meta = require('./src/meta');
-
 	require('./src/database').init(function(err) {
+		if (err) {
+			winston.error(err.stack);
+			process.exit();
+		}
+		var meta = require('./src/meta');
 		meta.configs.init(function () {
 			var templates = require('templates.js'),
 				webserver = require('./src/webserver'),
 				sockets = require('./src/socket.io'),
 				plugins = require('./src/plugins'),
-				upgrade = require('./src/upgrade'),
-				meta = require('./src/meta');
+				upgrade = require('./src/upgrade');
 
 			templates.setGlobal('relative_path', nconf.get('relative_path'));
 
@@ -150,7 +152,7 @@ function start() {
 
 						meta.js.killMinifier();
 						shutdown(1);
-					})
+					});
 				} else {
 					winston.warn('Your NodeBB schema is out-of-date. Please run the following command to bring your dataset up to spec:');
 					winston.warn('    node app --upgrade');
@@ -192,10 +194,12 @@ function setup() {
 function upgrade() {
 	loadConfig();
 
-	var meta = require('./src/meta');
-
 	require('./src/database').init(function(err) {
-		meta.configs.init(function () {
+		if (err) {
+			winston.error(err.stack);
+			process.exit();
+		}
+		require('./src/meta').configs.init(function () {
 			require('./src/upgrade').upgrade();
 		});
 	});

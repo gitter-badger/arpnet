@@ -1,9 +1,9 @@
 {
-    "username": "потребител / Email",
-    "remember_me": "Запомни ме",
-    "forgot_password": "Забравена парола?",
-    "alternative_logins": "Влез със",
-    "failed_login_attempt": "Грешка, опитайте отново.",
-    "login_successful": "Успешно влязохте!",
-    "dont_have_account": "Нямата регистрация?"
+    "username": "Имя пользователя / Email",
+    "remember_me": "Запомнить меня",
+    "forgot_password": "Забыли пароль?",
+    "alternative_logins": "Войти через",
+    "failed_login_attempt": "Не удалось войти, попробуйте еще раз.",
+    "login_successful": "Вы успешно вошли!",
+    "dont_have_account": "Нет акканута?"
 }

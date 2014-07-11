@@ -174,9 +174,11 @@
 			<li class="post-bar" data-index="{posts.index}">
 <div class="inline-block">
 
+	<span class="tags">
 	<!-- BEGIN tags -->
 	<a href="{relative_path}/tags/{tags.name}"><span class="label label-info">{tags.name}</span></a>
 	<!-- END tags -->
+	</span>
 
 	<!-- IF tags.length -->
 	<span>|</span>
@@ -258,9 +260,11 @@
 	<div class="post-bar col-xs-12 hide bottom-post-bar">
 <div class="inline-block">
 
+	<span class="tags">
 	<!-- BEGIN tags -->
 	<a href="{relative_path}/tags/{tags.name}"><span class="label label-info">{tags.name}</span></a>
 	<!-- END tags -->
+	</span>
 
 	<!-- IF tags.length -->
 	<span>|</span>

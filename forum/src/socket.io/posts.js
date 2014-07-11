@@ -174,6 +174,7 @@ SocketPosts.edit = function(socket, data, callback) {
 			pid: data.pid,
 			title: results.topic.title,
 			isMainPost: results.topic.isMainPost,
+			tags: results.topic.tags,
 			content: results.content
 		});
 
@@ -226,12 +227,16 @@ SocketPosts.purge = function(socket, data, callback) {
 };
 
 SocketPosts.getPrivileges = function(socket, pid, callback) {
-	privileges.posts.get(pid, socket.uid, function(err, privileges) {
-		if(err) {
+	privileges.posts.get([pid], socket.uid, function(err, privileges) {
+		if (err) {
 			return callback(err);
 		}
-		privileges.pid = parseInt(pid, 10);
-		callback(null, privileges);
+		if (!Array.isArray(privileges) || !privileges.length) {
+			return callback(new Error('[[error:invalid-data]]'));
+		}
+
+		privileges[0].pid = parseInt(pid, 10);
+		callback(null, privileges[0]);
 	});
 };
 

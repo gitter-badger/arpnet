@@ -210,16 +210,15 @@ define('chat', ['taskbar', 'string', 'sounds'], function(taskbar, S, sounds) {
 					checkOnlineStatus(chatModal);
 				});
 
-				translator.translate('[[modules:chat.user_typing, ' + username + ']]', function(translated) {
-					chatModal.find('.user-typing .text').text(translated);
-				});
-
+				chatModal.find('.user-typing .text').translateText('[[modules:chat.user_typing, ' + username + ']]');
 
 				taskbar.push('chat', chatModal.attr('UUID'), {
 					title: username,
 					icon: 'fa-comment',
 					state: ''
 				});
+
+				$(window).trigger('action:chat.loaded', chatModal);
 
 				callback(chatModal);
 			});

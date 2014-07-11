@@ -350,7 +350,7 @@ var async = require('async'),
 						if (err) {
 							return next(err);
 						} else if(!postData || !utils.isNumber(postData.uid)) {
-							return next(new Error('[[error:no-teaser]]'));
+							return callback();
 						}
 
 						user.getUserFields(postData.uid, ['username', 'userslug', 'picture'], function(err, userData) {
@@ -384,6 +384,13 @@ var async = require('async'),
 
 	Topics.getTopicFields = function(tid, fields, callback) {
 		db.getObjectFields('topic:' + tid, fields, callback);
+	};
+
+	Topics.getTopicsFields = function(tids, fields, callback) {
+		var keys = tids.map(function(tid) {
+			return 'topic:' + tid;
+		});
+		db.getObjectsFields(keys, fields, callback);
 	};
 
 	Topics.setTopicField = function(tid, field, value, callback) {

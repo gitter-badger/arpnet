@@ -1,12 +1,13 @@
 {
     "base_url": "http://radioaktiven.com",
     "port": "94",
-    "secret": "cbc2ea26-071e-456c-8515-daca003767ab",
-    "bind_address": "127.0.0.1",
-    "database": "redis",
-    "redis": {
+    "secret": "8eb1ae75-b6ce-4325-8247-8c01c4b23f5d",
+    "bind_address": "0.0.0.0",
+    "database": "mongo",
+    "mongo": {
         "host": "127.0.0.1",
-        "port": "6379",
+        "port": "27017",
+        "username": "",
         "password": "",
         "database": "0"
     },
