@@ -1,0 +1,8 @@
+{
+   "_id": "sortex",
+   "_rev": "2-53c5c3675443551de8e1f215017adb83",
+   "secret": "4b91ed660758cbce85668827fe3cfe5c",
+   "appid": "283536375115012",
+   "title": "гласувай за снимката - фейсбук приложение за мобилни устройства или браузър",
+   "scope": "email,user_photos,friend_photos"
+}

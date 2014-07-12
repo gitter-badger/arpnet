@@ -1,0 +1,34 @@
+{
+   "_id": "_design/search",
+   "_rev": "12-e6018fa12d7a5355dcdae657a2bbdec6",
+   "language": "javascript",
+   "views": {
+       "city": {
+           "map": "function(doc) {\nif (doc.country == \"Bulgaria\") {\n  emit(doc.city, 1);\n};\n}",
+           "reduce": "function(keys, values) {\n  return sum(values);\n}"
+       },
+       "city_female": {
+           "map": "function(doc) {\nif (doc.country == \"Bulgaria\" &amp;&amp; doc.sex == \"female\") {\n  emit(doc.city, 1);\n};\n}"
+       }
+   }
+}
+
+
+
+
+
+
+
+{
+   "_id": "_design/user",
+   "_rev": "3-29d01aed488bb29fa6789d7e173f11ca",
+   "language": "javascript",
+   "views": {
+       "login": {
+           "map": "function(doc) {\nif (doc.password) {\n  emit(doc.password, doc.email);\n};\n}"
+       },
+       "male": {
+           "map": "function(doc) {\nif (doc.sex == \"male\") {\n  emit(doc.location, doc);\n};\n}"
+       }
+   }
+}

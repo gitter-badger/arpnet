@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<title>SecretZone.bg</title>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,500,700&subset=latin,cyrillic" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://www.secretzone.bg/static/js/jquery-1.7.1.min.js"><\/script>')</script>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="https://arpecop.net/angel/tab/638513672846238/js/kount.js"></script>
+<style type="text/css">
+body {
+	overflow: hidden;
+	margin: 0px;
+}
+body, td, th, div {
+	font-family: "Ubuntu", "Lucida Grande", sans-serif;
+}
+#index {
+	width: 810px;
+	height: 1110px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	background-image: url(https://arpecop.net/angel/tab/638513672846238/img/promo.jpg);
+}
+#apDiv1 {
+	position: absolute;
+	top: 354px;
+	width: 440px;
+	height: 251px;
+	z-index: 1;
+	padding: 5px;
+	text-shadow: 1px 1px #fff;
+	font-weight: 400;
+	font-size: 18px;
+}
+#steps {
+	position: absolute;
+	top: 650px;
+	width: 450px;
+	height: 387px;
+	z-index: 2;
+}
+.item {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#signupForm {
+	overflow: hidden;
+}
+#signupForm #intro {
+	position: relative;
+	padding-top: 1px;
+}
+#signupForm.signingUpEmail #intro, #signupForm.hideForm #intro {
+	display: none;
+}
+#signupForm #intro p:first-child {
+	margin-top: 0;
+}
+#signupForm #emailSignup {
+	display: none;
+	position: relative;
+	left: 200px;
+	padding-top: 1px;
+	opacity: 0;
+}
+#signupForm.signingUpEmail #emailSignup {
+	display: block;
+	left: 0;
+	opacity: 1;
+}
+#signupForm.hideForm #emailSignup {
+	display: none;
+}
+#signupForm button {
+	width: 15.5em;
+}
+#signupForm label {
+	display: block;
+	margin-top: 0.8em;
+	font-size: 100%;
+	font-weight: normal;
+}
+#signupForm label[for=username] {
+	margin-right: 0;
+}
+#signupForm label .text {
+	position: absolute;
+	margin: 0 0 0 0;
+	padding: 0 0 0 1em;
+	text-align: left;
+	line-height: 43px;
+	font-weight: bold;
+}
+#signupForm input[type=text], #signupForm input[type=password] {
+	margin-top: 0;
+	padding-left: 6.7em;
+}
+#signupForm input[type=text]:focus, #signupForm input[type=password]:focus {
+	padding-left: -webkit-calc(6.7em - 2px);
+	padding-left: calc(6.7em - 2px);
+}
+#signupForm input[disabled=disabled] {
+	opacity: 0.5;
+	box-shadow: none;
+}
+#backToIntroLink a {
+	color: #7f7f7f;
+	text-decoration: none;
+}
+#backToIntroLink a:hover {
+	text-decoration: underline;
+}
+.facebookLogin {
+	margin-top: 1.6em;
+	margin-top: 1.6em;
+}
+button.facebookLogin {
+	position: relative;
+	padding: 0 0 0 2.4em;
+	background-color: #3B5998;
+}
+#loginForm button.facebookLogin {
+	width: 15em;
+}
+button.facebookLogin:hover {
+	background-color: #4668b3;
+}
+button.facebookLogin:focus {
+	background-color: #00c4cc;
+}
+button.facebookLogin:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 40px;
+	height: 40px;
+	border-right: 1px solid rgba(0,0,0,0.25);
+	background-image: url('https://arpecop.net/angel/tab/638513672846238/img/facebook_button.png');
+	background-repeat: no-repeat;
+	background-position: 55% 50%;
+	box-shadow: 1px 0 0 rgba(255,255,255,0.15);
+}
+button, .button, input[type=submit], #redirectLink a {
+	display: inline-block;
+	position: relative;
+	height: 43px;
+	outline: none;
+	margin: 0;
+	border: 0 none transparent;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 0 1em 0 1em;
+	background-color: #a06fda;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.25)));
+	background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.25));
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.25));
+	color: #ffffff;
+	font-size: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
+	line-height: 43px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	-webkit-box-shadow: inset 0 -3px 0 rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0 -3px 0 rgba(0,0,0,0.25);
+	box-shadow: inset 0 -3px 0 rgba(0,0,0,0.25);
+	-webkit-transition: background-color 0.15s linear;
+	-moz-transition: background-color 0.15s linear;
+	transition: background-color 0.15s linear;
+}
+button:hover, .button:hover, input[type=submit]:hover {
+	background-color: #ba82ff;
+}
+button:focus, .button:focus, input[type=submit]:focus {
+	background-color: #00c4cc;
+}
+button:active, .button:active, input[type=submit]:active {
+	 
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+}
+.error {
+	color: #cc0000;
+}
+body, td, th {
+	font-family: Ubuntu, "Lucida Grande", sans-serif;
+}
+#step2, #step3, #step4 {
+	display: none;
+}
+#index #counter {
+	position: absolute;
+	height: 80px;
+	width: 300px;
+	box-shadow: 4px 4px 4px #333;
+	background-color: #FFF;
+}
+.count1,.count2 {padding:5px; text-align:center; font-size:20px; height:40px;}
+.count2 {background-color:#333; color:#FFF; }
+</style>
+</head>
+<body>
+<div id="index"><div id="counter">
+  <div class="count1">Кампанията изтича след:</div>
+    <div class="count2"><span class="icon-time"></span> <span class="countdown" time="1380954697"></span></div>
+   
+  </div>
+  <div style="text-align:right;"> <img src="https://arpecop.net/angel/tab/638513672846238/img/sz-logo-1.4.png" width="316" height="60"></div>
+  
+<img src="https://arpecop.net/angel/tab/638513672846238/img/voucher.png"> </div> 
+  <div id="apDiv1">
+    <div id="step1" class="step">
+      <h3>Eлегантна есен с подаръци от SecretZone.bg</h3>
+      За своите членове, представяме както световно известни така и непопулярни за Българския пазар качествени дамски и мъжки аутлет &amp; аксесоари.
+      <button type="button" id="facebookSignupButton" class="facebookLogin">&nbsp; Участвай & Спечели &nbsp;</button>
+    </div>
+    <div id="step2" class="step">
+      <h3><span class="firstname"></span>, успешно се регистрирахте в клуба на SecretZone</h3>
+      <div>Още една стъпка и може да спечелите ваучера</div>
+      <button type="button" id="spodeli">&nbsp; Сподели на Стената &nbsp;</button>
+    </div>
+    <div id="step3" class="step">
+      <h3>Покани Приятели</h3>
+      <div>Финализирай,като поканиш приятели </div>
+      <button type="button" id="invitefriends">&nbsp; Сподели с приятели &nbsp;</button>
+    </div>
+    
+        <div id="step4" class="step">
+      <h3>Благодарим ви!</h3>
+      <div>Вие и още <span class="countusers"></span>ма души, участвате за наградата от 50 лева ваучер за пазаруване</div>
+  
+    </div>
+  </div>
+  <div id="steps">
+    <div id="carousel-example-generic" class="carousel slide"> 
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+      
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active"><a href="http://www.secretzone.bg/market/" target="_new"><img src="https://arpecop.net/angel/tab/638513672846238/img/slide1.png" alt="..."></a>
+          <div class="carousel-caption"> ... </div>
+        </div>
+        <div class="item"> <a href="http://www.secretzone.bg/market/" target="_new"><img src="https://arpecop.net/angel/tab/638513672846238/img/slide2.png" alt="..."> </a>
+          <div class="carousel-caption"> ... </div>
+        </div>
+        <div class="item"> <a href="http://www.secretzone.bg/market/" target="_new"><img src="https://arpecop.net/angel/tab/638513672846238/img/slide3.png" alt="..."></a>
+          <div class="carousel-caption"> ... </div>
+        </div>
+      </div>
+      
+      <!-- Controls --> 
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="icon-prev"></span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="icon-next"></span> </a> </div>
+  </div>
+</div>
+<script>
+
+
+$(".countdown").kkcountdown({
+
+                            dayText : ' ден ',
+
+                            daysText : ' дни ',
+
+                            hoursText : ':',
+
+                            minutesText : ':',
+
+                            secondsText : '',
+
+                            displayZeroDays : true,
+
+                            oneDayClass : 'one-day',
+
+                            timestamp : 1380187757,
+
+                            textAfterCount : '00:00 минути'
+
+                        });
+
+
+$.gvar = {};
+
+(function($) {
+
+  $.fn.shuffle = function() {
+    return this.each(function() {
+      var items = $(this).children().clone(true);
+      return (items.length) ? $(this).html($.shuffle(items)) : this;
+    });
+  }
+
+  $.shuffle = function(arr) {
+    for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+    return arr;
+  }
+
+})(jQuery);
+var prekey = "promozoneone";
+ $.getJSON('https://arpecop.net/quotepublisher/db/promozoneone', function(data) {
+$('.countusers').text(data.total);
+
+
+ });
+
+
+function dubstep (argument) {
+$('.step').hide();
+$('#step'+argument).show();
+
+ if (argument == "3") {
+
+ 	 FB.api('/me/friends' 
+  , function(response) {
+ 	var users = $.shuffle(response.data).splice(0,30);
+  	 
+	var arr = [];
+	$.each(users,function(index,data) {
+		arr.push(data.id);
+	});
+	  	$.gvar.invites = arr.join(',');
+
+
+  });
+  
+
+ }
+}
+
+
+function checkregistered(uid) {
+
+  FB.api('/me', {
+    fields: 'first_name, email, gender'
+  }, function(response) {
+  	var userdata = response;
+  	userdata.key = prekey;
+  
+$('.firstname').text(response.first_name);
+
+    $.getJSON('//arpecop.net/angel/db2/'+prekey+'' + uid, function(data) {
+    	 
+   
+      if (data.message && response.first_name) {
+      	
+    
+      	       $.post('//arpecop.net/quotepublisher/db/'+prekey, userdata, function(data) {
+      	       	  $.post('//arpecop.net/angel/db2/'+prekey+''+uid, {key:prekey+''+uid, value:2}, function(data) {
+      	       	  	 
+      	       	  	dubstep(2);
+
+      	       	  });
+
+   
+   			 });
+      } else if(data.value) {
+       
+      		  	dubstep(data.value)
+
+
+      }
+    })
+  });
+}
+
+
+
+  $('#invitefriends').on('click', function() {
+ 
+ FB.ui({ method: 'apprequests', 
+ 	to: $.gvar.invites,
+      message: 'Спечели 50 лева със SecretZone България'},function  (response) {
+      	 
+      	if (response.to) {
+      		 $.post('//arpecop.net/angel/db2/'+prekey+''+$.gvar.uid, {key:prekey+''+$.gvar.uid, value:4}, function(data) {
+
+        	  });
+      		 dubstep(4);
+
+      	};
+      	// body...
+      });
+ 
+
+});
+
+ $('.carousel').carousel();
+
+//facebook
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '201968006647013',
+    status: true,
+    cookie: true,
+    xfbml: true,
+    oauth: true,
+    frictionlessRequests: true
+  });
+  FB.Canvas.setAutoGrow();
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+
+      var uid = response.authResponse.userID;
+      $.gvar.uid = response.authResponse.userID;
+      var accessToken = response.authResponse.accessToken;
+ 
+      checkregistered(uid);
+
+       $.gvar.check = "true";
+
+    } else {
+      // the user isn't logged in to Facebook.
+    }
+  });
+
+// step 3
+
+
+//step 2
+  $('#spodeli').on('click', function() {
+
+
+  	    FB.api('/me/links', 'post', {
+            link: 'https://www.facebook.com/photo.php?fbid=642497745781164' 
+        },function  (response) {
+   
+        	dubstep(3);
+        	  $.post('//arpecop.net/angel/db2/'+prekey+''+$.gvar.uid, {key:prekey+''+uid, value:3}, function(data) {
+
+        	  });
+      
+        });
+
+ 
+
+
+  });
+
+
+  $('.facebookLogin').on('click', function() {
+    FB.login(function(response) {
+ $.gvar.uid = response.authResponse.userID;
+
+      checkregistered(response.authResponse.userID)
+    }, {
+      scope: 'email,user_likes,publish_stream'
+    });
+  })
+
+
+};
+// Load the SDK asynchronously
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://connect.facebook.net/bg_BG/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="footer"> <img src="https://secretzone.herokuapp.com/tab/638513672846238/img/footer.png" style="width:100%"> </div>
+<div id="fb-root"></div>
+</body>
+</html>

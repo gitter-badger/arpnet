@@ -1,0 +1,8 @@
+{
+   "_id": "122683342943",
+   "_rev": "2-53c5c3675443551de8e1f215017adb83",
+   "secret": "02b51bc61d12809f0cc24a47c7a20f82",
+   "appid": "128280664728",
+   "title": "My Fortune Cookie",
+   "scope": "email,user_birthday"
+}

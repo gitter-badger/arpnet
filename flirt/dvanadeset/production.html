@@ -1,0 +1,230 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8">
+<title>Какво говорят за теб в мрежата</title>
+<meta property="og:type"   content="dvanadeset:kaza" />
+<meta property="og:determiner" content="auto" />
+<meta property="profile:first_name" content="Rudi" />
+<meta property="profile:last_name" content="Opalchenov" />
+<meta property="profile:username" content="arpecop" />
+<meta property="profile:gender" content="male" />
+<meta property="fb:app_id" content="181361935494" />
+<meta property="og:title" content="Sample Profile @4 test pedras" />
+<meta property="og:image" content="//fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" />
+<meta property="og:url" content="//apps.facebook.com/feis-be/" />
+<meta property="og:type" content="profile" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css" rel="stylesheet">
+<link href="src/css.css" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300,600&subset=cyrillic' rel='stylesheet' type='text/css'>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]> 
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+<script src="//ads.lfstmedia.com/getad?site=203036" type="text/javascript"></script>
+</head>
+<body>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+ 
+      <div class="modal-body">
+    <h1 class="fa fa-envelope-o"></h1>
+        <div class="lead" id="actiont"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa  fa-trash-o"></i> Изтрий</button>
+        <a type="button" class="btn btn-primary" id="actionb" href="#" target="_top"><i class="fa fa-eye"></i> Виж</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="bs-old-docs">
+  <div class="row">
+    <div class="col-sm-1"><img src="//arpecop.net/angel/dvanadeset/src/icon.png"></div>
+    <div class="col-sm-11">
+      <ul class="nav nav-pills"  style="float:right;">
+        <li class="hidden-xs"><a href="#"><i class="fa fa-user"></i> <span class="username"></span></a></li>
+        <li class="active"><a href="#"><i class="fa fa-money"></i> Откл. Точки: <span class="badge gold_points">0</span> <i class="icon-arrow-left" id="showinggold"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+<div class="container" style="padding-top:10px;">
+  <div class="add hidden-xs" id="add0"> 
+    <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '05a',
+            ad_size: '728x90',
+            slot: 'slot80232'
+        });
+    //]]>
+</script>
+    <div>
+      <button class="loading btn btn-default"> <img src="https://arpecop.net/angel/dvanadeset/src/loading.gif"> </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="tab-pane fade" id="mislish"> </div>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <div id="mislish">
+      <ul class="breadcrumb">
+        <li class="active"><i class="fa fa-users"></i> <span class="title1">Игра <small>всеки отговор +1 точка</small></span></li>
+      </ul>
+      <div class="mislish_igra">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="imgmobile visible-xs"><img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" class="img-rounded img-attendee"></div>
+            <div class="imgnotmobile hidden-xs"><img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" class="img-rounded img-attendee"></div>
+          </div>
+          <div class="col-sm-9">
+            <p class="lead"><i class="fa fa-angle-right"></i> <span id="qus">&nbsp;</span></p>
+            <div>
+              <button class="btn  answervalue btn-lg btn-success" value="Да">&nbsp;&nbsp;Да&nbsp;&nbsp;</button>
+              <button class="btn answervalue btn-lg btn-success" value="Не">&nbsp;&nbsp;Не&nbsp;&nbsp;</button>
+              <button value="2" class="btn btn-link answervalue">&nbsp;Пропусни&nbsp;</button>
+              <hr>
+              <div class="input-group" style="display:none;">
+                <input type="text" class="form-control" id="ownanswer" placeholder="... друг отговор">
+                <span class="input-group-btn">
+                <button class="btn btn-success  answervalue" type="button" id="ownanswersend">Прати</button>
+                </span> </div>
+              <!-- /input-group --></div>
+          </div>
+        </div>
+      </div>
+      <div class="row mislish_nav">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+          <input name="attendees" type="hidden" id="attendees" value="">
+          <div style="text-align:right"> </div>
+        </div>
+      </div>
+      <div class="proceed">
+<div class="alert" id="sendpleasedialog" style="display:none"> <span class="btn btn-mini" id="sendplease" style="float:right">OK!</span> <strong>Внимание!</strong> Известете приятелите си в диалога за да знаят за вашите отговориИзвестете приятелите си в диалога за да знаят за вашите отговори </div>
+      </div>
+    </div>
+    <div class="col-sm-6 moretochkas" id="unlocks">
+      <ul class="breadcrumb">
+        <li class="active"><i class="fa fa-inbox"></i> <span class="title2">Активност <span class="label label-info nonunlocked"></span> </span></li>
+      </ul>
+      <hr>
+      <div class="progress" style="display:none;"><span class="infotochka"> </span>
+        <div class="bar" style="width: 0%;"></div>
+      </div>
+      <div class="media-list"> </div>
+    </div>
+  </div>
+  <hr class="soften">
+  <div class="add hidden-xs" id="add1"> </div>
+  <div class="hidden-xs" id="males">
+    <ul class="breadcrumb">
+      <li class="active"><i class="fa fa-bookmark"></i> Feis.be профили</li>
+    </ul>
+    <div>
+    
+    <a href="http://feis.be/" target="_top"><img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/t1/1622828_800765973271873_637470842_n.jpg" class="col-sm-2 img-rounded"></a>
+      
+<a href="http://feis.be/" target="_top"> <img src=" " class="col-sm-2 img-rounded"></a>
+<a href="http://feis.be/" target="_top"> <img src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/t1/1551750_800766203271850_1613682591_n.jpg" class="col-sm-2 img-rounded"></a>
+<a href="http://feis.be/" target="_top"> <img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-prn2/t1/1898072_800765946605209_298699295_n.jpg" class="col-sm-2 img-rounded"></a>
+ <a href="http://feis.be/" target="_top"><img src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-ash3/t1/1798476_800766126605191_1603656280_n.jpg" class="col-sm-2 img-rounded"></a>
+ <a href="http://feis.be/" target="_top"><img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-prn2/t1/1780758_800766056605198_762708401_n.jpg" class="col-sm-2 img-rounded"></a>
+    </div>
+  </div>
+
+<div id="females">
+ <ul class="breadcrumb">
+      <li class="active"><i class="fa fa-bookmark"></i> Забавни тестове за вас Дами</li>
+    </ul>
+
+  <div class="col-sm-4"> 
+<ul class="list-group">
+
+ 
+  <li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c6bad9c9ee3f" target="_top">Кое е твоето скрито оръжие?</a></li>
+  <li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c7cd3993f534" target="_top">Девизите на зодиите</a></li>
+  <li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c792e805a556" target="_top">Пазиш ли детето в теб?</a></li>
+  <li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c7ccc7726d0f" target="_top">Питие според зодията</a></li>
+ 
+  <li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c79235f806b6" target="_top">Бързо гадаене по букви</a></li>
+ 
+</ul>
+  </div>
+  <div class="col-sm-4"> 
+<ul class="list-group">
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c907da2d4fac" target="_top">Домошарка ли си?</a></li>
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4caf59a79e9be" target="_top">Коя приказна принцеса си?</a></li>
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c90738c270da" target="_top">Рискуваш ли в любовта?</a></li>
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c8e52b0927b6" target="_top">Колко романтична си?</a></li>
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4cc734ec86e5c" target="_top">Имате ли шесто чувство ?</a></li>
+  </ul>
+  </div>
+
+    <div class="col-sm-4"> 
+<ul class="list-group">
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c78dbc9525b3" target="_top">Какъв човек си?</a></li>
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c77fdc3c9943" target="_top">Цветът ти казва това!</a></li>
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c8d2cf477f4e" target="_top">Обичаш ли себе си?</a></li>
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c7431712dd71" target="_top">Умееш ли да се наслаждаваш на живота?</a></li>
+<li class="list-group-item"><a href="https://apps.facebook.com/napravitest/4c78ed49d9f59" target="_top">Тест за обвързани</a></li>
+    </ul>
+  </div>
+
+</div>
+
+
+  <div> 
+    <!-- end ryad tag --> 
+    
+  </div>
+  <div class="add hidden-xs" id="add2"> 
+    <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '05a',
+            ad_size: '728x90',
+            slot: 'slot80232'
+        });
+    //]]>
+</script> 
+  </div>
+</div>
+<img src="https://arpecop.net/angel/dvanadeset/src/blank.gif" id="preload"> 
+<!-- Footer
+  ================================================== -->
+
+<hr>
+<div class="row">
+  <div class="col-sm-6"> </div>
+  <div class="col-sm-6" style="text-align:right;"><a href="#">TOS</a> :: <a href="#">Privacy Policy</a> Copyright © 2013 Rudix Labs<br>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+
+function template_unlock(classx, index, from, you, q, result, fromname) {
+  return ('<div class="media' + classx + '" id="result' + index + '">  <div class="pull-left"><button class="btn btn-xs unlock anonim btn-default" value="' + index + '"><i class="fa fa-unlock"></i> Разбери кой е отговорил, срещу 5 точки</button>  <img class="img-circle result" src="https://graph.facebook.com/' + from + '/picture"> </div><div class="media-body">   <div>Мислиш ли че, ' + you + ' ' + q + '?<div><strong><span class="result">' + fromname + '</span> oтговор<span class="result">и</span>: ' + result + '</strong>  <div class="result"><a class="btn btn-xs btn-default poke" alt="' + from + '">Сръчкай ' + fromname + '</a></div></div><div><button class="btn btn-xs unlock_invite" value="' + index + '"><i class="fa fa-unlock"></i> Откл. с покана</button></div></div>  </div>  </div>  <div id="error-' + index + '" style="display:none"> <br><div class="alert alert-warning"><strong>Опс!</strong> Събери 5 точки за да отключиш автора на отговора.</div></div>');
+}
+
+</script> 
+<script src="app.js"></script>
+<div id="fb-root"></div>
+</body>
+</html>

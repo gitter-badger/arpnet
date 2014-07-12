@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<head>
+   <!-- Standard Meta -->
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <!-- Site Properities -->
+   <title>Flirtbot - collect points</title>
+   <link rel="stylesheet" type="text/css" href="//flirtbot.net/src/semantic.min.css">
+   <link rel="stylesheet" type="text/css" href="//flirtbot.net/src/homepage.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+   <script src="//flirtbot.net/src/socket.io.js"></script>
+   <script src="//use.edgefonts.net/dosis.js"></script> 
+   <link href='//fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+   <style type="text/css">
+.row div {padding:0px; margin: 0px; border-radius: 0px;}
+.row div a {padding:0px; margin: 0px;}
+ 
+ .ui.small.vertical.menu{width:32.33333333333333%; text-decoration: bold; margin-left: 1%;}
+ .column {width:33.33333333333333%; float:left;}
+ #voteimg {margin-top:15px;}
+       #menu a {font-size: 18px; text-shadow:0 -1px 0 rgba(0,0,0,0.25); }
+ .name {position:absolute; color:#FFF;  text-shadow: 1px 1px 6px rgba(0, 0, 0, 1);  z-index: 1000; margin-left: 10px; font-weight: lighter; font-size: 21px;}
+.header {position : fixed; right:10px; top:5px; text-shadow: 1px 1px 6px rgba(0, 0, 0, 1); font-size: 20px; }
+    </style>
+</head>
+<body>
+   <div class="ui pointing    menu small inverted green large" id="menu">
+  
+ <div class="container">
+  <img src="src/logo.png">
+        <div class="right menu"><a class="item addremove" href="/"><i class="home icon"></i>Back to Inbox</a> <a class="item addremove" href="/charisma"><i class="star icon"></i></i> Charisma:  <span id="gold"></span> pts.</a>
+<div class="item" id="mousesearch">
+  <i class="search link icon triggers"></i><div class="ui icon input searchbar small" style="display:none;">
+          
+            <i class="search link icon"></i>
+          </div></div>
+        
+           </div>
+      </div>
+ 
+
+   
+ 
+</div>
+  <span class="info">Get +1 charisma points for every profile you vote</span>
+  
+ 
+ <div class="container">
+ 
+
+ <h3 class="name"> </h3> 
+ <img src="//flirtbot.net/igra/src/loading.jpg"   id="voteimg" class="column rounded ui image">  
+
+  <div class="ui  menu small vertical column vote">
+ <a class="item">Cute</a>
+<a class="item">Sexy</a>y
+<a class="item">Hot</a>
+<a class="item">Gorgeous</a>
+<a class="item">Stunning</a>
+<a class="item">Attractive</a>
+<a class="item">Stylish</a>
+
+</div> 
+
+ <div class="ui  menu small  vertical column vote">
+<a class="item">Original</a>
+<a class="item">Pimpin</a>
+<a class="item">Funny</a> 
+<a class="item">Cool</a>
+<a class="item">Beautiful
+<a class="item">Classy</a>
+<a class="item">Handsome</a>
+<a class="item"><i class="right icon"></i><strong>Skip</strong></a>
+ 
+</div>
+
+
+</div>
+ 
+ <script type="text/javascript">
+ function imgprovide(id) {
+   if (id.length > 30) {
+     return ('http://flirtbot.net/src/images/' + id + '.jpg')
+   } else {
+     return ('https://graph.facebook.com/' + id + '/picture')
+   }
+ }
+  var socket = io.connect();
+ 
+ socket.on('goldclient', function(data) {
+    $('#gold').text(data);
+ });
+
+ socket.emit('goldserver',{uid:"{{id}}"});
+
+
+
+ function put(query) {
+  $.post('http://flirtbot.net/db/' + query.key, query).done(function(data) {
+    return ('ok');
+
+  });
+ }
+
+
+ var current = 0;
+ var total;
+ var items = {};
+
+ function prepare_content() {
+  var gender = "{{gender}}";
+  if (gender == 'male' || gender == 'female') {
+
+  } else {
+    gender = 'male';
+  }
+  $.getJSON('/igrar/'+gender, function(data) {
+ 
+    total = data.length;
+    items = data;
+
+ // items =[{"key":"femaleDobrich","id":"572383379","name":"rudi"},{"key":"femaleDobrich","id":"1563161591","name":"sissnqta"},{"key":"femaleDobrich2","id":"100000770889457","name":"berova"},{"key":"femaleDobrich","id":"1563161591","name":"sissnqta"},{"key":"femaleDobrich2","id":"100000770889457","name":"berova"}];
+    provide_number(current)
+  });
+
+ }
+ 
+
+ function provide_number(number) {
+  if (number >= 100) {
+    current = 0;
+prepare_content()
+  } else {
+  // body...
+  var data = items[number];
+  $('.name').text(data.name);
+  $('#voteimg').attr('src', 'https://graph.facebook.com/' + data.id + '/picture?width=200&height=200');
+  }
+ }
+
+ $(document).on('click', '.vote .item', function() {
+  $('.info').hide();
+  var data = items[current];
+  
+  var vote = $(this).text();
+  var to = data.id;
+   
+  var from = "{{id}}";
+  if (vote !== "Skip") {
+   socket.emit('goldserver',{uid:"{{id}}",add:"1"});
+  //obrabotka
+     var data = {
+     msg: ' <div class="lockedmsg"><img src="'+imgprovide("{{id}}")+'?width=200&height=200">voted for you <div class="ui teal label">'+vote+'</div> <hr><button class="ui down button small" id="unlockme"> <i class="unlock icon"></i>  Unlock this chat for 5 charisma points</button></div>',
+     from: "{{id}}",
+     to: to,
+     fromname: "{{first_name}}",
+     locked:true
+   };
+    socket.emit('pmessage', data);
+}
+
+  
+  
+  //next
+  current++;
+  provide_number(current);
+  
+  
+  
+ })
+
+
+
+ prepare_content();
+
+ </script>
+ 
+   </body>
+   </html>

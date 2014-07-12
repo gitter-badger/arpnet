@@ -1,0 +1,560 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8">
+<title>FireShell by @toddmotto</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="assets/ago.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,800&subset=cyrillic' rel='stylesheet' type='text/css'>
+<link href="//www.google-analytics.com" rel="dns-prefetch">
+<link href="//ajax.googleapis.com" rel="dns-prefetch">
+<style type="text/css">
+
+body, td, th, div, button {
+  font-family: "Open Sans", Geneva, sans-serif;
+  font-weight: 300;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 1);
+  color: #FFF;
+}
+#hover-cap-4col .thumbnail, #hover-cap-3col .thumbnail, #hover-cap-unique .thumbnail, #hover-cap-6col .thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+.caption-name {
+  position: absolute;
+  margin-top: -40px;
+  color: #fff !important;
+  font-family: "Open Sans", Geneva, sans-serif;
+  font-size: 20px;
+}
+.caption {
+  position: absolute;
+  background-image: url(assets/img/trans.png);
+  display: none;
+  color: #fff !important;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+.caption button {
+  font-size: 30px;
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 10px;
+  background: none;
+  border: none;
+}
+.item, .itemx {
+  float: left;
+  overflow: hidden;
+  z-index: 2;
+}
+.itemx {
+  padding-left: 10px;
+  padding-right: 10px;
+ text-align: center;
+}
+.item img {
+  width: 100%;
+}
+#login {
+  text-align: center;
+  display: none;
+}
+#login {
+  cursor: pointer;
+}
+.inbox {
+  background-image: url(assets/blur.jpg);
+}
+.alphabet {
+  position: absolute;
+  font-size: 20px;
+  list-style-type: none;
+  padding: 10px;
+  margin: 0px;
+  height: 100%;
+  bottom: 0px;
+  top: 0px;
+  right: 0px;
+  text-transform: uppercase;
+}
+.alphabet li {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.alphabet li a {
+  color: #FFF;
+  text-decoration: none;
+  font-weight: 800;
+}
+.alphabet li .selected {
+  color: #ecf0f1;
+}
+.caption p {
+  padding: 10px;
+}
+.bs-glyphicons {
+  padding-left: 0;
+  padding-bottom: 1px;
+  margin-bottom: 20px;
+  list-style: none;
+  overflow: hidden;
+  text-shadow: none;
+  color: #ddd;
+}
+.bs-glyphicons li {
+  float: left;
+  width: 25%;
+  height: 115px;
+  padding: 10px;
+  margin: 0 -1px -1px 0;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+.bs-glyphicons .glyphicon {
+  display: block;
+  margin: 5px auto 10px;
+  font-size: 24px;
+}
+.bs-glyphicons li:hover {
+  background-color: rgba(86,61,124,.1);
+}
+.bs-glyphicons .selected {
+  background-color: rgba(86,61,124,.1);
+}
+.progress {
+  display: none;
+}
+.tooltip {
+  position: absolute;
+  font-size: 15px;
+  z-index: 20;
+}
+.stats {
+  list-style-type: none;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: right;
+}
+.stats li {
+  margin-bottom: 10px;
+}
+.stats .label {
+  font-size: 15px;
+}
+.list-group-item .badge {
+  font-size: 10px;
+}
+.list-group li {
+  text-shadow: none;
+  color: #34495e;
+}
+.list-group .new {
+  background-color: #bdc3c7;
+}
+</style>
+<script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
+<script src="assets/appv1.js"></script>
+<script src="//ads.lfstmedia.com/getad?site=203036" type="text/javascript"></script>
+</head>
+<body>
+<div id="fb-root"></div>
+
+<div id="login"> <img src="//arpecop.net/angel/dvanadeset/ask/assets/login.png" class="logmein" onclick="login(); return false;"> </div>
+<ul class="alphabet">
+  <li><a href="#" class="icon-sort-by-alphabet selected"></a></li>
+  <li><a href="#">a</a></li>
+  <li><a href="#">b</a></li>
+  <li><a href="#">c</a></li>
+  <li><a href="#">d</a></li>
+  <li><a href="#">e</a></li>
+  <li><a href="#">f</a></li>
+  <li><a href="#">g</a></li>
+  <li><a href="#">h</a></li>
+  <li><a href="#">i</a></li>
+  <li><a href="#">j</a></li>
+  <li><a href="#">k</a></li>
+  <li><a href="#">l</a></li>
+  <li><a href="#">m</a></li>
+  <li><a href="#">n</a></li>
+  <li><a href="#">o</a></li>
+  <li><a href="#">p</a></li>
+  <li><a href="#">q</a></li>
+  <li><a href="#">r</a></li>
+  <li><a href="#">s</a></li>
+  <li><a href="#">t</a></li>
+  <li><a href="#">u</a></li>
+  <li><a href="#">v</a></li>
+  <li><a href="#">w</a></li>
+  <li><a href="#">x</a></li>
+  <li><a href="#">y</a></li>
+  <li><a href="#">z</a></li>
+</ul>
+<div class="containerx">
+  <div class="thumbnails" id="hover-cap-4col">
+    <div class="itemx inbox" style="display:block;">
+      <div class="lead">&nbsp;<i class="icon-inbox"></i>&nbsp;Inbox</div>
+      
+      <button class="btn btn-default activity" value="x">Активност </button>
+    </div>
+    <div class="item a b c d e f g h i j k l m n o p q r s t u v w x y z">
+      <div style="text-align:center">
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: 'ea3',
+            ad_size: '300x250',
+            slot: 'slot80374'
+        });
+    //]]>
+</script>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="icon-question-sign">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Задай анонимен въпрос на <span class="toname"></span></h4>
+      </div>
+      <div class="modal-body">
+        <p>
+ <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"> <span class="sr-only">40% Complete (success)</span> </div>
+        </div>
+          <textarea class="form-control" rows="3"></textarea></p>
+      </div>
+      <div class="modal-footer">
+     
+        <button type="button" class="btn btn-primary">Изпрати</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="activity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div class="modal-title"><img src="assets/sort.png" id="userprofileid" width="25" height="25"></div>
+      </div>
+      <div class="modal-body">
+        <ul class="stats">
+      </ul>
+
+        <div class="activity-log">
+  <ul class="list-group">
+  </ul>
+</div>
+</div>
+  
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- Modal -->
+<div class="modal fade" id="icon-hand-right" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Сръчкай <span class="toname"></span></h4>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"> <span class="sr-only">40% Complete (success)</span> </div>
+        </div>
+        <div style="clear:both"></div>
+        <ul class="bs-glyphicons">
+          <li id="poke"><img src="https://arpecop.net/angel/ruchkam/src/poke.gif">
+            <div><span class="label label-default">Супер Сръчкване</span></div>
+          </li>
+          <li id="dai_5"><img src="https://arpecop.net/angel/ruchkam/src/dai_5.gif">
+            <div>
+            <span class="label label-default">Дай Пет!</span>
+            <div>
+          </li>
+          <li id="bliz"><img src="https://arpecop.net/angel/ruchkam/src/bliz.gif">
+            <div>
+            <span class="label label-default">Супер Близване</span>
+            <div>
+          </li>
+          <li id="bite"><img src="https://arpecop.net/angel/ruchkam/src/bite.gif">
+            <div>
+            <span class="label label-default">Супер Ухапване</span>
+            <div>
+          </li>
+          <li id="gush"><img src="https://arpecop.net/angel/ruchkam/src/gush.gif">
+            <div>
+            <span class="label label-default">Супер Гушване</span>
+            <div>
+          </li>
+          <li id="spank"><img src="https://arpecop.net/angel/ruchkam/src/spank.gif">
+            <div>
+            <span class="label label-default">Супер Напляскване</span>
+            <div>
+          </li>
+          <li id="tickle"><img src="https://arpecop.net/angel/ruchkam/src/tickle.gif">
+            <div>
+            <span class="label label-default">Супер Гъделичкане</span>
+            <div>
+          </li>
+          <li id="fostata"><img src="https://arpecop.net/angel/ruchkam/src/fostata.gif">
+            <div>
+            <span class="label label-default">Паиозина ФОСТАТА</span>
+            <div>
+          </li>
+        </ul>
+      </div>
+      <!-- /.modal-content -->
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
+        <button type="button" class="btn btn-primary"  disabled="disabled">Прати</button>
+      </div>
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+  <!-- /.modal --> 
+</div>
+<script>
+$.gvar = {};
+var actions = {
+    "poke": {
+      "edchislo": "те сръчка",
+      "mnchislo": "сръчквания",
+      "action": "Сръчкай"
+    },
+    "dai_5": {
+      "edchislo": "те поздрави с 5",
+      "mnchislo": "поздрави",
+      "action": "Дай 5"
+    },
+    "bite": {
+      "edchislo": "те ухапа",
+      "mnchislo": "ухапвания",
+      "action": "Ухапи"
+    },
+    "bliz": {
+      "edchislo": "те близна",
+      "mnchislo": "близки",
+      "action": "Близни"
+    },
+    "gush": {
+      "edchislo": "те гушна",
+      "mnchislo": "гушки",
+      "action": "Гушни"
+    },
+    "spank": {
+      "edchislo": "те напляска",
+      "mnchislo": "наплясквания",
+      "action": "Напляскай"
+    },
+    "tickle": {
+      "edchislo": "те погъделичка",
+      "action": "Погъделичкай",
+      "mnchislo": "погъделичквания"
+    },
+    "fostata": {
+      "edchislo": "ти хвърли паиозина",
+      "action": "Фиргай Паиозина фостата",
+      "mnchislo": "паиозини"
+    }
+    ,
+    "question": {
+      "edchislo": "ти зададе въпрос",
+      "action": "Фиргай Паиозина фостата",
+      "mnchislo": "въпроси към теб"
+    }
+  }
+
+function notify(to, text,href) {
+    $.post("https://graph.facebook.com/" + to + "/notifications", {
+      href: href,
+      access_token: "181361935494|UBiDJEKsqWEwbKdWfXVYBgr-qNw",
+      template: text,
+    }, function(data) {
+     
+    });
+
+}
+
+
+function initfriends(installed, noninstalled) {
+  var arr = [];
+  var paginate = {};
+  var docwid = ($(document).width() - 3);
+  $('.containerx').css({
+    width: docwid + "px"
+  });
+
+
+  $.each(installed, function(index, value) {
+    var name = transliterate(value.name);
+    var nameclass = name.toLowerCase().substr(0, 1);
+    paginate[nameclass] = nameclass;
+
+    arr.push('<div class="item ' + nameclass + ' ' + value.id + '" style="display:block;"><div class="thumbnail1"><div class="caption"><p><button   rel="tooltip" data-placement="bottom" title="Сръчкай" class="icon-hand-right" value="' + value.id + '"></button><!-- <button  rel="tooltip" data-placement="bottom" title="Задай анонимен въпрос" class="icon-question-sign" value="' + value.id + '"></button>--></p></div><img src="https://graph.facebook.com/' + value.id + '/picture?width=320&height=320"></div><div class="caption-name lead">&nbsp;' + name + '</div></div>');
+  });
+
+
+
+  $('.thumbnails').append(arr.join(''));
+
+  $('.popover').popover()
+
+  $('.thumbnails .item').sortElements(function(a, b) {
+    return $(a).text() > $(b).text() ? 1 : -1;
+  });
+  //$('.thumbnails .item').each(function(i) { $(this).delay(100*i).show('slow');    });
+
+  var wid = Math.round((25 / 100) * docwid - 10);
+
+  $('.caption,.item,.itemx').css({
+    height: wid + "px",
+    width: wid + "px"
+  });
+
+}
+
+$(document).on('click', '.modal-footer .btn-primary', function() {
+  action($.gvar.to, $.gvar.action);
+
+  $('.progress').show();
+  $(".progress-bar").css('width', '10%');
+  setTimeout(function() {
+    $(".progress-bar").css('width', '40%');
+    setTimeout(function() {
+      $(".progress-bar").css('width', '100%');
+      $('.modal').modal('hide');
+      $(".progress-bar").css('width', '0%');
+      $('.progress').hide();
+    }, 900);
+  }, 900);
+});
+
+
+
+function action(to, action) {
+  
+
+  var preaction;
+  FB.api('/me', {
+    fields: "first_name"
+  }, function(response) {
+    var from = response.id;
+    if (action == 'icon-hand-right') {
+      var zaction = $('.bs-glyphicons .selected').attr('id');
+      var text = response.first_name + '  ' + actions[zaction].edchislo;
+     
+
+      notify(to, text,'ask/');
+      var doc = {
+        key: "actionz" + to,
+        from: from,
+        text: text,
+        action: zaction,
+        date: new Date().getTime()
+      };
+      insertdoc(doc);
+    } else if (action == 'icon-question-sign') {
+      var question = $('#icon-question-sign .form-control').val().replace(/(<([^>]+)>)/ig,"");
+  
+        var text =  'някой ти зададе анонимен въпрос';
+
+      notify(to, text,'ask/');
+        var doc = {
+        key: "actionz" + to,
+        from: from,
+        text: question,
+        action: 'question',
+        date: new Date().getTime()
+      };
+          insertdoc(doc);
+       
+      $('#icon-question-sign .form-control').val('');
+    }
+  });
+}
+
+
+
+$(document).on('click', '.bs-glyphicons li', function() {
+  $('.bs-glyphicons li').removeClass('selected');
+  $(this).addClass('selected');
+  var action = $(this).attr('id');
+  $('#icon-hand-right .modal-footer button').removeAttr('disabled');
+});
+
+
+
+$(document).on('click', '.alphabet li a', function() {
+  $('.alphabet li a').removeClass('selected');
+  $(this).addClass('selected')
+  var action = $(this).text().toLowerCase();
+  if (action == 'all' || !action) {
+    $('.item').show();
+  } else {
+    $('.item').hide();
+    $('.' + action).show('slow');
+  }
+});
+
+
+
+$(document).on('click', '.item button,.itemx button', function() {
+  var id = $(this).val();
+  var action = $(this).attr('class');
+  action = action.replace('btn btn-default ','');
+  $.gvar.action = action;
+  $.gvar.to = id;
+  var toname = $('.' + id + ' .caption-name').text();
+  $('.toname').text(toname);
+  FB.Canvas.scrollTo(0,0);
+  $('#' + action).modal();
+
+});
+
+$('.modal').on('hidden.bs.modal', function () {
+   
+
+    var lastonline =  new Date().getTime();
+
+  $.post('//arpecop.net/angel/db2/insert', {
+    key: 'lastonline' + $.gvar.ownerid,
+    'value': lastonline
+  }, function(data) {});
+})
+
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

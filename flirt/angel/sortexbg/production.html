@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>(:title:)</title>
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:app_id" content="283536375115012" />
+<meta prefix="fb: http://ogp.me/ns/fb#" property="fb:admins" content="572383379" />
+<meta property="og:title" content=" (:title:)" />
+<meta property="og:type" content="Снимката на" />
+<meta property="og:url" content="(:url:)" />
+<meta property="og:image" content="(:image:)" />
+<meta property="og:description" content="&nbsp; " />
+<meta property="og:site_name" content="Яките снимки на приятели" />
+<!-- Loading Bootstrap -->
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<!-- Loading Flat UI -->
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<script src="//ads.lfstmedia.com/getad?site=161034" type="text/javascript"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+<script src="//apicall.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="//arpecop.net/angel/sortexbg/css/iosOverlay.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300,400&subset=cyrillic' rel='stylesheet' type='text/css'>
+<script src="//arpecop.net/angel/sortexbg/js/iosOverlay.js"></script>
+<style>
+body, td, th, button, div, h1, h2, h3, h4, a {
+	font-family: 'Open Sans';
+	font-weight: 300;
+}
+button, a {
+	font-weight: 400;
+}
+.loaded {
+	display: none
+}
+ 
+#section_home .items {
+	text-align: center;
+}
+.wrapcontrolz {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	display: block;
+	margin-top: 30px;
+}
+.container #section_home .items .controlz {
+	position: absolute;
+	color: #FFF;
+	padding: 5px;
+}
+#wrapcontrolz form {
+	position: absolute;
+	margin-top: 50px;
+	margin-left: 5px;
+}
+.bs-docs-nav {
+	background-color: #563d7c;
+}
+.bs-old-docs1 {
+ 
+ position: absolute;
+ z-index: 100;
+ width: 100%;
+     background-image: url(//arpecop.net/angel/sortexbg/src/transblack.png);
+}
+.darkpink_text {
+	color: #A63856;
+}
+.pink_text {
+	color: #FFFFFF;
+}
+.size2 {
+	font-size: 25px;
+	font-weight: 300;
+}
+#likes_section, #otherpics_section, .well {
+	display: none;
+}
+button i {
+	font-size: 17px;
+}
+.itemad {
+	width: 50%;
+	float: left;
+	height: 80px;
+}
+.panel {
+	padding: 10px;
+}
+.item img {
+	margin-left: auto;
+	margin-right: auto;
+  max-height: 420px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  background-image: url(//arpecop.net/angel/sortexbg/src/transblack.png)
+}
+.item {margin-top: 42px;}
+ 
+.icon-chevron-left, .icon-chevron-right {
+	position: absolute;
+	top: 50%;
+	font-size: 30px;
+	font-weight: 200;
+}
+body, td, th, div, span, button, .label {
+	font-family: "Open Sans";
+}
+.carousel-control,.carousel-control:hover {
+	background: none;
+}
+.carousel-caption {text-align: center;}
+
+.label {background-color: transparent; 
+    background-image: url(//arpecop.net/angel/sortexbg/src/transblack.png);
+    font-size: 20px;
+    font-weight: 300;
+}
+ a:hover {text-decoration: none; cursor: pointer; color: #FFF; }
+ .descroption { font-size: 15px; margin-top: -120px; margin-bottom: 40px; max-width: 300px; margin-left: auto; margin-right: auto;}
+ 
+ .navbar {background-color: #FFF;}
+ 
+ 
+</style>
+</head>
+
+<body style="overflow:block">
+
+<div class="bs-old-docs1">
+  <div class="col-sm-4"> <span  style="font-size:30px;" class="pink_text"><i class="icon-instagram"></i> PhotoLikeZ  </span> </div>
+  <!--<div class="col-sm-8" style="text-align:right;" id="panelnav">
+    <ul class="nav nav-pills" >
+      <li id="home" class="active"> <a href="#"><i class="icon-home"></i> Гласувай </a></li>
+      <li id="likes"> <a href="#"><i class="icon-heart"></i> Харесвания <span class="badge">3</span></a></li>
+      <li id="otherpics"> <a href="#"><i class="icon-camera"></i> Други Картинки</a></li>
+      <li id="otherapps"> <a href="#"><i class="icon-stackexchange"></i> Други Приложения</a></li>
+    </ul>
+ 
+  </div>-->
+</div>
+
+<section class="row-fluid" id="home_section">
+<div id="carousel-example-generic" class="carousel slide"> 
+  <!-- Indicators --> 
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner items"> </div>
+  
+  <!-- Controls --> 
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-chevron-left"></span> </a> 
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-chevron-right"></span> </a> 
+</div>
+
+ 
+</section>
+ 
+ 
+ 
+</div>
+</div>
+<div>
+  <div class="loaded" style="padding-bottom:10px; float:left;"></div>
+  <div style="clear:both;"> </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div  style="width:755px; margin-left:auto; margin-right:auto;"> 
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: 'd6e',
+            ad_size: '728x90',
+            slot: 'slot66623'
+        });
+    //]]>
+</script> 
+</div>
+  
+  </nav>
+
+<script>
+$.gvar = {}
+$.gvar.appid = "(:reqid:)";
+var lang;
+if ($.gvar.appid == "kookie") {
+  $.gvar.appiz = "119250176060";
+  $('.bg').hide();
+  $('.en').show();
+  lang = "en";
+ 
+} else {
+  $.gvar.appiz = "283536375115012";
+ 
+  $('.bg').show();
+  $('.en').hide();
+  lang = "bg";
+}
+
+var translate = {
+  "bg": {
+    "appid": "283536375115012",
+    "like": "Харесвам",
+    "requests": "Гласувах за твоя снимка",
+    "token":"283536375115012|VWt3xaBeNwbyneXwy8iJm4W_gI4",
+    "appname": "sortexbg",
+    "actionappend":" ",
+    "actionprepend":"Снимката на"
+  },
+  "en": {
+    "appid":"119250176060",
+    "like": "Like",
+    "requests": "Just voted for your picture",
+    "token":"119250176060|Cwpv6VD0ro4TDAYVzOlG3xukZc0",
+    "appname": "photolikez",
+     "actionappend":"'s picture",
+    "actionprepend":" "
+  }
+
+};
+
+
+$.gvar.translate = translate[lang];
+
+
+function news(datafriends,token,next_chunk) {
+  $.each(datafriends,function(index,value) {
+  var url = 'https://graph.facebook.com/fql?q=' + encodeURIComponent('SELECT src_big, caption from photo where pid in (SELECT pid from photo_tag where subject = ' + value.id + ' order by rand() limit 1)') + '&access_token=' + token + '&format=json&callback=?';
+  $.getJSON(url,function(data){
+    $('.ui-ios-overlay').hide();
+ 
+  if (data.data.length == 1) {
+    data = $.extend(data,$.gvar.frs[value.id]); 
+  
+    var active;
+    var caption = " ";
+    $.gvar.images_loaded++;
+
+
+    if ($.gvar.images_loaded == 1) {
+      active = " active";
+      $.gvar.current = data;
+    } else {
+      active = "";
+    }
+
+    $.gvar.arr.push(data);
+
+
+    if (data.data[0].caption) {
+      caption = '<div class="descroption"> ' + data.data[0].caption + ' </div>';
+
+    }
+
+
+  $('.items').append('<div class="item' + active + '"><img id="photo-' + data.uid + '" src="' + data.data[0].src_big + '"><div class="carousel-caption"> ' + caption + '<span class="label"><i class="icon-camera"></i>&nbsp; <span class="snimkaname">'+data.first_name+'</span></span>   <a   alt="' + $.gvar.translate.like + '" class="label like bg"><i class="icon-heart"></i> ' + $.gvar.translate.like + '</a>  </div></div>');
+  fakearr++;
+
+
+  }
+
+
+  });
+
+});
+
+}
+
+
+
+$.backstretch("//arpecop.net/angel/sortexbg/src/hero_bg.jpg");
+
+
+iosOverlay({
+
+  icon: "//arpecop.net/angel/dvanadeset/src/loading.gif"
+});
+$.getJSON('//arpecop.net/quotepublisher/db/stack-hlikesphoto', function(data) {
+  var latest_page = Math.round(data.value / 10 - 3);
+  $.getJSON('//arpecop.net/quotepublisher/db/hlikesphoto' + latest_page, function(data) {
+    var arr_items = [];
+    $.each(data.items, function(index, value) {
+      var data = JSON.parse(value.data);
+
+
+      var img = data.picture;
+      img = img.replace('_s.jpg', '');
+      arr_items.push('<div class="item" style="text-align:center;"><a href="https://apps.facebook.com/spodelibg/" target="_top"><img data-src="' + img + '_a.jpg"  src="' + img + '_a.jpg" class="col-sm-12 imgitem"></a></div>');
+    });
+
+    var chunks_arr = arr_items.chunk(4);
+    var arr_items2 = [];
+    $.each(chunks_arr, function(index, val) {
+
+      arr_items2.push('' + val.join('') + ' ');
+    });
+    var final_item = '<div class="row-fluid">' + arr_items2.join('') + '</div>';
+    $('#otherpics_section').html(final_item);
+  });
+});
+
+
+$('#carousel-example-generic').carousel({
+  interval: 122000
+});
+
+
+
+$('.nav-pills li').on('click', function() {
+  $('section').hide();
+  $('.nav-pills li').removeClass('active');
+  $(this).addClass('active');
+  var id = $(this).attr('id');
+  $('#' + id + '_section').show();
+})
+
+function init_db() {
+  $.getJSON('//arpecop.net/quotepublisher/db/' + $.gvar.key, function(data) {
+    if (data.message) {
+      $('#likes .badge').text('0');
+    } else {
+      $('#panelnav').show();
+      $('#likes .badge').text(data.total);
+      var arr = [];
+      $.each(data.items, function(index, value) {
+        var img = value.img.replace('_n.jpg', '');
+        arr.push('<div class="media"><a class="pull-left" href="#">  <img class="media-object" src="' + img + '_s.jpg"></a><div class="media-body"><h4 class="media-heading">' + value.name + '</h4>...</div></div>');
+      })
+      $('#likes_section').html(arr.join(''));
+    }
+  })
+}
+
+
+Array.prototype.chunk = function(chunkSize) {
+  var array = this;
+  return [].concat.apply([],
+    array.map(function(elem, i) {
+      return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+    })
+  );
+};
+
+function send_requests() {
+  FB.ui({
+    method: 'apprequests',
+    message: $.gvar.translate.requests,
+    to: $.gvar.invites
+  }, function(response) {
+    if (response) {
+      $.gvar.next_chunk_invites++;
+    } else {
+
+    }
+  });
+};
+
+
+
+(function($) {
+
+  $.fn.shuffle = function() {
+    return this.each(function() {
+      var items = $(this).children().clone(true);
+      return (items.length) ? $(this).html($.shuffle(items)) : this;
+    });
+  }
+
+  $.shuffle = function(arr) {
+    for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+    return arr;
+  }
+
+})(jQuery);
+
+
+function debounce(fn) {
+  var delay;
+
+  var timer = null;
+  return function() {
+    $('.wrapcontrolz').show();
+    var context = this,
+      args = arguments;
+
+    if (arguments[0].type == "mouseleave") {
+
+      delay = 0;
+    } else {
+      delay = 2400;
+    }
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+
+
+
+$.gvar.prev = -1;
+$.gvar.next = 0;
+$.gvar.next_chunk = 0;
+$.gvar.preloadimage = "(:image:)";
+$.gvar.next_chunk_invites = 0;
+$.gvar.arr = [];
+$.gvar.images_loaded = 0;
+
+ 
+
+
+
+
+var fakearr = 0;
+
+ 
+
+
+// all data 
+
+
+function friends(data) {
+  var installs = [];
+  var noninstalls = [];
+  $.gvar.frs = {};
+  $.each(data,function(index,value){
+    var obj = value;
+    $.gvar.frs[value.id] = value;
+    if (value.installed) {
+      obj.installed = "yes";
+      installs.push(obj);
+    } else {
+       obj.installed = "no";
+       noninstalls.push(obj);
+    }
+  });
+   
+  var shuffled1 = $.shuffle(installs);
+  var shuffled2 = $.shuffle(noninstalls);
+  var shuffled = $.extend(shuffled2,shuffled1);
+    
+    $.gvar.friends = shuffled.chunk(4);
+    var arr = [];
+    var arr_invites = []
+    $.each(shuffled2.slice(0,40), function(index, value) {
+      arr_invites[index] = value.id;
+    });
+
+    $.gvar.invites = arr_invites.join(',');
+   // socket.emit('news', $.gvar.friends[0], $.gvar.fb_accessToken, '0');
+    news($.gvar.friends[0], $.gvar.fb_accessToken, '0');
+    $('#loading').remove();
+ 
+
+}
+
+
+
+var facebookLoginWindow;
+var loginWindowTimer;
+
+//facebook login
+
+ 
+
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: $.gvar.appiz, // App ID
+    channelUrl: '//arpecop.net/static/channel.html', // Channel File
+    status: true,
+    cookie: true,
+    xfbml: true, // parse XFBML
+    frictionlessRequests: true
+  });
+  FB.Canvas.setAutoGrow();
+  FB.getLoginStatus(function(response) {
+    $.gvar.fb_uid = response.authResponse.userID;
+    $.gvar.fb_accessToken = response.authResponse.accessToken;
+ 
+
+ if (response.status == "connected") {
+      // handle the response
+      FB.api('/me', {
+        fields: 'username, third_party_id'
+      }, function(response1) {
+        $('#appatize').html('<iframe src="//app.appatyze.com/gateway.php?a=827&aid=' + response1.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+        $.gvar.key = 'sortlikeemup' + response1.username;
+      //  init_db(response1.username, response.authResponse.accessToken);
+      });
+
+      FB.api('/me/friends', {
+        fields: 'id, installed, first_name,name'
+      }, function(response1) {
+        friends(response1.data)
+      });
+   } else {
+ var url = "https://apps.facebook.com/"+$.gvar.translate.appname;
+  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=181361935494&redirect_uri=" + encodeURIComponent("" + url + "") + "&scope=user_about_me";
+   }
+
+  });
+
+};
+
+// Load the SDK Asynchronously
+(function(d) {
+  var js, id = 'facebook-jssdk',
+    ref = d.getElementsByTagName('script')[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement('script');
+  js.id = id;
+  js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  ref.parentNode.insertBefore(js, ref);
+}(document));
+
+
+
+ 
+
+function fix_post(data) {
+    
+ if (data.installed == "yes") {
+       $.post("https://graph.facebook.com/" + data.id + "/notifications", {
+        href: "?x=1",
+        access_token: $.gvar.translate.token,
+        template: $.gvar.translate.requests,
+      }, function(data) {
+ 
+
+
+      });
+  
+ };
+  var img = data.data[0].src_big;
+  var json = {};
+  json.img = data.data[0].src_big;
+  json.key = $.gvar.key;
+  json.owner = data.uid;
+  json.first_name = data.first_name
+  json.uid = $.gvar.fb_uid;
+  $.post("//arpecop.net/quotepublisher/db/" + $.gvar.key, json)
+    .done(function(data) {
+      init_db();
+    });
+  var urlxx = 'https://php2-cube.rhcloud.com/graphstory/?image=' + json.img + '&name=' + $.gvar.translate.actionprepend+'' + json.first_name + '' + $.gvar.translate.actionappend+'&appname='+$.gvar.translate.appname+'&appid='+$.gvar.translate.appid;
+  FB.api(
+    'me/og.likes',
+    'post', {
+      object: urlxx
+    },
+    function(response) {
+ 
+       
+
+    }
+  );
+
+}
+
+
+$(document).on('click', '.like', function() {
+  var dataz = $.gvar.current;
+ 
+  $("#carousel-example-generic .right").trigger("click");
+  fix_post(dataz);
+});
+
+$(".carousel-control").on("click", function() {
+  $.gvar.next++;
+  $('#oceninapred').hide();
+  $('#ocenilike').show();
+  var id = $(this).val();
+  var action = $(this).attr('alt');
+  var data = $.gvar.arr[$.gvar.next];
+  $.gvar.current = $.gvar.arr[$.gvar.next];
+ 
+  if ($.gvar.next == 5) {
+    send_requests();
+  }
+  var formula = ($.gvar.arr.length - $.gvar.next);
+
+  if (formula <= 5) {
+    $.gvar.next_chunk++;
+    //socket.emit('news', $.gvar.friends[$.gvar.next_chunk], $.gvar.fb_accessToken, $.gvar.next_chunk);
+    news($.gvar.friends[$.gvar.next_chunk], $.gvar.fb_accessToken, $.gvar.next_chunk);
+  };
+
+
+});
+
+
+
+ </script>
+
+ <div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
+</div>
+ 
+ 
+<!-- /.modal --> 
+
+<!-- Load JS here for greater good =============================-->
+
+<div id="fb-root">&nbsp;</div>
+<script type="text/javascript">
+   
+
+ 
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

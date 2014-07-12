@@ -1,0 +1,19 @@
+{
+  "nav" : [
+    {
+      "id" : "home",
+      "name" : "Начало",
+      "src" : "index.html"
+    },
+    {
+     "id" : "messages",
+      "name" : "Съобщения",
+      "src" : "messages.html"
+    },
+    {
+      "id" : "search",
+      "name" : "Търсене",
+      "src" : "search.html"
+    }
+  ]
+}

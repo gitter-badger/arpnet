@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<head>
+   <!-- Standard Meta -->
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <!-- Site Properities -->
+   <title>FlirtBot - facebook dating</title>
+   <meta name="google-site-verification" content="TGHwDH3U8aviQBDm7weKHjW1SrGIMv4sNXzcIX4hHg0" />
+   <link rel="stylesheet" type="text/css" href="//flirtbot.net/src/semantic.min.css">
+   <link rel="stylesheet" type="text/css" href="//flirtbot.net/src/homepage.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+   <script src="//flirtbot.net/src/socket.io.js"></script>
+   <script src="//use.edgefonts.net/dosis.js"></script> 
+   <link href='//fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+   <meta name="google-site-verification" content="ofinuFtCJ5vszRH0ukqPn7NFA1jclCuchFjdInes0fk" />
+  
+   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+     <script src="src/timeago.js"></script>
+  <script src="/app.js"></script>
+     <style type="text/css">
+.columncities {max-height: 1000px; overflow: auto;}
+
+.footer1 { padding:10px;}
+.footer1 a  {  font-size: 10px; }
+#msj {display: none;}
+   </style>
+</head>
+<body>
+
+
+  
+ 
+ <div class="ui icon message" id="msj">
+  <i class="inbox icon"></i>
+  <div class="content">
+    <div class="header">
+    <span class="fname"></span>  You have 1 new message from  <span class="fromname"></span>
+    </div>
+    <p><a href="//flirtbot.net/auth/facebook" target="_top"> Go to Inbox</a></p>
+  </div>
+</div>
+
+
+  
+ <div id="search">
+ <div class="container"><div class="row">
+  <div class="col-sm-3">
+    Gender:<br>
+<div class="ui buttons small" id="genderswitch">
+  <a class="ui button">male</a>
+  <a class="ui button active">female</a>
+</div> 
+  </div>
+    <div class="col-sm-9">From:<br>
+<div class="ui fluid icon input tiny">
+  <input type="text" placeholder="e.g. Italy" class="example-countries">
+ 
+</div>
+</div>
+ 
+ </div>
+</div>
+       
+</div>
+    <div class="container" id="content">
+
+<div class="row">
+ 
+
+   
+
+
+   
+
+ 
+
+  
+  
+ <div class="ui   grid stackable relaxed" id="ass">
+      <div class="row ">
+         <div class="wide column">
+            <div class="ui three column middle aligned relaxed grid basic segment" >
+               <div class="column" >
+                  <img src="src/logobig.png">
+                  <h2>flirtbot is dating app for people looking for flirt with real time chat ,emails, dates and matchmaking</h2>
+               </div>
+               <div class="column" >
+                  <div id="robot" style="text-align:center"><img src="//flirtbot.net/src/flirtbot.png"></div>
+                  <div id="login"></div>
+                  <div id="register"></div>
+               </div>
+               <div class="center aligned column">
+                  <div class="facebook ui labeled icon button mini">
+                     <i class="facebook sign icon"></i>
+                     <a href="//flirtbot.net/auth/facebook" target="_top"> Login with Facebook</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+
+
+</div>
+   </div>
+   <hr>
+   
+
+ 
+  
+</div>
+   </div>
+
+ 
+
+  <div class="container"><div class="row"><div class="col-sm-9"><a href="/src/privacy.html">Privacy</a></div><div class="col-sm-3" style="text-align:right;">© FlirtBot</div></div></div>
+
+
+
+
+    <script type="text/javascript"> 
+
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '105397064351', // App ID
+    channelUrl: '//flirtbot.net/src/channel.html', // Channel File
+    status: true, // check login status
+    cookie: true, // enable cookies to allow the server to access the session
+    xfbml: true // parse XFBML
+  });
+  FB.Canvas.setAutoGrow();
+  FB.api('/me', function(response) {
+    $('.fname').text(response.name);
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        var uid = response.authResponse.userID;
+        var accessToken = response.authResponse.accessToken;
+        $.getJSON('/db/rec' + uid, function(data) {
+     
+          if (!data.message) {
+ 
+            var dataxx;
+
+            if (!data.length) {
+              dataxx = [];
+              dataxx.push(data);
+            } else {
+              dataxx = data;
+            }
+
+            $.each(dataxx,function(index,val){
+             $.getJSON('/db/' + uid+''+val.from, function(data) {
+              if (data.value == 'unread') {
+                 
+                $('.fromname').text(val.fromname);
+                $('#msj').show();
+              };
+             });
+            });
+
+          }
+
+
+        });
+      }
+    });
+  });
+
+};
+
+
+
+// Load the SDK Asynchronously
+(function(d) {
+  var js, id = 'facebook-jssdk',
+    ref = d.getElementsByTagName('script')[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement('script');
+  js.id = id;
+  js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  ref.parentNode.insertBefore(js, ref);
+}(document));
+
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+   </script>
+   <div id="fb-root"></div>
+</body>
+</html>

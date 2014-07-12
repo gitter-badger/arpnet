@@ -1,0 +1,5 @@
+{
+	"data": "<form class=\"ui form segment\" method=\"post\" action=\"/auth/basic\" id=\"login\">       <div class=\"field\">         <label>Username</label>         <div class=\"ui left labeled icon input small\">           <input type=\"text\" placeholder=\"Username\" name=\"username\">           <i class=\"user icon\"></i>           <div class=\"ui corner label\">             <i class=\"asterisk icon\"></i>           </div>         </div>       </div>       <div class=\"field\">         <label>Password</label>         <div class=\"ui left labeled icon input small\">           <input type=\"password\" name=\"password\">           <i class=\"lock icon\"></i>           <div class=\"ui corner label\">             <i class=\"asterisk icon\"></i>           </div>         </div>       </div>       <button class=\"ui blue submit button inverted mini\">Login</button>   </form>",
+	"hide": "#register,.login",
+	"show":"#login,.register"
+}

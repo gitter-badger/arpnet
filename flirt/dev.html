@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<head>
+   <!-- Standard Meta -->
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <!-- Site Properities -->
+   <title>FlirtBot - facebook dating profile</title>
+   <meta name="google-site-verification" content="TGHwDH3U8aviQBDm7weKHjW1SrGIMv4sNXzcIX4hHg0" />
+   <link rel="stylesheet" type="text/css" href="//flirtbot.net/src/semantic.min.css">
+   <link rel="stylesheet" type="text/css" href="//flirtbot.net/src/homepage.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+   <script src="//flirtbot.net/src/socket.io.js"></script>
+   <script src="//use.edgefonts.net/dosis.js"></script> 
+   <link href='//fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+   <meta name="google-site-verification" content="ofinuFtCJ5vszRH0ukqPn7NFA1jclCuchFjdInes0fk" />
+  
+   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+     <script src="src/timeago.js"></script>
+  <script src="/app.js"></script>
+     <style type="text/css">
+.columncities {max-height: 455px; overflow: auto;}
+
+.footer1 { padding:10px;}
+.footer1 a  {  font-size: 10px; }
+.smallprofile img {width:97%; max-width: 70px;}
+   </style>
+</head>
+<body>
+
+
+  
+<div class="ui basic modal">
+  
+    <div class="content">
+      <div class="left">
+        <i class="star icon"></i>
+      </div>
+      <div class="right">
+        <p>You need 5 &quot;Charisma Points&quot; to continue  </p>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="two fluid ui buttons">
+        <div class="ui negative labeled icon button">
+          <i class="remove icon"></i>
+          Close
+        </div>
+        <a href="/charisma" class="ui positive right labeled icon button">
+          Collect
+          <i class="checkmark icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+ 
+
+
+   <div class="ui pointing    menu small inverted green large" id="menu">
+       {% if notlogged %} 
+       <div class="container">
+    
+      <div class="right menu">
+         <a class="item addremove hide login" alt="#login">
+         <i class="home icon"></i> Sign In
+         </a>
+         <a class="item addremove hide register" alt="#register">
+         <i class="home icon"></i> Sign Up
+         </a>
+               </div>
+            
+               </div>
+    {% endif %}
+        {% if logged %} 
+ <div class="container">
+  <a href="/"><img src="src/logo.png"></a>
+        <div class="right menu"><a class="item addremove" href="/"><i class="home icon"></i>{{ first_name }}  </a> <a class="item addremove" href="/charisma"><i class="star icon"></i> Charisma:  <span id="gold"></span> pts.</a>
+<div class="item" id="mousesearch">
+  <i class="search link icon triggers"></i><div class="ui icon input searchbar small" style="display:none;">
+          
+            <i class="search link icon"></i>
+          </div></div>
+        
+           </div>
+      </div>
+        {% endif %}
+
+   
+ 
+</div>
+ <div id="search">
+ <div class="container"><div class="row">
+  <div class="col-sm-3">
+    Gender:<br>
+<div class="ui buttons small" id="genderswitch">
+  <a class="ui button">male</a>
+  <a class="ui button active">female</a>
+</div> 
+  </div>
+    <div class="col-sm-9">From:<br>
+<div class="ui fluid icon input tiny">
+  <input type="text" placeholder="e.g. Italy" class="example-countries">
+ 
+</div>
+</div>
+ 
+ </div>
+</div>
+      <script type="text/javascript">
+
+$('#genderswitch a').click(function() {
+  $('#genderswitch a').removeClass('active');
+  $(this).addClass('active')
+ 
+})
+$.getJSON('src/completecounty.json',function (data) {
+  $('.example-countries').autocomplete({
+     lookup:data,
+    onSelect: function (suggestion) {
+      var sex = $('#genderswitch .active').text();
+       
+      window.location.href = 'http://flirtbot.net/s-'+sex+''+suggestion.value;
+       // alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+    }
+});
+      })
+
+$('#mousesearch').click(function() {
+ 
+$('#search').toggle();
+$('.searchbar input').focus();
+ 
+})
+        </script>
+</div>
+    <div class="container" id="content">
+
+<div class="row">
+ 
+
+   {% if results %} 
+
+   <div class="col-sm-3 columncities"><div class="ui list"> 
+{% for city in cities %}
+<a class="item" href="s-female{{ city }}"><i class="right triangle icon"></i> {{ city }}</a>
+{% endfor %}
+</div>
+   </div>
+   <div class="col-sm-9">
+ 
+   <div style="text-align:center;" class="row" id="resultsbig">
+{% for profile in results %}<a href="profile-{{ profile.id }}" class="col-sm-3"><img src="https://graph.facebook.com/{{ profile.id }}/picture?width=200&height=200"  style="width:100%"></a>{% endfor %}
+ <div style="clear:both; text-align:center; margin-top:10px;"><div class="ui borderless pagination menu small" id="paging1">
+ <a class="icon item active">
+    <i class="icon left arrow"></i>
+  </a>
+  {% for num in paging.range %}
+  <a class="item pagenum{{ num }}" href="{{ paging.prelink }}{{ num }}">
+    {{ num }}
+  </a> 
+{% endfor %}
+ 
+  {% if paging.last %} 
+      <div class="disabled item">
+    ...
+  </div>
+   <a class="item" href="{{ paging.prelink }}{{ paging.last }}">
+    {{ paging.last }}
+  </a> 
+    {% endif %}
+  <a class="icon item" href="{{ paging.prelink }}{{ paging.next }}">
+    <i class="icon right arrow"></i>
+  </a>
+</div></div>
+</div>
+ </div>
+
+ <script type="text/javascript">
+ $('.pagenum{{ paging.current }}').addClass('active');
+ </script>
+ 
+
+       {% endif %}
+
+
+   {% if profilez %}   
+ <div class="col-sm-3">
+  <img src="{{profileinfo.img}}?width=300&height=300" style="width:100%" class="rounded ui image"> 
+  <div class="ui list">
+  <div class="item">
+    <img class="ui avatar image" src="{{profileinfo.img}}">
+    <div class="content">
+      <div class="header">{{profileinfo.first_name}}</div>
+    </div>
+    <div class="list">
+      {% if profileinfo.location %}
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header" href="/s-{{loc.gender}}{{loc.city}}">{{loc.city}} </a>  
+          <div class="description">Find other matches in this area</div>
+        </div>
+      </div>
+          <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header"><a class="header" href="/s-{{loc.gender}}{{loc.country}}">{{loc.country}} </a> 
+           
+        </div>
+      </div>
+         
+    </div>
+  </div>
+  </div>
+  <hr>
+  <div class="ui selection list animated chats">
+</div>
+</div>
+<script type="text/javascript">
+ var data = {
+     msg: '<img src="'+imgprovide("{{id}}")+'?width=200&height=200"> {{ first_name }} viewed your profile',
+     from: "241968762526309",
+     to: "{{profileinfo.id}}",
+     fromname: "Activity",
+     locked:false
+   };
+    socket.emit('pmessage', data);
+</script>
+
+ {% endif %} 
+
+ <div class="col-sm-9 ui feed">
+    {% if resultsx %} 
+
+<div id="columnright">
+   <div class="ui ribbon label">Results</div><br>
+  <div class="ui small images">{% for profile in results %}<a href="/profile-{{ profile.id }}"><img src="https://graph.facebook.com/{{ profile.id }}/picture?width=100&height=100"></a>{% endfor %}</div>
+ <div style="clear:both; text-align:center; margin-top:10px;"><div class="ui borderless pagination menu small" id="paging1">
+ <a class="icon item active">
+    <i class="icon left arrow"></i>
+  </a>
+  {% for num in paging.range %}
+  <a class="item pagenum{{ num }}" href="{{ paging.prelink }}{{ num }}">
+    {{ num }}
+  </a> 
+{% endfor %}
+ 
+  {% if paging.last %} 
+      <div class="disabled item">
+    ...
+  </div>
+   <a class="item" href="{{ paging.prelink }}{{ paging.last }}">
+    {{ paging.last }}
+  </a> 
+    {% endif %}
+  <a class="icon item" href="{{ paging.prelink }}{{ paging.next }}">
+    <i class="icon right arrow"></i>
+  </a>
+</div></div>
+</div>
+
+ 
+      {% endif %} 
+<div id="chats"></div>
+ </div>
+ 
+
+
+ <script type="text/javascript">
+
+$('#chats').html('')
+ $('#resultsbig').hide();
+ var from = '{{id}}'; //simeonka
+ $.gvar.replyto = '{{profileinfo.id}}'
+ $( document ).ready(function() {
+ $('.chatinput div input').attr('placeholder','Write to {{profileinfo.first_name}}');
+  
+});
+  get('rec'+ $.gvar.replyto,function(data){
+ 
+  })
+ show_chat($.gvar.replyto+'notexist','{{profileinfo.first_name}}')
+ //$('.chatinput').show();
+
+ </script>
+   {% endif %}
+
+ {% if chat %}   
+    <div class="col-sm-3">
+<div class="ui selection list animated chats">
+
+</div>
+
+ </div>
+ <div class="col-sm-9 ui feed">
+
+<div id="chats"> </div>
+ 
+ </div>
+
+ 
+
+{% endif %}
+
+{% if notlogged %}  
+  
+ <div class="ui   grid stackable relaxed" id="ass">
+      <div class="row ">
+         <div class="wide column">
+            <div class="ui three column middle aligned relaxed grid basic segment" >
+               <div class="column" >
+                  <img src="src/logobig.png">
+                  <h2>flirtbot is dating app for people looking for flirt with real time chat ,emails, dates and matchmaking</h2>
+               </div>
+               <div class="column" >
+                  <div id="robot"></div>
+                  <div id="login"></div>
+                  <div id="register"></div>
+               </div>
+               <div class="center aligned column">
+                  <div class="facebook ui labeled icon button mini">
+                     <i class="facebook sign icon"></i>
+                     <a href="//flirtbot.net/auth/facebook" target="_top"> Login with Facebook</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+
+
+</div>
+   </div>
+   <hr>
+   <div style="text-align:center">
+ <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- wide -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-8516663490098995"
+     data-ad-slot="9459930860"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+   <div class="footer1">
+ 
+    <div class="container">
+      <div class="col-sm-2">
+<div class="ui list"><a class="item" href="s-femaleAfghanistan"><i class="right triangle icon"></i>Afghanistan</a>
+<a class="item" href="s-femaleAlbania"><i class="right triangle icon"></i>Albania</a>
+<a class="item" href="s-femaleAlgeria"><i class="right triangle icon"></i>Algeria</a>
+<a class="item" href="s-femaleAndorra"><i class="right triangle icon"></i>Andorra</a>
+<a class="item" href="s-femaleAngola"><i class="right triangle icon"></i>Angola</a>
+<a class="item" href="s-femaleArgentina"><i class="right triangle icon"></i>Argentina</a>
+<a class="item" href="s-femaleArmenia"><i class="right triangle icon"></i>Armenia</a>
+<a class="item" href="s-femaleAruba"><i class="right triangle icon"></i>Aruba</a>
+<a class="item" href="s-femaleAustralia"><i class="right triangle icon"></i>Australia</a>
+<a class="item" href="s-femaleAustria"><i class="right triangle icon"></i>Austria</a>
+<a class="item" href="s-femaleAzerbaijan"><i class="right triangle icon"></i>Azerbaijan</a>
+<a class="item" href="s-femaleBahamas"><i class="right triangle icon"></i>Bahamas</a>
+<a class="item" href="s-femaleBahrain"><i class="right triangle icon"></i>Bahrain</a>
+<a class="item" href="s-femaleBangladesh"><i class="right triangle icon"></i>Bangladesh</a>
+<a class="item" href="s-femaleBarbados"><i class="right triangle icon"></i>Barbados</a>
+<a class="item" href="s-femaleBelarus"><i class="right triangle icon"></i>Belarus</a>
+<a class="item" href="s-femaleBelgium"><i class="right triangle icon"></i>Belgium</a>
+<a class="item" href="s-femaleBelize"><i class="right triangle icon"></i>Belize</a>
+<a class="item" href="s-femaleBenin"><i class="right triangle icon"></i>Benin</a>
+<a class="item" href="s-femaleBermuda"><i class="right triangle icon"></i>Bermuda</a>
+<a class="item" href="s-femaleBhutan"><i class="right triangle icon"></i>Bhutan</a>
+<a class="item" href="s-femaleBolivia"><i class="right triangle icon"></i>Bolivia</a>
+<a class="item" href="s-femaleBosnia And Herzegovina"><i class="right triangle icon"></i>Bosnia And Herzegovina</a>
+<a class="item" href="s-femaleBotswana"><i class="right triangle icon"></i>Botswana</a>
+<a class="item" href="s-femaleBouvet Island"><i class="right triangle icon"></i>Bouvet Island</a>
+<a class="item" href="s-femaleBrazil"><i class="right triangle icon"></i>Brazil</a>
+<a class="item" href="s-femaleBrunei Darussalam"><i class="right triangle icon"></i>Brunei Darussalam</a>
+<a class="item" href="s-femaleBulgaria"><i class="right triangle icon"></i>Bulgaria</a>
+<a class="item" href="s-femaleBurkina Faso"><i class="right triangle icon"></i>Burkina Faso</a>
+<a class="item" href="s-femaleBurundi"><i class="right triangle icon"></i>Burundi</a>
+<a class="item" href="s-femaleCambodia"><i class="right triangle icon"></i>Cambodia</a>
+</div></div>
+
+<div class="col-sm-2">
+<div class="ui list">
+ 
+<a class="item" href="s-femaleCanada"><i class="right triangle icon"></i>Canada</a>
+<a class="item" href="s-femaleCape Verde"><i class="right triangle icon"></i>Cape Verde</a>
+<a class="item" href="s-femaleCayman Islands"><i class="right triangle icon"></i>Cayman Islands</a>
+<a class="item" href="s-femaleChile"><i class="right triangle icon"></i>Chile</a>
+<a class="item" href="s-femaleChina"><i class="right triangle icon"></i>China</a>
+<a class="item" href="s-femaleChristmas Island"><i class="right triangle icon"></i>Christmas Island</a>
+<a class="item" href="s-femaleColombia"><i class="right triangle icon"></i>Colombia</a>
+<a class="item" href="s-femaleComoros"><i class="right triangle icon"></i>Comoros</a>
+<a class="item" href="s-femaleCongo"><i class="right triangle icon"></i>Congo</a>
+<a class="item" href="s-femaleCook Islands"><i class="right triangle icon"></i>Cook Islands</a>
+<a class="item" href="s-femaleCosta Rica"><i class="right triangle icon"></i>Costa Rica</a>
+<a class="item" href="s-femaleCote D'ivoire"><i class="right triangle icon"></i>Cote D'ivoire</a>
+<a class="item" href="s-femaleCroatia"><i class="right triangle icon"></i>Croatia</a>
+<a class="item" href="s-femaleCuba"><i class="right triangle icon"></i>Cuba</a>
+<a class="item" href="s-femaleCyprus"><i class="right triangle icon"></i>Cyprus</a>
+<a class="item" href="s-femaleCzech Republic"><i class="right triangle icon"></i>Czech Republic</a>
+<a class="item" href="s-femaleDenmark"><i class="right triangle icon"></i>Denmark</a>
+<a class="item" href="s-femaleDjibouti"><i class="right triangle icon"></i>Djibouti</a>
+<a class="item" href="s-femaleDominica"><i class="right triangle icon"></i>Dominica</a>
+<a class="item" href="s-femaleDominican Republic"><i class="right triangle icon"></i>Dominican Republic</a>
+<a class="item" href="s-femaleEcuador"><i class="right triangle icon"></i>Ecuador</a>
+<a class="item" href="s-femaleEgypt"><i class="right triangle icon"></i>Egypt</a>
+<a class="item" href="s-femaleEl Salvador"><i class="right triangle icon"></i>El Salvador</a>
+<a class="item" href="s-femaleEquatorial Guinea"><i class="right triangle icon"></i>Equatorial Guinea</a>
+<a class="item" href="s-femaleEritrea"><i class="right triangle icon"></i>Eritrea</a>
+<a class="item" href="s-femaleEstonia"><i class="right triangle icon"></i>Estonia</a>
+<a class="item" href="s-femaleEthiopia"><i class="right triangle icon"></i>Ethiopia</a>
+<a class="item" href="s-femaleFalkland Islands (Malvinas)"><i class="right triangle icon"></i>Falkland Islands (Malvinas)</a>
+<a class="item" href="s-femaleFaroe Islands"><i class="right triangle icon"></i>Faroe Islands</a>
+<a class="item" href="s-femaleFiji"><i class="right triangle icon"></i>Fiji</a>
+<a class="item" href="s-femaleFinland"><i class="right triangle icon"></i>Finland</a>
+<a class="item" href="s-femaleFrance"><i class="right triangle icon"></i>France</a>
+<a class="item" href="s-femaleFrench Guiana"><i class="right triangle icon"></i>French Guiana</a>
+</div>
+</div>
+
+
+
+
+<div class="col-sm-2">
+<div class="ui list">
+<a class="item" href="s-femaleFrench Polynesia"><i class="right triangle icon"></i>French Polynesia</a>
+<a class="item" href="s-femaleFrench Southern Territories"><i class="right triangle icon"></i>French Southern Territories</a>
+<a class="item" href="s-femaleGabon"><i class="right triangle icon"></i>Gabon</a>
+<a class="item" href="s-femaleGambia"><i class="right triangle icon"></i>Gambia</a>
+<a class="item" href="s-femaleGeorgia"><i class="right triangle icon"></i>Georgia</a>
+<a class="item" href="s-femaleGermany"><i class="right triangle icon"></i>Germany</a>
+<a class="item" href="s-femaleGhana"><i class="right triangle icon"></i>Ghana</a>
+<a class="item" href="s-femaleGibraltar"><i class="right triangle icon"></i>Gibraltar</a>
+<a class="item" href="s-femaleGreece"><i class="right triangle icon"></i>Greece</a>
+<a class="item" href="s-femaleGreenland"><i class="right triangle icon"></i>Greenland</a>
+<a class="item" href="s-femaleGrenada"><i class="right triangle icon"></i>Grenada</a>
+<a class="item" href="s-femaleGuadeloupe"><i class="right triangle icon"></i>Guadeloupe</a>
+<a class="item" href="s-femaleGuam"><i class="right triangle icon"></i>Guam</a>
+<a class="item" href="s-femaleGuatemala"><i class="right triangle icon"></i>Guatemala</a>
+<a class="item" href="s-femaleGuernsey"><i class="right triangle icon"></i>Guernsey</a>
+<a class="item" href="s-femaleGuinea"><i class="right triangle icon"></i>Guinea</a>
+<a class="item" href="s-femaleGuinea-bissau"><i class="right triangle icon"></i>Guinea-bissau</a>
+<a class="item" href="s-femaleGuyana"><i class="right triangle icon"></i>Guyana</a>
+<a class="item" href="s-femaleHaiti"><i class="right triangle icon"></i>Haiti</a>
+<a class="item" href="s-femaleHonduras"><i class="right triangle icon"></i>Honduras</a>
+<a class="item" href="s-femaleHong Kong"><i class="right triangle icon"></i>Hong Kong</a>
+<a class="item" href="s-femaleHungary"><i class="right triangle icon"></i>Hungary</a>
+<a class="item" href="s-femaleIceland"><i class="right triangle icon"></i>Iceland</a>
+<a class="item" href="s-femaleIndia"><i class="right triangle icon"></i>India</a>
+<a class="item" href="s-femaleIndonesia"><i class="right triangle icon"></i>Indonesia</a>
+<a class="item" href="s-femaleIraq"><i class="right triangle icon"></i>Iraq</a>
+<a class="item" href="s-femaleIreland"><i class="right triangle icon"></i>Ireland</a>
+<a class="item" href="s-femaleIsle Of Man"><i class="right triangle icon"></i>Isle Of Man</a>
+<a class="item" href="s-femaleIsrael"><i class="right triangle icon"></i>Israel</a>
+<a class="item" href="s-femaleItaly"><i class="right triangle icon"></i>Italy</a>
+<a class="item" href="s-femaleJamaica"><i class="right triangle icon"></i>Jamaica</a>
+<a class="item" href="s-femaleJapan"><i class="right triangle icon"></i>Japan</a>
+<a class="item" href="s-femaleJersey"><i class="right triangle icon"></i>Jersey</a>
+<a class="item" href="s-femaleJordan"><i class="right triangle icon"></i>Jordan</a>
+<a class="item" href="s-femaleKazakhstan"><i class="right triangle icon"></i>Kazakhstan</a>
+<a class="item" href="s-femaleKenya"><i class="right triangle icon"></i>Kenya</a>
+</div>
+</div>
+<div class="col-sm-2">
+<div class="ui list">
+<a class="item" href="s-femaleKiribati"><i class="right triangle icon"></i>Kiribati</a>
+<a class="item" href="s-femaleKorea, Republic Of"><i class="right triangle icon"></i>Korea, Republic Of</a>
+<a class="item" href="s-femaleKuwait"><i class="right triangle icon"></i>Kuwait</a>
+<a class="item" href="s-femaleKyrgyzstan"><i class="right triangle icon"></i>Kyrgyzstan</a>
+<a class="item" href="s-femaleLatvia"><i class="right triangle icon"></i>Latvia</a>
+<a class="item" href="s-femaleLebanon"><i class="right triangle icon"></i>Lebanon</a>
+<a class="item" href="s-femaleLesotho"><i class="right triangle icon"></i>Lesotho</a>
+<a class="item" href="s-femaleLiberia"><i class="right triangle icon"></i>Liberia</a>
+<a class="item" href="s-femaleLiechtenstein"><i class="right triangle icon"></i>Liechtenstein</a>
+<a class="item" href="s-femaleLithuania"><i class="right triangle icon"></i>Lithuania</a>
+<a class="item" href="s-femaleLuxembourg"><i class="right triangle icon"></i>Luxembourg</a>
+<a class="item" href="s-femaleMacao"><i class="right triangle icon"></i>Macao</a>
+<a class="item" href="s-femaleMadagascar"><i class="right triangle icon"></i>Madagascar</a>
+<a class="item" href="s-femaleMalawi"><i class="right triangle icon"></i>Malawi</a>
+<a class="item" href="s-femaleMalaysia"><i class="right triangle icon"></i>Malaysia</a>
+<a class="item" href="s-femaleMaldives"><i class="right triangle icon"></i>Maldives</a>
+<a class="item" href="s-femaleMali"><i class="right triangle icon"></i>Mali</a>
+<a class="item" href="s-femaleMalta"><i class="right triangle icon"></i>Malta</a>
+<a class="item" href="s-femaleMarshall Islands"><i class="right triangle icon"></i>Marshall Islands</a>
+<a class="item" href="s-femaleMartinique"><i class="right triangle icon"></i>Martinique</a>
+<a class="item" href="s-femaleMauritania"><i class="right triangle icon"></i>Mauritania</a>
+<a class="item" href="s-femaleMauritius"><i class="right triangle icon"></i>Mauritius</a>
+<a class="item" href="s-femaleMayotte"><i class="right triangle icon"></i>Mayotte</a>
+<a class="item" href="s-femaleMexico"><i class="right triangle icon"></i>Mexico</a>
+<a class="item" href="s-femaleMoldova, Republic Of"><i class="right triangle icon"></i>Moldova, Republic Of</a>
+<a class="item" href="s-femaleMonaco"><i class="right triangle icon"></i>Monaco</a>
+<a class="item" href="s-femaleMongolia"><i class="right triangle icon"></i>Mongolia</a>
+<a class="item" href="s-femaleMontenegro"><i class="right triangle icon"></i>Montenegro</a>
+<a class="item" href="s-femaleMontserrat"><i class="right triangle icon"></i>Montserrat</a>
+<a class="item" href="s-femaleMorocco"><i class="right triangle icon"></i>Morocco</a>
+<a class="item" href="s-femaleMozambique"><i class="right triangle icon"></i>Mozambique</a>
+<a class="item" href="s-femaleMyanmar"><i class="right triangle icon"></i>Myanmar</a>
+<a class="item" href="s-femaleNamibia"><i class="right triangle icon"></i>Namibia</a>
+<a class="item" href="s-femaleNauru"><i class="right triangle icon"></i>Nauru</a>
+<a class="item" href="s-femaleNepal"><i class="right triangle icon"></i>Nepal</a>
+<a class="item" href="s-femaleNetherlands"><i class="right triangle icon"></i>Netherlands</a>
+</div>
+</div>
+
+
+
+
+<div class="col-sm-2">
+<div class="ui list">
+<a class="item" href="s-femaleNew Caledonia"><i class="right triangle icon"></i>New Caledonia</a>
+<a class="item" href="s-femaleNew Zealand"><i class="right triangle icon"></i>New Zealand</a>
+<a class="item" href="s-femaleNicaragua"><i class="right triangle icon"></i>Nicaragua</a>
+<a class="item" href="s-femaleNiger"><i class="right triangle icon"></i>Niger</a>
+<a class="item" href="s-femaleNigeria"><i class="right triangle icon"></i>Nigeria</a>
+<a class="item" href="s-femaleNiue"><i class="right triangle icon"></i>Niue</a>
+<a class="item" href="s-femaleNorfolk Island"><i class="right triangle icon"></i>Norfolk Island</a>
+<a class="item" href="s-femaleNorway"><i class="right triangle icon"></i>Norway</a>
+<a class="item" href="s-femaleOman"><i class="right triangle icon"></i>Oman</a>
+<a class="item" href="s-femalePakistan"><i class="right triangle icon"></i>Pakistan</a>
+<a class="item" href="s-femalePalau"><i class="right triangle icon"></i>Palau</a>
+<a class="item" href="s-femalePanama"><i class="right triangle icon"></i>Panama</a>
+<a class="item" href="s-femalePapua New Guinea"><i class="right triangle icon"></i>Papua New Guinea</a>
+<a class="item" href="s-femaleParaguay"><i class="right triangle icon"></i>Paraguay</a>
+<a class="item" href="s-femalePeru"><i class="right triangle icon"></i>Peru</a>
+<a class="item" href="s-femalePhilippines"><i class="right triangle icon"></i>Philippines</a>
+<a class="item" href="s-femalePitcairn"><i class="right triangle icon"></i>Pitcairn</a>
+<a class="item" href="s-femalePoland"><i class="right triangle icon"></i>Poland</a>
+<a class="item" href="s-femalePortugal"><i class="right triangle icon"></i>Portugal</a>
+<a class="item" href="s-femalePuerto Rico"><i class="right triangle icon"></i>Puerto Rico</a>
+<a class="item" href="s-femaleQatar"><i class="right triangle icon"></i>Qatar</a>
+<a class="item" href="s-femaleReunion"><i class="right triangle icon"></i>Reunion</a>
+<a class="item" href="s-femaleRomania"><i class="right triangle icon"></i>Romania</a>
+<a class="item" href="s-femaleRussian Federation"><i class="right triangle icon"></i>Russian Federation</a>
+<a class="item" href="s-femaleRwanda"><i class="right triangle icon"></i>Rwanda</a>
+<a class="item" href="s-femaleSaint Helena"><i class="right triangle icon"></i>Saint Helena</a>
+<a class="item" href="s-femaleSaint Lucia"><i class="right triangle icon"></i>Saint Lucia</a>
+<a class="item" href="s-femaleSamoa"><i class="right triangle icon"></i>Samoa</a>
+<a class="item" href="s-femaleSan Marino"><i class="right triangle icon"></i>San Marino</a>
+<a class="item" href="s-femaleSaudi Arabia"><i class="right triangle icon"></i>Saudi Arabia</a>
+<a class="item" href="s-femaleSenegal"><i class="right triangle icon"></i>Senegal</a>
+<a class="item" href="s-femaleSerbia"><i class="right triangle icon"></i>Serbia</a>
+<a class="item" href="s-femaleSeychelles"><i class="right triangle icon"></i>Seychelles</a>
+<a class="item" href="s-femaleSierra Leone"><i class="right triangle icon"></i>Sierra Leone</a>
+<a class="item" href="s-femaleSingapore"><i class="right triangle icon"></i>Singapore</a>
+<a class="item" href="s-femaleSlovakia"><i class="right triangle icon"></i>Slovakia</a>
+</div>
+</div>
+
+
+
+<div class="col-sm-2">
+<div class="ui list">
+<a class="item" href="s-femaleSlovenia"><i class="right triangle icon"></i>Slovenia</a>
+<a class="item" href="s-femaleSolomon Islands"><i class="right triangle icon"></i>Solomon Islands</a>
+<a class="item" href="s-femaleSomalia"><i class="right triangle icon"></i>Somalia</a>
+<a class="item" href="s-femaleSouth Africa"><i class="right triangle icon"></i>South Africa</a>
+<a class="item" href="s-femaleSpain"><i class="right triangle icon"></i>Spain</a>
+<a class="item" href="s-femaleSri Lanka"><i class="right triangle icon"></i>Sri Lanka</a>
+<a class="item" href="s-femaleSudan"><i class="right triangle icon"></i>Sudan</a>
+<a class="item" href="s-femaleSuriname"><i class="right triangle icon"></i>Suriname</a>
+<a class="item" href="s-femaleSwaziland"><i class="right triangle icon"></i>Swaziland</a>
+<a class="item" href="s-femaleSweden"><i class="right triangle icon"></i>Sweden</a>
+<a class="item" href="s-femaleSwitzerland"><i class="right triangle icon"></i>Switzerland</a>
+<a class="item" href="s-femaleTajikistan"><i class="right triangle icon"></i>Tajikistan</a>
+<a class="item" href="s-femaleThailand"><i class="right triangle icon"></i>Thailand</a>
+<a class="item" href="s-femaleTimor-leste"><i class="right triangle icon"></i>Timor-leste</a>
+<a class="item" href="s-femaleTogo"><i class="right triangle icon"></i>Togo</a>
+<a class="item" href="s-femaleTokelau"><i class="right triangle icon"></i>Tokelau</a>
+<a class="item" href="s-femaleTonga"><i class="right triangle icon"></i>Tonga</a>
+<a class="item" href="s-femaleTrinidad And Tobago"><i class="right triangle icon"></i>Trinidad And Tobago</a>
+<a class="item" href="s-femaleTunisia"><i class="right triangle icon"></i>Tunisia</a>
+<a class="item" href="s-femaleTurkey"><i class="right triangle icon"></i>Turkey</a>
+<a class="item" href="s-femaleTurkmenistan"><i class="right triangle icon"></i>Turkmenistan</a>
+<a class="item" href="s-femaleTurks And Caicos Islands"><i class="right triangle icon"></i>Turks And Caicos Islands</a>
+<a class="item" href="s-femaleTuvalu"><i class="right triangle icon"></i>Tuvalu</a>
+<a class="item" href="s-femaleUganda"><i class="right triangle icon"></i>Uganda</a>
+<a class="item" href="s-femaleUkraine"><i class="right triangle icon"></i>Ukraine</a>
+<a class="item" href="s-femaleUnited Arab Emirates"><i class="right triangle icon"></i>United Arab Emirates</a>
+<a class="item" href="s-femaleUnited Kingdom"><i class="right triangle icon"></i>United Kingdom</a>
+<a class="item" href="s-femaleUnited States"><i class="right triangle icon"></i>United States</a>
+<a class="item" href="s-femaleUruguay"><i class="right triangle icon"></i>Uruguay</a>
+<a class="item" href="s-femaleUzbekistan"><i class="right triangle icon"></i>Uzbekistan</a>
+<a class="item" href="s-femaleVanuatu"><i class="right triangle icon"></i>Vanuatu</a>
+<a class="item" href="s-femaleVenezuela"><i class="right triangle icon"></i>Venezuela</a>
+<a class="item" href="s-femaleViet Nam"><i class="right triangle icon"></i>Viet Nam</a>
+<a class="item" href="s-femaleWallis And Futuna"><i class="right triangle icon"></i>Wallis And Futuna</a>
+<a class="item" href="s-femaleWestern Sahara"><i class="right triangle icon"></i>Western Sahara</a>
+<a class="item" href="s-femaleYemen"><i class="right triangle icon"></i>Yemen</a>
+<a class="item" href="s-femaleZambia"><i class="right triangle icon"></i>Zambia</a>
+<a class="item" href="s-femaleZimbabwe"><i class="right triangle icon"></i>Zimbabwe</a></div>
+</div>
+</div>
+
+
+
+
+
+    </div>
+   </div>
+
+
+ 
+  {% endif %}
+</div>
+   </div>
+
+ 
+
+  <div class="ui pointing    menu large" id="footer">
+    <div class="onlinewrapper">  <div class="ui label small">
+  Online
+  <div class="detail"><span id="online">9</span></div>
+</div></div>
+        <div class="container">
+    <div class="row">
+
+         <div class="col-sm-3">         
+          <div class="menu">
+               <a class="item">&nbsp;</a>
+      <a class="item showmessages">
+        <i class="icon mail"></i>  
+        <div class="floating ui red label" id="unread"></div>
+      </a>
+      
+ 
+    </div>
+  </div>
+     <div class="col-sm-9">
+
+        <div class="chatinput"><div class="ui action input">
+  <input type="text" placeholder="Reply...">
+  <div class="ui button" id="sendmsgbutton">Send</div>
+</div></div>
+       </div>
+     </div>
+      </div>     
+
+ 
+</div>
+
+
+
+
+   <script type="text/javascript">// {% if id %} 
+ 
+//
+ 
+
+  var uid = "{{ id }}";
+  var profileinfo = "";
+
+  function provide_random() {
+  
+$.getJSON('/igrar/{{gender}}',function(data){
+   var arr = [];
+$.each(data.slice(0,90),function(index,val){
+ 
+arr.push('<div class="col-sm-1 smallprofile"><a href="/profile-'+val.id+'"><img src="https://graph.facebook.com/'+val.id+'/picture?width=60&height=60"></a></div>');
+});
+$('#chats').html(arr.join(''))
+});
+
+}
+
+//{% if index %}   
+  provide_random();
+  //     {% endif %}
+
+
+ 
+ //delkey("gold"+uid); 
+ //delkey("rec"+uid);   
+
+   socket.on('online', function(data) {
+   var obj = {   key: 'socket'+uid,   value: data.id  };
+   socket.emit('init', obj);
+  
+       
+   $('#online').text(data.number);
+ });
+  
+$.gvar.rearange(uid);
+
+$(document).on('click','#sendmsgbutton',function(){
+  var msg = $('.chatinput input').val();
+send_message(msg,uid,'{{ first_name }}');
+})
+
+ $(document).on('keypress','.chatinput input',function(e) {
+  var msg = $(this).val();
+  var keycode = (e.keyCode ? e.keyCode : e.which);
+    if(keycode == '13' && msg.length >=1) {
+send_message(msg,uid,'{{ first_name }}')
+       }
+     
+});
+  
+//
+   $(document).on('click','.showmessages', function() {
+    $('#chats, .chats').show();
+       $("html,body").animate({
+         scrollTop: $('.chats').offset().top - 30
+       });
+       
+    });
+
+
+ 
+ 
+
+ 
+
+ // {% endif %}
+
+
+ // {% if notlogged %}  
+
+ provide('#robot');
+ //     {% endif %}
+      
+ 
+   socket.emit('goldserver',{uid:"{{id}}"});
+
+    $(document).on('click', '#unlockme', function() {
+ 
+   var session = $('.chats .active').attr('alt');
+      var to = $('.chats .active').attr('title');
+      var gold = $('#gold').text();
+      if (gold >= 5) {
+ 
+
+socket.emit('goldserver',{uid:"{{id}}",unlock:"5"});
+
+
+   var obj = {
+     from: "{{id}}",
+     fromname: "{{first_name}}",
+     key: "rec"+to,
+     session: session
+   }
+ put(obj)
+  send_message('Thank You!', obj.from, obj.fromname);
+
+
+  } else {
+   $('.ui.modal').modal('show');
+  }
+ 
+
+
+
+ });
+ 
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+   </script>
+   <div id="fb-root"></div>
+</body>
+</html>

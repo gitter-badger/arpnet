@@ -1,0 +1,19 @@
+{
+  "_id" : "luckometer",
+  "_rev" : "2-53c5c3675443551de8e1f215017adb83",
+  "appid" : "105397064351",
+  "bg" : [
+    {
+      "titlestart" : ""
+    },
+    "",
+    "",
+    ""
+  ],
+  "en" : [
+    {}
+  ],
+  "scope" : "email,user_photos,friend_photos",
+  "secret" : "51a7cfb9c325011bb2a5c5a07de1c1a7",
+  "title" : "гласувай за снимката - фейсбук приложение за мобилни устройства или браузър"
+}

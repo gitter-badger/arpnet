@@ -1,0 +1,34 @@
+{
+    "poke": {
+        "edchislo": "Сръчкан",
+        "action": "Сръчкай"
+    },
+    "dai_5": {
+        "edchislo": "Поздравен с 5",
+        "action": "Дай 5"
+    },
+    "bite": {
+        "edchislo": "Ухапан",
+        "action": "Ухапи"
+    },
+    "bliz": {
+        "edchislo": "Близнат",
+        "action": "Близни"
+    },
+    "gush": {
+        "edchislo": "Гушнат",
+        "action": "Гушни"
+    },
+    "spank": {
+        "edchislo": "Напляскан",
+        "action": "Напляскай"
+    },
+    "tickle": {
+        "edchislo": "Погъделичкан",
+        "action": "Погъделичкай"
+    },
+      "fostata": {
+        "edchislo": "Фостата",
+        "action": "Фиргай Паиозина фостата"
+    }
+}

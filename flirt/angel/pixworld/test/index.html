@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test page for nano</title>
+    <!-- include lib -->
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js" type="text/javascript"></script>
+ 
+
+    <!-- test data -->
+    <script type="text/javascript">
+    
+    function nano(template, data) {
+  return template.replace(/\{([\w\.]*)\}/g, function(str, key) {
+    var keys = key.split("."), v = data[keys.shift()];
+    for (var i = 0, l = keys.length; i < l; i++) v = v[keys[i]];
+    return (typeof v !== "undefined" && v !== null) ? v : "";
+  });
+}
+
+        data = {
+            user: {
+                login: "tomek",
+                first_name: "Thomas",
+                last_name: "Mazur",
+                account: {
+                    status: "active",
+                    expires_at: "2009-12-31"
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+
+<p id="testLayout"> hello {user.first_name} {user.last_name}! Your account is <strong>{user.account.status}</strong></p>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+      var templatedata = $('#testLayout').html();
+      
+      console.log();
+      $('#testLayout').html(nano(templatedata, data));
+    }
+</script>
+</body>
+</html>

