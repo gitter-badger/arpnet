@@ -1,0 +1,29 @@
+{
+  "name": "newsbg",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "server.js",
+  "dependencies": {
+    "async": "~0.6.2",
+    "concat-stream": "~1.4.4",
+    "express": "*",
+    "underscore": "~1.6.0",
+    "xml2js": "*",
+    "twit": "*",
+    "node-uuid": "*",
+    "levelup": "*",
+    "level-sublevel": "*",
+    "get": ""
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:arss.git"
+  },
+  "author": "",
+  "license": "BSD"
+}
