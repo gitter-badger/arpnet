@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="bg" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
   <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -10,8 +10,8 @@
 <meta name="robots" content="noodp, noydir">
 <title>Индиянското ти име (забавни) късмети зодии гадания щастие Фейсбук Facebook</title>
 <meta name="description" content="Гръмотевичния облак Facebook ">
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="//arpecop.net/angel/tab/src/jquery.anystretch.js"></script>
 <script src="//arpecop.net/angel/tab/src/transit.js"></script>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic' rel='stylesheet' type='text/css'>
@@ -36,7 +36,7 @@ body, td, th, div, span {
 	color: #FFF;
 }
 .left {
-	background: rgba(0,0,0,0.6);
+ 
 	text-shadow: 1px 1px 1px #000;
 	padding: 6% 2%;
 }
@@ -44,13 +44,30 @@ body, td, th, div, span {
 	display: none;
 }
 #result .left {
-	min-height: 220px;
+	min-height: 100%;
 }
 .lead {font-weight: 100;}
 .itemad { width:405px; float:left; font-weight: 100; font-size: 11px;}
 .itemad .section {padding: 5px;}
 
 #cross .section {font-family: 'Open Sans', sans-serif;}
+#background {
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    left: 0px; 
+    top: 0px; 
+    z-index: 0;
+}
+
+.stretchMe {
+ max-height: 200px; overflow: hidden;
+}
+
+.stretch {
+ min-width:100%; position: absolute; 
+}
+#comments, .fb-comments {background-color: #FFF;}
  
 </style>
 </head>
@@ -69,21 +86,22 @@ body, td, th, div, span {
 </div>
 <hr>
 <div id="result" class="stretchMe row-fluid">
-  <div class="span3 right"> <img id="avatar" class="img-circle"> </div>
-  <div class="left span9">
+  <div class="col-sm-3 right"> <img id="avatar" class="img-circle"> </div>
+  <div class="left col-sm-9">
     <p class="lead"></p>
   </div>
 </div>
 <div id="containertab">
   <div class="stretchMe row-fluid infostep1">
-    <div class="span6 right">
+    <img src="img.jpg" class="stretch" alt="" />
+    <div class="col-sm-6 right">
       <div class="row-fluid">
-        <div class="span2"></div>
-        <a class="btn btn-primary btn-large span8" id="publish" style="margin-top:65px" onclick="fb_login(); return false;"><i class="icon-key"></i>Провери</a>
-        <div class="span2"></div>
+        <div class="col-sm-2"></div>
+        <a class="btn btn-primary btn-large col-sm-8" id="publish" style="margin-top:65px" onclick="fb_login(); return false;"><i class="icon-key"></i>Провери</a>
+        <div class="col-sm-2"></div>
       </div>
     </div>
-    <div class="left span6">
+    <div class="left col-sm-6">
       <h2 class="name"> </h2>
       <p class="about lead"> </p>
     </div>
@@ -94,14 +112,20 @@ body, td, th, div, span {
 
   <script type="text/javascript">
 $.gvar = {};
-var url = 'https://graph.facebook.com/(:pageid:)/?callback=?';
+var url = 'https://graph.facebook.com/v2.0/(:pageid:)/?access_token=329232053871264|Cjg2bITAwZsRoFcBYdSZ-IWiCEg';
+ 
 $.getJSON(url, function(data) {
-    $('.stretchMe').anystretch(data.cover.source);
+     
+ 
+   
+   $('.stretch').attr("src", data.cover.source);  
     $.each(data, function(index, val) {
         $.gvar[index] = val;
         $('.' + index).text(val);
     });
 });
+
+
 
 
 //inbox
@@ -135,15 +159,14 @@ $.display_result = function() {
         // insert here dont forget
      var randomnumber=Math.floor(Math.random()*99999)
         var urlpost = "http://arpecop.net/angel/like/?description=Резултат " + $.gvar.user.first_name + ": " + $.gvar.quote.info + "&title="+$.gvar.name+"&appid=329232053871264&img=" + img + "&id=1&type=object&appurl="+$.gvar.website+"#"+randomnumber;
- 
-console.log(urlpost)
+  $('.left .lead').append('<a class="btn btn-primary btn-small col-sm-8" id="publish" style="margin-top: 65px; transform: scale(1, 1);" onclick="fb_login(); return false;"><i class="icon-key"></i>Провери</a>');
         FB.api(
-            'me/og.likes',
+            'me/og.likess',
             'post', {
                object: urlpost
             },
             function(response) {
-            console.log(response)
+             
               
             }
         );

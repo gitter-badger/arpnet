@@ -246,22 +246,19 @@ function providemislish(prevdata) {
     var date = new Date();
     var uniqid = prevdata.to + '' + date.getDate() + '' + date.getMonth() + '' + date.getFullYear();
     $.getJSON('//arpecop.net/angel/db2/' + uniqid, function(data) {
-
+       
       if (data.message) {
         $.post('https://graph.facebook.com/' + prevdata.to + '/notifications', {
           access_token: gptoken(),
-          template: "Някой каза нещо за теб, Виж какво"
+          template: "имате нов коментар от " + prevdata.fromname
         }, function(data) {
-
 
           $.post('//arpecop.net/angel/db2/insert', {
             key: uniqid,
             value: '1'
           });
         });
-      } else {
-        //console.log('already');
-      }
+      } else {}
     });
 
     $.post('https://graph.facebook.com/' + prevdata.to + '/apprequests', {
@@ -551,5 +548,3 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(ga, s);
 })();
-
- 

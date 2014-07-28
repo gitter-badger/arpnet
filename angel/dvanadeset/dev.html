@@ -220,18 +220,18 @@
 
 
 function template_unlock(classx, index, from, you, q, result, fromname) {
-  return ('<div class="media' + classx + '" id="result' + index + '">  <div class="pull-left"><button class="btn btn-xs unlock anonim btn-default" value="' + index + '"><i class="fa fa-unlock"></i> Разбери кой е отговорил, срещу 5 точки</button>  <img class="img-circle result" src="https://graph.facebook.com/v2.0/' + from + '/picture"> </div><div class="media-body">   <div>Мислиш ли че, ' + you + ' ' + q + '?<div><strong><span class="result">' + fromname + '</span> oтговор<span class="result">и</span>: ' + result + '</strong>  <div class="result"><a class="btn btn-xs btn-default poke" alt="' + from + '">Сръчкай ' + fromname + '</a></div></div><div><button class="btn btn-xs unlock_invite" value="' + index + '"><i class="fa fa-unlock"></i> Откл. с покана</button></div></div>  </div>  </div>  <div id="error-' + index + '" style="display:none"> <br><div class="alert alert-warning"><strong>Опс!</strong> Събери 5 точки за да отключиш автора на отговора.</div></div>');
+  return ('<div class="media' + classx + '" id="result' + index + '"><div class="pull-left"><img class="img-circle" src="https://graph.facebook.com/v2.0/' + from + '/picture?width=200&height=200" style="max-width:140px;"><div></div> <div style="text-align:center">' + fromname + '</div></div><div class="media-body">   <div class="lead">Мислиш ли че, ' + you + ' ' + q + '?<div><strong><span class="result">' + fromname + ' oтговори ' + result + '</span> </strong>  <div class="result"><a class="btn btn-xs btn-default poke" alt="' + from + '">Сръчкай ' + fromname + '</a></div></div><div><button class="btn btn-xs unlock_invite" value="' + index + '"><i class="fa fa-unlock"></i> Откл. с покана</button> <button class="btn btn-xs unlock   btn-default" value="' + index + '"><i class="fa fa-unlock"></i> Разбери  отговорa, срещу 5 точки</button></div></div>  </div>  </div>  <div id="error-' + index + '" style="display:none"> <br><div class="alert alert-warning"><strong>Опс!</strong> Събери 5 точки за да отключиш отговора.</div></div><hr>');
 }
 
 </script> 
-<script src="app-min.js"></script>
+<script src="app.js"></script>
 <script type="text/javascript">
-    var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'), {
+   /* var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'), {
         aggressive: true,
         timer: 0,
-        callback: function() { console.log('ouibounce fired!'); }
+        callback: function() {   }
       });
-
+*/
       $('body').on('click', function() {
         $('#ouibounce-modal').hide();
       });
