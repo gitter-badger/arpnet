@@ -1,0 +1,108 @@
+body, td, th, div, span {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+body {
+  font-family: 'Open Sans';
+  background-color: #f7f7f7;
+      font-weight: 300;    
+       color: #6d6d6d;
+}
+ 
+  
+.header, .header span { 
+ 
+font-family: "Open Sans";
+font-weight:300;
+ 
+ 
+  padding:10px; 
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.subheader {
+  font-size: 35px;
+  text-align: center;
+ 
+  font-weight:300;
+  padding:10px;
+ 
+  
+   
+  
+  }
+  .subheader .col-sm-6 {
+  color:#FFF;
+  
+  }
+  .subheader .selected {
+    text-decoration:none;
+    color:#FFF;
+    }
+    
+      .subheader a {
+    text-decoration:none;
+    color:#CCC;
+    margin-right: 15px;
+    font-size: 40px;
+    text-shadow: 0px 1px 1px #333;
+    }
+    
+      .subheader a:hover {
+        font-size: 43px;
+      }
+  .footer {
+    background-color:#2ecc71;
+      padding:10px;
+        background-color:#34495e;
+        text-align: right;
+    }
+    .footer a {
+      text-decoration: none;
+      color: #FFF;
+       text-shadow: 0px;
+    }
+    .list-group li {
+    font-weight:300;
+    font-size: 30px;
+    color:#3498db;
+    background-color:#e74c3c; 
+      
+    }
+    .tooltip {
+      font-weight:300;
+          font-size: 20px;
+    }
+    #controlz {margin-top: 5px;}
+
+
+
+ #pagination {text-align: center;}
+ 
+.well {-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;}
+#items img {cursor: pointer;}
+.well {display: none;}
+#promoz div {text-align: center;}
+
+#promoz button {
+-moz-border-radius-topright: 0px;
+border-top-right-radius: 0px;
+-moz-border-radius-topleft: 0px;
+border-top-left-radius: 0px;
+font-weight: 700;
+
+}
+.input-group button {font-weight: 700;}
+
+.thumbnail {padding-bottom: 0px; padding-left: 0px; padding-right: 0px; background-color: #ecf0f1;}
+
+ .clear {clear: both;}
+
+ .quote {font-size: 34px;}
+ .amethist {background-color: #34495e; color: #FFF; padding:10px; text-align: center;}
+  
+ .arrowez {width:26px; height:13px; background-image:url(//arpecop.net/angel/iztegli/src/images/arrow.png);   margin-right: auto; margin-left: auto;}
+ .form-controller {background-color:#ecf0f1; padding-bottom:15px; border-style:solid; border-width:1px; border-color:#7f8c8d; border-top:none; border-left:none; border-right:none;}
+ 

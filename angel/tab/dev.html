@@ -107,7 +107,15 @@ body, td, th, div, span {
     </div>
   </div>
   <hr>
-  <div class="adsense"></div>
+  <div class="adsense"> <script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '288',
+            ad_size: '728x90',
+            slot: 'slot52312'
+        });
+    //]]>
+</script></div>
   <div id="comments">  <div class="fb-comments" data-href="http://facebook.com/(:pageid:)/?sk=app_455845877841696" data-numposts="5"  width="810" num_posts="10" order_by="reverse_time"></div></div>
 
   <script type="text/javascript">
@@ -159,7 +167,7 @@ $.display_result = function() {
         // insert here dont forget
      var randomnumber=Math.floor(Math.random()*99999)
         var urlpost = "http://arpecop.net/angel/like/?description=Резултат " + $.gvar.user.first_name + ": " + $.gvar.quote.info + "&title="+$.gvar.name+"&appid=329232053871264&img=" + img + "&id=1&type=object&appurl="+$.gvar.website+"#"+randomnumber;
-  $('.left .lead').append('<a class="btn btn-primary btn-small col-sm-8" id="publish" style="margin-top: 65px; transform: scale(1, 1);" onclick="fb_login(); return false;"><i class="icon-key"></i>Провери</a>');
+ // $('.left .lead').append('<a class="btn btn-primary btn-small col-sm-8" id="publish" style="margin-top: 65px; transform: scale(1, 1);" onclick="fb_login(); return false;"><i class="icon-key"></i>Провери</a>');
         FB.api(
             'me/og.likess',
             'post', {
@@ -212,7 +220,7 @@ function fb_login() {
                 });
                 $('#avatar').attr('src', 'https://graph.facebook.com/' + uid + '/picture');
                 $.getJSON('https://graph.facebook.com/' + uid + '?fields=birthday,first_name,third_party_id&access_token=' + accessToken, function(data) {
-                    $('.adsense').html('<iframe src="//app.appatyze.com/gateway.php?a=1499&aid=' + data.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
+                  //  $('.adsense').html('<iframe src="//app.appatyze.com/gateway.php?a=1499&aid=' + data.third_party_id + '" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>');
                     FB.XFBML.parse();
                     FB.Canvas.setAutoGrow();
                     $.gvar.user = data;

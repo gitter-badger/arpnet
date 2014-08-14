@@ -111,8 +111,39 @@
  });
 
  //MAIN
+ var gets = 0;
+ app.get('/angel/cronx', function(req, res) {
+     gets++;
+     var requestOptions = {
+         encoding: null,
+         method: "GET",
+         uri: ""
+     };
+   
+
+         get('http://arpecop.com/test/').asString(function(err, data) {
+             if (!err) {
+                 fs.writeFile(__dirname + "/static/test.html", data, function(err) {
+                     if (err) {
+                         console.log(err);
+                     } else {
+                         console.log("The file was saved!");
+                     }
+                 });
+             };
+         });
+         gets = 0;
+     
+     res.end('ok')
+ })
+
 
  app.all('/angel/*', function(req, res) {
+     //
+
+     //
+
+
      var url1 = req.url.split(/,|\?|\//)
      var url = url1[2];
      var json = req.query;
@@ -120,133 +151,138 @@
      json.url = req.protocol + "://" + req.get('host') + req.url;
      res.set('Content-Type', 'text/html');
      var id = req.query["id"];
-     if (id == "push" && id !== "dev") {
-         url = url.replace('push', '').replace('app.json', '');
-         fs.readFile('/usr/share/nginx/html/angel/' + url + '/dev.html', function read(err, dataz) {
-             var data = dataz.toString();
-             client.set(url, data);
-             fs.writeFile('/usr/share/nginx/html/angel/' + url + '/production.html', data, function(err) {});
+     fs.readFile(__dirname + "/static/test.html", function(err, dataxss) {
+
+         json.dirbg = dataxss.toString();
+
+         if (id == "push" && id !== "dev") {
+             url = url.replace('push', '').replace('app.json', '');
+             fs.readFile('/usr/share/nginx/html/angel/' + url + '/dev.html', function read(err, dataz) {
+                 var data = dataz.toString();
+                 client.set(url, data);
+                 fs.writeFile('/usr/share/nginx/html/angel/' + url + '/production.html', data, function(err) {});
 
 
-             fs.readFile('/usr/share/nginx/html/angel/' + url + '/app.js', function(err, data) {
-                 if (!err) {
-                     var result = UglifyJS.minify(data.toString(), {
-                         fromString: true
-                     });
+                 fs.readFile('/usr/share/nginx/html/angel/' + url + '/app.js', function(err, data) {
+                     if (!err) {
+                         var result = UglifyJS.minify(data.toString(), {
+                             fromString: true
+                         });
 
 
-                     fs.writeFile('/usr/share/nginx/html/angel/' + url + '/app-min.js', result.code, function(err) {
+                         fs.writeFile('/usr/share/nginx/html/angel/' + url + '/app-min.js', result.code, function(err) {
 
-                     });
-                 } else {
+                         });
+                     } else {
 
-                 }
-             });
-
-
-             res.write('<h1>pushed real good</h1>');
-         });
-     };
-     //POST
-
-     if (req.method.toLowerCase() == "post") {
-         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-
-         var country = geoip.lookup(ip).country;
-
-         if (country == "BG") {
-             json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="5678325263"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', '</script>'].join('\n');
-         } else {
-
-         }
-         json.appjs = "app-min.js";
-         json.url = req.protocol + "://" + req.get('host') + req.url;
-         var file = '/usr/share/nginx/html/angel/' + url + '/production.html';
-         var admin = req.headers['user-agent'].split(' ')[1];
-         if (json.reqid) {
-             var file = '/usr/share/nginx/html/angel/' + url + '/' + json.reqid + '/index.html';
-             fs.readFile(file, function read(err, dataz) {
-                 if (!err) {
-                     bind.to(dataz.toString(), json, function callback(data) {
-                         res.end(data);
-                     });
-                 } else {
-                     var file = '/usr/share/nginx/html/angel/' + url + '/dev.html';
-                     bind.toFile(file, json, function callback(data) {
-                         res.end(data);
-                     });
-                 }
-             });
-         } else {
-
-             if (admin == '(rudix;') {
-                 var file = '/usr/share/nginx/html/angel/' + url + '/dev.html';
-                 bind.toFile(file, json, function callback(data) {
-                     res.write('admin')
-                     res.end(data);
+                     }
                  });
 
-             } else {
-                 client.get(url, function(err, reply) {
-                     if (!reply) {
-                         fs.readFile(file, function read(err, dataz) {
-                             if (err) {
-                                 res.status(404).send('Not found');
-                                 console.log(url + ' Not found');
-                             } else {
+                 res.write('<h1>pushed real good</h1>');
+             });
+         };
+         //POST
 
-                                 client.set(url, dataz.toString());
+         if (req.method.toLowerCase() == "post") {
+             var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+             var country = geoip.lookup(ip).country;
+
+             if (country == "BG") {
+                 json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="5678325263"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', '</script>'].join('\n');
+             } else {
+
+             }
+             json.appjs = "app-min.js";
+             json.url = req.protocol + "://" + req.get('host') + req.url;
+             var file = '/usr/share/nginx/html/angel/' + url + '/production.html';
+             var admin = req.headers['user-agent'].split(' ')[1];
+             if (json.reqid) {
+                 var file = '/usr/share/nginx/html/angel/' + url + '/' + json.reqid + '/index.html';
+                 fs.readFile(file, function read(err, dataz) {
+                     if (!err) {
+                         bind.to(dataz.toString(), json, function callback(data) {
+                             res.end(data);
+                         });
+                     } else {
+                         var file = '/usr/share/nginx/html/angel/' + url + '/dev.html';
+                         bind.toFile(file, json, function callback(data) {
+                             res.end(data);
+                         });
+                     }
+                 });
+             } else {
+
+                 if (admin == '(rudix;') {
+                     var file = '/usr/share/nginx/html/angel/' + url + '/dev.html';
+                     bind.toFile(file, json, function callback(data) {
+                         res.write('admin')
+                         res.end(data);
+                     });
+
+                 } else {
+                     client.get(url, function(err, reply) {
+                         if (!reply) {
+                             fs.readFile(file, function read(err, dataz) {
+                                 if (err) {
+                                     res.status(404).send('Not found');
+                                     console.log(url + ' Not found');
+                                 } else {
+
+                                     client.set(url, dataz.toString());
+                                     bind.to(dataz.toString(), json, function callback(data) {
+                                         res.end(data);
+                                     });
+                                 }
+                             });
+                         } else {
+                             bind.to(reply, json, function callback(data) {
+                                 res.end(data);
+                             });
+                         }
+                     });
+                 }
+             }
+
+             //GET
+         } else {
+             json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="6136630466"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', , '</script>'].join('\n');
+             json.appjs = "app.js";
+             var filez2 = '/usr/share/nginx/html/angel/' + url + '/dev.html';
+             var filez_mobile = '/usr/share/nginx/html/angel/' + url + '/mobile.html';
+
+             fs.readFile(filez2, function read(err, dataz) {
+                 if (!err) {
+
+                     if (is(req).desktop) {
+                         bind.to(dataz.toString(), json, function callback(data) {
+                             res.end(data);
+                         });
+                     } else {
+
+                         fs.readFile(filez_mobile, function read(err, datamobile) {
+                             if (!err) {
+                                 bind.to(datamobile, json, function(data) {
+
+                                     res.end(data);
+                                 })
+                             } else {
                                  bind.to(dataz.toString(), json, function callback(data) {
                                      res.end(data);
                                  });
                              }
                          });
-                     } else {
-                         bind.to(reply, json, function callback(data) {
-                             res.end(data);
-                         });
+
                      }
-                 });
-             }
+
+                 } else {
+                     res.status(404).send('Not found');
+                     console.log(url + ' Not found');
+                 }
+             });
          }
 
-         //GET
-     } else {
-         json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="6136630466"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', , '</script>'].join('\n');
-         json.appjs = "app.js";
-         var filez2 = '/usr/share/nginx/html/angel/' + url + '/dev.html';
-         var filez_mobile = '/usr/share/nginx/html/angel/' + url + '/mobile.html';
-
-         fs.readFile(filez2, function read(err, dataz) {
-             if (!err) {
-
-                 if (is(req).desktop) {
-                     bind.to(dataz.toString(), json, function callback(data) {
-                         res.end(data);
-                     });
-                 } else {
-
-                     fs.readFile(filez_mobile, function read(err, datamobile) {
-                         if (!err) {
-                             bind.to(datamobile, json, function(data) {
-
-                                 res.end(data);
-                             })
-                         } else {
-                             bind.to(dataz.toString(), json, function callback(data) {
-                                 res.end(data);
-                             });
-                         }
-                     });
-
-                 }
-
-             } else {
-                 res.status(404).send('Not found');
-                 console.log(url + ' Not found');
-             }
-         });
-     }
+     })
  });
 
 

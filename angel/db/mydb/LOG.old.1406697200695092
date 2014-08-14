@@ -1,0 +1,611 @@
+2014/07/30-01:42:57.266136 7f65824f5700 Git sha rocksdb_build_git_sha:a0ce3fd00a1ae35bcbb9edc603b7398d83a8eb23
+2014/07/30-01:42:57.266204 7f65824f5700 Compile time 16:16:12 Nov 15 2013
+2014/07/30-01:42:57.266208 7f65824f5700               Options.comparator: rocksdb.InternalKeyComparator:leveldb.BytewiseComparator
+2014/07/30-01:42:57.266210 7f65824f5700           Options.merge_operator: None
+2014/07/30-01:42:57.266212 7f65824f5700        Options.compaction_filter: None
+2014/07/30-01:42:57.266213 7f65824f5700        Options.compaction_filter_factory: DefaultCompactionFilterFactory
+2014/07/30-01:42:57.266214 7f65824f5700         Options.memtable_factory: SkipListFactory
+2014/07/30-01:42:57.266215 7f65824f5700            Options.table_factory: BlockBasedTable
+2014/07/30-01:42:57.266216 7f65824f5700          Options.error_if_exists: 0
+2014/07/30-01:42:57.266217 7f65824f5700        Options.create_if_missing: 1
+2014/07/30-01:42:57.266218 7f65824f5700          Options.paranoid_checks: 0
+2014/07/30-01:42:57.266219 7f65824f5700                      Options.env: 0x7f6583fff940
+2014/07/30-01:42:57.266220 7f65824f5700                 Options.info_log: 0x7f657c000fd0
+2014/07/30-01:42:57.266221 7f65824f5700        Options.write_buffer_size: 4194304
+2014/07/30-01:42:57.266222 7f65824f5700  Options.max_write_buffer_number: 2
+2014/07/30-01:42:57.266222 7f65824f5700           Options.max_open_files: 1000
+2014/07/30-01:42:57.266223 7f65824f5700              Options.block_cache: 0x247cd18
+2014/07/30-01:42:57.266224 7f65824f5700   Options.block_cache_compressed: (nil)
+2014/07/30-01:42:57.266225 7f65824f5700         Options.block_cache_size: 8388608
+2014/07/30-01:42:57.266226 7f65824f5700               Options.block_size: 4096
+2014/07/30-01:42:57.266227 7f65824f5700   Options.block_restart_interval: 16
+2014/07/30-01:42:57.266228 7f65824f5700          Options.compression: 1
+2014/07/30-01:42:57.266230 7f65824f5700          Options.filter_policy: rocksdb.BuiltinBloomFilter
+2014/07/30-01:42:57.266231 7f65824f5700       Options.prefix_extractor: nullptr
+2014/07/30-01:42:57.266232 7f65824f5700    Options.whole_key_filtering: 1
+2014/07/30-01:42:57.266233 7f65824f5700             Options.num_levels: 7
+2014/07/30-01:42:57.266234 7f65824f5700        Options.disableDataSync: 0
+2014/07/30-01:42:57.266234 7f65824f5700              Options.use_fsync: 0
+2014/07/30-01:42:57.266235 7f65824f5700      Options.max_log_file_size: 0
+2014/07/30-01:42:57.266236 7f65824f5700 Options.max_manifest_file_size: 18446744073709551615
+2014/07/30-01:42:57.266237 7f65824f5700      Options.log_file_time_to_roll: 0
+2014/07/30-01:42:57.266238 7f65824f5700      Options.keep_log_file_num: 1000
+2014/07/30-01:42:57.266239 7f65824f5700  Options.db_stats_log_interval: 1800
+2014/07/30-01:42:57.266240 7f65824f5700        Options.allow_os_buffer: 1
+2014/07/30-01:42:57.266241 7f65824f5700       Options.allow_mmap_reads: 0
+2014/07/30-01:42:57.266242 7f65824f5700      Options.allow_mmap_writes: 1
+2014/07/30-01:42:57.266242 7f65824f5700        Options.min_write_buffer_number_to_merge: 1
+2014/07/30-01:42:57.266243 7f65824f5700         Options.purge_redundant_kvs_while_flush: 1
+2014/07/30-01:42:57.266244 7f65824f5700            Options.compression_opts.window_bits: -14
+2014/07/30-01:42:57.266245 7f65824f5700                  Options.compression_opts.level: -1
+2014/07/30-01:42:57.266246 7f65824f5700               Options.compression_opts.strategy: 0
+2014/07/30-01:42:57.266247 7f65824f5700      Options.level0_file_num_compaction_trigger: 4
+2014/07/30-01:42:57.266248 7f65824f5700          Options.level0_slowdown_writes_trigger: 8
+2014/07/30-01:42:57.266249 7f65824f5700              Options.level0_stop_writes_trigger: 12
+2014/07/30-01:42:57.266250 7f65824f5700                Options.max_mem_compaction_level: 2
+2014/07/30-01:42:57.266250 7f65824f5700                   Options.target_file_size_base: 2097152
+2014/07/30-01:42:57.266251 7f65824f5700             Options.target_file_size_multiplier: 1
+2014/07/30-01:42:57.266252 7f65824f5700                Options.max_bytes_for_level_base: 10485760
+2014/07/30-01:42:57.266253 7f65824f5700          Options.max_bytes_for_level_multiplier: 10
+2014/07/30-01:42:57.266254 7f65824f5700 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2014/07/30-01:42:57.266260 7f65824f5700 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2014/07/30-01:42:57.266262 7f65824f5700 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2014/07/30-01:42:57.266262 7f65824f5700 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2014/07/30-01:42:57.266263 7f65824f5700 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2014/07/30-01:42:57.266264 7f65824f5700 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2014/07/30-01:42:57.266265 7f65824f5700 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2014/07/30-01:42:57.266266 7f65824f5700       Options.max_sequential_skip_in_iterations: 8
+2014/07/30-01:42:57.266267 7f65824f5700              Options.expanded_compaction_factor: 25
+2014/07/30-01:42:57.266268 7f65824f5700                Options.source_compaction_factor: 1
+2014/07/30-01:42:57.266268 7f65824f5700          Options.max_grandparent_overlap_factor: 10
+2014/07/30-01:42:57.266269 7f65824f5700                              Options.db_log_dir: 
+2014/07/30-01:42:57.266270 7f65824f5700                              Options.wal_dir: /usr/share/nginx/html/angel/db/mydb
+2014/07/30-01:42:57.266271 7f65824f5700                 Options.disable_seek_compaction: 0
+2014/07/30-01:42:57.266272 7f65824f5700                          Options.no_block_cache: 0
+2014/07/30-01:42:57.266273 7f65824f5700                Options.table_cache_numshardbits: 4
+2014/07/30-01:42:57.266274 7f65824f5700     Options.table_cache_remove_scan_count_limit: 16
+2014/07/30-01:42:57.266274 7f65824f5700                        Options.arena_block_size: 419430
+2014/07/30-01:42:57.266275 7f65824f5700     Options.delete_obsolete_files_period_micros: 21600000000
+2014/07/30-01:42:57.266276 7f65824f5700              Options.max_background_compactions: 1
+2014/07/30-01:42:57.266277 7f65824f5700                  Options.max_background_flushes: 0
+2014/07/30-01:42:57.266278 7f65824f5700                       Options.soft_rate_limit: 0.00
+2014/07/30-01:42:57.266286 7f65824f5700                       Options.hard_rate_limit: 0.00
+2014/07/30-01:42:57.266287 7f65824f5700       Options.rate_limit_delay_max_milliseconds: 1000
+2014/07/30-01:42:57.266288 7f65824f5700                Options.disable_auto_compactions: 0
+2014/07/30-01:42:57.266289 7f65824f5700                         Options.WAL_ttl_seconds: 0
+2014/07/30-01:42:57.266290 7f65824f5700                       Options.WAL_size_limit_MB: 0
+2014/07/30-01:42:57.266291 7f65824f5700             Options.manifest_preallocation_size: 4194304
+2014/07/30-01:42:57.266292 7f65824f5700          Options.purge_redundant_kvs_while_flush: 1
+2014/07/30-01:42:57.266292 7f65824f5700                          Options.allow_os_buffer: 1
+2014/07/30-01:42:57.266293 7f65824f5700                         Options.allow_mmap_reads: 0
+2014/07/30-01:42:57.266294 7f65824f5700                        Options.allow_mmap_writes: 1
+2014/07/30-01:42:57.266295 7f65824f5700                      Options.is_fd_close_on_exec: 1
+2014/07/30-01:42:57.266296 7f65824f5700               Options.skip_log_error_on_recovery: 0
+2014/07/30-01:42:57.266297 7f65824f5700                    Options.stats_dump_period_sec: 3600
+2014/07/30-01:42:57.266297 7f65824f5700                     Options.block_size_deviation: 10
+2014/07/30-01:42:57.266298 7f65824f5700                    Options.advise_random_on_open: 1
+2014/07/30-01:42:57.266299 7f65824f5700          Options.access_hint_on_compaction_start: NORMAL
+2014/07/30-01:42:57.266300 7f65824f5700                       Options.use_adaptive_mutex: 0
+2014/07/30-01:42:57.266301 7f65824f5700                           Options.bytes_per_sync: 0
+2014/07/30-01:42:57.266302 7f65824f5700                           Options.filter_deletes: 0
+2014/07/30-01:42:57.266303 7f65824f5700                         Options.compaction_style: 0
+2014/07/30-01:42:57.266303 7f65824f5700  Options.compaction_options_universal.size_ratio: 1
+2014/07/30-01:42:57.266304 7f65824f5700 Options.compaction_options_universal.min_merge_width: 2
+2014/07/30-01:42:57.266305 7f65824f5700 Options.compaction_options_universal.max_merge_width: 4294967295
+2014/07/30-01:42:57.266311 7f65824f5700 Options.compaction_options_universal.max_size_amplification_percent: 200
+2014/07/30-01:42:57.266315 7f65824f5700                   Options.table_stats_collectors: InternalKeyStatsCollector; 
+2014/07/30-01:42:57.266316 7f65824f5700                   Options.inplace_update_support: 0
+2014/07/30-01:42:57.266317 7f65824f5700                 Options.inplace_update_num_locks: 10000
+2014/07/30-01:42:57.266319 7f65824f5700               Options.flush_block_policy_factory: FlushBlockBySizePolicyFactory
+2014/07/30-01:42:57.277206 7f65824f5700 Recovering from manifest file:MANIFEST-373532
+2014/07/30-01:42:57.281576 7f65824f5700 Recovered from manifest file:MANIFEST-373532 succeeded,manifest_file_number is 374144, next_file_number is 374145, last_sequence is 61665785, log_number is 374120,prev_log_number is 0
+2014/07/30-01:42:57.282148 7f65824f5700 Recovering log #374120
+2014/07/30-01:42:57.290808 7f65824f5700 Level-0 table #374145: started
+2014/07/30-01:42:57.304391 7f65824f5700 Level-0 table #374145: 535981 bytes OK
+2014/07/30-01:42:57.308607 7f65824f5700 Deleting manifest 374144 current manifest 374147
+2014/07/30-01:42:57.309235 7f65824f5700 Delete type=0 #374120
+2014/07/30-01:42:57.309566 7f65824f5700 Delete type=3 #373532
+2014/07/30-01:50:36.784413 7f6583cf8700 New memtable created with log file: #374148
+2014/07/30-01:50:36.784614 7f65816ca700                                Compactions
+Level  Files Size(MB) Score Time(sec)  Read(MB) Write(MB)    Rn(MB)  Rnp1(MB)  Wnew(MB) RW-Amplify Read(MB/s) Write(MB/s)      Rn     Rnp1     Wnp1     NewW    Count  Ln-stall Stall-cnt
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0        1        1   0.1         0         0         1         0         0         1        0.0       0.0        37.6        0        0        1        1        1       0.0         0
+  1        6        8   0.8         0         0         0         0         0         0        0.0       0.0         0.0        0        0        0        0        0       0.0         0
+  2       77      100   1.0         0         0         0         0         0         0        0.0       0.0         0.0        0        0        0        0        0       0.0         0
+  3      541      999   1.0         0         0         0         0         0         0        0.0       0.0         0.0        0        0        0        0        0       0.0         0
+  4      112      233   0.0         0         0         0         0         0         0        0.0       0.0         0.0        0        0        0        0        0       0.0         0
+Uptime(secs): 459.5 total, 459.5 interval
+Compaction IO cumulative (GB): 0.00 new, 0.00 read, 0.00 write, 0.00 read+write
+Compaction IO cumulative (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification cumulative: 1.0 write, 1.0 compaction
+Compaction IO interval (MB): 0.51 new, 0.00 read, 0.51 write, 0.51 read+write
+Compaction IO interval (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification interval: 1.0 write, 1.0 compaction
+Stalls(secs): 0.000 level0_slowdown, 0.000 level0_numfiles, 0.000 memtable_compaction, 0.000 leveln_slowdown
+Stalls(count): 0 level0_slowdown, 0 level0_numfiles, 0 memtable_compaction, 0 leveln_slowdown
+2014/07/30-01:50:36.784623 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-01:50:36.784632 7f65816ca700 Flushing memtable with log file: 374146
+2014/07/30-01:50:36.784639 7f65816ca700 Level-0 flush table #374149: started
+2014/07/30-01:50:36.800755 7f65816ca700 Level-0 flush table #374149: 691274 bytes OK
+2014/07/30-01:50:36.800777 7f65816ca700 Level-0 commit table #374149 started
+2014/07/30-01:50:36.802499 7f65816ca700 Level-0 commit table #374149: memtable #1 done
+2014/07/30-01:50:36.802612 7f65816ca700 Compaction nothing to do
+2014/07/30-01:50:36.802684 7f65816ca700 Delete type=0 #374146
+2014/07/30-01:54:32.286603 7f65824f5700 New memtable created with log file: #374150
+2014/07/30-01:54:32.286655 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-01:54:32.286661 7f65816ca700 Flushing memtable with log file: 374148
+2014/07/30-01:54:32.286665 7f65816ca700 Level-0 flush table #374151: started
+2014/07/30-01:54:32.303018 7f65816ca700 Level-0 flush table #374151: 674947 bytes OK
+2014/07/30-01:54:32.303027 7f65816ca700 Level-0 commit table #374151 started
+2014/07/30-01:54:32.305088 7f65816ca700 Level-0 commit table #374151: memtable #1 done
+2014/07/30-01:54:32.305150 7f65816ca700 Compaction nothing to do
+2014/07/30-01:54:32.305208 7f65816ca700 Delete type=0 #374148
+2014/07/30-01:59:15.222351 7f65834f7700 New memtable created with log file: #374152
+2014/07/30-01:59:15.222412 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-01:59:15.222418 7f65816ca700 Flushing memtable with log file: 374150
+2014/07/30-01:59:15.222421 7f65816ca700 Level-0 flush table #374153: started
+2014/07/30-01:59:15.238787 7f65816ca700 Level-0 flush table #374153: 719050 bytes OK
+2014/07/30-01:59:15.238795 7f65816ca700 Level-0 commit table #374153 started
+2014/07/30-01:59:15.240816 7f65816ca700 Level-0 commit table #374153: memtable #1 done
+2014/07/30-01:59:15.240910 7f65816ca700 Compacting 4@0 + 6@1 files, score 1.00 slots available 0
+2014/07/30-01:59:15.240921 7f65816ca700 Compaction start summary: Base version 5 Base level 0, seek compaction:0, inputs:[374151(674947) 374145(535981) 374153(719050) 374149(691274) ],[374122(920454) 374124(1088108) 374125(1007277) 374126(2119111) 374127(1740244) 374128(2016204) ]
+2014/07/30-01:59:15.290490 7f65816ca700 Generated table #374154: 2782 keys, 1529774 bytes
+2014/07/30-01:59:15.343934 7f65816ca700 Generated table #374155: 605 keys, 1730795 bytes
+2014/07/30-01:59:15.381429 7f65816ca700 Generated table #374156: 473 keys, 1417477 bytes
+2014/07/30-01:59:15.434414 7f65816ca700 Generated table #374157: 637 keys, 2118210 bytes
+2014/07/30-01:59:15.487305 7f65816ca700 Generated table #374158: 620 keys, 2121949 bytes
+2014/07/30-01:59:15.491040 7f65816ca700 Generated table #374159: 15 keys, 44977 bytes
+2014/07/30-01:59:15.561589 7f65816ca700 Generated table #374160: 878 keys, 2120893 bytes
+2014/07/30-01:59:15.568648 7f65816ca700 Generated table #374161: 145 keys, 172193 bytes
+2014/07/30-01:59:15.568671 7f65816ca700 Compacted 4@0 + 6@1 files => 11256268 bytes
+2014/07/30-01:59:15.570873 7f65816ca700 compacted to: files[0 8 77 541 112 0 0 ], 69.5 MB/sec, level 1, files in(4, 6) out(8) MB in(2.5, 8.5) out(10.7), read-write-amplify(8.7) write-amplify(4.3) OK
+2014/07/30-01:59:15.570988 7f65816ca700 Delete type=2 #374122
+2014/07/30-01:59:15.571115 7f65816ca700 Delete type=2 #374124
+2014/07/30-01:59:15.571246 7f65816ca700 Delete type=2 #374125
+2014/07/30-01:59:15.571383 7f65816ca700 Delete type=2 #374126
+2014/07/30-01:59:15.571593 7f65816ca700 Delete type=2 #374127
+2014/07/30-01:59:15.571767 7f65816ca700 Delete type=2 #374128
+2014/07/30-01:59:15.571976 7f65816ca700 Delete type=2 #374145
+2014/07/30-01:59:15.572045 7f65816ca700 Delete type=2 #374149
+2014/07/30-01:59:15.572126 7f65816ca700 Delete type=0 #374150
+2014/07/30-01:59:15.572500 7f65816ca700 Delete type=2 #374151
+2014/07/30-01:59:15.572579 7f65816ca700 Delete type=2 #374153
+2014/07/30-01:59:15.572714 7f65816ca700 Compacting 1@1 + 5@2 files, score 1.07 slots available 0
+2014/07/30-01:59:15.572720 7f65816ca700 Compaction start summary: Base version 6 Base level 1, seek compaction:0, inputs:[374158(2121949) ],[373828(1032722) 373829(2123382) 373830(1039719) 373831(2120453) 373832(1932928) ]
+2014/07/30-01:59:15.680233 7f65816ca700 Generated table #374162: 465 keys, 1512559 bytes
+2014/07/30-01:59:15.771135 7f65816ca700 Generated table #374163: 744 keys, 2122760 bytes
+2014/07/30-01:59:15.834435 7f65816ca700 Generated table #374164: 564 keys, 1609535 bytes
+2014/07/30-01:59:15.913190 7f65816ca700 Generated table #374165: 757 keys, 2121149 bytes
+2014/07/30-01:59:16.015827 7f65816ca700 Generated table #374166: 748 keys, 2123325 bytes
+2014/07/30-01:59:16.024029 7f65816ca700 Generated table #374167: 100 keys, 253158 bytes
+2014/07/30-01:59:16.024042 7f65816ca700 Compacted 1@1 + 5@2 files => 9742486 bytes
+2014/07/30-01:59:16.025735 7f65816ca700 compacted to: files[0 7 78 541 112 0 0 ], 44.6 MB/sec, level 2, files in(1, 5) out(6) MB in(2.0, 7.9) out(9.3), read-write-amplify(9.5) write-amplify(4.6) OK
+2014/07/30-01:59:16.025816 7f65816ca700 Delete type=2 #373828
+2014/07/30-01:59:16.025941 7f65816ca700 Delete type=2 #373829
+2014/07/30-01:59:16.026120 7f65816ca700 Delete type=2 #373830
+2014/07/30-01:59:16.026215 7f65816ca700 Delete type=2 #373831
+2014/07/30-01:59:16.026377 7f65816ca700 Delete type=2 #373832
+2014/07/30-01:59:16.026516 7f65816ca700 Delete type=2 #374158
+2014/07/30-01:59:16.026758 7f65816ca700 Compacting 1@2 + 8@3 files, score 1.01 slots available 0
+2014/07/30-01:59:16.026765 7f65816ca700 Compaction start summary: Base version 7 Base level 2, seek compaction:0, inputs:[374135(2134735) ],[371867(2135160) 371868(2130982) 371869(2130833) 371870(2130664) 371871(2131703) 371872(2131854) 371]
+2014/07/30-01:59:16.134741 7f65816ca700 Generated table #374168: 2202 keys, 2131799 bytes
+2014/07/30-01:59:16.263573 7f65816ca700 Generated table #374169: 2002 keys, 2132992 bytes
+2014/07/30-01:59:16.388938 7f65816ca700 Generated table #374170: 2119 keys, 2130166 bytes
+2014/07/30-01:59:16.520818 7f65816ca700 Generated table #374171: 2165 keys, 2131033 bytes
+2014/07/30-01:59:16.618693 7f65816ca700 Generated table #374172: 2137 keys, 2130366 bytes
+2014/07/30-01:59:16.727172 7f65816ca700 Generated table #374173: 2030 keys, 2134478 bytes
+2014/07/30-01:59:16.888030 7f65816ca700 Generated table #374174: 2097 keys, 2132616 bytes
+2014/07/30-01:59:16.904417 7f65816ca700 Generated table #374175: 472 keys, 510839 bytes
+2014/07/30-01:59:16.904433 7f65816ca700 Compacted 1@2 + 8@3 files => 15434289 bytes
+2014/07/30-01:59:16.906230 7f65816ca700 compacted to: files[0 7 77 541 112 0 0 ], 37.6 MB/sec, level 3, files in(1, 8) out(8) MB in(2.0, 14.7) out(14.7), read-write-amplify(15.4) write-amplify(7.2) OK
+2014/07/30-01:59:16.906313 7f65816ca700 Delete type=2 #369581
+2014/07/30-01:59:16.906491 7f65816ca700 Delete type=2 #371867
+2014/07/30-01:59:16.906674 7f65816ca700 Delete type=2 #371868
+2014/07/30-01:59:16.906826 7f65816ca700 Delete type=2 #371869
+2014/07/30-01:59:16.906980 7f65816ca700 Delete type=2 #371870
+2014/07/30-01:59:16.907149 7f65816ca700 Delete type=2 #371871
+2014/07/30-01:59:16.907301 7f65816ca700 Delete type=2 #371872
+2014/07/30-01:59:16.907468 7f65816ca700 Delete type=2 #371873
+2014/07/30-01:59:16.907516 7f65816ca700 Delete type=2 #374135
+2014/07/30-02:13:55.079948 7f65824f5700 New memtable created with log file: #374176
+2014/07/30-02:13:55.080004 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-02:13:55.080011 7f65816ca700 Flushing memtable with log file: 374152
+2014/07/30-02:13:55.080016 7f65816ca700 Level-0 flush table #374177: started
+2014/07/30-02:13:55.097367 7f65816ca700 Level-0 flush table #374177: 724441 bytes OK
+2014/07/30-02:13:55.097385 7f65816ca700 Level-0 commit table #374177 started
+2014/07/30-02:13:55.100050 7f65816ca700 Level-0 commit table #374177: memtable #1 done
+2014/07/30-02:13:55.100137 7f65816ca700 Compaction nothing to do
+2014/07/30-02:13:55.100196 7f65816ca700 Delete type=0 #374152
+2014/07/30-02:26:08.782906 7f6582cf6700 New memtable created with log file: #374178
+2014/07/30-02:26:08.782963 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-02:26:08.782971 7f65816ca700 Flushing memtable with log file: 374176
+2014/07/30-02:26:08.782975 7f65816ca700 Level-0 flush table #374179: started
+2014/07/30-02:26:08.797994 7f65816ca700 Level-0 flush table #374179: 605888 bytes OK
+2014/07/30-02:26:08.798003 7f65816ca700 Level-0 commit table #374179 started
+2014/07/30-02:26:08.800027 7f65816ca700 Level-0 commit table #374179: memtable #1 done
+2014/07/30-02:26:08.800093 7f65816ca700 Compaction nothing to do
+2014/07/30-02:26:08.800152 7f65816ca700 Delete type=0 #374176
+2014/07/30-02:34:58.552150 7f6582cf6700 New memtable created with log file: #374180
+2014/07/30-02:34:58.552200 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-02:34:58.552205 7f65816ca700 Flushing memtable with log file: 374178
+2014/07/30-02:34:58.552209 7f65816ca700 Level-0 flush table #374181: started
+2014/07/30-02:34:58.567157 7f65816ca700 Level-0 flush table #374181: 642878 bytes OK
+2014/07/30-02:34:58.567165 7f65816ca700 Level-0 commit table #374181 started
+2014/07/30-02:34:58.568907 7f65816ca700 Level-0 commit table #374181: memtable #1 done
+2014/07/30-02:34:58.568926 7f65816ca700 Compaction nothing to do
+2014/07/30-02:34:58.568988 7f65816ca700 Delete type=0 #374178
+2014/07/30-02:58:00.999433 7f65824f5700 New memtable created with log file: #374182
+2014/07/30-02:58:00.999570 7f65816ca700                                Compactions
+Level  Files Size(MB) Score Time(sec)  Read(MB) Write(MB)    Rn(MB)  Rnp1(MB)  Wnew(MB) RW-Amplify Read(MB/s) Write(MB/s)      Rn     Rnp1     Wnp1     NewW    Count  Ln-stall Stall-cnt
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0        3        2   0.2         0         0         4         0         0         4        0.0       0.0        39.9        0        0        1        1        7       0.0         0
+  1        7        9   0.9         0        11        11         2         8         2        8.7      33.5        32.8        4        6        8        2        1       0.0         0
+  2       77       99   1.0         0        10         9         2         8         1        9.5      21.9        20.6        1        5        6        1        1       0.0         0
+  3      541      999   1.0         1        17        15         2        15         0       15.4      19.0        16.8        1        8        8        0        1       0.0         0
+  4      112      233   0.0         0         0         0         0         0         0        0.0       0.0         0.0        0        0        0        0        0       0.0         0
+Uptime(secs): 4503.7 total, 4044.2 interval
+Compaction IO cumulative (GB): 0.00 new, 0.04 read, 0.04 write, 0.07 read+write
+Compaction IO cumulative (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification cumulative: 8.9 write, 17.5 compaction
+Compaction IO interval (MB): 3.87 new, 37.59 read, 38.62 write, 76.20 read+write
+Compaction IO interval (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification interval: 10.0 write, 19.7 compaction
+Stalls(secs): 0.000 level0_slowdown, 0.000 level0_numfiles, 0.000 memtable_compaction, 0.000 leveln_slowdown
+Stalls(count): 0 level0_slowdown, 0 level0_numfiles, 0 memtable_compaction, 0 leveln_slowdown
+2014/07/30-02:58:00.999573 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-02:58:00.999577 7f65816ca700 Flushing memtable with log file: 374180
+2014/07/30-02:58:00.999580 7f65816ca700 Level-0 flush table #374183: started
+2014/07/30-02:58:01.018758 7f65816ca700 Level-0 flush table #374183: 728908 bytes OK
+2014/07/30-02:58:01.018767 7f65816ca700 Level-0 commit table #374183 started
+2014/07/30-02:58:01.021318 7f65816ca700 Level-0 commit table #374183: memtable #1 done
+2014/07/30-02:58:01.021421 7f65816ca700 Compacting 4@0 + 7@1 files, score 1.00 slots available 0
+2014/07/30-02:58:01.021431 7f65816ca700 Compaction start summary: Base version 12 Base level 0, seek compaction:0, inputs:[374183(728908) 374177(724441) 374181(642878) 374179(605888) ],[374154(1529774) 374155(1730795) 374156(1417477) 374157(2118210) 374159(44977) 374160(2120893) 37416]
+2014/07/30-02:58:01.087109 7f65816ca700 Generated table #374184: 4382 keys, 2132824 bytes
+2014/07/30-02:58:01.092093 7f65816ca700 Generated table #374185: 36 keys, 84438 bytes
+2014/07/30-02:58:01.146281 7f65816ca700 Generated table #374186: 815 keys, 2123761 bytes
+2014/07/30-02:58:01.159357 7f65816ca700 Generated table #374187: 121 keys, 398367 bytes
+2014/07/30-02:58:01.211347 7f65816ca700 Generated table #374188: 612 keys, 1801192 bytes
+2014/07/30-02:58:01.300120 7f65816ca700 Generated table #374189: 646 keys, 2121049 bytes
+2014/07/30-02:58:01.352112 7f65816ca700 Generated table #374190: 312 keys, 912293 bytes
+2014/07/30-02:58:01.407209 7f65816ca700 Generated table #374191: 1017 keys, 2036277 bytes
+2014/07/30-02:58:01.407228 7f65816ca700 Compacted 4@0 + 7@1 files => 11610201 bytes
+2014/07/30-02:58:01.409232 7f65816ca700 compacted to: files[0 8 77 541 112 0 0 ], 60.8 MB/sec, level 1, files in(4, 7) out(8) MB in(2.6, 8.7) out(11.1), read-write-amplify(8.7) write-amplify(4.3) OK
+2014/07/30-02:58:01.409319 7f65816ca700 Delete type=2 #374154
+2014/07/30-02:58:01.409507 7f65816ca700 Delete type=2 #374155
+2014/07/30-02:58:01.409694 7f65816ca700 Delete type=2 #374156
+2014/07/30-02:58:01.409848 7f65816ca700 Delete type=2 #374157
+2014/07/30-02:58:01.410067 7f65816ca700 Delete type=2 #374159
+2014/07/30-02:58:01.410092 7f65816ca700 Delete type=2 #374160
+2014/07/30-02:58:01.410290 7f65816ca700 Delete type=2 #374161
+2014/07/30-02:58:01.410324 7f65816ca700 Delete type=2 #374177
+2014/07/30-02:58:01.410408 7f65816ca700 Delete type=2 #374179
+2014/07/30-02:58:01.410478 7f65816ca700 Delete type=0 #374180
+2014/07/30-02:58:01.410850 7f65816ca700 Delete type=2 #374181
+2014/07/30-02:58:01.410924 7f65816ca700 Delete type=2 #374183
+2014/07/30-02:58:01.411044 7f65816ca700 Expanding@1 1+19 (2132824+21168877 bytes) to 2+19 (2217262+21168877 bytes)
+2014/07/30-02:58:01.411073 7f65816ca700 Compacting 2@1 + 19@2 files, score 1.11 slots available 0
+2014/07/30-02:58:01.411079 7f65816ca700 Compaction start summary: Base version 13 Base level 1, seek compaction:0, inputs:[374184(2132824) 374185(84438) ],[374078(1274648) 374079(1395350) 374080(324310) 374081(1571556) 374082(611548) 374083(796948) 374084]
+2014/07/30-02:58:01.415636 7f65816ca700 Generated table #374192: 1786 keys, 47910 bytes
+2014/07/30-02:58:01.456313 7f65816ca700 Generated table #374193: 22388 keys, 994329 bytes
+2014/07/30-02:58:01.538771 7f65816ca700 Generated table #374194: 27805 keys, 1469206 bytes
+2014/07/30-02:58:01.562608 7f65816ca700 Generated table #374195: 404 keys, 589134 bytes
+2014/07/30-02:58:01.628388 7f65816ca700 Generated table #374196: 877 keys, 1478876 bytes
+2014/07/30-02:58:01.646361 7f65816ca700 Generated table #374197: 418 keys, 627543 bytes
+2014/07/30-02:58:01.691203 7f65816ca700 Generated table #374198: 541 keys, 918087 bytes
+2014/07/30-02:58:01.723897 7f65816ca700 Generated table #374199: 431 keys, 864747 bytes
+2014/07/30-02:58:01.800946 7f65816ca700 Generated table #374200: 1115 keys, 2126802 bytes
+2014/07/30-02:58:01.805795 7f65816ca700 Generated table #374201: 56 keys, 118799 bytes
+2014/07/30-02:58:01.819052 7f65816ca700 Generated table #374202: 255 keys, 448306 bytes
+2014/07/30-02:58:01.876766 7f65816ca700 Generated table #374203: 739 keys, 1628086 bytes
+2014/07/30-02:58:01.918492 7f65816ca700 Generated table #374204: 634 keys, 1343594 bytes
+2014/07/30-02:58:01.976740 7f65816ca700 Generated table #374205: 973 keys, 2126924 bytes
+2014/07/30-02:58:02.021898 7f65816ca700 Generated table #374206: 220 keys, 494326 bytes
+2014/07/30-02:58:02.168939 7f65816ca700 Generated table #374207: 984 keys, 2128603 bytes
+2014/07/30-02:58:02.182818 7f65816ca700 Generated table #374208: 178 keys, 389869 bytes
+2014/07/30-02:58:02.267205 7f65816ca700 Generated table #374209: 932 keys, 2124275 bytes
+2014/07/30-02:58:02.316024 7f65816ca700 Generated table #374210: 438 keys, 1018908 bytes
+2014/07/30-02:58:02.418267 7f65816ca700 Generated table #374211: 743 keys, 1783871 bytes
+2014/07/30-02:58:02.427618 7f65816ca700 Generated table #374212: 112 keys, 271970 bytes
+2014/07/30-02:58:02.427636 7f65816ca700 Compacted 2@1 + 19@2 files => 22994165 bytes
+2014/07/30-02:58:02.433745 7f65816ca700 compacted to: files[0 6 79 541 112 0 0 ], 45.6 MB/sec, level 2, files in(2, 19) out(21) MB in(2.1, 20.2) out(21.9), read-write-amplify(20.9) write-amplify(10.4) OK
+2014/07/30-02:58:02.433844 7f65816ca700 Delete type=2 #373899
+2014/07/30-02:58:02.433937 7f65816ca700 Delete type=2 #373900
+2014/07/30-02:58:02.434054 7f65816ca700 Delete type=2 #374078
+2014/07/30-02:58:02.434209 7f65816ca700 Delete type=2 #374079
+2014/07/30-02:58:02.434362 7f65816ca700 Delete type=2 #374080
+2014/07/30-02:58:02.434412 7f65816ca700 Delete type=2 #374081
+2014/07/30-02:58:02.434576 7f65816ca700 Delete type=2 #374082
+2014/07/30-02:58:02.434654 7f65816ca700 Delete type=2 #374083
+2014/07/30-02:58:02.434748 7f65816ca700 Delete type=2 #374084
+2014/07/30-02:58:02.434838 7f65816ca700 Delete type=2 #374085
+2014/07/30-02:58:02.435047 7f65816ca700 Delete type=2 #374086
+2014/07/30-02:58:02.435092 7f65816ca700 Delete type=2 #374087
+2014/07/30-02:58:02.435284 7f65816ca700 Delete type=2 #374088
+2014/07/30-02:58:02.435419 7f65816ca700 Delete type=2 #374089
+2014/07/30-02:58:02.435622 7f65816ca700 Delete type=2 #374090
+2014/07/30-02:58:02.435672 7f65816ca700 Delete type=2 #374091
+2014/07/30-02:58:02.435885 7f65816ca700 Delete type=2 #374092
+2014/07/30-02:58:02.435963 7f65816ca700 Delete type=2 #374093
+2014/07/30-02:58:02.436181 7f65816ca700 Delete type=2 #374094
+2014/07/30-02:58:02.436205 7f65816ca700 Delete type=2 #374184
+2014/07/30-02:58:02.436433 7f65816ca700 Delete type=2 #374185
+2014/07/30-02:58:02.436504 7f65816ca700 Compacting 1@2 + 9@3 files, score 1.01 slots available 0
+2014/07/30-02:58:02.436511 7f65816ca700 Compaction start summary: Base version 14 Base level 2, seek compaction:0, inputs:[374142(2129384) ],[372314(2131604) 372315(2128734) 372316(2129958) 372317(2130129) 372318(2129670) 372319(2132586) 372]
+2014/07/30-02:58:02.536862 7f65816ca700 Generated table #374213: 2009 keys, 2131674 bytes
+2014/07/30-02:58:02.632013 7f65816ca700 Generated table #374214: 1970 keys, 2128570 bytes
+2014/07/30-02:58:02.794746 7f65816ca700 Generated table #374215: 1970 keys, 2131328 bytes
+2014/07/30-02:58:02.878755 7f65816ca700 Generated table #374216: 1936 keys, 2131498 bytes
+2014/07/30-02:58:02.993369 7f65816ca700 Generated table #374217: 1905 keys, 2129094 bytes
+2014/07/30-02:58:03.096971 7f65816ca700 Generated table #374218: 1920 keys, 2133356 bytes
+2014/07/30-02:58:03.238495 7f65816ca700 Generated table #374219: 1885 keys, 2131994 bytes
+2014/07/30-02:58:03.406018 7f65816ca700 Generated table #374220: 2002 keys, 2130445 bytes
+2014/07/30-02:58:03.462558 7f65816ca700 Generated table #374221: 1834 keys, 1920892 bytes
+2014/07/30-02:58:03.462582 7f65816ca700 Compacted 1@2 + 9@3 files => 18968851 bytes
+2014/07/30-02:58:03.464691 7f65816ca700 compacted to: files[0 6 78 541 112 0 0 ], 39.0 MB/sec, level 3, files in(1, 9) out(9) MB in(2.0, 18.0) out(18.1), read-write-amplify(18.8) write-amplify(8.9) OK
+2014/07/30-02:58:03.464778 7f65816ca700 Delete type=2 #368257
+2014/07/30-02:58:03.464955 7f65816ca700 Delete type=2 #372314
+2014/07/30-02:58:03.468154 7f65816ca700 Delete type=2 #372315
+2014/07/30-02:58:03.468328 7f65816ca700 Delete type=2 #372316
+2014/07/30-02:58:03.468487 7f65816ca700 Delete type=2 #372317
+2014/07/30-02:58:03.468644 7f65816ca700 Delete type=2 #372318
+2014/07/30-02:58:03.480643 7f65816ca700 Delete type=2 #372319
+2014/07/30-02:58:03.480801 7f65816ca700 Delete type=2 #372320
+2014/07/30-02:58:03.480967 7f65816ca700 Delete type=2 #372321
+2014/07/30-02:58:03.481103 7f65816ca700 Delete type=2 #374142
+2014/07/30-03:15:46.923865 7f65834f7700 New memtable created with log file: #374222
+2014/07/30-03:15:46.923922 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-03:15:46.923931 7f65816ca700 Flushing memtable with log file: 374182
+2014/07/30-03:15:46.923934 7f65816ca700 Level-0 flush table #374223: started
+2014/07/30-03:15:46.940763 7f65816ca700 Level-0 flush table #374223: 672452 bytes OK
+2014/07/30-03:15:46.940774 7f65816ca700 Level-0 commit table #374223 started
+2014/07/30-03:15:46.943460 7f65816ca700 Level-0 commit table #374223: memtable #1 done
+2014/07/30-03:15:46.943506 7f65816ca700 Compaction nothing to do
+2014/07/30-03:15:46.943566 7f65816ca700 Delete type=0 #374182
+2014/07/30-03:30:51.838760 7f65834f7700 New memtable created with log file: #374224
+2014/07/30-03:30:51.838823 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-03:30:51.838829 7f65816ca700 Flushing memtable with log file: 374222
+2014/07/30-03:30:51.838834 7f65816ca700 Level-0 flush table #374225: started
+2014/07/30-03:30:51.854974 7f65816ca700 Level-0 flush table #374225: 674316 bytes OK
+2014/07/30-03:30:51.854985 7f65816ca700 Level-0 commit table #374225 started
+2014/07/30-03:30:51.857014 7f65816ca700 Level-0 commit table #374225: memtable #1 done
+2014/07/30-03:30:51.857101 7f65816ca700 Compaction nothing to do
+2014/07/30-03:30:51.857162 7f65816ca700 Delete type=0 #374222
+2014/07/30-04:31:38.147019 7f65824f5700 New memtable created with log file: #374226
+2014/07/30-04:31:38.147169 7f65816ca700                                Compactions
+Level  Files Size(MB) Score Time(sec)  Read(MB) Write(MB)    Rn(MB)  Rnp1(MB)  Wnew(MB) RW-Amplify Read(MB/s) Write(MB/s)      Rn     Rnp1     Wnp1     NewW    Count  Ln-stall Stall-cnt
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0        2        1   0.1         0         0         6         0         0         6        0.0       0.0        39.3        0        0        1        1       10       0.0         0
+  1        6        9   0.9         1        22        22         5        17         5        8.7      31.2        30.6        8       13       16        3        2       0.0         0
+  2       78       99   1.0         1        32        31         4        28         3       15.3      21.9        21.3        3       24       27        3        2       0.0         0
+  3      541      999   1.0         2        37        33         4        33         0       17.1      19.3        17.2        2       17       17        0        2       0.0         0
+  4      112      233   0.0         0         0         0         0         0         0        0.0       0.0         0.0        0        0        0        0        0       0.0         0
+Uptime(secs): 10120.9 total, 5617.1 interval
+Compaction IO cumulative (GB): 0.01 new, 0.09 read, 0.09 write, 0.18 read+write
+Compaction IO cumulative (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification cumulative: 14.5 write, 28.8 compaction
+Compaction IO interval (MB): 1.98 new, 53.67 read, 53.07 write, 106.74 read+write
+Compaction IO interval (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification interval: 26.8 write, 53.9 compaction
+Stalls(secs): 0.000 level0_slowdown, 0.000 level0_numfiles, 0.000 memtable_compaction, 0.000 leveln_slowdown
+Stalls(count): 0 level0_slowdown, 0 level0_numfiles, 0 memtable_compaction, 0 leveln_slowdown
+2014/07/30-04:31:38.147173 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-04:31:38.147176 7f65816ca700 Flushing memtable with log file: 374224
+2014/07/30-04:31:38.147179 7f65816ca700 Level-0 flush table #374227: started
+2014/07/30-04:31:38.167032 7f65816ca700 Level-0 flush table #374227: 690952 bytes OK
+2014/07/30-04:31:38.167042 7f65816ca700 Level-0 commit table #374227 started
+2014/07/30-04:31:38.168696 7f65816ca700 Level-0 commit table #374227: memtable #1 done
+2014/07/30-04:31:38.168752 7f65816ca700 Compaction nothing to do
+2014/07/30-04:31:38.168811 7f65816ca700 Delete type=0 #374224
+2014/07/30-05:38:45.686642 7f6582cf6700 New memtable created with log file: #374228
+2014/07/30-05:38:45.686769 7f65816ca700                                Compactions
+Level  Files Size(MB) Score Time(sec)  Read(MB) Write(MB)    Rn(MB)  Rnp1(MB)  Wnew(MB) RW-Amplify Read(MB/s) Write(MB/s)      Rn     Rnp1     Wnp1     NewW    Count  Ln-stall Stall-cnt
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0        3        2   0.2         0         0         7         0         0         7        0.0       0.0        38.6        0        0        1        1       11       0.0         0
+  1        6        9   0.9         1        22        22         5        17         5        8.7      31.2        30.6        8       13       16        3        2       0.0         0
+  2       78       99   1.0         1        32        31         4        28         3       15.3      21.9        21.3        3       24       27        3        2       0.0         0
+  3      541      999   1.0         2        37        33         4        33         0       17.1      19.3        17.2        2       17       17        0        2       0.0         0
+  4      112      233   0.0         0         0         0         0         0         0        0.0       0.0         0.0        0        0        0        0        0       0.0         0
+Uptime(secs): 14148.4 total, 4027.5 interval
+Compaction IO cumulative (GB): 0.01 new, 0.09 read, 0.09 write, 0.18 read+write
+Compaction IO cumulative (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification cumulative: 13.2 write, 26.2 compaction
+Compaction IO interval (MB): 0.66 new, 0.00 read, 0.66 write, 0.66 read+write
+Compaction IO interval (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification interval: 1.0 write, 1.0 compaction
+Stalls(secs): 0.000 level0_slowdown, 0.000 level0_numfiles, 0.000 memtable_compaction, 0.000 leveln_slowdown
+Stalls(count): 0 level0_slowdown, 0 level0_numfiles, 0 memtable_compaction, 0 leveln_slowdown
+2014/07/30-05:38:45.686773 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-05:38:45.686777 7f65816ca700 Flushing memtable with log file: 374226
+2014/07/30-05:38:45.686779 7f65816ca700 Level-0 flush table #374229: started
+2014/07/30-05:38:45.704881 7f65816ca700 Level-0 flush table #374229: 728649 bytes OK
+2014/07/30-05:38:45.704897 7f65816ca700 Level-0 commit table #374229 started
+2014/07/30-05:38:45.706706 7f65816ca700 Level-0 commit table #374229: memtable #1 done
+2014/07/30-05:38:45.706985 7f65816ca700 Compacting 4@0 + 6@1 files, score 1.00 slots available 0
+2014/07/30-05:38:45.706995 7f65816ca700 Compaction start summary: Base version 19 Base level 0, seek compaction:0, inputs:[374227(690952) 374225(674316) 374229(728649) 374223(672452) ],[374186(2123761) 374187(398367) 374188(1801192) 374189(2121049) 374190(912293) 374191(2036277) ]
+2014/07/30-05:38:45.724219 7f65816ca700 Generated table #374230: 1710 keys, 595446 bytes
+2014/07/30-05:38:45.795887 7f65816ca700 Generated table #374231: 886 keys, 2131257 bytes
+2014/07/30-05:38:45.826102 7f65816ca700 Generated table #374232: 383 keys, 1113229 bytes
+2014/07/30-05:38:45.889297 7f65816ca700 Generated table #374233: 722 keys, 2125653 bytes
+2014/07/30-05:38:45.918623 7f65816ca700 Generated table #374234: 155 keys, 452382 bytes
+2014/07/30-05:38:46.019469 7f65816ca700 Generated table #374235: 640 keys, 2119212 bytes
+2014/07/30-05:38:46.066828 7f65816ca700 Generated table #374236: 556 keys, 1762039 bytes
+2014/07/30-05:38:46.126294 7f65816ca700 Generated table #374237: 1090 keys, 1746057 bytes
+2014/07/30-05:38:46.126314 7f65816ca700 Compacted 4@0 + 6@1 files => 12045275 bytes
+2014/07/30-05:38:46.128166 7f65816ca700 compacted to: files[0 8 78 541 112 0 0 ], 57.7 MB/sec, level 1, files in(4, 6) out(8) MB in(2.6, 9.0) out(11.5), read-write-amplify(8.7) write-amplify(4.4) OK
+2014/07/30-05:38:46.128253 7f65816ca700 Delete type=2 #374186
+2014/07/30-05:38:46.128516 7f65816ca700 Delete type=2 #374187
+2014/07/30-05:38:46.128589 7f65816ca700 Delete type=2 #374188
+2014/07/30-05:38:46.128782 7f65816ca700 Delete type=2 #374189
+2014/07/30-05:38:46.129005 7f65816ca700 Delete type=2 #374190
+2014/07/30-05:38:46.129117 7f65816ca700 Delete type=2 #374191
+2014/07/30-05:38:46.129334 7f65816ca700 Delete type=2 #374223
+2014/07/30-05:38:46.129426 7f65816ca700 Delete type=2 #374225
+2014/07/30-05:38:46.129507 7f65816ca700 Delete type=0 #374226
+2014/07/30-05:38:46.129909 7f65816ca700 Delete type=2 #374227
+2014/07/30-05:38:46.129990 7f65816ca700 Delete type=2 #374229
+2014/07/30-05:38:46.130137 7f65816ca700 Compacting 1@1 + 16@2 files, score 1.15 slots available 0
+2014/07/30-05:38:46.130144 7f65816ca700 Compaction start summary: Base version 20 Base level 1, seek compaction:0, inputs:[374231(2131257) ],[374212(271970) 374129(1832248) 374130(1980341) 374131(683006) 374132(1547018) 374133(2126881) 37413]
+2014/07/30-05:38:46.207144 7f65816ca700 Generated table #374238: 709 keys, 1714645 bytes
+2014/07/30-05:38:46.281358 7f65816ca700 Generated table #374239: 902 keys, 2123680 bytes
+2014/07/30-05:38:46.290443 7f65816ca700 Generated table #374240: 134 keys, 296052 bytes
+2014/07/30-05:38:46.311550 7f65816ca700 Generated table #374241: 308 keys, 714011 bytes
+2014/07/30-05:38:46.423456 7f65816ca700 Generated table #374242: 752 keys, 1718462 bytes
+2014/07/30-05:38:46.506328 7f65816ca700 Generated table #374243: 833 keys, 2124577 bytes
+2014/07/30-05:38:46.578085 7f65816ca700 Generated table #374244: 317 keys, 907034 bytes
+2014/07/30-05:38:46.614142 7f65816ca700 Generated table #374245: 507 keys, 1288774 bytes
+2014/07/30-05:38:46.686985 7f65816ca700 Generated table #374246: 819 keys, 2126082 bytes
+2014/07/30-05:38:46.706647 7f65816ca700 Generated table #374247: 225 keys, 675081 bytes
+2014/07/30-05:38:46.755683 7f65816ca700 Generated table #374248: 327 keys, 948543 bytes
+2014/07/30-05:38:46.841317 7f65816ca700 Generated table #374249: 755 keys, 2121960 bytes
+2014/07/30-05:38:46.844955 7f65816ca700 Generated table #374250: 8 keys, 32195 bytes
+2014/07/30-05:38:46.880699 7f65816ca700 Generated table #374251: 374 keys, 960569 bytes
+2014/07/30-05:38:46.982285 7f65816ca700 Generated table #374252: 768 keys, 2124145 bytes
+2014/07/30-05:38:47.013334 7f65816ca700 Generated table #374253: 200 keys, 609580 bytes
+2014/07/30-05:38:47.013350 7f65816ca700 Compacted 1@1 + 16@2 files => 20485390 bytes
+2014/07/30-05:38:47.015211 7f65816ca700 compacted to: files[0 7 78 541 112 0 0 ], 46.8 MB/sec, level 2, files in(1, 16) out(16) MB in(2.0, 17.9) out(19.5), read-write-amplify(19.4) write-amplify(9.6) OK
+2014/07/30-05:38:47.015302 7f65816ca700 Delete type=2 #373231
+2014/07/30-05:38:47.030084 7f65816ca700 Delete type=2 #373482
+2014/07/30-05:38:47.030134 7f65816ca700 Delete type=2 #374129
+2014/07/30-05:38:47.030342 7f65816ca700 Delete type=2 #374130
+2014/07/30-05:38:47.030548 7f65816ca700 Delete type=2 #374131
+2014/07/30-05:38:47.030633 7f65816ca700 Delete type=2 #374132
+2014/07/30-05:38:47.030797 7f65816ca700 Delete type=2 #374133
+2014/07/30-05:38:47.031022 7f65816ca700 Delete type=2 #374134
+2014/07/30-05:38:47.031104 7f65816ca700 Delete type=2 #374136
+2014/07/30-05:38:47.031273 7f65816ca700 Delete type=2 #374137
+2014/07/30-05:38:47.031501 7f65816ca700 Delete type=2 #374138
+2014/07/30-05:38:47.031568 7f65816ca700 Delete type=2 #374139
+2014/07/30-05:38:47.031648 7f65816ca700 Delete type=2 #374140
+2014/07/30-05:38:47.031881 7f65816ca700 Delete type=2 #374141
+2014/07/30-05:38:47.031913 7f65816ca700 Delete type=2 #374143
+2014/07/30-05:38:47.032011 7f65816ca700 Delete type=2 #374212
+2014/07/30-05:38:47.032059 7f65816ca700 Delete type=2 #374231
+2014/07/30-05:38:47.032331 7f65816ca700 Expanding@2 1+11 (2128603+21556271 bytes) to 2+11 (2518472+21556271 bytes)
+2014/07/30-05:38:47.032340 7f65816ca700 Compacting 2@2 + 11@3 files, score 1.01 slots available 0
+2014/07/30-05:38:47.032349 7f65816ca700 Compaction start summary: Base version 21 Base level 2, seek compaction:0, inputs:[374207(2128603) 374208(389869) ],[371973(2133203) 371974(2134850) 371975(2136312) 371976(2134476) 371977(2130938) 371978(2132440) 371]
+2014/07/30-05:38:47.110554 7f65816ca700 Generated table #374254: 2514 keys, 2133153 bytes
+2014/07/30-05:38:47.228106 7f65816ca700 Generated table #374255: 2588 keys, 2135103 bytes
+2014/07/30-05:38:47.338961 7f65816ca700 Generated table #374256: 2579 keys, 2133134 bytes
+2014/07/30-05:38:47.436713 7f65816ca700 Generated table #374257: 2590 keys, 2133076 bytes
+2014/07/30-05:38:47.534928 7f65816ca700 Generated table #374258: 2506 keys, 2132250 bytes
+2014/07/30-05:38:47.638155 7f65816ca700 Generated table #374259: 2451 keys, 2134697 bytes
+2014/07/30-05:38:47.735206 7f65816ca700 Generated table #374260: 2524 keys, 2133112 bytes
+2014/07/30-05:38:47.848456 7f65816ca700 Generated table #374261: 2507 keys, 2137864 bytes
+2014/07/30-05:38:47.936156 7f65816ca700 Generated table #374262: 2417 keys, 2134888 bytes
+2014/07/30-05:38:48.068662 7f65816ca700 Generated table #374263: 2553 keys, 2134516 bytes
+2014/07/30-05:38:48.078163 7f65816ca700 Generated table #374264: 290 keys, 275702 bytes
+2014/07/30-05:38:48.078183 7f65816ca700 Compacted 2@2 + 11@3 files => 21617495 bytes
+2014/07/30-05:38:48.080540 7f65816ca700 compacted to: files[0 7 76 541 112 0 0 ], 43.7 MB/sec, level 3, files in(2, 11) out(11) MB in(2.4, 20.6) out(20.6), read-write-amplify(18.1) write-amplify(8.6) OK
+2014/07/30-05:38:48.080633 7f65816ca700 Delete type=2 #367945
+2014/07/30-05:38:48.080821 7f65816ca700 Delete type=2 #371973
+2014/07/30-05:38:48.095792 7f65816ca700 Delete type=2 #371974
+2014/07/30-05:38:48.095981 7f65816ca700 Delete type=2 #371975
+2014/07/30-05:38:48.096142 7f65816ca700 Delete type=2 #371976
+2014/07/30-05:38:48.096292 7f65816ca700 Delete type=2 #371977
+2014/07/30-05:38:48.096440 7f65816ca700 Delete type=2 #371978
+2014/07/30-05:38:48.096588 7f65816ca700 Delete type=2 #371979
+2014/07/30-05:38:48.096740 7f65816ca700 Delete type=2 #371980
+2014/07/30-05:38:48.096889 7f65816ca700 Delete type=2 #371981
+2014/07/30-05:38:48.097042 7f65816ca700 Delete type=2 #371982
+2014/07/30-05:38:48.097077 7f65816ca700 Delete type=2 #374207
+2014/07/30-05:38:48.097297 7f65816ca700 Delete type=2 #374208
+2014/07/30-06:36:14.871732 7f6582cf6700 New memtable created with log file: #374265
+2014/07/30-06:36:14.871781 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-06:36:14.871791 7f65816ca700 Flushing memtable with log file: 374228
+2014/07/30-06:36:14.871794 7f65816ca700 Level-0 flush table #374266: started
+2014/07/30-06:36:14.888296 7f65816ca700 Level-0 flush table #374266: 711061 bytes OK
+2014/07/30-06:36:14.888307 7f65816ca700 Level-0 commit table #374266 started
+2014/07/30-06:36:14.890286 7f65816ca700 Level-0 commit table #374266: memtable #1 done
+2014/07/30-06:36:14.890348 7f65816ca700 Compaction nothing to do
+2014/07/30-06:36:14.890409 7f65816ca700 Delete type=0 #374228
+2014/07/30-07:34:38.713978 7f65834f7700 New memtable created with log file: #374267
+2014/07/30-07:34:38.714129 7f65816ca700                                Compactions
+Level  Files Size(MB) Score Time(sec)  Read(MB) Write(MB)    Rn(MB)  Rnp1(MB)  Wnew(MB) RW-Amplify Read(MB/s) Write(MB/s)      Rn     Rnp1     Wnp1     NewW    Count  Ln-stall Stall-cnt
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0        1        1   0.1         0         0         8         0         0         8        0.0       0.0        38.8        0        0        1        1       13       0.0         0
+  1        7        9   0.9         1        34        33         8        26         7        8.7      29.9        29.4       12       19       24        5        3       0.0         0
+  2       76       98   1.0         2        52        51         6        46         5       16.7      22.2        21.6        4       40       43        3        3       0.0         0
+  3      541      999   1.0         3        60        53         6        53         0       17.5      20.3        18.1        4       28       28        0        3       0.0         0
+  4      112      233   0.0         0         0         0         0         0         0        0.0       0.0         0.0        0        0        0        0        0       0.0         0
+Uptime(secs): 21101.4 total, 6953.0 interval
+Compaction IO cumulative (GB): 0.01 new, 0.14 read, 0.14 write, 0.28 read+write
+Compaction IO cumulative (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification cumulative: 17.4 write, 34.7 compaction
+Compaction IO interval (MB): 1.37 new, 54.45 read, 53.01 write, 107.46 read+write
+Compaction IO interval (MB/sec): 0.0 new, 0.0 read, 0.0 write, 0.0 read+write
+Amplification interval: 38.6 write, 78.3 compaction
+Stalls(secs): 0.000 level0_slowdown, 0.000 level0_numfiles, 0.000 memtable_compaction, 0.000 leveln_slowdown
+Stalls(count): 0 level0_slowdown, 0 level0_numfiles, 0 memtable_compaction, 0 leveln_slowdown
+2014/07/30-07:34:38.714132 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-07:34:38.714136 7f65816ca700 Flushing memtable with log file: 374265
+2014/07/30-07:34:38.714139 7f65816ca700 Level-0 flush table #374268: started
+2014/07/30-07:34:38.729963 7f65816ca700 Level-0 flush table #374268: 646076 bytes OK
+2014/07/30-07:34:38.729973 7f65816ca700 Level-0 commit table #374268 started
+2014/07/30-07:34:38.731627 7f65816ca700 Level-0 commit table #374268: memtable #1 done
+2014/07/30-07:34:38.731664 7f65816ca700 Compaction nothing to do
+2014/07/30-07:34:38.731726 7f65816ca700 Delete type=0 #374265
+2014/07/30-07:52:29.885567 7f65824f5700 New memtable created with log file: #374269
+2014/07/30-07:52:29.885638 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-07:52:29.885643 7f65816ca700 Flushing memtable with log file: 374267
+2014/07/30-07:52:29.885647 7f65816ca700 Level-0 flush table #374270: started
+2014/07/30-07:52:29.902568 7f65816ca700 Level-0 flush table #374270: 667859 bytes OK
+2014/07/30-07:52:29.902577 7f65816ca700 Level-0 commit table #374270 started
+2014/07/30-07:52:29.904676 7f65816ca700 Level-0 commit table #374270: memtable #1 done
+2014/07/30-07:52:29.904778 7f65816ca700 Compaction nothing to do
+2014/07/30-07:52:29.905383 7f65816ca700 Delete type=0 #374267
+2014/07/30-08:06:23.747094 7f65824f5700 New memtable created with log file: #374271
+2014/07/30-08:06:23.747156 7f65816ca700 BackgroundCompaction doing FlushMemTableToOutputFile, compaction slots available 0
+2014/07/30-08:06:23.747161 7f65816ca700 Flushing memtable with log file: 374269
+2014/07/30-08:06:23.747164 7f65816ca700 Level-0 flush table #374272: started
+2014/07/30-08:06:23.762681 7f65816ca700 Level-0 flush table #374272: 651613 bytes OK
+2014/07/30-08:06:23.762691 7f65816ca700 Level-0 commit table #374272 started
+2014/07/30-08:06:23.764622 7f65816ca700 Level-0 commit table #374272: memtable #1 done
+2014/07/30-08:06:23.764673 7f65816ca700 Compacting 4@0 + 7@1 files, score 1.00 slots available 0
+2014/07/30-08:06:23.764684 7f65816ca700 Compaction start summary: Base version 26 Base level 0, seek compaction:0, inputs:[374266(711061) 374268(646076) 374272(651613) 374270(667859) ],[374230(595446) 374232(1113229) 374233(2125653) 374234(452382) 374235(2119212) 374236(1762039) 37423]
+2014/07/30-08:06:23.833747 7f65816ca700 Generated table #374273: 3760 keys, 1389773 bytes
+2014/07/30-08:06:23.896469 7f65816ca700 Generated table #374274: 671 keys, 1674119 bytes
+2014/07/30-08:06:23.996791 7f65816ca700 Generated table #374275: 781 keys, 2123935 bytes
+2014/07/30-08:06:24.031930 7f65816ca700 Generated table #374276: 278 keys, 805503 bytes
+2014/07/30-08:06:24.104969 7f65816ca700 Generated table #374277: 650 keys, 2122951 bytes
+2014/07/30-08:06:24.198935 7f65816ca700 Generated table #374278: 696 keys, 2133311 bytes
+2014/07/30-08:06:24.206120 7f65816ca700 Generated table #374279: 26 keys, 85149 bytes
+2014/07/30-08:06:24.324806 7f65816ca700 Generated table #374280: 1298 keys, 2040309 bytes
+2014/07/30-08:06:24.324831 7f65816ca700 Compacted 4@0 + 7@1 files => 12375050 bytes
+2014/07/30-08:06:24.326986 7f65816ca700 compacted to: files[0 8 76 541 112 0 0 ], 44.6 MB/sec, level 1, files in(4, 7) out(8) MB in(2.6, 9.5) out(11.8), read-write-amplify(9.3) write-amplify(4.6) OK
+2014/07/30-08:06:24.327079 7f65816ca700 Delete type=2 #374230
+2014/07/30-08:06:24.327193 7f65816ca700 Delete type=2 #374232
+2014/07/30-08:06:24.327343 7f65816ca700 Delete type=2 #374233
+2014/07/30-08:06:24.327567 7f65816ca700 Delete type=2 #374234
+2014/07/30-08:06:24.327629 7f65816ca700 Delete type=2 #374235
+2014/07/30-08:06:24.327839 7f65816ca700 Delete type=2 #374236
+2014/07/30-08:06:24.328020 7f65816ca700 Delete type=2 #374237
+2014/07/30-08:06:24.328208 7f65816ca700 Delete type=2 #374266
+2014/07/30-08:06:24.328300 7f65816ca700 Delete type=2 #374268
+2014/07/30-08:06:24.328378 7f65816ca700 Delete type=0 #374269
+2014/07/30-08:06:24.328743 7f65816ca700 Delete type=2 #374270
+2014/07/30-08:06:24.328826 7f65816ca700 Delete type=2 #374272
+2014/07/30-08:06:24.328951 7f65816ca700 Compacting 1@1 + 9@2 files, score 1.18 slots available 0
+2014/07/30-08:06:24.328959 7f65816ca700 Compaction start summary: Base version 27 Base level 1, seek compaction:0, inputs:[374278(2133311) ],[373827(1898503) 374162(1512559) 374163(2122760) 374164(1609535) 374165(2121149) 374166(2123325) 374]
+2014/07/30-08:06:24.455774 7f65816ca700 Generated table #374281: 667 keys, 2127547 bytes
+2014/07/30-08:06:24.493173 7f65816ca700 Generated table #374282: 394 keys, 1267654 bytes
+2014/07/30-08:06:24.580871 7f65816ca700 Generated table #374283: 741 keys, 2122640 bytes
+2014/07/30-08:06:24.655629 7f65816ca700 Generated table #374284: 418 keys, 1193761 bytes
+2014/07/30-08:06:24.723373 7f65816ca700 Generated table #374285: 736 keys, 2121311 bytes
+2014/07/30-08:06:24.814290 7f65816ca700 Generated table #374286: 781 keys, 2122249 bytes
+2014/07/30-08:06:24.821746 7f65816ca700 Generated table #374287: 57 keys, 170892 bytes
+2014/07/30-08:06:24.911865 7f65816ca700 Generated table #374288: 769 keys, 2124773 bytes
+2014/07/30-08:06:24.993837 7f65816ca700 Generated table #374289: 417 keys, 1124989 bytes
+2014/07/30-08:06:25.058010 7f65816ca700 Generated table #374290: 774 keys, 2122028 bytes
+2014/07/30-08:06:25.061360 7f65816ca700 Generated table #374291: 17 keys, 34957 bytes
+2014/07/30-08:06:25.061381 7f65816ca700 Compacted 1@1 + 9@2 files => 16532801 bytes
+2014/07/30-08:06:25.064139 7f65816ca700 compacted to: files[0 7 78 541 112 0 0 ], 46.1 MB/sec, level 2, files in(1, 9) out(11) MB in(2.0, 14.4) out(15.8), read-write-amplify(15.8) write-amplify(7.7) OK
+2014/07/30-08:06:25.064282 7f65816ca700 Delete type=2 #373764
+2014/07/30-08:06:25.064578 7f65816ca700 Delete type=2 #373827
+2014/07/30-08:06:25.064826 7f65816ca700 Delete type=2 #373833
+2014/07/30-08:06:25.065013 7f65816ca700 Delete type=2 #374162
+2014/07/30-08:06:25.065211 7f65816ca700 Delete type=2 #374163
+2014/07/30-08:06:25.065463 7f65816ca700 Delete type=2 #374164
+2014/07/30-08:06:25.065661 7f65816ca700 Delete type=2 #374165
+2014/07/30-08:06:25.065888 7f65816ca700 Delete type=2 #374166
+2014/07/30-08:06:25.066138 7f65816ca700 Delete type=2 #374167
+2014/07/30-08:06:25.066207 7f65816ca700 Delete type=2 #374278
