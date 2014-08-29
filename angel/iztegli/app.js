@@ -72,7 +72,7 @@ $.getJSON('//arpecop.net/angel/iztegli/src/data/data.json', function(data) {
 
 });
 
-window.canvas_url = "https://apps.facebook.com/vartelejka/(:reqid:)";
+window.canvas_url = "https://apps.facebook.com/vartelejka/" + window.reqid;
 window.extend_dir = "(:extend:)";
 
 function show_quote(quote, img) {
@@ -227,29 +227,29 @@ $('.share').on('click', function() {
     var uniqid = (new Date()).getTime();
     var usname = $('.name').text();
 
-    var url = 'http://arpecop.com/img/?appid=iztegli&result=' + uniqid;
+    var url = '//arpecop.net/angel/proxy/?appid=iztegli&result=' + uniqid;
 
-    $.post('http://arpecop.com/db/', {
+    $.post('//arpecop.net/angel/proxy', {
       id: uniqid,
       result: quote,
-      preres: 'preres',
-      appname: appname
+      preres: window.userimg + '-emp-' + window.username,
+      title: appname
     }, function(data) {
-      console.log(data)
+     // console.log(data)
 
       $.getJSON(url, function(data) {
-        console.log(data.id);
+       // console.log(data.id);
 
         FB.api(
           'me/og.likes',
           'post', {
-            object: window.canvas_url + '?imd=' + data.id
+            object: window.canvas_url + '?imd=' + data.id + '&title=' + appname
           },
           function(response) {
-            console.log(response);
+          //  console.log(response);
 
 
-            $('.publishedinfo').show();
+            $('.publishedinfo').show(0).delay(4000).hide(0);
 
 
             if (response.id) {
@@ -304,19 +304,19 @@ window.fbAsyncInit = function() {
 
 
     FB.api(
-    "/me",
-    function (getfql) {
-  
-  
+      "/me",
+      function(getfql) {
 
-      $.getJSON('https://graph.facebook.com/v2.0/' + uid + '/picture?access_token=' + token + '&callback=?', function(getfql1) {
+        $.getJSON('https://graph.facebook.com/v2.1/' + uid + '/picture?access_token=' + token + '&width=150&height=150&callback=?', function(getfql1) {
+          $('#userimg').attr('src', getfql1.data.url);
+          window.userimg = getfql1.data.url;
+
+        });
+
+        window.username = getfql.first_name;
+        $('.name').text(getfql.first_name);
 
       });
-      console.log(getfql)
-
-      $('.name').text(getfql.first_name);
-
-    });
 
   }
 

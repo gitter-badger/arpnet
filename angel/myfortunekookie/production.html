@@ -19,6 +19,7 @@
 <link href="boilerplate.css" rel="stylesheet" type="text/css">
 <link href="index.css" rel="stylesheet" type="text/css">
 <script src="static/jq.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="//ads.lfstmedia.com/getad?site=138278" type="text/javascript"></script>
 <!-- 
 To learn more about the conditional comments around the html tags at the top of the file:
@@ -33,12 +34,38 @@ Do the following if you're using your customized build of modernizr (http://www.
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<script src="respond.min.js"></script>
+ <style type="text/css">
+ body {
+  font-weight: 100;
+ }
+ .well {
+  text-align: center;
+    background-color: #bcd201;
+    border:none;
+ }
+
+ #privacy {display:none;}
+.privacy {text-decoration: underline; cursor: pointer;}
+#friends {text-align: center; height: 75px; color:#FFF; text-shadow: 1px 1px 6px rgba(0, 0, 0, 1); font-weight: bold;}
+#friends img,#gift img {
+  width:40px;
+  height:40px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+margin: 4px;
+}
+.info {display:none;}
+.rezult {margin-left:auto; margin-right:auto; text-align:center; display:none;}
+#gift {position: absolute;}
+.well img {margin-right: auto; margin-left: auto;}
+.gridContainer {margin-top: 10px;}
+ </style>
 </head>
 <body>
 
 <div class="gridContainer clearfix">
-  <div id="advert"><script type="text/javascript">
+  <div id="advert" style="display:none;"><script type="text/javascript">
     //<![CDATA[
         LSM_Slot({
             adkey: '288',
@@ -47,212 +74,27 @@ Do the following if you're using your customized build of modernizr (http://www.
         });
     //]]>
 </script></div>
+<div class="container">
+<div class="well"> 
+ <div id="gift"></div><div class="rezult"></div><div class="trigger"><div><img src="images/kook_01.jpg" class="img-responsive"></div><div><a id="publish" href="#"><img src="images/kook_02.jpg" class="img-responsive"></a></div><div><img src="images/kook_03.jpg" class="img-responsive"></div></div>
 
-  <div id="LayoutDiv1"><div id="gift"></div><div class="rezult"></div><div class="trigger"><div><img src="images/kook_01.jpg"></div><div><a id="publish" href="#"><img src="images/kook_02.jpg"></a></div><div><img src="images/kook_03.jpg"></div></div>
 
-
-  <div id="friends"><div class="info">Spread the Love (friends who ain't got cookie today)</div><div class="avatars"></div></div></div>
+  <div id="friends"><div class="info">Spread the Love (friends who ain't got cookie today)</div><div class="avatars"></div></div> 
+</div>
+ <p class="lead"><a href="http://arpecop.com/?appid=celebus" target="_top">Which Celebrity Do You Look Like</a> :: <a href="http://arpecop.com/?appid=assen_US" target="_top">Name Analyzer</a></p>
 </div>
 
-  <div id="advert"><iframe src="//app.appatyze.com/gateway.php?a=1728" width="100%" height="90" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe></div>
+
+</div>
+
   
 <div id="privacy"><h2>Privacy Policy</h2>
 MyFortuneKooKie does not store any of your personal information. It is only records user ids and allows you to publish data to your Facebook profile. If you choose to publish data, it will only be available to those who can view your profile updates on Facebook. Your friends using MyFortuneKookie will receive notification if you  click radio option &quot;Spread the Love&quot; checked</div>
 <hr>
 
 <div class="privacy">Privacy Policy</div>
-<script>
- var dat = new Date();
-        var _id = 'fortunecock' +  dat.getDate() + '' + dat.getMonth() + '' + dat.getFullYear();
-
-$('.privacy').click(function(){
-  $('#privacy').toggle();
-})
-
- //119250176060|Cwpv6VD0ro4TDAYVzOlG3xukZc0
-
-function login() {
-  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=119250176060&redirect_uri=https://apps.facebook.com/myfortunekookie/&scope=publish_stream";
-}
-
-function publish(quote_src,quote_text) {
-
-   
-  FB.api(
-  'me/og.likes',
-  'post',
-  {
-    object:"https://apps.facebook.com/myfortunekookie/?id="+quote_src+"&descr="+quote_text
-  },
-  function(response) {
-    
  
-    // handle the response
-  }
-);
-}
-
-window.fbAsyncInit = function() {
-  FB.init({
-    appId: '119250176060', // App ID
-      status: true,
-    cookie: true,
-    xfbml: false,
-    oauth: true,
-    channelUrl : '//arpecop.net/static/channel.html',
-    frictionlessRequests: true
-  });
-  //
-
-  FB.Canvas.setAutoGrow();
-
-  FB.Event.subscribe('auth.authResponseChange', function(response) {
-
- 
-    if (response.status === "connected") {
-
-       $.post('//arpecop.net/angel/db2/insert', {
-                key: _id+''+response.authResponse.userID,
-                value: 'o'
-              }, function() {
-
-              });
-    
-var fromid = "(:id:)";
-if (fromid.length > 6) {
-  $('#gift').html('<img src="https://graph.facebook.com/(:id:)/picture">&nbsp;&rarr;&nbsp;<img src="https://graph.facebook.com/' + response.authResponse.userID + '/picture">')
-};
-
-
- 
-
-      $.getJSON('https://api.facebook.com/method/fql.query?query=' + encodeURIComponent('SELECT uid,is_app_user,first_name FROM user WHERE is_app_user AND uid IN (SELECT uid2 FROM friend WHERE uid1 = me())') + '&access_token=' + response.authResponse.accessToken + '&format=json&callback=?', function(fql) {
-       
-         
-        var frarr = [];
-        $.each(fql, function(index, value) {
-         
-          var sid = _id + '' + value.uid;
-
-              
-
-          $.getJSON('//arpecop.net/angel/db2/' + sid, function(nosqldata1) {
-             
-
-            if (nosqldata1.message) {
-               frarr.push('<img src="https://graph.facebook.com/'+value.uid+'/picture" width="40" height="40">');
-
-              $.post('//arpecop.net/angel/db2/' + sid, {
-                key: sid,
-                value: 'o'
-              }, function() {
-                var arr = ['and 1 other friend', 'and 2 other friends','and 3 other  friends ', 'and 4 other  friends', 'and 5 other  friends'];
-                var item = arr[Math.floor(Math.random()*arr.length)];
-                $.post('https://graph.facebook.com/'+value.uid+'/apprequests',{href:'?id='+response.authResponse.userID+'',message:'Have a great week ahead!   @['+response.authResponse.userID+'] '+item+', giving away fortune cookie"',access_token:'119250176060|Cwpv6VD0ro4TDAYVzOlG3xukZc0'},function(data){
-                   
-            
-                 
-                })
-              
-
-              });
-            } 
-          });
-
-
-        });
-var arrfr = frarr.splice(0,10);
-if(frarr.length > 1) {
-   
-  $('.info').show();
-        $('#friends .avatars').html(frarr.splice(0,10).join(''));
-}
-
-      });
-    } else {
-       login();
-    }
-  });
-
-
-  //
-
-
-
-  //  
-
-
-  $('#publish').on('click', function() {
-    $.getJSON('static/items.json', function(quotes) {
-      var randomnumber = Math.floor(Math.random() * quotes.length);
-      var quote_text = quotes[randomnumber].value;
-      var quote_src = quotes[randomnumber].key;
-       
-      $('.trigger').hide();
-      $('.rezult').show('slow').html('<img src="https://graph.facebook.com/' + quote_src + '/picture?type=normal">');
-        FB.getLoginStatus(function(response) {
-
-        // if the user is logged in, continue to check permissions
-        if(response.authResponse) {
-       FB.api('/me/permissions', function(perms_response) {
-         
-
-        if (perms_response.data[0].publish_stream == 1) {
-          publish(quote_src,quote_text);
-        } else {
-          login();
-        }
-
-
-
-});
-
-} else {
-  login();
-}
-
-});
-
-
-
-     
-
-
- 
-
-    });
-
-  });
-
-
-
-};
-(function(d) {
-  var js, id = 'facebook-jssdk',
-    ref = d.getElementsByTagName('script')[0];
-  if (d.getElementById(id)) {
-    return;
-  }
-  js = d.createElement('script');
-  js.id = id;
-  js.async = true;
-  js.src = "//connect.facebook.net/en_US/all.js";
-  ref.parentNode.insertBefore(js, ref);
-}(document));
- 
-    
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-29127191-1']);
-_gaq.push(['_trackPageview']);
-(function() {
-  var ga = document.createElement('script');
-  ga.type = 'text/javascript';
-  ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(ga, s);
-})();
-</script>
+<script src="app.js" type="text/javascript"></script>
 <div id="fb-root"></div>
 
 

@@ -14,6 +14,7 @@ body {
  
 font-family: "Open Sans";
 font-weight:300;
+background-color: #FFF;
  
  
   padding:10px; 
@@ -106,3 +107,64 @@ font-weight: 700;
  .arrowez {width:26px; height:13px; background-image:url(//arpecop.net/angel/iztegli/src/images/arrow.png);   margin-right: auto; margin-left: auto;}
  .form-controller {background-color:#ecf0f1; padding-bottom:15px; border-style:solid; border-width:1px; border-color:#7f8c8d; border-top:none; border-left:none; border-right:none;}
  
+.bubble {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+     padding-bottom: 20px;
+     padding-left:10px;
+     padding-right: 30px;
+    background: #e6e6e6;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+  .bubble:after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 49%;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    border-color: #e6e6e6 transparent;
+    display: block;
+    width: 0;
+    z-index: 10;
+}
+
+.thumbnail {min-height: 150px; cursor: pointer;}
+.fixedbutton {
+ text-align: right;
+ position: absolute;
+ width: 100%;
+ margin-top: -14px;
+ padding-right: 10px;
+}
+.chevron {
+  text-align: right;
+  width: 100%;
+  position: absolute;
+  top:30%;
+  left: 10px;
+ 
+
+}
+ .chevron span {text-decoration: none; font-size: 35px; color:gray; cursor: pointer; }
+
+ .fixedbutton button { 
+  font-weight: 700;
+  font-size: 14px;
+  border-color: #3b5998;
+  background-color: #3b5998;
+-moz-border-radius-topright: 0;
+-moz-border-radius-bottomleft: 0; 
+-webkit-border-top-right-radius: 0;
+-webkit-border-bottom-left-radius: 0;
+}
+.fixedbutton button:hover {
+ border-color: #3b5998;
+  background-color: #3b5998;
+} 

@@ -1,7 +1,6 @@
  var bind = require('bind');
  var get = require('get');
  var exec = require('child_process').exec;
- var geoip = require('geoip-lite');
  var express = require('express');
  var crypto = require('crypto');
  var request = require('request');
@@ -16,7 +15,13 @@
  app.disable('x-powered-by');
 
  app.use('/angel', express.static(__dirname + '/'));
- app.use(bodyParser());
+
+ app.use(bodyParser.urlencoded({
+     extended: false
+ }))
+
+ // parse application/json
+ app.use(bodyParser.json())
 
  var uuid = require('node-uuid');
 
@@ -110,6 +115,25 @@
      }
  });
 
+ //
+ app.all('/angel/proxy', function(req, res) {
+     if (req.method.toLowerCase() == "get") {
+         var id = req.param("appid");
+         var result = req.param("result");
+
+         get('http://arpecop.com/img/?result=' + result + '&appid=' + id).asString(function(err, data) {
+             res.end(data);
+         });
+
+     } else {
+         request.post('http://arpecop.com/db', {
+             form: req.body
+         }, function() {
+             res.end('ok')
+         })
+     }
+ });
+
  //MAIN
  var gets = 0;
  app.get('/angel/cronx', function(req, res) {
@@ -119,21 +143,21 @@
          method: "GET",
          uri: ""
      };
-   
 
-         get('http://arpecop.com/test/').asString(function(err, data) {
-             if (!err) {
-                 fs.writeFile(__dirname + "/static/test.html", data, function(err) {
-                     if (err) {
-                         console.log(err);
-                     } else {
-                         console.log("The file was saved!");
-                     }
-                 });
-             };
-         });
-         gets = 0;
-     
+
+     get('http://arpecop.com/test/').asString(function(err, data) {
+         if (!err) {
+             fs.writeFile(__dirname + "/static/test.html", data, function(err) {
+                 if (err) {
+                     console.log(err);
+                 } else {
+                     console.log("The file was saved!");
+                 }
+             });
+         };
+     });
+     gets = 0;
+
      res.end('ok')
  })
 
@@ -184,15 +208,6 @@
          //POST
 
          if (req.method.toLowerCase() == "post") {
-             var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-
-             var country = geoip.lookup(ip).country;
-
-             if (country == "BG") {
-                 json.advert = [' <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>', '<!-- blog green -->', , '<ins class="adsbygoogle"', , 'style="display:inline-block;width:728px;height:90px"', , 'data-ad-client="ca-pub-8516663490098995"', , 'data-ad-slot="5678325263"></ins>', , '<script>', , '(adsbygoogle = window.adsbygoogle || []).push({});', '</script>'].join('\n');
-             } else {
-
-             }
              json.appjs = "app-min.js";
              json.url = req.protocol + "://" + req.get('host') + req.url;
              var file = '/usr/share/nginx/html/angel/' + url + '/production.html';
